@@ -174,8 +174,8 @@ class PrivateGptUi:
 
         def query_model(messages, tools):
             response = ollama.chat(
-                       #model='gpt-oss',
-                       model='qwen3-coder',
+                       model='gpt-oss',
+                       #model='qwen3-coder',
 		               messages=[ {'role': role, 'content': content} for role,content in messages ],
                        tools=tools,
                        )
