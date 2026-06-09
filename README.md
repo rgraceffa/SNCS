@@ -19,28 +19,28 @@ The repo is organized with the following structure:
     3.agent_test include the SW testing and the benchmark files used to test the 9 categories.
 	
 #######################
-#                     #
-#   SW INSTALLATION   #
-#                     #
+#					  #
+# 	SW INSTALLATION   #
+#					  #
 #######################
 
 In order to install our software please follows these instructions for a Linux/Ubuntu with a NVDIA GPU:
 
 0. Steps to follow to deploy driver, privateGPT and Ollama: 
 
-sudo apt install nvidia-cuda-toolkit -y						#Install NVIDIA Cuda Drivers			
+sudo apt install nvidia-cuda-toolkit -y											#Install NVIDIA Cuda Drivers			
 git clone  https://github.com/zylon-ai/private-gpt.git --branch v0.6.2
 cd private-gpt
-python3 -m venv venv								#We assume python 3.11 version installed
+python3 -m venv venv															#We assume python 3.11 version installed
 source venv/bin/activate
 pip install poetry
 poetry install --extras "ui llms-ollama embeddings-ollama vector-stores-qdrant"
 poetry run python scripts/setup
 
-curl -fsSL https://ollama.com/install.sh | sh					#Install Ollama
-ollama pull gpt-oss								#Pull GPT-OSS model to Ollama
-ollama pull qwen3-coder								#Pull Qwen3-Coder to Ollama
-sudo systemctl restart ollama							#Restart Ollama if not already running
+curl -fsSL https://ollama.com/install.sh | sh									#Install Ollama
+ollama pull gpt-oss																#Pull GPT-OSS model to Ollama
+ollama pull qwen3-coder															#Pull Qwen3-Coder to Ollama
+sudo systemctl restart ollama													#Restart Ollama if not already running
 
 1. Install our custom files from the privateGPT/privateGPT/ui folder:
 
@@ -63,9 +63,9 @@ cd agent_test
 Using a vi editor check the global parameter section of the script run_test.sh and adapt based on your installation folder.
 
 #######################
-#                     #
-#    AGENT TESTING    #
-#	              #
+#					  #
+# 	 AGENT TESTING    #
+#					  #
 #######################
 
 Each test in the benchmark has its own instruction contained in one README file. Our files has been created for our target
