@@ -1,0 +1,149 @@
+poetry run python -m private_gpt
+10:04:38.710 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:04:42.974 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:04:43.038 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:43.040 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:43.918 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:04:44.072 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:44.074 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:44.075 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:04:44.964 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:04:45.005 [INFO    ]             uvicorn.error - Started server process [1525312]
+10:04:45.005 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:04:45.005 [INFO    ]             uvicorn.error - Application startup complete.
+10:04:45.005 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:05:18.537 [INFO    ]            uvicorn.access - 127.0.0.1:60846 - "GET /config HTTP/1.1" 200
+10:05:18.592 [INFO    ]            uvicorn.access - 127.0.0.1:60856 - "GET /info?serialize=False HTTP/1.1" 200
+10:05:18.660 [INFO    ]            uvicorn.access - 127.0.0.1:60872 - "GET /heartbeat/202ba917-09b6-4638-b769-bdc27a4f55af HTTP/1.1" 200
+10:05:18.662 [INFO    ]            uvicorn.access - 127.0.0.1:60888 - "POST /queue/join HTTP/1.1" 200
+10:05:18.718 [INFO    ]            uvicorn.access - 127.0.0.1:60902 - "GET /queue/data?session_hash=202ba917-09b6-4638-b769-bdc27a4f55af HTTP/1.1" 200
+10:05:29.360 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:05:43.035 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/mycapture.cap'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:05:43.034918275Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/mycapture.cap'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/mycapture.cap` was executed successfully on 
+the remote host, and the file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8020239500,
+    'load_duration': 131039071,
+    'prompt_eval_count': 567,
+    'prompt_eval_duration': 3973977216,
+    'eval_count': 33,
+    'eval_duration': 3851382951
+}
+10:05:43.182 [INFO    ]            uvicorn.access - 127.0.0.1:41554 - "POST /queue/join HTTP/1.1" 200
+10:05:43.238 [INFO    ]            uvicorn.access - 127.0.0.1:41562 - "GET /queue/data?session_hash=202ba917-09b6-4638-b769-bdc27a4f55af HTTP/1.1" 200
+10:05:56.344 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:06:20.822 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo tcpdump -i any -w ~/agent_test/mycapture.cap -G 10 -W 1
+[AGENT] ✅ Remote command executed successfully: sudo tcpdump -i any -w ~/agent_test/mycapture.cap -G 10 -W 1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo tcpdump -i any 
+-w ~/agent_test/mycapture.cap -G 10 -W 1'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:06:20.821503907Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo tcpdump -i any -w ~/agent_test/mycapture.cap -G 10 -W 1'' executed 
+successfully on remote host.\nOutput: \n\nThe command `sudo tcpdump -i any -w 
+~/agent_test/mycapture.cap -G 10 -W 1` was executed successfully on the remote 
+host. It captured packets for 10 seconds and saved the result in 
+`~/agent_test/mycapture.cap`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12505092847,
+    'load_duration': 127988464,
+    'prompt_eval_count': 722,
+    'prompt_eval_duration': 5768136327,
+    'eval_count': 57,
+    'eval_duration': 6523874349
+}
+10:06:20.936 [INFO    ]            uvicorn.access - 127.0.0.1:50940 - "POST /queue/join HTTP/1.1" 200
+10:06:20.991 [INFO    ]            uvicorn.access - 127.0.0.1:50954 - "GET /queue/data?session_hash=202ba917-09b6-4638-b769-bdc27a4f55af HTTP/1.1" 200
+10:06:31.378 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:06:42.017 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -s ~/agent_test/mycapture.cap && echo "File exists and is not empty" || echo "File does not exist or is empty"
+[AGENT] ✅ Remote command executed successfully: test -s ~/agent_test/mycapture.cap && echo "File exists and is not empty" || echo "File does not exist or is empty"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -s 
+~/agent_test/mycapture.cap && echo "File exists and is not empty" || echo "File 
+does not exist or is empty"\'\' executed successfully on remote host.', 
+'output': 'File exists and is not empty'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:06:42.016763219Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -s ~/agent_test/mycapture.cap && echo "File exists and is not empty" ||
+echo "File does not exist or is empty"\'\' executed successfully on remote 
+host.\nOutput: File exists and is not empty\n\nThe command `test -s 
+~/agent_test/mycapture.cap && echo "File exists and is not empty" || echo "File 
+does not exist or is empty"` was executed successfully on the remote host. The 
+output indicates that the file `~/agent_test/mycapture.cap` exists and is not 
+empty.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9089745816,
+    'load_duration': 127731788,
+    'prompt_eval_count': 906,
+    'prompt_eval_duration': 1742254522,
+    'eval_count': 62,
+    'eval_duration': 7134866125
+}
+10:06:42.173 [INFO    ]            uvicorn.access - 127.0.0.1:43212 - "POST /queue/join HTTP/1.1" 200
+10:06:42.228 [INFO    ]            uvicorn.access - 127.0.0.1:43224 - "GET /queue/data?session_hash=202ba917-09b6-4638-b769-bdc27a4f55af HTTP/1.1" 200
+10:06:50.054 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:07:08.051 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/mycapture.cap'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:07:08.051265824Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/mycapture.cap'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/mycapture.cap` was executed successfully on 
+the remote host, and the file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12799074850,
+    'load_duration': 127732776,
+    'prompt_eval_count': 1043,
+    'prompt_eval_duration': 8893234995,
+    'eval_count': 33,
+    'eval_duration': 3680139565
+}
+10:07:08.276 [INFO    ]             uvicorn.error - Shutting down
+10:07:08.376 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:07:08.376 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:07:08.376 [INFO    ]             uvicorn.error - Finished server process [1525312]
+make: *** [Makefile:36: run] Terminated

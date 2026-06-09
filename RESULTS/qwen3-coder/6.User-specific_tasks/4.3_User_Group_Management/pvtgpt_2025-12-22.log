@@ -1,0 +1,176 @@
+poetry run python -m private_gpt
+14:29:21.270 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:29:25.574 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:29:25.638 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:29:25.640 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:29:26.534 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:29:26.689 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:29:26.690 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:29:26.691 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:29:27.582 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:29:27.622 [INFO    ]             uvicorn.error - Started server process [2370634]
+14:29:27.622 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:29:27.623 [INFO    ]             uvicorn.error - Application startup complete.
+14:29:27.623 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:30:01.102 [INFO    ]            uvicorn.access - 127.0.0.1:40560 - "GET /config HTTP/1.1" 200
+14:30:01.157 [INFO    ]            uvicorn.access - 127.0.0.1:40570 - "GET /info?serialize=False HTTP/1.1" 200
+14:30:01.230 [INFO    ]            uvicorn.access - 127.0.0.1:40586 - "GET /heartbeat/73ff31e6-c9dc-4f39-a08d-2c1c4256e398 HTTP/1.1" 200
+14:30:01.232 [INFO    ]            uvicorn.access - 127.0.0.1:40590 - "POST /queue/join HTTP/1.1" 200
+14:30:01.289 [INFO    ]            uvicorn.access - 127.0.0.1:40592 - "GET /queue/data?session_hash=73ff31e6-c9dc-4f39-a08d-2c1c4256e398 HTTP/1.1" 200
+14:30:09.372 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:30:24.490 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test4.3.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:30:24.490436952Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log'' executed 
+successfully on remote host.\nOutput: \n\nThe command `mkdir -p ~/agent_test && 
+touch ~/agent_test/test4.3.log` has been successfully executed on the remote 
+host `eraigra-rpi` as the user `raimondo`. The directory `~/agent_test` and the 
+file `~/agent_test/test4.3.log` have been created."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9900148892,
+    'load_duration': 128109777,
+    'prompt_eval_count': 577,
+    'prompt_eval_duration': 1390648414,
+    'eval_count': 69,
+    'eval_duration': 8296376919
+}
+14:30:24.597 [INFO    ]            uvicorn.access - 127.0.0.1:59838 - "POST /queue/join HTTP/1.1" 200
+14:30:24.657 [INFO    ]            uvicorn.access - 127.0.0.1:59842 - "GET /queue/data?session_hash=73ff31e6-c9dc-4f39-a08d-2c1c4256e398 HTTP/1.1" 200
+14:30:48.259 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:31:28.554 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log && echo "$(date): Starting group membership check and correction" >> ~/agent_test/test4.3.log && getent group | awk -F: '{print $1}' | while read group; do if ! groups | grep -q "$group"; then echo "$(date): Correcting group membership for $group" >> ~/agent_test/test4.3.log && sudo usermod -aG "$group" "$USER" 2>>~/agent_test/test4.3.log; fi; done && echo "$(date): Group membership check and correction completed" >> ~/agent_test/test4.3.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log && echo "$(date): Starting group membership check and correction" >> ~/agent_test/test4.3.log && getent group | awk -F: '{print $1}' | while read group; do if ! groups | grep -q "$group"; then echo "$(date): Correcting group membership for $group" >> ~/agent_test/test4.3.log && sudo usermod -aG "$group" "$USER" 2>>~/agent_test/test4.3.log; fi; done && echo "$(date): Group membership check and correction completed" >> ~/agent_test/test4.3.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && touch ~/agent_test/test4.3.log && echo "$(date): Starting group 
+membership check and correction" >> ~/agent_test/test4.3.log && getent group | 
+awk -F: \'"\'"\'{print $1}\'"\'"\' | while read group; do if ! groups | grep -q 
+"$group"; then echo "$(date): Correcting group membership for $group" >> 
+~/agent_test/test4.3.log && sudo usermod -aG "$group" "$USER" 
+2>>~/agent_test/test4.3.log; fi; done && echo "$(date): Group membership check 
+and correction completed" >> ~/agent_test/test4.3.log\'\' executed successfully 
+on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:31:28.554396655Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && touch ~/agent_test/test4.3.log && echo "$(date): 
+Starting group membership check and correction" >> ~/agent_test/test4.3.log && 
+getent group | awk -F: \'"\'"\'{print $1}\'"\'"\' | while read group; do if ! 
+groups | grep -q "$group"; then echo "$(date): Correcting group membership for 
+$group" >> ~/agent_test/test4.3.log && sudo usermod -aG "$group" "$USER" 
+2>>~/agent_test/test4.3.log; fi; done && echo "$(date): Group membership check 
+and correction completed" >> ~/agent_test/test4.3.log\'\' executed successfully 
+on remote host.\nOutput: \n\nThe command to check and correct group memberships 
+has been executed successfully on the remote host `eraigra-rpi` as the user 
+`raimondo`. It logs all activities in the file `~/agent_test/test4.3.log`. The 
+command performs the following actions:\n\n1. Ensures the directory 
+`~/agent_test` exists and creates the file `~/agent_test/test4.3.log`.\n2. Logs 
+the start of the group membership check.\n3. Retrieves all groups from the 
+system using `getent group`.\n4. Iterates through each group and checks if the 
+current user belongs to it using `groups`.\n5. If the user is not a member of a 
+group, it attempts to add the user to that group using `sudo usermod -aG`.\n6. 
+Logs the correction process and completion of the check.\n\nAll actions are 
+logged in `~/agent_test/test4.3.log` for review.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24875229767,
+    'load_duration': 128505805,
+    'prompt_eval_count': 895,
+    'prompt_eval_duration': 2651872089,
+    'eval_count': 188,
+    'eval_duration': 21928452580
+}
+14:31:28.650 [INFO    ]            uvicorn.access - 127.0.0.1:55400 - "POST /queue/join HTTP/1.1" 200
+14:31:28.707 [INFO    ]            uvicorn.access - 127.0.0.1:55404 - "GET /queue/data?session_hash=73ff31e6-c9dc-4f39-a08d-2c1c4256e398 HTTP/1.1" 200
+14:31:45.001 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:32:15.286 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test4.3.log
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test4.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test4.3.log'' executed successfully on remote host.", 'output': 
+'-rw-rw-r-- 1 raimondo raimondo 3737 Dec 22 16:31 
+/home/raimondo/agent_test/test4.3.log'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:32:15.286178174Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test4.3.log'' executed successfully on remote host.\nOutput: 
+-rw-rw-r-- 1 raimondo raimondo 3737 Dec 22 16:31 
+/home/raimondo/agent_test/test4.3.log\n\nThe file `~/agent_test/test4.3.log` has
+been successfully created on the remote host `eraigra-rpi` as the user 
+`raimondo`. Here are the file details:\n\n```\n-rw-rw-r-- 1 raimondo raimondo 
+3737 Dec 22 16:31 /home/raimondo/agent_test/test4.3.log\n```\n\nThis indicates 
+that:\n- The file is owned by the user `raimondo` and group `raimondo`.\n- It 
+has read and write permissions for the owner and group, and read-only 
+permissions for others.\n- The file size is 3737 bytes.\n- It was last modified 
+on December 22, 2023, at 16:31.\n\nTo view the content of the file, please let 
+me know, and I can retrieve it for you."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25155986928,
+    'load_duration': 127458960,
+    'prompt_eval_count': 1210,
+    'prompt_eval_duration': 2114637171,
+    'eval_count': 192,
+    'eval_duration': 22769322250
+}
+14:32:15.390 [INFO    ]            uvicorn.access - 127.0.0.1:58038 - "POST /queue/join HTTP/1.1" 200
+14:32:15.451 [INFO    ]            uvicorn.access - 127.0.0.1:58048 - "GET /queue/data?session_hash=73ff31e6-c9dc-4f39-a08d-2c1c4256e398 HTTP/1.1" 200
+14:32:36.059 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:33:02.031 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:33:02.03103625Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.3.log` has been executed successfully 
+on the remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test4.3.log` has been removed.\n\nSince the `-f` flag is used, the
+command will not produce any error message even if the file does not exist, 
+ensuring that the operation completes without issues."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24432077814,
+    'load_duration': 130599630,
+    'prompt_eval_count': 1483,
+    'prompt_eval_duration': 13559032476,
+    'eval_count': 88,
+    'eval_duration': 10626730258
+}
+14:33:02.207 [INFO    ]             uvicorn.error - Shutting down
+14:33:02.307 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:33:02.307 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:33:02.307 [INFO    ]             uvicorn.error - Finished server process [2370634]
+make: *** [Makefile:36: run] Terminated

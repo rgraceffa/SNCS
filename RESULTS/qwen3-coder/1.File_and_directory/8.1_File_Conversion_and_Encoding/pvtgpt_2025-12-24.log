@@ -1,0 +1,263 @@
+poetry run python -m private_gpt
+14:12:47.807 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:12:52.085 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:12:52.148 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:52.149 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:53.045 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:12:53.198 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:53.200 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:53.201 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:12:54.088 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:12:54.129 [INFO    ]             uvicorn.error - Started server process [42732]
+14:12:54.129 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:12:54.129 [INFO    ]             uvicorn.error - Application startup complete.
+14:12:54.129 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:13:27.634 [INFO    ]            uvicorn.access - 127.0.0.1:44930 - "GET /config HTTP/1.1" 200
+14:13:27.689 [INFO    ]            uvicorn.access - 127.0.0.1:44940 - "GET /info?serialize=False HTTP/1.1" 200
+14:13:27.778 [INFO    ]            uvicorn.access - 127.0.0.1:44946 - "GET /heartbeat/368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:13:27.781 [INFO    ]            uvicorn.access - 127.0.0.1:44942 - "POST /queue/join HTTP/1.1" 200
+14:13:27.836 [INFO    ]            uvicorn.access - 127.0.0.1:44950 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:13:38.659 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:13:54.344 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp /home/raimondo/eraigra/gqgmc/GQLogo.jpg /home/raimondo/agent_test/test8.1.jpg
+[AGENT] ✅ Remote command executed successfully: cp /home/raimondo/eraigra/gqgmc/GQLogo.jpg /home/raimondo/agent_test/test8.1.jpg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp 
+/home/raimondo/eraigra/gqgmc/GQLogo.jpg /home/raimondo/agent_test/test8.1.jpg'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:13:54.343831579Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cp 
+/home/raimondo/eraigra/gqgmc/GQLogo.jpg /home/raimondo/agent_test/test8.1.jpg'' 
+executed successfully on remote host.\nOutput: \n\nThe file 
+`/home/raimondo/eraigra/gqgmc/GQLogo.jpg` has been successfully copied to the 
+remote host `eraigra-rpi` as `~/agent_test/test8.1.jpg`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10057417519,
+    'load_duration': 132155791,
+    'prompt_eval_count': 614,
+    'prompt_eval_duration': 4254807394,
+    'eval_count': 48,
+    'eval_duration': 5599122398
+}
+14:13:54.432 [INFO    ]            uvicorn.access - 127.0.0.1:35126 - "POST /queue/join HTTP/1.1" 200
+14:13:54.488 [INFO    ]            uvicorn.access - 127.0.0.1:35142 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:14:09.447 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:14:37.769 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -type f -name '*.jpeg' -o -name '*.jpg' | xargs -I {} convert {} /tmp/{}.png
+[AGENT] ❌ Remote command failed: find ~/agent_test -type f -name '*.jpeg' -o -name '*.jpg' | xargs -I {} convert {} /tmp/{}.png
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+convert-im6.q16: unable to open image `/tmp//home/raimondo/agent_test/test8.1.jpg.png': No such file or directory @ error/blob.c/OpenBlob/2924.
+convert-im6.q16: WriteBlob Failed `/tmp//home/raimondo/agent_test/test8.1.jpg.png' @ error/png.c/MagickPNGErrorHandler/1642.
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'find ~/agent_test 
+-type f -name \'"\'"\'*.jpeg\'"\'"\' -o -name \'"\'"\'*.jpg\'"\'"\' | xargs -I 
+{} convert {} /tmp/{}.png\'\' failed on remote host.', 'output': "Warning: 
+Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts.\nconvert-im6.q16: unable to open image 
+`/tmp//home/raimondo/agent_test/test8.1.jpg.png': No such file or directory @ 
+error/blob.c/OpenBlob/2924.\nconvert-im6.q16: WriteBlob Failed 
+`/tmp//home/raimondo/agent_test/test8.1.jpg.png' @ 
+error/png.c/MagickPNGErrorHandler/1642."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:14:37.768661215Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'find ~/agent_test -type f -name \'"\'"\'*.jpeg\'"\'"\' -o -name 
+\'"\'"\'*.jpg\'"\'"\' | xargs -I {} convert {} /tmp/{}.png\'\' failed on remote 
+host.\nOutput: Warning: Permanently added \'eraigra-rpi\' (ED25519) to the list 
+of known hosts.\nconvert-im6.q16: unable to open image 
+`/tmp//home/raimondo/agent_test/test8.1.jpg.png\': No such file or directory @ 
+error/blob.c/OpenBlob/2924.\nconvert-im6.q16: WriteBlob Failed 
+`/tmp//home/raimondo/agent_test/test8.1.jpg.png\' @ 
+error/png.c/MagickPNGErrorHandler/1642.\n\nI see the issue with the command. The
+problem is that the converted files are being saved with the full path in the 
+filename, which creates invalid paths. Let me correct this by using a different 
+approach that will properly convert and save files in the /tmp directory with 
+just the filename.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'find ~/agent_test -type f \\( -name 
+\'*.jpeg\' -o -name \'*.jpg\' \\) -exec sh -c \'convert "$1" "/tmp/$(basename 
+"${1%.jpg}.png")"\' _ {} \\;',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26256418725,
+    'load_duration': 130555442,
+    'prompt_eval_count': 931,
+    'prompt_eval_duration': 8166857671,
+    'eval_count': 153,
+    'eval_duration': 17808829232
+}
+14:14:42.924 [INFO    ]            uvicorn.access - 127.0.0.1:47076 - "POST /queue/join HTTP/1.1" 200
+14:14:42.979 [INFO    ]            uvicorn.access - 127.0.0.1:47082 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:15:07.260 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] ❌: agent not called
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:15:07.260350235Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: UNKNOWN\nMessage: Unable to parse 
+user input and detect the right agent\nOutput: No output detected\n\nI'll create
+a single command to convert all JPEG files in ~/agent_test and subdirectories to
+PNG format, saving them in /tmp with the correct filenames.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'find ~/agent_test -type f \\( -name 
+\'*.jpeg\' -o -name \'*.jpg\' \\) -exec sh -c \'convert "$1" "/tmp/$(basename 
+"${1%.jpg}.png")"\' _ {} \\;',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24316282472,
+    'load_duration': 132227959,
+    'prompt_eval_count': 1054,
+    'prompt_eval_duration': 9031649945,
+    'eval_count': 128,
+    'eval_duration': 15022740500
+}
+14:15:12.386 [INFO    ]            uvicorn.access - 127.0.0.1:45426 - "POST /queue/join HTTP/1.1" 200
+14:15:12.441 [INFO    ]            uvicorn.access - 127.0.0.1:45440 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:15:25.618 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:15:47.011 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -type f \( -name '*.jpeg' -o -name '*.jpg' \) -exec sh -c 'convert "$1" "/tmp/$(basename "${1%.*}").png"' _ {} \;
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -type f \( -name '*.jpeg' -o -name '*.jpg' \) -exec sh -c 'convert "$1" "/tmp/$(basename "${1%.*}").png"' _ {} \;
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'find ~/agent_test 
+-type f \\( -name \'"\'"\'*.jpeg\'"\'"\' -o -name \'"\'"\'*.jpg\'"\'"\' \\) 
+-exec sh -c \'"\'"\'convert "$1" "/tmp/$(basename "${1%.*}").png"\'"\'"\' _ {} 
+\\;\'\' executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:15:47.011382303Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'find ~/agent_test -type f \\( -name \'"\'"\'*.jpeg\'"\'"\' -o -name 
+\'"\'"\'*.jpg\'"\'"\' \\) -exec sh -c \'"\'"\'convert "$1" "/tmp/$(basename 
+"${1%.*}").png"\'"\'"\' _ {} \\;\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command has been executed successfully. All JPEG files in
+~/agent_test and its subdirectories have been converted to PNG format and saved 
+in the /tmp folder with appropriate filenames.\n\nThe conversion process:\n- 
+Found all files with .jpeg and .jpg extensions in ~/agent_test and 
+subdirectories\n- Converted each file to PNG format\n- Saved the converted files
+in /tmp with the same basename but .png extension\n\nFor example, if there was a
+file ~/agent_test/images/photo.jpg, it would be converted and saved as 
+/tmp/photo.png.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15986008870,
+    'load_duration': 133254562,
+    'prompt_eval_count': 1264,
+    'prompt_eval_duration': 2645656626,
+    'eval_count': 111,
+    'eval_duration': 13090179859
+}
+14:15:47.130 [INFO    ]            uvicorn.access - 127.0.0.1:47810 - "POST /queue/join HTTP/1.1" 200
+14:15:47.184 [INFO    ]            uvicorn.access - 127.0.0.1:47826 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:16:07.729 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:16:37.670 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l /tmp/test8.1.png
+[AGENT] ✅ Remote command executed successfully: ls -l /tmp/test8.1.png
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+/tmp/test8.1.png'' executed successfully on remote host.", 'output': '-rw-rw-r--
+1 raimondo raimondo 12368 Dec 24 16:15 /tmp/test8.1.png'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:16:37.670001831Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /tmp/test8.1.png'' executed successfully on remote host.\nOutput: -rw-rw-r-- 
+1 raimondo raimondo 12368 Dec 24 16:15 /tmp/test8.1.png\n\nI've verified that 
+the file `test8.1.png` exists in the `/tmp` folder on the remote host 
+`eraigra-rpi` as requested.\n\nThe file details are:\n- File type: Regular file 
+(-rw-rw-r--)\n- Owner: raimondo\n- Group: raimondo\n- Size: 12368 bytes\n- 
+Modification date: Dec 24 16:15\n- Path: /tmp/test8.1.png\n\nThe file was 
+successfully created during the conversion process from the original JPEG file."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28416503313,
+    'load_duration': 135935858,
+    'prompt_eval_count': 1490,
+    'prompt_eval_duration': 13965213637,
+    'eval_count': 118,
+    'eval_duration': 14168310566
+}
+14:16:37.768 [INFO    ]            uvicorn.access - 127.0.0.1:41200 - "POST /queue/join HTTP/1.1" 200
+14:16:37.826 [INFO    ]            uvicorn.access - 127.0.0.1:41212 - "GET /queue/data?session_hash=368a28f6-7f5f-464e-bbfc-61d20fca4234 HTTP/1.1" 200
+14:17:01.717 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:17:36.315 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /tmp/test8.1.png && rm -f ~/agent_test/test8.1.jpg
+[AGENT] ✅ Remote command executed successfully: rm -f /tmp/test8.1.png && rm -f ~/agent_test/test8.1.jpg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/tmp/test8.1.png && rm -f ~/agent_test/test8.1.jpg'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:17:36.314829849Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /tmp/test8.1.png && rm -f ~/agent_test/test8.1.jpg'' executed successfully on
+remote host.\nOutput: \n\nThe command has been executed successfully. Both files
+have been removed from the remote host `eraigra-rpi`:\n\n1. `/tmp/test8.1.png` -
+The PNG file has been removed from the /tmp folder\n2. 
+`~/agent_test/test8.1.jpg` - The JPG file has been removed from the agent_test 
+folder\n\nThe `rm -f` command ensures that no error messages are displayed if 
+the files don't exist, and both operations are performed in a single command 
+line as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 29444651041,
+    'load_duration': 133022063,
+    'prompt_eval_count': 1728,
+    'prompt_eval_duration': 16464273618,
+    'eval_count': 107,
+    'eval_duration': 12705824190
+}
+14:17:36.449 [INFO    ]             uvicorn.error - Shutting down
+14:17:36.549 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:17:36.549 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:17:36.549 [INFO    ]             uvicorn.error - Finished server process [42732]
+make: *** [Makefile:36: run] Terminated

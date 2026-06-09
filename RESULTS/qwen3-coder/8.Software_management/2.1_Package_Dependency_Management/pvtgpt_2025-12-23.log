@@ -1,0 +1,90 @@
+poetry run python -m private_gpt
+08:12:16.647 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:12:20.915 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:12:20.978 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:12:20.980 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:12:21.863 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:12:22.017 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:12:22.019 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:12:22.020 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:12:22.911 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:12:22.951 [INFO    ]             uvicorn.error - Started server process [2677367]
+08:12:22.951 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:12:22.952 [INFO    ]             uvicorn.error - Application startup complete.
+08:12:22.952 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:12:56.480 [INFO    ]            uvicorn.access - 127.0.0.1:41092 - "GET /config HTTP/1.1" 200
+08:12:56.535 [INFO    ]            uvicorn.access - 127.0.0.1:41094 - "GET /info?serialize=False HTTP/1.1" 200
+08:12:56.624 [INFO    ]            uvicorn.access - 127.0.0.1:41102 - "GET /heartbeat/777cdd83-3c2e-422a-9456-fc10183ccb1f HTTP/1.1" 200
+08:12:56.628 [INFO    ]            uvicorn.access - 127.0.0.1:41112 - "POST /queue/join HTTP/1.1" 200
+08:12:56.683 [INFO    ]            uvicorn.access - 127.0.0.1:41126 - "GET /queue/data?session_hash=777cdd83-3c2e-422a-9456-fc10183ccb1f HTTP/1.1" 200
+08:13:10.268 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:13:22.537 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if ! dpkg -l | grep -q zip; then sudo apt update && sudo apt install -y zip; else echo "zip is already installed"; fi
+[AGENT] ✅ Remote command executed successfully: if ! dpkg -l | grep -q zip; then sudo apt update && sudo apt install -y zip; else echo "zip is already installed"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if ! dpkg -l | grep
+-q zip; then sudo apt update && sudo apt install -y zip; else echo "zip is 
+already installed"; fi\'\' executed successfully on remote host.', 'output': 
+'zip is already installed'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:13:22.5365991Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if ! dpkg -l | grep -q zip; then sudo apt update && sudo apt install -y zip;
+else echo "zip is already installed"; fi\'\' executed successfully on remote 
+host.\nOutput: zip is already installed\n\nThe command was executed successfully
+on the remote host eraigra-rpi as user raimondo. The output indicates that the 
+`zip` package is already installed, so no further action was taken.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 6784208588,
+    'load_duration': 129878912,
+    'prompt_eval_count': 615,
+    'prompt_eval_duration': 1676399731,
+    'eval_count': 41,
+    'eval_duration': 4913667963
+}
+08:13:22.653 [INFO    ]            uvicorn.access - 127.0.0.1:55010 - "POST /queue/join HTTP/1.1" 200
+08:13:22.714 [INFO    ]            uvicorn.access - 127.0.0.1:55014 - "GET /queue/data?session_hash=777cdd83-3c2e-422a-9456-fc10183ccb1f HTTP/1.1" 200
+08:13:36.453 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:13:56.700 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -s zip | grep -E 'Depends|Recommends|Suggests'
+[AGENT] ✅ Remote command executed successfully: dpkg -s zip | grep -E 'Depends|Recommends|Suggests'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'dpkg -s zip | grep 
+-E \'"\'"\'Depends|Recommends|Suggests\'"\'"\'\'\' executed successfully on 
+remote host.', 'output': 'Depends: libbz2-1.0, libc6 (>= 2.34)\nRecommends: 
+unzip'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:13:56.699656083Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'dpkg -s zip | grep -E \'"\'"\'Depends|Recommends|Suggests\'"\'"\'\'\' 
+executed successfully on remote host.\nOutput: Depends: libbz2-1.0, libc6 (>= 
+2.34)\nRecommends: unzip\n\nThe command was executed successfully on the remote 
+host eraigra-rpi as user raimondo. The output shows the following dependencies 
+for the `zip` package:\n\n- **Depends**: `libbz2-1.0`, `libc6 (>= 2.34)`\n- 
+**Recommends**: `unzip`\n\nThese are the missing dependencies that might need to
+be installed if they are not already present on the system.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18483040452,
+    'load_duration': 124995542,
+    'prompt_eval_count': 796,
+    'prompt_eval_duration': 7168812934,
+    'eval_count': 90,
+    'eval_duration': 11088593486
+}
+08:13:56.981 [INFO    ]             uvicorn.error - Shutting down
+08:13:57.080 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:13:57.081 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:13:57.081 [INFO    ]             uvicorn.error - Finished server process [2677367]
+make: *** [Makefile:36: run] Terminated

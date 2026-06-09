@@ -1,0 +1,151 @@
+poetry run python -m private_gpt
+14:52:58.911 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:53:03.179 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:53:03.242 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:53:03.244 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:53:04.144 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:53:04.299 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:53:04.300 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:53:04.301 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:53:05.191 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:53:05.232 [INFO    ]             uvicorn.error - Started server process [1204394]
+14:53:05.232 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:53:05.232 [INFO    ]             uvicorn.error - Application startup complete.
+14:53:05.233 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:53:38.742 [INFO    ]            uvicorn.access - 127.0.0.1:43878 - "GET /config HTTP/1.1" 200
+14:53:38.798 [INFO    ]            uvicorn.access - 127.0.0.1:43884 - "GET /info?serialize=False HTTP/1.1" 200
+14:53:38.889 [INFO    ]            uvicorn.access - 127.0.0.1:43888 - "POST /queue/join HTTP/1.1" 200
+14:53:38.889 [INFO    ]            uvicorn.access - 127.0.0.1:43886 - "GET /heartbeat/2746d4f3-172e-4a0c-91e4-55e81db9e1de HTTP/1.1" 200
+14:53:38.944 [INFO    ]            uvicorn.access - 127.0.0.1:43902 - "GET /queue/data?session_hash=2746d4f3-172e-4a0c-91e4-55e81db9e1de HTTP/1.1" 200
+14:53:46.328 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:53:58.929 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T14:53:58.929005158Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.2.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file `test3.2.log` has
+been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7454802767,
+    'load_duration': 127549299,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1149251912,
+    'eval_count': 54,
+    'eval_duration': 6104423273
+}
+14:53:59.070 [INFO    ]            uvicorn.access - 127.0.0.1:44476 - "POST /queue/join HTTP/1.1" 200
+14:53:59.127 [INFO    ]            uvicorn.access - 127.0.0.1:44478 - "GET /queue/data?session_hash=2746d4f3-172e-4a0c-91e4-55e81db9e1de HTTP/1.1" 200
+14:54:09.133 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:54:25.949 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi nslookup eraigra-rpi | grep "Name\|Address" > ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: nslookup eraigra-rpi | grep "Name\|Address" > ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'nslookup 
+eraigra-rpi | grep "Name\\|Address" > ~/agent_test/test3.2.log\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T14:54:25.949343078Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'nslookup eraigra-rpi | grep "Name\\|Address" > ~/agent_test/test3.2.log\'\' 
+executed successfully on remote host.\nOutput: \n\nThe command `nslookup 
+eraigra-rpi | grep "Name\\|Address" > ~/agent_test/test3.2.log` was executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The DNS 
+information for the node has been logged into the file 
+`~/agent_test/test3.2.log`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14886644871,
+    'load_duration': 127121978,
+    'prompt_eval_count': 742,
+    'prompt_eval_duration': 6147640318,
+    'eval_count': 73,
+    'eval_duration': 8510088484
+}
+14:54:26.065 [INFO    ]            uvicorn.access - 127.0.0.1:33892 - "POST /queue/join HTTP/1.1" 200
+14:54:26.120 [INFO    ]            uvicorn.access - 127.0.0.1:33908 - "GET /queue/data?session_hash=2746d4f3-172e-4a0c-91e4-55e81db9e1de HTTP/1.1" 200
+14:54:40.066 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:55:07.347 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': 
+'Address:\t127.0.0.53#53\nName:\teraigra-rpi.tail5c3582.ts.net\nAddress: 
+100.119.118.97'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T14:55:07.347401742Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+Address:\t127.0.0.53#53\nName:\teraigra-rpi.tail5c3582.ts.net\nAddress: 
+100.119.118.97\n\nThe content of the file `~/agent_test/test3.2.log` on the 
+remote host `eraigra-rpi` as the user `raimondo` 
+is:\n\n```\nAddress:\t127.0.0.53#53\nName:\teraigra-rpi.tail5c3582.ts.net\nAddre
+ss: 100.119.118.97\n```\n\nThis shows the DNS resolution results for the 
+hostname `eraigra-rpi`, including the local DNS server address (`127.0.0.53#53`)
+and the actual IP address (`100.119.118.97`)."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25719245804,
+    'load_duration': 125995696,
+    'prompt_eval_count': 946,
+    'prompt_eval_duration': 7911700576,
+    'eval_count': 152,
+    'eval_duration': 17540539679
+}
+14:55:07.461 [INFO    ]            uvicorn.access - 127.0.0.1:39956 - "POST /queue/join HTTP/1.1" 200
+14:55:07.520 [INFO    ]            uvicorn.access - 127.0.0.1:39970 - "GET /queue/data?session_hash=2746d4f3-172e-4a0c-91e4-55e81db9e1de HTTP/1.1" 200
+14:55:23.833 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:55:36.644 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T14:55:36.643787656Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.2.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file `test3.2.log` has
+been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7613746171,
+    'load_duration': 129646591,
+    'prompt_eval_count': 1177,
+    'prompt_eval_duration': 1202467215,
+    'eval_count': 54,
+    'eval_duration': 6179443448
+}
+14:55:36.796 [INFO    ]             uvicorn.error - Shutting down
+14:55:36.897 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:55:36.897 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:55:36.897 [INFO    ]             uvicorn.error - Finished server process [1204394]
+make: *** [Makefile:36: run] Terminated

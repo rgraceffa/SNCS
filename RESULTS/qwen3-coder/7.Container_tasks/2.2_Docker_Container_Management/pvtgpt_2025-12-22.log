@@ -1,0 +1,218 @@
+poetry run python -m private_gpt
+15:16:46.247 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:16:50.534 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:16:50.598 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:16:50.600 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:16:51.480 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:16:51.635 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:16:51.637 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:16:51.638 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:16:52.529 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:16:52.569 [INFO    ]             uvicorn.error - Started server process [2457155]
+15:16:52.569 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:16:52.569 [INFO    ]             uvicorn.error - Application startup complete.
+15:16:52.570 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:17:26.075 [INFO    ]            uvicorn.access - 127.0.0.1:35392 - "GET /config HTTP/1.1" 200
+15:17:26.130 [INFO    ]            uvicorn.access - 127.0.0.1:35406 - "GET /info?serialize=False HTTP/1.1" 200
+15:17:26.200 [INFO    ]            uvicorn.access - 127.0.0.1:35424 - "POST /queue/join HTTP/1.1" 200
+15:17:26.201 [INFO    ]            uvicorn.access - 127.0.0.1:35418 - "GET /heartbeat/6bba56ce-5dd9-493b-8b59-e99396df33dd HTTP/1.1" 200
+15:17:26.258 [INFO    ]            uvicorn.access - 127.0.0.1:35440 - "GET /queue/data?session_hash=6bba56ce-5dd9-493b-8b59-e99396df33dd HTTP/1.1" 200
+15:17:37.961 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:18:38.643 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull alpine && docker run -d --name alpine-container alpine sleep infinity
+[AGENT] ✅ Remote command executed successfully: docker pull alpine && docker run -d --name alpine-container alpine sleep infinity
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull alpine &&
+docker run -d --name alpine-container alpine sleep infinity'' executed 
+successfully on remote host.", 'output': 'Using default tag: latest\nlatest: 
+Pulling from library/alpine\nfb78f26011a0: Pulling fs layer\nfb78f26011a0: 
+Verifying Checksum\nfb78f26011a0: Download complete\nfb78f26011a0: Pull 
+complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for 
+alpine:latest\ndocker.io/library/alpine:latest\nc4acea0082a09be07bb414081fb4d459
+243a724f0e87ab25063eb10e85b4e3fa'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:18:38.64326597Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker pull alpine && docker run -d --name alpine-container alpine sleep 
+infinity\'\' executed successfully on remote host.\nOutput: Using default tag: 
+latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling fs 
+layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for 
+alpine:latest\ndocker.io/library/alpine:latest\nc4acea0082a09be07bb414081fb4d459
+243a724f0e87ab25063eb10e85b4e3fa\n\nThe command has been executed successfully 
+on the remote host. Here\'s what was done:\n\n1. Pulled the latest Alpine Linux 
+image from Docker Hub\n2. Started a new container named "alpine-container" based
+on that image\n3. The container is running in detached mode (`-d`)\n4. The 
+container is running the command `sleep infinity` to keep it alive\n\nThe 
+container is now running and can be accessed later using `docker exec -it 
+alpine-container /bin/sh` if needed. The container ID is 
+`c4acea0082a09be07bb414081fb4d459243a724f0e87ab25063eb10e85b4e3fa`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26549602410,
+    'load_duration': 125356608,
+    'prompt_eval_count': 809,
+    'prompt_eval_duration': 7025576383,
+    'eval_count': 166,
+    'eval_duration': 19254242138
+}
+15:18:38.729 [INFO    ]            uvicorn.access - 127.0.0.1:45896 - "POST /queue/join HTTP/1.1" 200
+15:18:38.785 [INFO    ]            uvicorn.access - 127.0.0.1:45904 - "GET /queue/data?session_hash=6bba56ce-5dd9-493b-8b59-e99396df33dd HTTP/1.1" 200
+15:18:47.750 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:19:11.851 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm $(docker ps -aq --filter status=exited --filter name=alpine)
+[AGENT] ❌ Remote command failed: docker rm $(docker ps -aq --filter status=exited --filter name=alpine)
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+docker: 'docker rm' requires at least 1 argument
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+See 'docker rm --help' for more information
+[AGENT] ✅:{'status': 'error', 'message': "The command ''docker rm $(docker ps 
+-aq --filter status=exited --filter name=alpine)'' failed on remote host.", 
+'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of 
+known hosts.\ndocker: 'docker rm' requires at least 1 argument\n\nUsage:  docker
+rm [OPTIONS] CONTAINER [CONTAINER...]\n\nSee 'docker rm --help' for more 
+information"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:19:11.850586077Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'docker rm $(docker ps -aq --filter status=exited --filter name=alpine)\'\' 
+failed on remote host.\nOutput: Warning: Permanently added \'eraigra-rpi\' 
+(ED25519) to the list of known hosts.\ndocker: \'docker rm\' requires at least 1
+argument\n\nUsage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n\nSee \'docker
+rm --help\' for more information\n\nI see the issue. The command failed because 
+there are no stopped containers named "alpine" to remove. Let me create a proper
+command that will remove any stopped Alpine containers, but first I\'ll check if
+any exist:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker ps -a --filter name=alpine',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14676613827,
+    'load_duration': 126324212,
+    'prompt_eval_count': 1142,
+    'prompt_eval_duration': 2785069895,
+    'eval_count': 103,
+    'eval_duration': 11651818370
+}
+15:19:16.977 [INFO    ]            uvicorn.access - 127.0.0.1:54260 - "POST /queue/join HTTP/1.1" 200
+15:19:17.032 [INFO    ]            uvicorn.access - 127.0.0.1:54264 - "GET /queue/data?session_hash=6bba56ce-5dd9-493b-8b59-e99396df33dd HTTP/1.1" 200
+15:19:25.820 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:19:45.729 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker ps -aq --filter status=exited --filter name=alpine
+[AGENT] ✅ Remote command executed successfully: docker ps -aq --filter status=exited --filter name=alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker ps -aq 
+--filter status=exited --filter name=alpine'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:19:45.728781366Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker ps -aq --filter status=exited --filter name=alpine\'\' executed 
+successfully on remote host.\nOutput: \n\nI see that there are no stopped 
+containers named "alpine" to remove. Let me try a different approach to remove 
+any stopped Alpine containers, including those that might not be explicitly 
+named "alpine":',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker ps -aq --filter status=exited 
+--filter name=alpine',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14355396036,
+    'load_duration': 128661190,
+    'prompt_eval_count': 1282,
+    'prompt_eval_duration': 1470789184,
+    'eval_count': 105,
+    'eval_duration': 12644073125
+}
+15:19:45.891 [INFO    ]            uvicorn.access - 127.0.0.1:34328 - "POST /queue/join HTTP/1.1" 200
+15:19:45.947 [INFO    ]            uvicorn.access - 127.0.0.1:34332 - "GET /queue/data?session_hash=6bba56ce-5dd9-493b-8b59-e99396df33dd HTTP/1.1" 200
+15:19:53.931 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:20:15.492 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker ps -aq --filter status=exited
+[AGENT] ✅ Remote command executed successfully: docker ps -aq --filter status=exited
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker ps -aq 
+--filter status=exited'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:20:15.49164592Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker ps -aq --filter status=exited'' executed successfully on remote 
+host.\nOutput: \n\nGood, it looks like there are no stopped containers at all on
+the system. Let me check if there are any running containers to make sure the 
+system is in the expected state:",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker ps -a',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12031987325,
+    'load_duration': 128879862,
+    'prompt_eval_count': 1397,
+    'prompt_eval_duration': 1284247242,
+    'eval_count': 88,
+    'eval_duration': 10500474162
+}
+15:20:15.673 [INFO    ]             uvicorn.error - Shutting down
+15:20:15.774 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:20:15.774 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:20:15.774 [INFO    ]             uvicorn.error - Finished server process [2457155]
+make: *** [Makefile:36: run] Terminated

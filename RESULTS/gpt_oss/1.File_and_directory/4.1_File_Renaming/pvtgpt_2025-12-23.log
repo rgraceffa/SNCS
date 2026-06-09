@@ -1,0 +1,171 @@
+poetry run python -m private_gpt
+12:33:32.754 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:33:37.063 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:33:37.127 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:33:37.129 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:33:38.030 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:33:38.186 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:33:38.187 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:33:38.189 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:33:39.084 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:33:39.125 [INFO    ]             uvicorn.error - Started server process [3158644]
+12:33:39.125 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:33:39.125 [INFO    ]             uvicorn.error - Application startup complete.
+12:33:39.125 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:34:12.586 [INFO    ]            uvicorn.access - 127.0.0.1:54518 - "GET /config HTTP/1.1" 200
+12:34:12.641 [INFO    ]            uvicorn.access - 127.0.0.1:54534 - "GET /info?serialize=False HTTP/1.1" 200
+12:34:12.726 [INFO    ]            uvicorn.access - 127.0.0.1:54550 - "POST /queue/join HTTP/1.1" 200
+12:34:12.726 [INFO    ]            uvicorn.access - 127.0.0.1:54540 - "GET /heartbeat/e6f99db9-88df-4de9-9d2f-56318ae3473a HTTP/1.1" 200
+12:34:12.783 [INFO    ]            uvicorn.access - 127.0.0.1:54562 - "GET /queue/data?session_hash=e6f99db9-88df-4de9-9d2f-56318ae3473a HTTP/1.1" 200
+12:34:35.805 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:34:59.805 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.txt; touch ~/agent_test/test4.1a.txt ~/agent_test/test4.1b.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.txt; touch ~/agent_test/test4.1a.txt ~/agent_test/test4.1b.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.txt; touch ~/agent_test/test4.1a.txt ~/agent_test/test4.1b.txt'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:34:59.804918929Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.txt; touch ~/agent_test/test4.1a.txt 
+~/agent_test/test4.1b.txt'' executed successfully on remote host.\nOutput: 
+\n\nAll `.txt` files in `~/agent_test/` have been removed, and the empty files 
+`test4.1a.txt` and `test4.1b.txt` have been created in that directory. Let me 
+know if you need anything else!",
+        'thinking': 'The user wants to remove all .txt files in folder 
+~/agent_test/ and create empty files test4.1a.txt and test4.1b.txt. The 
+assistant executed "rm -f ~/agent_test/*.txt; touch ...". The tool returned 
+success. We should confirm and possibly explain or verify. The assistant should 
+respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18795578713,
+    'load_duration': 281951386,
+    'prompt_eval_count': 504,
+    'prompt_eval_duration': 256261824,
+    'eval_count': 54,
+    'eval_duration': 6799237504
+}
+12:34:59.897 [INFO    ]            uvicorn.access - 127.0.0.1:59094 - "POST /queue/join HTTP/1.1" 200
+12:34:59.952 [INFO    ]            uvicorn.access - 127.0.0.1:59096 - "GET /queue/data?session_hash=e6f99db9-88df-4de9-9d2f-56318ae3473a HTTP/1.1" 200
+12:35:27.460 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:36:01.806 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi i=1; for f in ~/agent_test/*.txt; do mv "$f" "${f%.txt}_$i.txt"; i=$((i+1)); done
+[AGENT] ✅ Remote command executed successfully: i=1; for f in ~/agent_test/*.txt; do mv "$f" "${f%.txt}_$i.txt"; i=$((i+1)); done
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'i=1; for f in 
+~/agent_test/*.txt; do mv "$f" "${f%.txt}_$i.txt"; i=$((i+1)); done\'\' executed
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:36:01.805972841Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'i=1; for f in ~/agent_test/*.txt; do mv "$f" "${f%.txt}_$i.txt"; i=$((i+1));
+done\'\' executed successfully on remote host.\nOutput: \n\nAll `.txt` files in 
+`~/agent_test/` have now been renamed sequentially with an underscore and a 
+number before the `.txt` extension.  \nThe new filenames follow the pattern 
+`originalname_1.txt`, `originalname_2.txt`, and so on, based on the order they 
+were found. Let me know if you need anything else!',
+        'thinking': 'The user wants to rename sequentially by appending "_" 
+numbers before the extension for all .txt files in the ~/agent_test/ directory, 
+in a single command line, no split commands. The assistant executed a command: 
+`i=1; for f in ~/agent_test/*.txt; do mv "$f" "${f%.txt}_$i.txt"; i=$((i+1)); 
+done`. That\'s indeed a single command line with semicolons, which is allowed. 
+The command executed successfully. We should confirm? The system indicates it 
+succeeded. We should respond to user that the rename is done. Also mention the 
+new names.\n\nBut we need to be careful: The command might rename in wrong 
+order, but okay. We should respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 32792156085,
+    'load_duration': 286541837,
+    'prompt_eval_count': 770,
+    'prompt_eval_duration': 257079032,
+    'eval_count': 74,
+    'eval_duration': 9382371073
+}
+12:36:01.937 [INFO    ]            uvicorn.access - 127.0.0.1:40444 - "POST /queue/join HTTP/1.1" 200
+12:36:01.992 [INFO    ]            uvicorn.access - 127.0.0.1:40450 - "GET /queue/data?session_hash=e6f99db9-88df-4de9-9d2f-56318ae3473a HTTP/1.1" 200
+12:36:37.007 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:36:54.799 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi for f in test4.1a_1.txt test4.1b_2.txt; do if [ -e ~/agent_test/$f ]; then echo "$f exists"; else echo "$f does not exist"; fi; done
+[AGENT] ✅ Remote command executed successfully: for f in test4.1a_1.txt test4.1b_2.txt; do if [ -e ~/agent_test/$f ]; then echo "$f exists"; else echo "$f does not exist"; fi; done
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'for f in 
+test4.1a_1.txt test4.1b_2.txt; do if [ -e ~/agent_test/$f ]; then echo "$f 
+exists"; else echo "$f does not exist"; fi; done\'\' executed successfully on 
+remote host.', 'output': 'test4.1a_1.txt exists\ntest4.1b_2.txt exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:36:54.799250779Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'for f in test4.1a_1.txt test4.1b_2.txt; do if [ -e ~/agent_test/$f ]; then 
+echo "$f exists"; else echo "$f does not exist"; fi; done\'\' executed 
+successfully on remote host.\nOutput: test4.1a_1.txt exists\ntest4.1b_2.txt 
+exists\n\nBoth files are present:\n\n- `test4.1a_1.txt`\xa0exists  \n- 
+`test4.1b_2.txt`\xa0exists\n\nLet me know if you need anything else!',
+        'thinking': 'The user wants to know if files exist. We gave the output 
+that they exist. That seems correct. No further action required.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12696137688,
+    'load_duration': 294845188,
+    'prompt_eval_count': 876,
+    'prompt_eval_duration': 216307943,
+    'eval_count': 43,
+    'eval_duration': 5398427122
+}
+12:36:54.914 [INFO    ]            uvicorn.access - 127.0.0.1:36308 - "POST /queue/join HTTP/1.1" 200
+12:36:54.969 [INFO    ]            uvicorn.access - 127.0.0.1:36324 - "GET /queue/data?session_hash=e6f99db9-88df-4de9-9d2f-56318ae3473a HTTP/1.1" 200
+12:37:07.346 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:37:25.029 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:37:25.028829267Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.txt'' executed successfully on remote host.\nOutput: \n\nAll 
+`.txt` files in `~/agent_test/` have been deleted. Let me know if you need 
+anything else!",
+        'thinking': "User wants to remove all .txt files in folder 
+~/agent_test/. We executed rm -f ~/agent_test/*.txt on remote host eraigra-rpi 
+as user raimondo. The tool responded that the command executed successfully. 
+There's no output (files removed). The user presumably wants confirmation. 
+Provide a confirmation that .txt files are removed.\n\nWe should respond 
+accordingly."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16153386854,
+    'load_duration': 289452178,
+    'prompt_eval_count': 1043,
+    'prompt_eval_duration': 129636309,
+    'eval_count': 26,
+    'eval_duration': 3216566197
+}
+12:37:25.119 [INFO    ]             uvicorn.error - Shutting down
+12:37:25.220 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:37:25.220 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:37:25.220 [INFO    ]             uvicorn.error - Finished server process [3158644]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,5 @@
+TASKNAME=Use ‘tcpdump’ to capture packets for a certain period.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/mycapture.cap
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo using sudo use ‘tcpdump’ to capture packets for 10 seconds and save the result in the ~/agent_test/mycapture.cap. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/mycapture.cap is created and and is not empty. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/mycapture.cap

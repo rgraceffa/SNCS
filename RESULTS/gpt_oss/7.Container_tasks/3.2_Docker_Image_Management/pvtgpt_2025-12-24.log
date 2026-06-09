@@ -1,0 +1,186 @@
+poetry run python -m private_gpt
+21:11:18.762 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+21:11:23.045 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+21:11:23.108 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+21:11:23.110 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+21:11:24.009 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+21:11:24.162 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+21:11:24.164 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+21:11:24.165 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+21:11:25.050 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+21:11:25.091 [INFO    ]             uvicorn.error - Started server process [139606]
+21:11:25.091 [INFO    ]             uvicorn.error - Waiting for application startup.
+21:11:25.091 [INFO    ]             uvicorn.error - Application startup complete.
+21:11:25.091 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+21:11:58.587 [INFO    ]            uvicorn.access - 127.0.0.1:43986 - "GET /config HTTP/1.1" 200
+21:11:58.642 [INFO    ]            uvicorn.access - 127.0.0.1:44000 - "GET /info?serialize=False HTTP/1.1" 200
+21:11:58.707 [INFO    ]            uvicorn.access - 127.0.0.1:44014 - "POST /queue/join HTTP/1.1" 200
+21:11:58.708 [INFO    ]            uvicorn.access - 127.0.0.1:44030 - "GET /heartbeat/44e2674a-c3c1-4004-b1dd-f9198dccb5a1 HTTP/1.1" 200
+21:11:58.763 [INFO    ]            uvicorn.access - 127.0.0.1:44044 - "GET /queue/data?session_hash=44e2674a-c3c1-4004-b1dd-f9198dccb5a1 HTTP/1.1" 200
+21:12:13.959 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:12:54.357 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp ~/mydockerfile.cfg ~/hello.py ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: cp ~/mydockerfile.cfg ~/hello.py ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp ~/mydockerfile.cfg
+~/hello.py ~/agent_test/'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T21:12:54.356888816Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cp 
+~/mydockerfile.cfg ~/hello.py ~/agent_test/'' executed successfully on remote 
+host.\nOutput: \n\nThe files have been copied to `~/agent_test/` on the remote 
+host `eraigra-rpi` as requested.",
+        'thinking': 'The user requested: "in the remote host eraigra-rpi 
+username raimondo copy the file ~/mydockerfile.cfg and the file ~/hello.py in 
+the folder ~/agent_test/. Don\'t split the commands and do all requested in a 
+single command line."\n\nWe need to perform a single command line using the tool
+to run remote command. We must do cp for both files into the target 
+folder.\n\nWe must call the function "execute_remote_command" with host 
+"eraigra-rpi", user "raimondo", and command something like "cp 
+~/mydockerfile.cfg ~/hello.py ~/agent_test/". That is exactly what the tool did.
+But the result returned was "The command \'\'cp ~/mydockerfile.cfg ~/hello.py 
+~/agent_test/\'\' executed successfully on remote host." However, we see it used
+empty quotes. But that\'s fine.\n\nWe need to confirm if the file path ~ refers 
+to the user\'s home. We don\'t need to output anything else. We just need to 
+output a reply confirming the command was executed.\n\nWe should respond 
+confirming that the copy was done.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 34787910378,
+    'load_duration': 289449949,
+    'prompt_eval_count': 636,
+    'prompt_eval_duration': 256608648,
+    'eval_count': 27,
+    'eval_duration': 3335346676
+}
+21:12:54.441 [INFO    ]            uvicorn.access - 127.0.0.1:49380 - "POST /queue/join HTTP/1.1" 200
+21:12:54.495 [INFO    ]            uvicorn.access - 127.0.0.1:49388 - "GET /queue/data?session_hash=44e2674a-c3c1-4004-b1dd-f9198dccb5a1 HTTP/1.1" 200
+21:13:19.935 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:13:56.206 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker build -f ~/agent_test/mydockerfile.cfg -t myimage:latest ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: docker build -f ~/agent_test/mydockerfile.cfg -t myimage:latest ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker build -f 
+~/agent_test/mydockerfile.cfg -t myimage:latest ~/agent_test/'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T21:13:56.205945053Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker build -f ~/agent_test/mydockerfile.cfg -t myimage:latest 
+~/agent_test/'' executed successfully on remote host.\nOutput: \n\nDocker image 
+**myimage:latest** has been built successfully from 
+`~/agent_test/mydockerfile.cfg` on the remote host `eraigra-rpi` (user: 
+*raimondo*).",
+        'thinking': 'The user: "in the remost host eraigra-rpi username raimondo
+build a docker image from the file ~/agent_test/mydockerfile.cfg. Don\'t split 
+the commands and do all requested in a single command line."\n\nWe have already 
+executed a command: docker build -f ~/agent_test/mydockerfile.cfg -t 
+myimage:latest ~/agent_test/\n\nIt says success. But maybe user expects the 
+assistant to output something? The function returned success. The assistant 
+should respond with confirmation, maybe provide output details. We need to 
+respond as assistant.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23195397490,
+    'load_duration': 291968721,
+    'prompt_eval_count': 661,
+    'prompt_eval_duration': 256768309,
+    'eval_count': 43,
+    'eval_duration': 5389377781
+}
+21:13:56.287 [INFO    ]            uvicorn.access - 127.0.0.1:53248 - "POST /queue/join HTTP/1.1" 200
+21:13:56.342 [INFO    ]            uvicorn.access - 127.0.0.1:53254 - "GET /queue/data?session_hash=44e2674a-c3c1-4004-b1dd-f9198dccb5a1 HTTP/1.1" 200
+21:14:05.541 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:14:25.630 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker images
+[AGENT] ✅ Remote command executed successfully: docker images
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker images'' 
+executed successfully on remote host.", 'output': 'IMAGE            ID          
+DISK USAGE   CONTENT SIZE   EXTRA\nmyimage:latest   e67c7475a61e        349MB   
+0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T21:14:25.630506605Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker images'' executed successfully on remote host.\nOutput: IMAGE          
+ID             DISK USAGE   CONTENT SIZE   EXTRA\nmyimage:latest   e67c7475a61e 
+349MB             0B\n\nDocker images on `eraigra-rpi` (user: **raimondo**) 
+are:\n\n```\nIMAGE            ID             DISK USAGE   CONTENT SIZE   
+EXTRA\nmyimage:latest   e67c7475a61e        349MB             0B\n```\n\nSo the 
+image `myimage:latest` has been successfully created.",
+        'thinking': 'We need to respond with the output. They asked: "checks if 
+a docker image has been created." We executed docker images. We should respond 
+that the image is present. Provide output maybe.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18430841467,
+    'load_duration': 290246270,
+    'prompt_eval_count': 732,
+    'prompt_eval_duration': 256542988,
+    'eval_count': 75,
+    'eval_duration': 9503548074
+}
+21:14:25.733 [INFO    ]            uvicorn.access - 127.0.0.1:41408 - "POST /queue/join HTTP/1.1" 200
+21:14:25.788 [INFO    ]            uvicorn.access - 127.0.0.1:41416 - "GET /queue/data?session_hash=44e2674a-c3c1-4004-b1dd-f9198dccb5a1 HTTP/1.1" 200
+21:15:00.364 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:15:35.938 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rmi $(docker images -q -a) && rm -rf ~/agent_test/*
+[AGENT] ✅ Remote command executed successfully: docker rmi $(docker images -q -a) && rm -rf ~/agent_test/*
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rmi $(docker 
+images -q -a) && rm -rf ~/agent_test/*'' executed successfully on remote host.",
+'output': 'Untagged: myimage:latest\nDeleted: 
+sha256:e67c7475a61e42f2756f5902dace17197afb89b5c2cae96da1548f7d4bf95fce'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T21:15:35.937844438Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rmi $(docker images -q -a) && rm -rf ~/agent_test/*'' executed 
+successfully on remote host.\nOutput: Untagged: myimage:latest\nDeleted: 
+sha256:e67c7475a61e42f2756f5902dace17197afb89b5c2cae96da1548f7d4bf95fce\n\nAll 
+Docker images have been force‑removed, and every file inside `~/agent_test/` has
+been deleted on the remote host **eraigra‑rpi** (user: **raimondo**). The 
+command executed without errors.",
+        'thinking': 'We need to check if the remote command succeeded. It says 
+"docker rmi $(docker images -q -a) && rm -rf ~/agent_test/*" executed 
+successfully, and output: "Untagged: myimage:latest\\nDeleted: sha256:...". That
+means all images removed. Also rm -rf ~/agent_test/* removed files. But might 
+there be error if no images? The command still succeeded. We should provide 
+confirmation. Also ensure to mention that all images removed and folder 
+emptied.\n\nBut note that the command also removed all images, but if there are 
+any images, they were removed. The output shows the removal. Then rm -rf removed
+files.\n\nWe should mention that command executed successfully.\n\nWe must 
+respond to the user.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30142561959,
+    'load_duration': 294377110,
+    'prompt_eval_count': 1078,
+    'prompt_eval_duration': 129993779,
+    'eval_count': 50,
+    'eval_duration': 6305072613
+}
+21:15:36.122 [INFO    ]             uvicorn.error - Shutting down
+21:15:36.222 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+21:15:36.222 [INFO    ]             uvicorn.error - Application shutdown complete.
+21:15:36.222 [INFO    ]             uvicorn.error - Finished server process [139606]
+make: *** [Makefile:36: run] Terminated

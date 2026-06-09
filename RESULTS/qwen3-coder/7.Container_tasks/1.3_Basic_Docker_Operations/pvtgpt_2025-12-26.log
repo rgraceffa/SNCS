@@ -1,0 +1,189 @@
+poetry run python -m private_gpt
+10:57:29.334 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:57:33.655 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:57:33.719 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:33.721 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:34.623 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:57:34.777 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:34.779 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:34.780 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:57:35.668 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:57:35.708 [INFO    ]             uvicorn.error - Started server process [28171]
+10:57:35.708 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:57:35.709 [INFO    ]             uvicorn.error - Application startup complete.
+10:57:35.709 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:58:09.156 [INFO    ]            uvicorn.access - 127.0.0.1:42114 - "GET /config HTTP/1.1" 200
+10:58:09.211 [INFO    ]            uvicorn.access - 127.0.0.1:42128 - "GET /info?serialize=False HTTP/1.1" 200
+10:58:09.297 [INFO    ]            uvicorn.access - 127.0.0.1:42142 - "POST /queue/join HTTP/1.1" 200
+10:58:09.298 [INFO    ]            uvicorn.access - 127.0.0.1:42158 - "GET /heartbeat/f35ac197-0f5e-4a1e-8c91-0d47b442fc9e HTTP/1.1" 200
+10:58:09.353 [INFO    ]            uvicorn.access - 127.0.0.1:42168 - "GET /queue/data?session_hash=f35ac197-0f5e-4a1e-8c91-0d47b442fc9e HTTP/1.1" 200
+10:58:16.721 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:58:58.684 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull alpine
+[AGENT] ✅ Remote command executed successfully: docker pull alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull alpine'' 
+executed successfully on remote host.", 'output': 'Using default tag: 
+latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling fs 
+layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for alpine:latest\ndocker.io/library/alpine:latest'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T10:58:58.683752307Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull alpine'' executed successfully on remote host.\nOutput: Using 
+default tag: latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling 
+fs layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for alpine:latest\ndocker.io/library/alpine:latest\n\nThe
+command `docker pull alpine` has been successfully executed on the remote host 
+eraigra-rpi as user raimondo, and the latest Alpine image has been downloaded. 
+The output shows the image was pulled from the Docker Hub with the digest 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker pull alpine',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25134818903,
+    'load_duration': 128615252,
+    'prompt_eval_count': 742,
+    'prompt_eval_duration': 6088189242,
+    'eval_count': 162,
+    'eval_duration': 18784039105
+}
+10:58:58.779 [INFO    ]            uvicorn.access - 127.0.0.1:59662 - "POST /queue/join HTTP/1.1" 200
+10:58:58.836 [INFO    ]            uvicorn.access - 127.0.0.1:59666 - "GET /queue/data?session_hash=f35ac197-0f5e-4a1e-8c91-0d47b442fc9e HTTP/1.1" 200
+10:59:08.302 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:59:37.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo docker run -d -p 8888:80 --name alpine-server alpine
+[AGENT] ✅ Remote command executed successfully: sudo docker run -d -p 8888:80 --name alpine-server alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo docker run -d -p
+8888:80 --name alpine-server alpine'' executed successfully on remote host.", 
+'output': 'f34b3c94fdc2814b2ca4c78a461f8602212b154a5213045668e68b524c545d82'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T10:59:37.287021861Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo docker run -d -p 8888:80 --name alpine-server alpine'' executed 
+successfully on remote host.\nOutput: 
+f34b3c94fdc2814b2ca4c78a461f8602212b154a5213045668e68b524c545d82\n\nThe command 
+`sudo docker run -d -p 8888:80 --name alpine-server alpine` has been 
+successfully executed on the remote host eraigra-rpi as user raimondo. The 
+Alpine container is now running in detached mode with port 8888 mapped to port 
+80 inside the container. The container ID is 
+f34b3c94fdc2814b2ca4c78a461f8602212b154a5213045668e68b524c545d82."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25046325939,
+    'load_duration': 125746988,
+    'prompt_eval_count': 1025,
+    'prompt_eval_duration': 8803821494,
+    'eval_count': 138,
+    'eval_duration': 15994810100
+}
+10:59:37.420 [INFO    ]            uvicorn.access - 127.0.0.1:47322 - "POST /queue/join HTTP/1.1" 200
+10:59:37.476 [INFO    ]            uvicorn.access - 127.0.0.1:47328 - "GET /queue/data?session_hash=f35ac197-0f5e-4a1e-8c91-0d47b442fc9e HTTP/1.1" 200
+10:59:44.438 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:00:06.283 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker ps
+[AGENT] ✅ Remote command executed successfully: docker ps
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker ps'' executed 
+successfully on remote host.", 'output': 'CONTAINER ID   IMAGE     COMMAND   
+CREATED   STATUS    PORTS     NAMES'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T11:00:06.282812368Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker ps'' executed successfully on remote host.\nOutput: CONTAINER ID   
+IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n\nThe command `docker 
+ps` has been successfully executed on the remote host eraigra-rpi as user 
+raimondo. The output shows that there are no running containers at the moment. 
+This could mean that the container either stopped running or was not started 
+properly. Let's check the container status with `docker ps -a` to see all 
+containers, including stopped ones.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker ps -a',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16618329166,
+    'load_duration': 129149244,
+    'prompt_eval_count': 1247,
+    'prompt_eval_duration': 1492637016,
+    'eval_count': 127,
+    'eval_duration': 14865256740
+}
+11:00:06.372 [INFO    ]            uvicorn.access - 127.0.0.1:58884 - "POST /queue/join HTTP/1.1" 200
+11:00:06.428 [INFO    ]            uvicorn.access - 127.0.0.1:58886 - "GET /queue/data?session_hash=f35ac197-0f5e-4a1e-8c91-0d47b442fc9e HTTP/1.1" 200
+11:00:14.276 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:00:34.539 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo docker rm -f alpine-server
+[AGENT] ✅ Remote command executed successfully: sudo docker rm -f alpine-server
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo docker rm -f 
+alpine-server'' executed successfully on remote host.", 'output': 
+'alpine-server'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T11:00:34.539418065Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo docker rm -f alpine-server'' executed successfully on remote 
+host.\nOutput: alpine-server\n\nThe command `sudo docker rm -f alpine-server` 
+has been successfully executed on the remote host eraigra-rpi as user raimondo. 
+The container named alpine-server has been forcefully removed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18487197075,
+    'load_duration': 125686972,
+    'prompt_eval_count': 1397,
+    'prompt_eval_duration': 13108763292,
+    'eval_count': 43,
+    'eval_duration': 5164158873
+}
+11:00:34.733 [INFO    ]             uvicorn.error - Shutting down
+11:00:34.834 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:00:34.834 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:00:34.834 [INFO    ]             uvicorn.error - Finished server process [28171]
+make: *** [Makefile:36: run] Terminated

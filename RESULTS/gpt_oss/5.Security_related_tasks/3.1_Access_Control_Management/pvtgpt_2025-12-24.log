@@ -1,0 +1,246 @@
+poetry run python -m private_gpt
+11:32:15.251 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:32:19.520 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:32:19.584 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:19.585 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:20.483 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:32:20.635 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:20.637 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:20.638 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:32:21.529 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:32:21.570 [INFO    ]             uvicorn.error - Started server process [29572]
+11:32:21.570 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:32:21.571 [INFO    ]             uvicorn.error - Application startup complete.
+11:32:21.571 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:32:55.076 [INFO    ]            uvicorn.access - 127.0.0.1:33612 - "GET /config HTTP/1.1" 200
+11:32:55.130 [INFO    ]            uvicorn.access - 127.0.0.1:33614 - "GET /info?serialize=False HTTP/1.1" 200
+11:32:55.203 [INFO    ]            uvicorn.access - 127.0.0.1:33626 - "GET /heartbeat/d125570a-4d5e-42a6-9f20-6ecd0a136877 HTTP/1.1" 200
+11:32:55.208 [INFO    ]            uvicorn.access - 127.0.0.1:33634 - "POST /queue/join HTTP/1.1" 200
+11:32:55.263 [INFO    ]            uvicorn.access - 127.0.0.1:33638 - "GET /queue/data?session_hash=d125570a-4d5e-42a6-9f20-6ecd0a136877 HTTP/1.1" 200
+11:33:03.869 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:33:24.865 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:33:24.864758591Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: 
+\n\n",
+        'thinking': 'The tool was called but the command didn\'t specify 
+host/user/port. The response says executed. But we didn\'t provide host. In 
+instruction, we should provide host, user, maybe port. The command executed? It 
+returned success but it\'s likely wrong. We should correct by specifying host 
+"eraigra-rpi", user "raimondo". And include port optional. We should remove 
+file. Provide correct command. Let\'s use function call.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'rm -f ~/agent_test/test3.1.sh',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19463983985,
+    'load_duration': 278570113,
+    'prompt_eval_count': 381,
+    'prompt_eval_duration': 1039588358,
+    'eval_count': 141,
+    'eval_duration': 17932050149
+}
+11:33:24.953 [INFO    ]            uvicorn.access - 127.0.0.1:47464 - "POST /queue/join HTTP/1.1" 200
+11:33:25.008 [INFO    ]            uvicorn.access - 127.0.0.1:47476 - "GET /queue/data?session_hash=d125570a-4d5e-42a6-9f20-6ecd0a136877 HTTP/1.1" 200
+11:35:14.546 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:35:56.805 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e "#!/bin/bash
+DIR=\"/home\"
+echo \"Scanning $DIR for world-writable, SUID/SGID, and insecure ownership...\"
+find \"$DIR\" -perm -o+w -type f -print0 | while IFS= read -r -d '' file; do echo \"WORLD-WRITE: $file\"; done
+find \"$DIR\" -perm /6000 -type f -print0 | while IFS= read -r -d '' file; do echo \"SUID/SGID: $file\"; done
+find \"$DIR\" ! -user root ! -group root -type f -print0 | while IFS= read -r -d '' file; do echo \"INSECURE OWNER/GROUP: $file\"; done" > ~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: echo -e "#!/bin/bash
+DIR=\"/home\"
+echo \"Scanning $DIR for world-writable, SUID/SGID, and insecure ownership...\"
+find \"$DIR\" -perm -o+w -type f -print0 | while IFS= read -r -d '' file; do echo \"WORLD-WRITE: $file\"; done
+find \"$DIR\" -perm /6000 -type f -print0 | while IFS= read -r -d '' file; do echo \"SUID/SGID: $file\"; done
+find \"$DIR\" ! -user root ! -group root -type f -print0 | while IFS= read -r -d '' file; do echo \"INSECURE OWNER/GROUP: $file\"; done" > ~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+"#!/bin/bash\nDIR=\\"/home\\"\necho \\"Scanning $DIR for world-writable, 
+SUID/SGID, and insecure ownership...\\"\nfind \\"$DIR\\" -perm -o+w -type f 
+-print0 | while IFS= read -r -d \'"\'"\'\'"\'"\' file; do echo \\"WORLD-WRITE: 
+$file\\"; done\nfind \\"$DIR\\" -perm /6000 -type f -print0 | while IFS= read -r
+-d \'"\'"\'\'"\'"\' file; do echo \\"SUID/SGID: $file\\"; done\nfind \\"$DIR\\" 
+! -user root ! -group root -type f -print0 | while IFS= read -r -d 
+\'"\'"\'\'"\'"\' file; do echo \\"INSECURE OWNER/GROUP: $file\\"; done" > 
+~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:35:56.804887668Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e "#!/bin/bash\nDIR=\\"/home\\"\necho \\"Scanning $DIR for 
+world-writable, SUID/SGID, and insecure ownership...\\"\nfind \\"$DIR\\" -perm 
+-o+w -type f -print0 | while IFS= read -r -d \'"\'"\'\'"\'"\' file; do echo 
+\\"WORLD-WRITE: $file\\"; done\nfind \\"$DIR\\" -perm /6000 -type f -print0 | 
+while IFS= read -r -d \'"\'"\'\'"\'"\' file; do echo \\"SUID/SGID: $file\\"; 
+done\nfind \\"$DIR\\" ! -user root ! -group root -type f -print0 | while IFS= 
+read -r -d \'"\'"\'\'"\'"\' file; do echo \\"INSECURE OWNER/GROUP: $file\\"; 
+done" > ~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh\'\' executed
+successfully on remote host.\nOutput: \n\nThe script has been created at 
+`~/agent_test/test3.1.sh` and made executable. You can run it with 
+`./agent_test/test3.1.sh`.',
+        'thinking': 'The user asked to "write a bash script 
+~/agent_test/test3.1.sh to audit file permissions in sensitive Linux directories
+such as /home, highlighting files that are world-writable, have SUID/SGID bits 
+set, or have insecure ownership. At the end give the execute permission to the 
+script in the same command line. Don\'t split the commands and do all requested 
+in a single command line."\n\nWe already executed a command that created the 
+script and chmod. But we need to verify correctness. The user didn\'t ask for a 
+response. We could confirm success, or we could just say "Done". But we need to 
+check if we used correct syntax. We used echo -e 
+"#!/bin/bash\\nDIR=\\"/home\\"\\necho \\"Scanning $DIR for ...\\" ... > script 
+&& chmod +x script". That is all in one command line. The command executed 
+successfully.\n\nWe should give a short confirmation. Possibly mention that the 
+script exists and is executable.\n\nThus answer: "Script created at 
+~/agent_test/test3.1.sh and is executable."'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37055940966,
+    'load_duration': 284279936,
+    'prompt_eval_count': 962,
+    'prompt_eval_duration': 256808625,
+    'eval_count': 36,
+    'eval_duration': 4497888534
+}
+11:35:56.912 [INFO    ]            uvicorn.access - 127.0.0.1:35230 - "POST /queue/join HTTP/1.1" 200
+11:35:56.966 [INFO    ]            uvicorn.access - 127.0.0.1:35232 - "GET /queue/data?session_hash=d125570a-4d5e-42a6-9f20-6ecd0a136877 HTTP/1.1" 200
+11:36:10.573 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:37:38.476 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: sudo ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo 
+~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': 
+'Scanning  for world-writable, SUID/SGID, and insecure ownership...'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:37:38.47585137Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo ~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: 
+Scanning  for world-writable, SUID/SGID, and insecure ownership...\n\n",
+        'thinking': 'We need to check why output is "Scanning  for 
+world-writable..." because DIR variable was set incorrectly: DIR="/home" but in 
+script it\'s defined as DIR=\\"/home\\"? Wait script: echo -e 
+"#!/bin/bash\\nDIR=\\\\"/home\\\\"... So DIR is set to /home but the script 
+prints scanning for $DIR but it shows empty? It probably had variable not 
+expanded due to quoting issues: In the script, it uses echo \\\\"Scanning $DIR 
+for...\\\\", but due to escaping in echo -e, the $DIR may not be expanded? 
+Actually echo -e uses double quotes to interpret escape sequences. The script 
+content is being written literally, but due to escaping, the $DIR might be 
+interpreted by the outer shell when echo -e. They used \\\\" to escape double 
+quotes, but not $DIR. So the outer shell tried to expand $DIR (which is not set)
+before writing into file, causing empty. That explains output. We need to 
+correct script content to preserve $DIR variable inside script. Use single 
+quotes around the echo -e string to prevent expansion. For example: echo -e 
+\'#!/bin/bash\\nDIR="/home"\\necho "Scanning $DIR for ..." \\n...\' > file. Also
+need to make sure quoting correct for find commands. Let\'s craft a new script 
+correctly. Use cat << \'EOF\' > file? But we have to use echo >. Could use 
+single quotes and escapes. Provide final command to create script again and run 
+it. Also we need to run with sudo and provide outcome. Let\'s produce single 
+command line that writes correct script and then runs sudo. Use echo -e with 
+single quotes for the whole string: echo -e \'#!/bin/bash\\nDIR="/home"\\n...\' 
+> file && chmod +x file && sudo file. That should work. Provide command.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'echo -e \'#!/bin/bash\nDIR="/home"\n\necho 
+"Scanning $DIR for world-writable, SUID/SGID, and insecure ownership..."\n# 
+World writable\nfind "$DIR" -type f -perm -o+w -print0 | while IFS= read -r -d 
+$\'\\0\' file; do echo "WORLD-WRITE: $file"; done\n# SUID/SGID\nfind "$DIR" 
+-type f -perm /6000 -print0 | while IFS= read -r -d $\'\\0\' file; do echo 
+"SUID/SGID: $file"; done\n# Insecure ownership (not root root)\nfind "$DIR" ! 
+-user root ! -group root -type f -print0 | while IFS= read -r -d $\'\\0\' file; 
+do echo "INSECURE OWNER/GROUP: $file"; done\' > ~/agent_test/test3.1.sh && chmod
++x ~/agent_test/test3.1.sh && sudo ~/agent_test/test3.1.sh',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 86245632717,
+    'load_duration': 286244434,
+    'prompt_eval_count': 887,
+    'prompt_eval_duration': 1242355668,
+    'eval_count': 655,
+    'eval_duration': 84139626578
+}
+11:37:38.555 [INFO    ]            uvicorn.access - 127.0.0.1:45772 - "POST /queue/join HTTP/1.1" 200
+11:37:38.609 [INFO    ]            uvicorn.access - 127.0.0.1:45782 - "GET /queue/data?session_hash=d125570a-4d5e-42a6-9f20-6ecd0a136877 HTTP/1.1" 200
+11:37:49.521 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:38:11.378 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:38:11.378098363Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.1.sh` has been removed (if it existed). No 
+output was generated because the removal succeeded silently.",
+        'thinking': 'We need to remove file if present, no split, single command
+line. They did `rm -f ~/agent_test/test3.1.sh`. But requirement: "Don\'t split 
+the commands and do all requested in a single command line." That is done. But 
+maybe need to ensure the path is correct. They removed. Possibly user wants 
+confirmation? Might respond with confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16716229501,
+    'load_duration': 286777933,
+    'prompt_eval_count': 1060,
+    'prompt_eval_duration': 166313203,
+    'eval_count': 31,
+    'eval_duration': 3858215187
+}
+11:38:11.593 [INFO    ]             uvicorn.error - Shutting down
+11:38:11.693 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:38:11.693 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:38:11.693 [INFO    ]             uvicorn.error - Finished server process [29572]
+make: *** [Makefile:36: run] Terminated

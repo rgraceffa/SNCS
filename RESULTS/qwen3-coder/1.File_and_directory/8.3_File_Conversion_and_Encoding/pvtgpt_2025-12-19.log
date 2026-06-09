@@ -1,0 +1,152 @@
+poetry run python -m private_gpt
+11:31:39.486 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:31:43.725 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:31:43.789 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:31:43.791 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:31:44.667 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:31:44.821 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:31:44.822 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:31:44.823 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:31:45.711 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:31:45.752 [INFO    ]             uvicorn.error - Started server process [521250]
+11:31:45.752 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:31:45.752 [INFO    ]             uvicorn.error - Application startup complete.
+11:31:45.752 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:32:19.310 [INFO    ]            uvicorn.access - 127.0.0.1:45084 - "GET /config HTTP/1.1" 200
+11:32:19.366 [INFO    ]            uvicorn.access - 127.0.0.1:45088 - "GET /info?serialize=False HTTP/1.1" 200
+11:32:19.433 [INFO    ]            uvicorn.access - 127.0.0.1:45104 - "GET /heartbeat/4f83648b-885b-445c-8b4c-1115231c77f3 HTTP/1.1" 200
+11:32:19.436 [INFO    ]            uvicorn.access - 127.0.0.1:45114 - "POST /queue/join HTTP/1.1" 200
+11:32:19.491 [INFO    ]            uvicorn.access - 127.0.0.1:45118 - "GET /queue/data?session_hash=4f83648b-885b-445c-8b4c-1115231c77f3 HTTP/1.1" 200
+11:32:35.918 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:32:50.657 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt
+[AGENT] ✅ Remote command executed successfully: cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp /etc/X11/rgb.txt 
+~/agent_test/test8.3.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T11:32:50.657115646Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cp 
+/etc/X11/rgb.txt ~/agent_test/test8.3.txt'' executed successfully on remote 
+host.\nOutput: \n\nThe file `/etc/X11/rgb.txt` has been successfully copied to 
+the remote host `eraigra-rpi` as `~/agent_test/test8.3.txt`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8793946348,
+    'load_duration': 129440519,
+    'prompt_eval_count': 588,
+    'prompt_eval_duration': 4110080495,
+    'eval_count': 38,
+    'eval_duration': 4492260468
+}
+11:32:50.757 [INFO    ]            uvicorn.access - 127.0.0.1:53594 - "POST /queue/join HTTP/1.1" 200
+11:32:50.813 [INFO    ]            uvicorn.access - 127.0.0.1:53608 - "GET /queue/data?session_hash=4f83648b-885b-445c-8b4c-1115231c77f3 HTTP/1.1" 200
+11:33:07.312 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:33:17.967 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -type f -name "*.txt" -exec sh -c 'iconv -f ascii -t utf-8 "$1" > "${1}.conv" && echo "Converted: $1"' _ {} \;
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -type f -name "*.txt" -exec sh -c 'iconv -f ascii -t utf-8 "$1" > "${1}.conv" && echo "Converted: $1"' _ {} \;
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'find ~/agent_test 
+-type f -name "*.txt" -exec sh -c \'"\'"\'iconv -f ascii -t utf-8 "$1" > 
+"${1}.conv" && echo "Converted: $1"\'"\'"\' _ {} \\;\'\' executed successfully 
+on remote host.', 'output': 'Converted: /home/raimondo/agent_test/test8.3.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T11:33:17.966630119Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'find ~/agent_test -type f -name "*.txt" -exec sh -c \'"\'"\'iconv -f ascii 
+-t utf-8 "$1" > "${1}.conv" && echo "Converted: $1"\'"\'"\' _ {} \\;\'\' 
+executed successfully on remote host.\nOutput: Converted: 
+/home/raimondo/agent_test/test8.3.txt\n\nAll `.txt` files in the `~/agent_test` 
+folder on the remote host `eraigra-rpi` have been converted from ASCII to UTF-8 
+and saved with the `.conv` extension. The file `test8.3.txt` was successfully 
+converted.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8985245943,
+    'load_duration': 131690031,
+    'prompt_eval_count': 800,
+    'prompt_eval_duration': 2440080577,
+    'eval_count': 56,
+    'eval_duration': 6319590406
+}
+11:33:18.083 [INFO    ]            uvicorn.access - 127.0.0.1:55888 - "POST /queue/join HTTP/1.1" 200
+11:33:18.139 [INFO    ]            uvicorn.access - 127.0.0.1:55904 - "GET /queue/data?session_hash=4f83648b-885b-445c-8b4c-1115231c77f3 HTTP/1.1" 200
+11:33:26.629 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:33:59.479 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi file -I ~/agent_test/test8.3.txt.conv
+[AGENT] ❌ Remote command failed: file -I ~/agent_test/test8.3.txt.conv
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+file: invalid option -- 'I'
+Usage: file [-bcCdEhikLlNnprsSvzZ0] [--apple] [--extension] [--mime-encoding]
+            [--mime-type] [-e <testname>] [-F <separator>]  [-f <namefile>]
+            [-m <magicfiles>] [-P <parameter=value>] [--exclude-quiet]
+            <file> ...
+       file -C [-m <magicfiles>]
+       file [--help]
+[AGENT] ✅:{'status': 'error', 'message': "The command ''file -I 
+~/agent_test/test8.3.txt.conv'' failed on remote host.", 'output': "Warning: 
+Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.\nfile: 
+invalid option -- 'I'\nUsage: file [-bcCdEhikLlNnprsSvzZ0] [--apple] 
+[--extension] [--mime-encoding]\n            [--mime-type] [-e <testname>] [-F 
+<separator>]  [-f <namefile>]\n            [-m <magicfiles>] [-P 
+<parameter=value>] [--exclude-quiet]\n            <file> ...\n       file -C [-m
+<magicfiles>]\n       file [--help]"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T11:33:59.478985801Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command ''file 
+-I ~/agent_test/test8.3.txt.conv'' failed on remote host.\nOutput: Warning: 
+Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.\nfile: 
+invalid option -- 'I'\nUsage: file [-bcCdEhikLlNnprsSvzZ0] [--apple] 
+[--extension] [--mime-encoding]\n            [--mime-type] [-e <testname>] [-F 
+<separator>]  [-f <namefile>]\n            [-m <magicfiles>] [-P 
+<parameter=value>] [--exclude-quiet]\n            <file> ...\n       file -C [-m
+<magicfiles>]\n       file [--help]\n\nThe command to check the file format 
+failed because the `file` command on this system doesn't support the `-I` 
+option. Let's try a different approach to verify the file exists and is in UTF-8
+format.\n\nI'll use the `ls` command to check if the file exists, and then use 
+`iconv` to verify the encoding.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'ls -l ~/agent_test/test8.3.txt.conv && iconv
+-f utf-8 -t utf-8 ~/agent_test/test8.3.txt.conv > /dev/null 2>&1 && echo "File 
+is in UTF-8 format" || echo "File is not in UTF-8 format"',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31195657529,
+    'load_duration': 128651844,
+    'prompt_eval_count': 1093,
+    'prompt_eval_duration': 9185563847,
+    'eval_count': 184,
+    'eval_duration': 21728921494
+}
+11:33:59.684 [INFO    ]             uvicorn.error - Shutting down
+11:33:59.785 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:33:59.785 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:33:59.785 [INFO    ]             uvicorn.error - Finished server process [521250]
+make: *** [Makefile:36: run] Terminated

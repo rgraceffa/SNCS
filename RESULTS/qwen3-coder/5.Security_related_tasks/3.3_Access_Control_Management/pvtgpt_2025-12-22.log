@@ -1,0 +1,216 @@
+poetry run python -m private_gpt
+11:06:11.956 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:06:16.225 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:06:16.290 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:06:16.291 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:06:17.193 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:06:17.347 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:06:17.349 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:06:17.350 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:06:18.242 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:06:18.282 [INFO    ]             uvicorn.error - Started server process [1793326]
+11:06:18.282 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:06:18.283 [INFO    ]             uvicorn.error - Application startup complete.
+11:06:18.283 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:06:51.779 [INFO    ]            uvicorn.access - 127.0.0.1:47794 - "GET /config HTTP/1.1" 200
+11:06:51.834 [INFO    ]            uvicorn.access - 127.0.0.1:47802 - "GET /info?serialize=False HTTP/1.1" 200
+11:06:51.899 [INFO    ]            uvicorn.access - 127.0.0.1:47816 - "GET /heartbeat/0a4f84a4-8fc8-40ae-a4da-0039c1664612 HTTP/1.1" 200
+11:06:51.902 [INFO    ]            uvicorn.access - 127.0.0.1:47832 - "POST /queue/join HTTP/1.1" 200
+11:06:51.957 [INFO    ]            uvicorn.access - 127.0.0.1:47842 - "GET /queue/data?session_hash=0a4f84a4-8fc8-40ae-a4da-0039c1664612 HTTP/1.1" 200
+11:06:59.844 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:07:12.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:07:12.287323265Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test3.3.log` was executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The file 
+has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7215930251,
+    'load_duration': 132013095,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 1177066682,
+    'eval_count': 49,
+    'eval_duration': 5835343721
+}
+11:07:12.418 [INFO    ]            uvicorn.access - 127.0.0.1:39580 - "POST /queue/join HTTP/1.1" 200
+11:07:12.473 [INFO    ]            uvicorn.access - 127.0.0.1:39592 - "GET /queue/data?session_hash=0a4f84a4-8fc8-40ae-a4da-0039c1664612 HTTP/1.1" 200
+11:07:22.628 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:07:34.244 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi grep 'login' /var/log/auth.log | tail -n 20 > ~/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: grep 'login' /var/log/auth.log | tail -n 20 > ~/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'grep 
+\'"\'"\'login\'"\'"\' /var/log/auth.log | tail -n 20 > 
+~/agent_test/test3.3.log\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:07:34.244193483Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'grep \'"\'"\'login\'"\'"\' /var/log/auth.log | tail -n 20 > 
+~/agent_test/test3.3.log\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command to generate a report of user login activities from 
+`/var/log/auth.log` and save the last 20 login entries to 
+`~/agent_test/test3.3.log` was executed successfully on the remote host 
+`eraigra-rpi` as the user `raimondo`. The file now contains the requested login 
+activity data.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10044770611,
+    'load_duration': 126515094,
+    'prompt_eval_count': 755,
+    'prompt_eval_duration': 1709893431,
+    'eval_count': 70,
+    'eval_duration': 8107286859
+}
+11:07:34.389 [INFO    ]            uvicorn.access - 127.0.0.1:44546 - "POST /queue/join HTTP/1.1" 200
+11:07:34.444 [INFO    ]            uvicorn.access - 127.0.0.1:44550 - "GET /queue/data?session_hash=0a4f84a4-8fc8-40ae-a4da-0039c1664612 HTTP/1.1" 200
+11:07:43.080 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:09:31.655 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test3.3.log'' executed successfully on remote host.", 'output': 
+'Dec 22 12:25:01 eraigra-rpi systemd-logind[664]: Removed session 7607.\nDec 22 
+12:28:20 eraigra-rpi systemd-logind[664]: New session 7609 of user 
+raimondo.\nDec 22 12:28:24 eraigra-rpi systemd-logind[664]: Session 7609 logged 
+out. Waiting for processes to exit.\nDec 22 12:28:24 eraigra-rpi 
+systemd-logind[664]: Removed session 7609.\nDec 22 13:01:53 eraigra-rpi 
+systemd-logind[664]: New session 7613 of user raimondo.\nDec 22 13:01:57 
+eraigra-rpi systemd-logind[664]: Session 7613 logged out. Waiting for processes 
+to exit.\nDec 22 13:01:57 eraigra-rpi systemd-logind[664]: Removed session 
+7613.\nDec 22 13:02:39 eraigra-rpi systemd-logind[664]: New session 7614 of user
+raimondo.\nDec 22 13:02:40 eraigra-rpi systemd-logind[664]: Session 7614 logged 
+out. Waiting for processes to exit.\nDec 22 13:02:40 eraigra-rpi 
+systemd-logind[664]: Removed session 7614.\nDec 22 13:03:16 eraigra-rpi 
+systemd-logind[664]: New session 7615 of user raimondo.\nDec 22 13:03:23 
+eraigra-rpi systemd-logind[664]: Session 7615 logged out. Waiting for processes 
+to exit.\nDec 22 13:03:23 eraigra-rpi systemd-logind[664]: Removed session 
+7615.\nDec 22 13:05:25 eraigra-rpi systemd-logind[664]: New session 7617 of user
+raimondo.\nDec 22 13:05:29 eraigra-rpi systemd-logind[664]: Session 7617 logged 
+out. Waiting for processes to exit.\nDec 22 13:05:29 eraigra-rpi 
+systemd-logind[664]: Removed session 7617.\nDec 22 13:07:00 eraigra-rpi 
+systemd-logind[664]: New session 7618 of user raimondo.\nDec 22 13:07:05 
+eraigra-rpi systemd-logind[664]: Session 7618 logged out. Waiting for processes 
+to exit.\nDec 22 13:07:05 eraigra-rpi systemd-logind[664]: Removed session 
+7618.\nDec 22 13:07:23 eraigra-rpi systemd-logind[664]: New session 7619 of user
+raimondo.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:09:31.65504568Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test3.3.log'' executed successfully on remote host.\nOutput: Dec 22
+12:25:01 eraigra-rpi systemd-logind[664]: Removed session 7607.\nDec 22 12:28:20
+eraigra-rpi systemd-logind[664]: New session 7609 of user raimondo.\nDec 22 
+12:28:24 eraigra-rpi systemd-logind[664]: Session 7609 logged out. Waiting for 
+processes to exit.\nDec 22 12:28:24 eraigra-rpi systemd-logind[664]: Removed 
+session 7609.\nDec 22 13:01:53 eraigra-rpi systemd-logind[664]: New session 7613
+of user raimondo.\nDec 22 13:01:57 eraigra-rpi systemd-logind[664]: Session 7613
+logged out. Waiting for processes to exit.\nDec 22 13:01:57 eraigra-rpi 
+systemd-logind[664]: Removed session 7613.\nDec 22 13:02:39 eraigra-rpi 
+systemd-logind[664]: New session 7614 of user raimondo.\nDec 22 13:02:40 
+eraigra-rpi systemd-logind[664]: Session 7614 logged out. Waiting for processes 
+to exit.\nDec 22 13:02:40 eraigra-rpi systemd-logind[664]: Removed session 
+7614.\nDec 22 13:03:16 eraigra-rpi systemd-logind[664]: New session 7615 of user
+raimondo.\nDec 22 13:03:23 eraigra-rpi systemd-logind[664]: Session 7615 logged 
+out. Waiting for processes to exit.\nDec 22 13:03:23 eraigra-rpi 
+systemd-logind[664]: Removed session 7615.\nDec 22 13:05:25 eraigra-rpi 
+systemd-logind[664]: New session 7617 of user raimondo.\nDec 22 13:05:29 
+eraigra-rpi systemd-logind[664]: Session 7617 logged out. Waiting for processes 
+to exit.\nDec 22 13:05:29 eraigra-rpi systemd-logind[664]: Removed session 
+7617.\nDec 22 13:07:00 eraigra-rpi systemd-logind[664]: New session 7618 of user
+raimondo.\nDec 22 13:07:05 eraigra-rpi systemd-logind[664]: Session 7618 logged 
+out. Waiting for processes to exit.\nDec 22 13:07:05 eraigra-rpi 
+systemd-logind[664]: Removed session 7618.\nDec 22 13:07:23 eraigra-rpi 
+systemd-logind[664]: New session 7619 of user raimondo.\n\nHere is the content 
+of the file `~/agent_test/test3.3.log` on the remote host 
+`eraigra-rpi`:\n\n```\nDec 22 12:25:01 eraigra-rpi systemd-logind[664]: Removed 
+session 7607.\nDec 22 12:28:20 eraigra-rpi systemd-logind[664]: New session 7609
+of user raimondo.\nDec 22 12:28:24 eraigra-rpi systemd-logind[664]: Session 7609
+logged out. Waiting for processes to exit.\nDec 22 12:28:24 eraigra-rpi 
+systemd-logind[664]: Removed session 7609.\nDec 22 13:01:53 eraigra-rpi 
+systemd-logind[664]: New session 7613 of user raimondo.\nDec 22 13:01:57 
+eraigra-rpi systemd-logind[664]: Session 7613 logged out. Waiting for processes 
+to exit.\nDec 22 13:01:57 eraigra-rpi systemd-logind[664]: Removed session 
+7613.\nDec 22 13:02:39 eraigra-rpi systemd-logind[664]: New session 7614 of user
+raimondo.\nDec 22 13:02:40 eraigra-rpi systemd-logind[664]: Session 7614 logged 
+out. Waiting for processes to exit.\nDec 22 13:02:40 eraigra-rpi 
+systemd-logind[664]: Removed session 7614.\nDec 22 13:03:16 eraigra-rpi 
+systemd-logind[664]: New session 7615 of user raimondo.\nDec 22 13:03:23 
+eraigra-rpi systemd-logind[664]: Session 7615 logged out. Waiting for processes 
+to exit.\nDec 22 13:03:23 eraigra-rpi systemd-logind[664]: Removed session 
+7615.\nDec 22 13:05:25 eraigra-rpi systemd-logind[664]: New session 7617 of user
+raimondo.\nDec 22 13:05:29 eraigra-rpi systemd-logind[664]: Session 7617 logged 
+out. Waiting for processes to exit.\nDec 22 13:05:29 eraigra-rpi 
+systemd-logind[664]: Removed session 7617.\nDec 22 13:07:00 eraigra-rpi 
+systemd-logind[664]: New session 7618 of user raimondo.\nDec 22 13:07:05 
+eraigra-rpi systemd-logind[664]: Session 7618 logged out. Waiting for processes 
+to exit.\nDec 22 13:07:05 eraigra-rpi systemd-logind[664]: Removed session 
+7618.\nDec 22 13:07:23 eraigra-rpi systemd-logind[664]: New session 7619 of user
+raimondo.\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 107024983257,
+    'load_duration': 133708041,
+    'prompt_eval_count': 1698,
+    'prompt_eval_duration': 9495296408,
+    'eval_count': 790,
+    'eval_duration': 96912740495
+}
+11:09:31.745 [INFO    ]            uvicorn.access - 127.0.0.1:40094 - "POST /queue/join HTTP/1.1" 200
+11:09:31.806 [INFO    ]            uvicorn.access - 127.0.0.1:40096 - "GET /queue/data?session_hash=0a4f84a4-8fc8-40ae-a4da-0039c1664612 HTTP/1.1" 200
+11:09:40.455 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:09:53.711 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:09:53.711331436Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test3.3.log` was executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The file 
+has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7768014099,
+    'load_duration': 128784745,
+    'prompt_eval_count': 2567,
+    'prompt_eval_duration': 1376992039,
+    'eval_count': 49,
+    'eval_duration': 6146010871
+}
+11:09:53.876 [INFO    ]             uvicorn.error - Shutting down
+11:09:53.976 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:09:53.976 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:09:53.976 [INFO    ]             uvicorn.error - Finished server process [1793326]
+make: *** [Makefile:36: run] Terminated

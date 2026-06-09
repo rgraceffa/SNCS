@@ -1,0 +1,324 @@
+poetry run python -m private_gpt
+13:09:06.092 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:09:10.392 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:09:10.455 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:09:10.457 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:09:11.354 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:09:11.508 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:09:11.509 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:09:11.510 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:09:12.399 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:09:12.440 [INFO    ]             uvicorn.error - Started server process [32136]
+13:09:12.440 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:09:12.440 [INFO    ]             uvicorn.error - Application startup complete.
+13:09:12.440 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:09:45.916 [INFO    ]            uvicorn.access - 127.0.0.1:33194 - "GET /config HTTP/1.1" 200
+13:09:45.971 [INFO    ]            uvicorn.access - 127.0.0.1:33204 - "GET /info?serialize=False HTTP/1.1" 200
+13:09:46.042 [INFO    ]            uvicorn.access - 127.0.0.1:33220 - "GET /heartbeat/0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:09:46.045 [INFO    ]            uvicorn.access - 127.0.0.1:33224 - "POST /queue/join HTTP/1.1" 200
+13:09:46.100 [INFO    ]            uvicorn.access - 127.0.0.1:33236 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:10:04.115 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:10:22.736 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/mycapture.cap'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:10:22.735901165Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/mycapture.cap'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/mycapture.cap` has been removed from `eraigra-rpi` 
+(if it existed). If you need anything else, just let me know!",
+        'thinking': 'The user wants to remove the file if present. We already 
+executed rm -f which removes if present and does nothing if not. The response 
+says command executed successfully. Probably we need to respond acknowledging 
+completion.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13016911998,
+    'load_duration': 288228006,
+    'prompt_eval_count': 427,
+    'prompt_eval_duration': 256125619,
+    'eval_count': 38,
+    'eval_duration': 4739009000
+}
+13:10:22.857 [INFO    ]            uvicorn.access - 127.0.0.1:48342 - "POST /queue/join HTTP/1.1" 200
+13:10:22.912 [INFO    ]            uvicorn.access - 127.0.0.1:48352 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:11:13.809 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:12:11.912 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap'
+[AGENT] ❌ Remote command failed: sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap'
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+25 packets captured
+26 packets received by filter
+0 packets dropped by kernel
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'sudo bash -c 
+\'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'"\'"\'\'\' failed on remote host.', 'output': 
+"Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts.\ntcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length
+262144 bytes\n25 packets captured\n26 packets received by filter\n0 packets 
+dropped by kernel"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:12:11.91239004Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'sudo bash -c \'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'"\'"\'\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known 
+hosts.\ntcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length
+262144 bytes\n25 packets captured\n26 packets received by filter\n0 packets 
+dropped by kernel\n\n',
+        'thinking': 'We need to provide command that creates directory, runs 
+tcpdump as sudo for 10 seconds, writes to file. The user wants single command 
+line. We need to send via SSH to remote host with sudo. The tool executed "sudo 
+bash -c \'"mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'" but error says it\'s failing due to quoting? The 
+command actually executed but returned some output indicating tcpdump started. 
+But error message indicates failure? It says "failed" though the command 
+succeeded? The output shows tcpdump capturing. But maybe the tool considered 
+non-zero exit? We need to correct quoting. We should provide single command: 
+"sudo bash -c \'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'" but need to properly escape. The tool requires 
+passing command and host etc. We\'ll produce new execution.\n\nAlso, we need to 
+handle environment: user raimondo. Use functions to execute remote command. 
+Let\'s craft correct command: `sudo bash -c \'mkdir -p ~/agent_test && timeout 
+10 tcpdump -w ~/agent_test/mycapture.cap\'` Should be fine.\n\nLet\'s execute.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "sudo bash -c 'mkdir -p ~/agent_test && 
+timeout 10 tcpdump -w ~/agent_test/mycapture.cap'",
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 42614105822,
+    'load_duration': 300372386,
+    'prompt_eval_count': 611,
+    'prompt_eval_duration': 1938578034,
+    'eval_count': 313,
+    'eval_duration': 40054095290
+}
+13:12:17.015 [INFO    ]            uvicorn.access - 127.0.0.1:56562 - "POST /queue/join HTTP/1.1" 200
+13:12:17.070 [INFO    ]            uvicorn.access - 127.0.0.1:56572 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:13:18.239 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:14:56.662 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap'
+[AGENT] ❌ Remote command failed: sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap'
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+26 packets captured
+26 packets received by filter
+0 packets dropped by kernel
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'sudo bash -c 
+\'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'"\'"\'\'\' failed on remote host.', 'output': 
+"Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts.\ntcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length
+262144 bytes\n26 packets captured\n26 packets received by filter\n0 packets 
+dropped by kernel"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:14:56.662207297Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'sudo bash -c \'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'"\'"\'\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known 
+hosts.\ntcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length
+262144 bytes\n26 packets captured\n26 packets received by filter\n0 packets 
+dropped by kernel\n\n',
+        'thinking': 'We need to provide a single command line that runs on 
+remote host with sudo, capture for 10 seconds, and save to 
+~/agent_test/mycapture.cap. The previous attempts had some quoting issues. Also 
+we need to ensure we create directory first? We can combine mkdir -p and capture
+using a subshell? The requirement: "Don\'t split the commands and do all 
+requested in a single command line." So we can do something like:\n\nsudo bash 
+-c \'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap\'\n\nBut quoting inside might be problematic when 
+executing via function. The tool expects a JSON with command string; we send it 
+to the remote host. The command string is passed literally to the remote shell? 
+It likely uses ssh to run the command. We need to escape quotes properly for 
+JSON. In JSON, we need to escape quotes.\n\nWe used \'sudo bash -c \\"\\"\' 
+which might cause error. The error shows that command executed but output shows 
+tcpdump listening and captured packets. Wait error status \'error\' but command 
+executed. It shows "tcpdump: listening on eth0 ... 26 packets captured". That 
+means the command executed fine. But function returned status error because the 
+command might have non-zero exit code? tcpdump returns 0? But if timeout kills 
+the process, tcpdump might exit with code 124? Actually timeout might return 
+124? The command \'timeout 10 tcpdump\' will exit with 124 after timeout. That 
+may be considered error by function. The requirement is to not split commands. 
+We can circumvent by adding \'|| true\' to ignore error code. So:\n\nsudo bash 
+-c \'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap 
+|| true\'\n\nAlternatively, we could run tcpdump directly with -G and -W? But 
+that might be complicated. Use timeout with \'|| true\'.\n\nLet\'s produce final
+command:\n\nsudo bash -c \'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap || true\'\n\nWe need to send JSON with proper 
+escaping. For the function, we must supply command string exactly. We must 
+escape single quotes? In JSON, double quotes around command; inside we use 
+single quotes around whole bash -c command? We\'ll use double quotes to wrap 
+command in JSON. The command string can contain single quotes; no need to 
+escape. So:\n\n{\n "command":"sudo bash -c \'mkdir -p ~/agent_test && timeout 10
+tcpdump -w ~/agent_test/mycapture.cap || true\'",\n "host":"eraigra-rpi",\n 
+"port":22,\n "user":"raimondo"\n}\n\nLet\'s try that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "sudo bash -c 'mkdir -p ~/agent_test && 
+timeout 10 tcpdump -w ~/agent_test/mycapture.cap || true'",
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 82978046506,
+    'load_duration': 287202266,
+    'prompt_eval_count': 802,
+    'prompt_eval_duration': 1902220591,
+    'eval_count': 625,
+    'eval_duration': 80255360370
+}
+13:15:01.785 [INFO    ]            uvicorn.access - 127.0.0.1:41164 - "POST /queue/join HTTP/1.1" 200
+13:15:01.840 [INFO    ]            uvicorn.access - 127.0.0.1:41170 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:15:58.615 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:16:39.176 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap || true'
+[AGENT] ✅ Remote command executed successfully: sudo bash -c 'mkdir -p ~/agent_test && timeout 10 tcpdump -w ~/agent_test/mycapture.cap || true'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sudo bash -c 
+\'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap || true\'"\'"\'\'\' executed successfully on remote 
+host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:16:39.175980785Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sudo bash -c \'"\'"\'mkdir -p ~/agent_test && timeout 10 tcpdump -w 
+~/agent_test/mycapture.cap || true\'"\'"\'\'\' executed successfully on remote 
+host.\nOutput: \n\nThe capture has been started on **eraigra-rpi** and the 
+resulting file is now saved at:\n\n```\n~/agent_test/mycapture.cap\n```\n\nIt 
+was created with a single command line under `sudo`, so you can verify it 
+with:\n\n```bash\nsudo ls -l ~/agent_test/mycapture.cap\n```\n\nIf you need to 
+inspect the capture, you can use:\n\n```bash\nsudo tcpdump -r 
+~/agent_test/mycapture.cap\n```\n\nLet me know if you need anything else!',
+        'thinking': "We need to produce final answer. The last function call 
+succeeded, but the user asked for capturing using sudo and single command line. 
+We executed sudo bash -c 'mkdir -p ... && timeout 10 tcpdump ... || true'. That 
+might be acceptable. Provide confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24563442877,
+    'load_duration': 294694569,
+    'prompt_eval_count': 996,
+    'prompt_eval_duration': 257419124,
+    'eval_count': 107,
+    'eval_duration': 13628419997
+}
+13:16:39.276 [INFO    ]            uvicorn.access - 127.0.0.1:35322 - "POST /queue/join HTTP/1.1" 200
+13:16:39.330 [INFO    ]            uvicorn.access - 127.0.0.1:35330 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:17:00.843 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:17:15.863 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo bash -c 'test -s ~/agent_test/mycapture.cap && echo "exists" || echo "missing or empty"'
+[AGENT] ✅ Remote command executed successfully: sudo bash -c 'test -s ~/agent_test/mycapture.cap && echo "exists" || echo "missing or empty"'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sudo bash -c 
+\'"\'"\'test -s ~/agent_test/mycapture.cap && echo "exists" || echo "missing or 
+empty"\'"\'"\'\'\' executed successfully on remote host.', 'output': 'exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:17:15.863428773Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sudo bash -c \'"\'"\'test -s ~/agent_test/mycapture.cap && echo "exists" || 
+echo "missing or empty"\'"\'"\'\'\' executed successfully on remote 
+host.\nOutput: exists\n\nThe file **`~/agent_test/mycapture.cap`** exists and is
+not empty.',
+        'thinking': 'The user wants to check if file exists and is not empty. We
+already executed a single command: test -s and echo "exists" or "missing or 
+empty". The output is "exists". That answers the question. Probably should 
+explain that file exists and not empty.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13356059570,
+    'load_duration': 295842493,
+    'prompt_eval_count': 1228,
+    'prompt_eval_duration': 184115587,
+    'eval_count': 19,
+    'eval_duration': 2314270687
+}
+13:17:15.932 [INFO    ]            uvicorn.access - 127.0.0.1:48470 - "POST /queue/join HTTP/1.1" 200
+13:17:15.985 [INFO    ]            uvicorn.access - 127.0.0.1:48484 - "GET /queue/data?session_hash=0f3b6df9-f98e-47c7-8721-1fdb2b0ba81c HTTP/1.1" 200
+13:17:33.845 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:17:46.910 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/mycapture.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/mycapture.cap'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:17:46.910445591Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/mycapture.cap'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/mycapture.cap` has been removed.",
+        'thinking': 'We have responded to removal. The user has no further 
+question. No further action needed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7782491512,
+    'load_duration': 295641214,
+    'prompt_eval_count': 1285,
+    'prompt_eval_duration': 130435182,
+    'eval_count': 15,
+    'eval_duration': 1802162479
+}
+13:17:47.117 [INFO    ]             uvicorn.error - Shutting down
+13:17:47.218 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:17:47.218 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:17:47.218 [INFO    ]             uvicorn.error - Finished server process [32136]
+make: *** [Makefile:36: run] Terminated

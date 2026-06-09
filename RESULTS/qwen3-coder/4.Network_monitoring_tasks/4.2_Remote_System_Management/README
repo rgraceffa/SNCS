@@ -1,0 +1,5 @@
+TASKNAME=Synchronize files between local and remote systems.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.log and create an empty file ~/agent_test/test4.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo sinchronize the ~/agent_test/ folder with the folder ~/destfolder in the host eraigra-x205ta using username raimondo. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-x205ta username raimondo check if exists the file ~/destfolder/test4.2.log
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.log

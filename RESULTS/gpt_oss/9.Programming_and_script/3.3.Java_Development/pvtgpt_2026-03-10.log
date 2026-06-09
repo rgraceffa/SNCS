@@ -1,0 +1,340 @@
+poetry run python -m private_gpt
+14:16:35.138 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:16:39.438 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:16:39.501 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:16:39.502 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:16:40.444 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:16:40.595 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:16:40.597 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:16:40.604 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:16:41.494 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:16:41.535 [INFO    ]             uvicorn.error - Started server process [370935]
+14:16:41.535 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:16:41.535 [INFO    ]             uvicorn.error - Application startup complete.
+14:16:41.535 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:17:14.962 [INFO    ]            uvicorn.access - 127.0.0.1:37596 - "GET /config HTTP/1.1" 200
+14:17:15.016 [INFO    ]            uvicorn.access - 127.0.0.1:37612 - "GET /info?serialize=False HTTP/1.1" 200
+14:17:15.099 [INFO    ]            uvicorn.access - 127.0.0.1:37618 - "GET /heartbeat/167dba1e-8675-4cd3-a21d-a155dacf33ff HTTP/1.1" 200
+14:17:15.102 [INFO    ]            uvicorn.access - 127.0.0.1:37628 - "POST /queue/join HTTP/1.1" 200
+14:17:15.156 [INFO    ]            uvicorn.access - 127.0.0.1:37630 - "GET /queue/data?session_hash=167dba1e-8675-4cd3-a21d-a155dacf33ff HTTP/1.1" 200
+14:17:27.969 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:17:40.839 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test/mavenprj
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test/mavenprj
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p 
+~/agent_test/mavenprj'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:17:40.838769647Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test/mavenprj'' executed successfully on remote 
+host.\nOutput: \n\nFolder `~/agent_test/mavenprj` has been created (if it didn’t
+already exist). Let me know if you need anything else!",
+        'thinking': 'The tool returned success. Need to respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7816995559,
+    'load_duration': 291173106,
+    'prompt_eval_count': 399,
+    'prompt_eval_duration': 249520278,
+    'eval_count': 31,
+    'eval_duration': 3741415188
+}
+14:17:40.942 [INFO    ]            uvicorn.access - 127.0.0.1:60506 - "POST /queue/join HTTP/1.1" 200
+14:17:40.995 [INFO    ]            uvicorn.access - 127.0.0.1:60508 - "GET /queue/data?session_hash=167dba1e-8675-4cd3-a21d-a155dacf33ff HTTP/1.1" 200
+14:20:25.564 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:21:57.450 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/mavenprj && mkdir -p src/main/java/com/example && cat <<'EOF' > pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>simpleapp</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.example.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+EOF
+cat <<'EOF' > src/main/java/com/example/App.java
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello, Maven!");
+    }
+}
+EOF
+mvn -q package
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test/mavenprj && mkdir -p src/main/java/com/example && cat <<'EOF' > pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>simpleapp</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.example.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+EOF
+cat <<'EOF' > src/main/java/com/example/App.java
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello, Maven!");
+    }
+}
+EOF
+mvn -q package
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'cd 
+~/agent_test/mavenprj && mkdir -p src/main/java/com/example && cat 
+<<\'"\'"\'EOF\'"\'"\' > pom.xml\n<project 
+xmlns="http://maven.apache.org/POM/4.0.0"\n  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n  
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0\n                      
+http://maven.apache.org/xsd/maven-4.0.0.xsd">\n  
+<modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  
+<artifactId>simpleapp</artifactId>\n  <version>1.0-SNAPSHOT</version>\n  
+<packaging>jar</packaging>\n  <build>\n    <plugins>\n      <plugin>\n        
+<groupId>org.apache.maven.plugins</groupId>\n        
+<artifactId>maven-compiler-plugin</artifactId>\n        
+<version>3.8.1</version>\n        <configuration>\n          
+<source>11</source>\n          <target>11</target>\n        </configuration>\n  
+</plugin>\n      <plugin>\n        <groupId>org.apache.maven.plugins</groupId>\n
+<artifactId>maven-assembly-plugin</artifactId>\n        
+<version>3.3.0</version>\n        <configuration>\n          <archive>\n        
+<manifest>\n              <mainClass>com.example.App</mainClass>\n            
+</manifest>\n          </archive>\n          <descriptorRefs>\n            
+<descriptorRef>jar-with-dependencies</descriptorRef>\n          
+</descriptorRefs>\n        </configuration>\n        <executions>\n          
+<execution>\n            <id>make-assembly</id>\n            
+<phase>package</phase>\n            <goals>\n              <goal>single</goal>\n
+</goals>\n          </execution>\n        </executions>\n      </plugin>\n    
+</plugins>\n  </build>\n</project>\nEOF\ncat <<\'"\'"\'EOF\'"\'"\' > 
+src/main/java/com/example/App.java\npackage com.example;\n\npublic class App {\n
+public static void main(String[] args) {\n        System.out.println("Hello, 
+Maven!");\n    }\n}\nEOF\nmvn -q package\'\' executed successfully on remote 
+host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:21:57.449675916Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cd ~/agent_test/mavenprj && mkdir -p src/main/java/com/example && cat 
+<<\'"\'"\'EOF\'"\'"\' > pom.xml\n<project 
+xmlns="http://maven.apache.org/POM/4.0.0"\n  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n  
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0\n                      
+http://maven.apache.org/xsd/maven-4.0.0.xsd">\n  
+<modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  
+<artifactId>simpleapp</artifactId>\n  <version>1.0-SNAPSHOT</version>\n  
+<packaging>jar</packaging>\n  <build>\n    <plugins>\n      <plugin>\n        
+<groupId>org.apache.maven.plugins</groupId>\n        
+<artifactId>maven-compiler-plugin</artifactId>\n        
+<version>3.8.1</version>\n        <configuration>\n          
+<source>11</source>\n          <target>11</target>\n        </configuration>\n  
+</plugin>\n      <plugin>\n        <groupId>org.apache.maven.plugins</groupId>\n
+<artifactId>maven-assembly-plugin</artifactId>\n        
+<version>3.3.0</version>\n        <configuration>\n          <archive>\n        
+<manifest>\n              <mainClass>com.example.App</mainClass>\n            
+</manifest>\n          </archive>\n          <descriptorRefs>\n            
+<descriptorRef>jar-with-dependencies</descriptorRef>\n          
+</descriptorRefs>\n        </configuration>\n        <executions>\n          
+<execution>\n            <id>make-assembly</id>\n            
+<phase>package</phase>\n            <goals>\n              <goal>single</goal>\n
+</goals>\n          </execution>\n        </executions>\n      </plugin>\n    
+</plugins>\n  </build>\n</project>\nEOF\ncat <<\'"\'"\'EOF\'"\'"\' > 
+src/main/java/com/example/App.java\npackage com.example;\n\npublic class App {\n
+public static void main(String[] args) {\n        System.out.println("Hello, 
+Maven!");\n    }\n}\nEOF\nmvn -q package\'\' executed successfully on remote 
+host.\nOutput: \n\nThe Maven project was created and built successfully in 
+`~/agent_test/mavenprj`.  \nYou can find the built JAR (with dependencies) 
+at:\n\n```\n~/agent_test/mavenprj/target/simpleapp-1.0-SNAPSHOT-jar-with-depende
+ncies.jar\n```\n\nFeel free to run it with:\n\n```bash\njava -jar 
+~/agent_test/mavenprj/target/simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar\n`
+``\n\nIt should print `Hello, Maven!`. Let me know if you need anything else!',
+        'thinking': 'We executed a single long command with echo > etc to create
+pom.xml and App.java, then run mvn package. We need to provide output? The 
+command succeeded. Should respond acknowledging build succeeded.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26959276656,
+    'load_duration': 297531015,
+    'prompt_eval_count': 1094,
+    'prompt_eval_duration': 251172124,
+    'eval_count': 118,
+    'eval_duration': 14690626113
+}
+14:21:57.545 [INFO    ]            uvicorn.access - 127.0.0.1:55584 - "POST /queue/join HTTP/1.1" 200
+14:21:57.599 [INFO    ]            uvicorn.access - 127.0.0.1:55586 - "GET /queue/data?session_hash=167dba1e-8675-4cd3-a21d-a155dacf33ff HTTP/1.1" 200
+14:22:20.739 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:22:45.695 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/mavenprj && ls -l target && java -jar target/simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test/mavenprj && ls -l target && java -jar target/simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd 
+~/agent_test/mavenprj && ls -l target && java -jar 
+target/simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar'' executed successfully 
+on remote host.", 'output': 'total 28\ndrwxrwxr-x 2 raimondo raimondo 4096 Mar 
+10 16:21 archive-tmp\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+classes\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+generated-sources\ndrwxrwxr-x 2 raimondo raimondo 4096 Mar 10 16:21 
+maven-archiver\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+maven-status\n-rw-rw-r-- 1 raimondo raimondo 2309 Mar 10 16:21 
+simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar\n-rw-rw-r-- 1 raimondo raimondo
+2314 Mar 10 16:21 simpleapp-1.0-SNAPSHOT.jar\nHello, Maven!'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:22:45.694890751Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~/agent_test/mavenprj && ls -l target && java -jar 
+target/simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar'' executed successfully 
+on remote host.\nOutput: total 28\ndrwxrwxr-x 2 raimondo raimondo 4096 Mar 10 
+16:21 archive-tmp\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+classes\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+generated-sources\ndrwxrwxr-x 2 raimondo raimondo 4096 Mar 10 16:21 
+maven-archiver\ndrwxrwxr-x 3 raimondo raimondo 4096 Mar 10 16:21 
+maven-status\n-rw-rw-r-- 1 raimondo raimondo 2309 Mar 10 16:21 
+simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar\n-rw-rw-r-- 1 raimondo raimondo
+2314 Mar 10 16:21 simpleapp-1.0-SNAPSHOT.jar\nHello, Maven!\n\n✅ **Build 
+verification successful**\n\n* The `target` directory contains the expected 
+artifacts:\n  * `simpleapp-1.0-SNAPSHOT-jar-with-dependencies.jar`\n  * 
+`simpleapp-1.0-SNAPSHOT.jar`\n\n* Running the JAR printed:\n\n```\nHello, 
+Maven!\n```\n\nSo the Maven project in `~/agent_test/mavenprj` has been built 
+and executed correctly. Let me know if you need any further checks or actions!",
+        'thinking': 'We have executed command. Output shows jar exists and runs.
+Need to respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19113108065,
+    'load_duration': 300626958,
+    'prompt_eval_count': 1531,
+    'prompt_eval_duration': 251514163,
+    'eval_count': 97,
+    'eval_duration': 12083162097
+}
+14:22:45.775 [INFO    ]            uvicorn.access - 127.0.0.1:50808 - "POST /queue/join HTTP/1.1" 200
+14:22:45.831 [INFO    ]            uvicorn.access - 127.0.0.1:50812 - "GET /queue/data?session_hash=167dba1e-8675-4cd3-a21d-a155dacf33ff HTTP/1.1" 200
+14:22:57.019 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:23:08.273 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf ~/agent_test/mavenprj
+[AGENT] ✅ Remote command executed successfully: rm -rf ~/agent_test/mavenprj
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+~/agent_test/mavenprj'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:23:08.272620402Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf ~/agent_test/mavenprj'' executed successfully on remote host.\nOutput: 
+\n\nThe folder `~/agent_test/mavenprj` has been removed. Let me know if there’s 
+anything else you’d like to do!",
+        'thinking': 'The user wants to remove folder ~/agent_test/mavenprj. We 
+executed rm -rf. Now respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9799282570,
+    'load_duration': 294263740,
+    'prompt_eval_count': 1713,
+    'prompt_eval_duration': 126768961,
+    'eval_count': 30,
+    'eval_duration': 3650580433
+}
+14:23:08.425 [INFO    ]             uvicorn.error - Shutting down
+14:23:08.526 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:23:08.526 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:23:08.526 [INFO    ]             uvicorn.error - Finished server process [370935]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,174 @@
+poetry run python -m private_gpt
+10:38:25.674 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:38:29.956 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:38:30.019 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:38:30.021 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:38:30.902 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:38:31.055 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:38:31.057 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:38:31.058 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:38:31.950 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:38:31.991 [INFO    ]             uvicorn.error - Started server process [157673]
+10:38:31.991 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:38:31.991 [INFO    ]             uvicorn.error - Application startup complete.
+10:38:31.992 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:39:05.496 [INFO    ]            uvicorn.access - 127.0.0.1:40188 - "GET /config HTTP/1.1" 200
+10:39:05.550 [INFO    ]            uvicorn.access - 127.0.0.1:40202 - "GET /info?serialize=False HTTP/1.1" 200
+10:39:05.617 [INFO    ]            uvicorn.access - 127.0.0.1:40212 - "GET /heartbeat/41f9bf20-d32d-4b7d-b8d5-f8e01f4c141d HTTP/1.1" 200
+10:39:05.620 [INFO    ]            uvicorn.access - 127.0.0.1:40226 - "POST /queue/join HTTP/1.1" 200
+10:39:05.676 [INFO    ]            uvicorn.access - 127.0.0.1:40228 - "GET /queue/data?session_hash=41f9bf20-d32d-4b7d-b8d5-f8e01f4c141d HTTP/1.1" 200
+10:39:48.077 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:40:33.191 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/test3.3.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:40:33.190477134Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/test3.3.log'' executed successfully on remote 
+host.\nOutput: \n\nThe file `/home/raimondo/agent_test/test3.3.log` has been 
+removed (if it existed) on host `eraigra-rpi`.",
+        'thinking': 'We need to run the command to remove file on remote host 
+eraigra-rpi. The tool expects: command, host, port (optional), user. The 
+previous output shows it did rm -f /home/raimondo/agent_test/test3.3.log on 
+remote host. But the tool\'s response shows "The command \'\'rm -f ...\'\' 
+executed successfully". That seems fine. But the user said: "in the remote host 
+eraigra-rpi username raimondo remove if present the file 
+/home/raimondo/agent_test/test3.3.log. Don\'t split the commands and do all 
+requested in a single command line." The assistant used rm -f. That\'s a single 
+command line. That fulfills request. But maybe they want to also check existence
+before removal? "remove if present" rm -f does that. So it\'s fine.\n\nBut maybe
+they expect a command with both removing and ensuring file existence? But rm -f 
+will not error if not present. So it\'s fine. They asked not to split commands, 
+so only one command line. The assistant did that. The assistant\'s output is the
+tool result. That is correct.\n\nTherefore final answer: indicate success.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 39619851631,
+    'load_duration': 291817684,
+    'prompt_eval_count': 661,
+    'prompt_eval_duration': 256244987,
+    'eval_count': 35,
+    'eval_duration': 4357801569
+}
+10:40:33.294 [INFO    ]            uvicorn.access - 127.0.0.1:36600 - "POST /queue/join HTTP/1.1" 200
+10:40:33.349 [INFO    ]            uvicorn.access - 127.0.0.1:36616 - "GET /queue/data?session_hash=41f9bf20-d32d-4b7d-b8d5-f8e01f4c141d HTTP/1.1" 200
+10:41:37.751 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:42:12.111 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt list --upgradable > /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: sudo apt list --upgradable > /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt list 
+--upgradable > /home/raimondo/agent_test/test3.3.log'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:42:12.111128836Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt list --upgradable > /home/raimondo/agent_test/test3.3.log'' executed 
+successfully on remote host.\nOutput: \n\nThe command was executed successfully 
+on **eraigra-rpi**.  \nThe list of upgradable packages is now saved 
+in:\n\n```\n/home/raimondo/agent_test/test3.3.log\n```\n\nYou can view the file 
+with:\n\n```bash\ncat /home/raimondo/agent_test/test3.3.log\n```\n\nFeel free to
+let me know if you need anything else!",
+        'thinking': 'We need to explain. The user asked to generate a list of 
+outdated software packages using package manager commands and put the outcome to
+file. The assistant used "sudo apt list --upgradable > ...". That is correct, 
+but we need to ensure that the file path is correct and that the command uses 
+single command line. The assistant already gave that. We should maybe include 
+echo? But it\'s okay.\n\nWe should answer: the command was executed. Maybe 
+provide confirmation. Let\'s comply.\n\n'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26498063640,
+    'load_duration': 296779825,
+    'prompt_eval_count': 670,
+    'prompt_eval_duration': 256461871,
+    'eval_count': 86,
+    'eval_duration': 10899686184
+}
+10:42:12.238 [INFO    ]            uvicorn.access - 127.0.0.1:48576 - "POST /queue/join HTTP/1.1" 200
+10:42:12.293 [INFO    ]            uvicorn.access - 127.0.0.1:48580 - "GET /queue/data?session_hash=41f9bf20-d32d-4b7d-b8d5-f8e01f4c141d HTTP/1.1" 200
+10:42:25.604 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:42:47.142 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: cat /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+/home/raimondo/agent_test/test3.3.log'' executed successfully on remote host.", 
+'output': 'Listing...'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:42:47.142045584Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+/home/raimondo/agent_test/test3.3.log'' executed successfully on remote 
+host.\nOutput: Listing...\n\nHere is the content of 
+`/home/raimondo/agent_test/test3.3.log`:\n\n```\nListing...\n```\n\nIf you need 
+further details or a different view, let me know!",
+        'thinking': 'The tool response: message "The command \'cat 
+/home/raimondo/agent_test/test3.3.log\' executed successfully on remote host." 
+and output: \'Listing...\'. It seems placeholder. We need to provide content. It
+gave \'Listing...\'. We should respond with that output. It\'s ambiguous but 
+likely want the content. We should echo that. Probably just respond with 
+\'Listing...\' as the content. Let\'s respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20031236170,
+    'load_duration': 293561317,
+    'prompt_eval_count': 856,
+    'prompt_eval_duration': 220910828,
+    'eval_count': 42,
+    'eval_duration': 5266526846
+}
+10:42:47.240 [INFO    ]            uvicorn.access - 127.0.0.1:46196 - "POST /queue/join HTTP/1.1" 200
+10:42:47.294 [INFO    ]            uvicorn.access - 127.0.0.1:46212 - "GET /queue/data?session_hash=41f9bf20-d32d-4b7d-b8d5-f8e01f4c141d HTTP/1.1" 200
+10:43:02.231 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:43:16.765 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/test3.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/test3.3.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:43:16.76489319Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/test3.3.log'' executed successfully on remote 
+host.\nOutput: \n\nThe file `/home/raimondo/agent_test/test3.3.log` has been 
+removed (if it existed) on host **eraigra-rpi**.",
+        'thinking': 'We just responded that removal succeeded. Nothing else.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9426773760,
+    'load_duration': 298002115,
+    'prompt_eval_count': 925,
+    'prompt_eval_duration': 256913233,
+    'eval_count': 36,
+    'eval_duration': 4496621315
+}
+10:43:16.947 [INFO    ]             uvicorn.error - Shutting down
+10:43:17.048 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:43:17.048 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:43:17.048 [INFO    ]             uvicorn.error - Finished server process [157673]
+make: *** [Makefile:36: run] Terminated

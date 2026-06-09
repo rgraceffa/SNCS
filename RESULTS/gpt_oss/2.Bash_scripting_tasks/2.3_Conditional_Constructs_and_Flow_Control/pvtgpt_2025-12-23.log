@@ -1,0 +1,346 @@
+poetry run python -m private_gpt
+16:16:26.928 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:16:31.180 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:16:31.244 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:16:31.245 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:16:32.144 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:16:32.297 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:16:32.298 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:16:32.299 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:16:33.183 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:16:33.223 [INFO    ]             uvicorn.error - Started server process [3663]
+16:16:33.223 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:16:33.223 [INFO    ]             uvicorn.error - Application startup complete.
+16:16:33.224 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:17:06.753 [INFO    ]            uvicorn.access - 127.0.0.1:47596 - "GET /config HTTP/1.1" 200
+16:17:06.808 [INFO    ]            uvicorn.access - 127.0.0.1:47612 - "GET /info?serialize=False HTTP/1.1" 200
+16:17:06.881 [INFO    ]            uvicorn.access - 127.0.0.1:47624 - "POST /queue/join HTTP/1.1" 200
+16:17:06.883 [INFO    ]            uvicorn.access - 127.0.0.1:47618 - "GET /heartbeat/463319de-cde8-48e2-8d9b-f9ad6fc60e2e HTTP/1.1" 200
+16:17:06.937 [INFO    ]            uvicorn.access - 127.0.0.1:47630 - "GET /queue/data?session_hash=463319de-cde8-48e2-8d9b-f9ad6fc60e2e HTTP/1.1" 200
+16:17:27.687 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:18:02.656 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:18:02.656235215Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+\n\n",
+        'thinking': 'The user says "in the remost host eraigra-rpi username 
+raimondo remove if exists ~/agent_test/test2.3.sh". The assistant executed `rm 
+-f ~/agent_test/test2.3.sh`. But the remote host was not specified. The tool 
+signature: `execute_remote_command` requires host, port, user, command. The 
+assistant used presumably defaults? The call didn\'t specify host etc. That is 
+wrong usage. We should provide correct syntax. Let\'s do: 
+`execute_remote_command({command:"rm -f ~/agent_test/test2.3.sh", 
+host:"eraigra-rpi", port:22, user:"raimondo"})`. We\'ll output the result.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'rm -f ~/agent_test/test2.3.sh',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26398875626,
+    'load_duration': 287219412,
+    'prompt_eval_count': 380,
+    'prompt_eval_duration': 1010331969,
+    'eval_count': 195,
+    'eval_duration': 24873357625
+}
+16:18:02.814 [INFO    ]            uvicorn.access - 127.0.0.1:57892 - "POST /queue/join HTTP/1.1" 200
+16:18:02.868 [INFO    ]            uvicorn.access - 127.0.0.1:57894 - "GET /queue/data?session_hash=463319de-cde8-48e2-8d9b-f9ad6fc60e2e HTTP/1.1" 200
+16:22:29.456 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:23:08.548 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test; cat <<'EOF' > ~/agent_test/test2.3.sh
+#!/bin/bash
+
+# Start complex flow control test
+
+echo "Starting complex flow control test"
+
+# Function to generate Fibonacci numbers
+fibonacci() {
+  local n=$1
+  local a=0 b=1 count=0
+  while [ $count -lt $n ]; do
+    echo "$a"
+    local temp=$((a + b))
+    a=$b
+    b=$temp
+    count=$((count + 1))
+  done
+}
+
+# Use the function
+
+echo "First 5 Fibonacci numbers:"
+fibonacci 5
+
+# Main loop with complex control structures
+for i in {1..5}; do
+  echo "Iteration $i"
+  if (( i % 2 == 0 )); then
+    echo "$i is even"
+    for j in {1..3}; do
+      echo "  Sub-iteration $j"
+      if (( j % 2 == 0 )); then
+        echo "  Sub-iteration $j is even"
+        if (( j == 2 )); then
+          echo "  Sub-iteration $j is the middle"
+          break
+        fi
+      else
+        echo "  Sub-iteration $j is odd"
+      fi
+    done
+  else
+    echo "$i is odd"
+    case $i in
+      1) echo "  First iteration";;
+      3) echo "  Third iteration";;
+      5) echo "  Fifth iteration";;
+    esac
+  fi
+
+done
+
+# End of script
+
+echo "Completed"
+EOF
+chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test; cat <<'EOF' > ~/agent_test/test2.3.sh
+#!/bin/bash
+
+# Start complex flow control test
+
+echo "Starting complex flow control test"
+
+# Function to generate Fibonacci numbers
+fibonacci() {
+  local n=$1
+  local a=0 b=1 count=0
+  while [ $count -lt $n ]; do
+    echo "$a"
+    local temp=$((a + b))
+    a=$b
+    b=$temp
+    count=$((count + 1))
+  done
+}
+
+# Use the function
+
+echo "First 5 Fibonacci numbers:"
+fibonacci 5
+
+# Main loop with complex control structures
+for i in {1..5}; do
+  echo "Iteration $i"
+  if (( i % 2 == 0 )); then
+    echo "$i is even"
+    for j in {1..3}; do
+      echo "  Sub-iteration $j"
+      if (( j % 2 == 0 )); then
+        echo "  Sub-iteration $j is even"
+        if (( j == 2 )); then
+          echo "  Sub-iteration $j is the middle"
+          break
+        fi
+      else
+        echo "  Sub-iteration $j is odd"
+      fi
+    done
+  else
+    echo "$i is odd"
+    case $i in
+      1) echo "  First iteration";;
+      3) echo "  Third iteration";;
+      5) echo "  Fifth iteration";;
+    esac
+  fi
+
+done
+
+# End of script
+
+echo "Completed"
+EOF
+chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test; cat <<\'"\'"\'EOF\'"\'"\' > 
+~/agent_test/test2.3.sh\n#!/bin/bash\n\n# Start complex flow control 
+test\n\necho "Starting complex flow control test"\n\n# Function to generate 
+Fibonacci numbers\nfibonacci() {\n  local n=$1\n  local a=0 b=1 count=0\n  while
+[ $count -lt $n ]; do\n    echo "$a"\n    local temp=$((a + b))\n    a=$b\n    
+b=$temp\n    count=$((count + 1))\n  done\n}\n\n# Use the function\n\necho 
+"First 5 Fibonacci numbers:"\nfibonacci 5\n\n# Main loop with complex control 
+structures\nfor i in {1..5}; do\n  echo "Iteration $i"\n  if (( i % 2 == 0 )); 
+then\n    echo "$i is even"\n    for j in {1..3}; do\n      echo "  
+Sub-iteration $j"\n      if (( j % 2 == 0 )); then\n        echo "  
+Sub-iteration $j is even"\n        if (( j == 2 )); then\n          echo "  
+Sub-iteration $j is the middle"\n          break\n        fi\n      else\n      
+echo "  Sub-iteration $j is odd"\n      fi\n    done\n  else\n    echo "$i is 
+odd"\n    case $i in\n      1) echo "  First iteration";;\n      3) echo "  
+Third iteration";;\n      5) echo "  Fifth iteration";;\n    esac\n  
+fi\n\ndone\n\n# End of script\n\necho "Completed"\nEOF\nchmod +x 
+~/agent_test/test2.3.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:23:08.548276685Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test; cat <<\'"\'"\'EOF\'"\'"\' > 
+~/agent_test/test2.3.sh\n#!/bin/bash\n\n# Start complex flow control 
+test\n\necho "Starting complex flow control test"\n\n# Function to generate 
+Fibonacci numbers\nfibonacci() {\n  local n=$1\n  local a=0 b=1 count=0\n  while
+[ $count -lt $n ]; do\n    echo "$a"\n    local temp=$((a + b))\n    a=$b\n    
+b=$temp\n    count=$((count + 1))\n  done\n}\n\n# Use the function\n\necho 
+"First 5 Fibonacci numbers:"\nfibonacci 5\n\n# Main loop with complex control 
+structures\nfor i in {1..5}; do\n  echo "Iteration $i"\n  if (( i % 2 == 0 )); 
+then\n    echo "$i is even"\n    for j in {1..3}; do\n      echo "  
+Sub-iteration $j"\n      if (( j % 2 == 0 )); then\n        echo "  
+Sub-iteration $j is even"\n        if (( j == 2 )); then\n          echo "  
+Sub-iteration $j is the middle"\n          break\n        fi\n      else\n      
+echo "  Sub-iteration $j is odd"\n      fi\n    done\n  else\n    echo "$i is 
+odd"\n    case $i in\n      1) echo "  First iteration";;\n      3) echo "  
+Third iteration";;\n      5) echo "  Fifth iteration";;\n    esac\n  
+fi\n\ndone\n\n# End of script\n\necho "Completed"\nEOF\nchmod +x 
+~/agent_test/test2.3.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe requested script has been created and made executable in one single 
+command. You can view its contents with:\n\n```bash\ncat 
+~/agent_test/test2.3.sh\n```\n\nThe script demonstrates a variety of 
+flow‑control constructs (loops, conditionals, case statements, functions, and 
+nested loops).',
+        'thinking': 'The function returned the command and message, but the 
+assistant didn\'t explicitly give the single command line to run. The user 
+requested: "please create an example script ~/agent_test/test2.3.sh that develop
+complex flow control logic. Please make it executables in the same command line.
+Don\'t split the commands and do all requested in a single command line." So we 
+need to supply the single command that does everything: mkdir -p, create the 
+file via cat <<EOF, chmod +x. The assistant executed that, but we should present
+the command to the user. The function succeeded. We should respond acknowledging
+completion and maybe show the script content.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30452371352,
+    'load_duration': 310018416,
+    'prompt_eval_count': 1019,
+    'prompt_eval_duration': 257001464,
+    'eval_count': 62,
+    'eval_duration': 7843398336
+}
+16:23:08.684 [INFO    ]            uvicorn.access - 127.0.0.1:35964 - "POST /queue/join HTTP/1.1" 200
+16:23:08.737 [INFO    ]            uvicorn.access - 127.0.0.1:35966 - "GET /queue/data?session_hash=463319de-cde8-48e2-8d9b-f9ad6fc60e2e HTTP/1.1" 200
+16:23:22.767 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:24:03.865 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': 
+'Starting complex flow control test\nFirst 5 Fibonacci 
+numbers:\n0\n1\n1\n2\n3\nIteration 1\n1 is odd\n  First iteration\nIteration 
+2\n2 is even\n  Sub-iteration 1\n  Sub-iteration 1 is odd\n  Sub-iteration 2\n  
+Sub-iteration 2 is even\n  Sub-iteration 2 is the middle\nIteration 3\n3 is 
+odd\n  Third iteration\nIteration 4\n4 is even\n  Sub-iteration 1\n  
+Sub-iteration 1 is odd\n  Sub-iteration 2\n  Sub-iteration 2 is even\n  
+Sub-iteration 2 is the middle\nIteration 5\n5 is odd\n  Fifth 
+iteration\nCompleted'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:24:03.864863959Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+Starting complex flow control test\nFirst 5 Fibonacci 
+numbers:\n0\n1\n1\n2\n3\nIteration 1\n1 is odd\n  First iteration\nIteration 
+2\n2 is even\n  Sub-iteration 1\n  Sub-iteration 1 is odd\n  Sub-iteration 2\n  
+Sub-iteration 2 is even\n  Sub-iteration 2 is the middle\nIteration 3\n3 is 
+odd\n  Third iteration\nIteration 4\n4 is even\n  Sub-iteration 1\n  
+Sub-iteration 1 is odd\n  Sub-iteration 2\n  Sub-iteration 2 is even\n  
+Sub-iteration 2 is the middle\nIteration 5\n5 is odd\n  Fifth 
+iteration\nCompleted\n\nHere is the output you received from running 
+`~/agent_test/test2.3.sh` on **eraigra-rpi**:\n\n```\nStarting complex flow 
+control test\nFirst 5 Fibonacci numbers:\n0\n1\n1\n2\n3\nIteration 1\n1 is odd\n
+First iteration\nIteration 2\n2 is even\n  Sub-iteration 1\n  Sub-iteration 1 is
+odd\n  Sub-iteration 2\n  Sub-iteration 2 is even\n  Sub-iteration 2 is the 
+middle\nIteration 3\n3 is odd\n  Third iteration\nIteration 4\n4 is even\n  
+Sub-iteration 1\n  Sub-iteration 1 is odd\n  Sub-iteration 2\n  Sub-iteration 2 
+is even\n  Sub-iteration 2 is the middle\nIteration 5\n5 is odd\n  Fifth 
+iteration\nCompleted\n```\n\nLet me know if you’d like to analyze any part of 
+the script or run additional tests!",
+        'thinking': "The user executed the script and got output. We need to 
+respond. Probably just acknowledge the output and maybe explain if needed. Let's
+output the provided output and confirm."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 35938621645,
+    'load_duration': 296037032,
+    'prompt_eval_count': 1223,
+    'prompt_eval_duration': 233516936,
+    'eval_count': 211,
+    'eval_duration': 27033557911
+}
+16:24:04.016 [INFO    ]            uvicorn.access - 127.0.0.1:50134 - "POST /queue/join HTTP/1.1" 200
+16:24:04.069 [INFO    ]            uvicorn.access - 127.0.0.1:50146 - "GET /queue/data?session_hash=463319de-cde8-48e2-8d9b-f9ad6fc60e2e HTTP/1.1" 200
+16:24:17.643 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:24:35.275 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:24:35.275196776Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test2.3.sh` has been removed successfully.",
+        'thinking': 'The user wants to remove the script again. The assistant 
+already did that. Possibly confirm removal. Probably respond that file has been 
+removed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8993253724,
+    'load_duration': 294802189,
+    'prompt_eval_count': 1506,
+    'prompt_eval_duration': 257425959,
+    'eval_count': 18,
+    'eval_duration': 2189558765
+}
+16:24:35.443 [INFO    ]             uvicorn.error - Shutting down
+16:24:35.544 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:24:35.544 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:24:35.544 [INFO    ]             uvicorn.error - Finished server process [3663]
+make: *** [Makefile:36: run] Terminated

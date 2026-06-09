@@ -1,0 +1,182 @@
+poetry run python -m private_gpt
+15:28:28.542 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:28:32.832 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:28:32.896 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:28:32.898 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:28:33.793 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:28:33.948 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:28:33.949 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:28:33.950 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:28:34.843 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:28:34.884 [INFO    ]             uvicorn.error - Started server process [2485906]
+15:28:34.884 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:28:34.884 [INFO    ]             uvicorn.error - Application startup complete.
+15:28:34.884 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:29:08.370 [INFO    ]            uvicorn.access - 127.0.0.1:33164 - "GET /config HTTP/1.1" 200
+15:29:08.425 [INFO    ]            uvicorn.access - 127.0.0.1:33178 - "GET /info?serialize=False HTTP/1.1" 200
+15:29:08.495 [INFO    ]            uvicorn.access - 127.0.0.1:33180 - "GET /heartbeat/d3eba8d6-f0e7-43d4-9293-8e470ed6f6e5 HTTP/1.1" 200
+15:29:08.498 [INFO    ]            uvicorn.access - 127.0.0.1:33192 - "POST /queue/join HTTP/1.1" 200
+15:29:08.554 [INFO    ]            uvicorn.access - 127.0.0.1:33200 - "GET /queue/data?session_hash=d3eba8d6-f0e7-43d4-9293-8e470ed6f6e5 HTTP/1.1" 200
+15:29:19.853 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:30:12.553 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull ubuntu && docker run -d --name my_container ubuntu sleep infinity
+[AGENT] ✅ Remote command executed successfully: docker pull ubuntu && docker run -d --name my_container ubuntu sleep infinity
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull ubuntu &&
+docker run -d --name my_container ubuntu sleep infinity'' executed successfully 
+on remote host.", 'output': 'Using default tag: latest\nlatest: Pulling from 
+library/ubuntu\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Image is up to date for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n203bf6b6f48bb4dd3758c6cf292c2465
+c627b4db00765877aa36a734248eedbc'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:30:12.553038685Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull ubuntu && docker run -d --name my_container ubuntu sleep 
+infinity'' executed successfully on remote host.\nOutput: Using default tag: 
+latest\nlatest: Pulling from library/ubuntu\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Image is up to date for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n203bf6b6f48bb4dd3758c6cf292c2465
+c627b4db00765877aa36a734248eedbc\n\nThe command has been executed successfully 
+on the remote host. Here's the output:\n\n```\nUsing default tag: 
+latest\nlatest: Pulling from library/ubuntu\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Image is up to date for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n203bf6b6f48bb4dd3758c6cf292c2465
+c627b4db00765877aa36a734248eedbc\n```\n\nThis indicates that the Ubuntu image 
+was pulled successfully and a container named `my_container` was started from 
+it, running `sleep infinity` in detached mode. The container ID is 
+`203bf6b6f48bb4dd3758c6cf292c2465c627b4db00765877aa36a734248eedbc`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37389365657,
+    'load_duration': 132051597,
+    'prompt_eval_count': 741,
+    'prompt_eval_duration': 5811957951,
+    'eval_count': 266,
+    'eval_duration': 31236603360
+}
+15:30:12.703 [INFO    ]            uvicorn.access - 127.0.0.1:38814 - "POST /queue/join HTTP/1.1" 200
+15:30:12.757 [INFO    ]            uvicorn.access - 127.0.0.1:38822 - "GET /queue/data?session_hash=d3eba8d6-f0e7-43d4-9293-8e470ed6f6e5 HTTP/1.1" 200
+15:30:29.558 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:31:13.026 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker network ls && docker inspect my_container | grep -A 5 -B 5 Networks
+[AGENT] ✅ Remote command executed successfully: docker network ls && docker inspect my_container | grep -A 5 -B 5 Networks
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker network ls && 
+docker inspect my_container | grep -A 5 -B 5 Networks'' executed successfully on
+remote host.", 'output': 'NETWORK ID     NAME      DRIVER    SCOPE\n63d75d84d916
+bridge    bridge    local\n5762f4831143   host      host      
+local\n61ce68f3e722   none      null      local\n        },\n        
+"NetworkSettings": {\n            "SandboxID": 
+"048f3e779dbb52e63cf3b41c72116fc70f10bb0ed5d855b7a8c05c6e2d626560",\n           
+"SandboxKey": "/var/run/docker/netns/048f3e779dbb",\n            "Ports": {},\n 
+"Networks": {\n                "bridge": {\n                    "IPAMConfig": 
+null,\n                    "Links": null,\n                    "Aliases": 
+null,\n                    "DriverOpts": null,'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:31:13.02640512Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker network ls && docker inspect my_container | grep -A 5 -B 5 
+Networks\'\' executed successfully on remote host.\nOutput: NETWORK ID     NAME 
+DRIVER    SCOPE\n63d75d84d916   bridge    bridge    local\n5762f4831143   host  
+host      local\n61ce68f3e722   none      null      local\n        },\n        
+"NetworkSettings": {\n            "SandboxID": 
+"048f3e779dbb52e63cf3b41c72116fc70f10bb0ed5d855b7a8c05c6e2d626560",\n           
+"SandboxKey": "/var/run/docker/netns/048f3e779dbb",\n            "Ports": {},\n 
+"Networks": {\n                "bridge": {\n                    "IPAMConfig": 
+null,\n                    "Links": null,\n                    "Aliases": 
+null,\n                    "DriverOpts": null,\n\nThe command has been executed 
+successfully on the remote host. Here are the results:\n\nFirst, the docker 
+networks list:\n```\nNETWORK ID     NAME      DRIVER    SCOPE\n63d75d84d916   
+bridge    bridge    local\n5762f4831143   host      host      
+local\n61ce68f3e722   none      null      local\n```\n\nThen, the container\'s 
+network information:\nThe container `my_container` is connected to the `bridge` 
+network. The network settings show:\n- Network Name: bridge\n- IPAMConfig: 
+null\n- Links: null\n- Aliases: null\n- DriverOpts: null\n\nThis indicates that 
+the container is running on the default Docker bridge network, which is the 
+standard network configuration for Docker containers.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33710715860,
+    'load_duration': 130123208,
+    'prompt_eval_count': 1336,
+    'prompt_eval_duration': 12332045439,
+    'eval_count': 176,
+    'eval_duration': 21097588907
+}
+15:31:13.148 [INFO    ]            uvicorn.access - 127.0.0.1:40414 - "POST /queue/join HTTP/1.1" 200
+15:31:13.208 [INFO    ]            uvicorn.access - 127.0.0.1:40418 - "GET /queue/data?session_hash=d3eba8d6-f0e7-43d4-9293-8e470ed6f6e5 HTTP/1.1" 200
+15:31:36.031 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:32:18.471 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -aq) && docker rmi -f $(docker images -q)'' executed successfully on remote 
+host.", 'output': '203bf6b6f48b\nc4acea0082a0\nUntagged: 
+registry.example.com/alpine:latest\nDeleted: 
+sha256:4d000244d2e640c49d0ddc7edc21e748996e0a887551c100c410996cfd1ec2d0\nDeleted
+: 
+sha256:027514901d7a1a7a97070a60def8f15fbc2be03e5673993c2c9a4c03a0f80c16\nUntagge
+d: myimage:latest\nDeleted: 
+sha256:e67c7475a61e42f2756f5902dace17197afb89b5c2cae96da1548f7d4bf95fce\nUntagge
+d: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:32:18.470995768Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)'' executed 
+successfully on remote host.\nOutput: 203bf6b6f48b\nc4acea0082a0\nUntagged: 
+registry.example.com/alpine:latest\nDeleted: 
+sha256:4d000244d2e640c49d0ddc7edc21e748996e0a887551c100c410996cfd1ec2d0\nDeleted
+: 
+sha256:027514901d7a1a7a97070a60def8f15fbc2be03e5673993c2c9a4c03a0f80c16\nUntagge
+d: myimage:latest\nDeleted: 
+sha256:e67c7475a61e42f2756f5902dace17197afb89b5c2cae96da1548f7d4bf95fce\nUntagge
+d: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\n\nThe
+command has been executed successfully on the remote host. All Docker containers
+and images have been removed.\n\nThe output shows:\n- Two containers were 
+removed (with IDs 203bf6b6f48b and c4acea0082a0)\n- Several images were deleted 
+including:\n  - registry.example.com/alpine:latest\n  - myimage:latest\n  - 
+ubuntu:latest\n  - 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+\nAll containers and images have been successfully removed from the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26767046398,
+    'load_duration': 130462143,
+    'prompt_eval_count': 2061,
+    'prompt_eval_duration': 6223929307,
+    'eval_count': 164,
+    'eval_duration': 20261433798
+}
+15:32:18.683 [INFO    ]             uvicorn.error - Shutting down
+15:32:18.783 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:32:18.783 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:32:18.783 [INFO    ]             uvicorn.error - Finished server process [2485906]
+make: *** [Makefile:36: run] Terminated

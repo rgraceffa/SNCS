@@ -1,0 +1,199 @@
+poetry run python -m private_gpt
+09:27:39.931 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:27:44.228 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:27:44.292 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:27:44.293 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:27:45.191 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:27:45.346 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:27:45.348 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:27:45.349 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:27:46.241 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:27:46.282 [INFO    ]             uvicorn.error - Started server process [2808625]
+09:27:46.282 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:27:46.282 [INFO    ]             uvicorn.error - Application startup complete.
+09:27:46.283 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:28:19.756 [INFO    ]            uvicorn.access - 127.0.0.1:46122 - "GET /config HTTP/1.1" 200
+09:28:19.812 [INFO    ]            uvicorn.access - 127.0.0.1:46126 - "GET /info?serialize=False HTTP/1.1" 200
+09:28:19.911 [INFO    ]            uvicorn.access - 127.0.0.1:46134 - "GET /heartbeat/ed49caab-a699-423b-9aa4-9f12ee396a15 HTTP/1.1" 200
+09:28:19.914 [INFO    ]            uvicorn.access - 127.0.0.1:46148 - "POST /queue/join HTTP/1.1" 200
+09:28:19.970 [INFO    ]            uvicorn.access - 127.0.0.1:46152 - "GET /queue/data?session_hash=ed49caab-a699-423b-9aa4-9f12ee396a15 HTTP/1.1" 200
+09:28:33.102 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:28:48.347 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/test2.3.sh'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:28:48.346811524Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/test2.3.sh'' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f /home/raimondo/agent_test/test2.3.sh` was 
+executed successfully on the remote host. The script has been removed if it 
+existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8941161654,
+    'load_duration': 129245297,
+    'prompt_eval_count': 592,
+    'prompt_eval_duration': 4130007021,
+    'eval_count': 39,
+    'eval_duration': 4615806278
+}
+09:28:48.495 [INFO    ]            uvicorn.access - 127.0.0.1:34108 - "POST /queue/join HTTP/1.1" 200
+09:28:48.550 [INFO    ]            uvicorn.access - 127.0.0.1:34118 - "GET /queue/data?session_hash=ed49caab-a699-423b-9aa4-9f12ee396a15 HTTP/1.1" 200
+09:29:01.584 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:29:22.106 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\nsudo apt-get check\nsudo apt-get install -f' > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\nsudo apt-get check\nsudo apt-get install -f' > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\nsudo apt-get check\\nsudo apt-get 
+install -f\'"\'"\' > ~/agent_test/test2.3.sh && chmod +x 
+~/agent_test/test2.3.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:29:22.105639977Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\nsudo apt-get 
+check\\nsudo apt-get install -f\'"\'"\' > ~/agent_test/test2.3.sh && chmod +x 
+~/agent_test/test2.3.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test2.3.sh` has been created successfully on the 
+remote host. It includes the following functionality:\n\n1. Lists and reports 
+packages with unresolved dependencies using `sudo apt-get check`\n2. 
+Automatically fixes broken dependencies using `sudo apt-get install -f`\n3. Has 
+execute permissions enabled\n\nThe script is located at 
+`/home/raimondo/agent_test/test2.3.sh` and can be run directly to check and fix 
+package dependencies.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18904577297,
+    'load_duration': 130274760,
+    'prompt_eval_count': 791,
+    'prompt_eval_duration': 7072510640,
+    'eval_count': 98,
+    'eval_duration': 11602529556
+}
+09:29:22.227 [INFO    ]            uvicorn.access - 127.0.0.1:34030 - "POST /queue/join HTTP/1.1" 200
+09:29:22.282 [INFO    ]            uvicorn.access - 127.0.0.1:34034 - "GET /queue/data?session_hash=ed49caab-a699-423b-9aa4-9f12ee396a15 HTTP/1.1" 200
+09:29:38.027 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:30:22.034 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: bash /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''bash 
+/home/raimondo/agent_test/test2.3.sh'' executed successfully on remote host.", 
+'output': "Reading package lists...\nBuilding dependency tree...\nReading state 
+information...\nReading package lists...\nBuilding dependency tree...\nReading 
+state information...\nThe following packages were automatically installed and 
+are no longer required:\n  libaacs0 libass9 libasyncns0 libavc1394-0 
+libavcodec58 libavdevice58\n  libavfilter7 libavformat58 libavutil56 libbdplus0 
+libbluray2 libbs2b0\n  libcaca0 libcdio-cdda2 libcdio-paranoia2 libcdio19 
+libchromaprint1\n  libcodec2-1.0 libdc1394-25 libdecor-0-0 
+libdecor-0-plugin-1-cairo libflac8\n  libflite1 libgbm1 libgfortran5 libgme0 
+libgsm1 libiec61883-0\n  libjack-jackd2-0 liblapack3 liblilv-0-0 libmp3lame0 
+libmpg123-0 libmysofa1\n  libnorm1 libogg0 libopenal-data libopenal1 libopenmpt0
+libopus0 libpgm-5.3-0\n  libpocketsphinx3 libpostproc55 libpulse0 librabbitmq4 
+libraw1394-11\n  librubberband2 libsamplerate0 libsdl2-2.0-0 libserd-0-0 
+libshine3\n  libsndfile1 libsndio7.0 libsord-0-0 libsoxr0 libspeex1 
+libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls libswresample3 libswscale5 
+libtheora0\n  libtwolame0 libudfread0 libva-drm2 libva-x11-2 libva2 libvdpau1\n 
+libvidstab1.1 libvorbis0a libvorbisenc2 libvorbisfile3 libvpx7\n  
+libwayland-server0 libx264-163 libxvidcore4 libzimg2 libzmq5 libzvbi-common\n  
+libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1\n  
+pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 'sudo apt autoremove' to 
+remove them.\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:30:22.034054513Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''bash /home/raimondo/agent_test/test2.3.sh'' executed successfully on remote 
+host.\nOutput: Reading package lists...\nBuilding dependency tree...\nReading 
+state information...\nReading package lists...\nBuilding dependency 
+tree...\nReading state information...\nThe following packages were automatically
+installed and are no longer required:\n  libaacs0 libass9 libasyncns0 
+libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 libavformat58 
+libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 libcdio-cdda2 
+libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 libdc1394-25 
+libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 libgbm1 
+libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 liblapack3 
+liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded.\n\nThe script `~/agent_test/test2.3.sh` has been 
+executed successfully on the remote host. Here are the results:\n\nThe system 
+checked for package dependencies and found:\n- No packages with unresolved 
+dependencies\n- No upgrades, installations, or removals needed\n- 0 packages 
+were upgraded, 0 newly installed, 0 to remove, and 0 not upgraded\n\nThe system 
+also reported that there are several automatically installed packages that are 
+no longer required. These include various multimedia libraries and drivers. You 
+can remove them using `sudo apt autoremove` if desired.\n\nOverall, the package 
+system is in a clean state with no broken dependencies to fix."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30604250314,
+    'load_duration': 130869787,
+    'prompt_eval_count': 1547,
+    'prompt_eval_duration': 14327628990,
+    'eval_count': 134,
+    'eval_duration': 16001822121
+}
+09:30:22.186 [INFO    ]            uvicorn.access - 127.0.0.1:40010 - "POST /queue/join HTTP/1.1" 200
+09:30:22.241 [INFO    ]            uvicorn.access - 127.0.0.1:40012 - "GET /queue/data?session_hash=ed49caab-a699-423b-9aa4-9f12ee396a15 HTTP/1.1" 200
+09:30:46.396 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:31:14.177 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/test2.3.sh'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:31:14.177250791Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/test2.3.sh'' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f /home/raimondo/agent_test/test2.3.sh` 
+executed successfully on the remote host. The script has been removed if it 
+existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22328873397,
+    'load_duration': 131511658,
+    'prompt_eval_count': 1782,
+    'prompt_eval_duration': 17553656700,
+    'eval_count': 38,
+    'eval_duration': 4541026659
+}
+09:31:14.346 [INFO    ]             uvicorn.error - Shutting down
+09:31:14.445 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:31:14.445 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:31:14.445 [INFO    ]             uvicorn.error - Finished server process [2808625]
+make: *** [Makefile:36: run] Terminated

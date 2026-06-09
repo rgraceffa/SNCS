@@ -1,0 +1,5 @@
+TASKNAME=Append ‘‘hello world’’ 100 times to the file separated by line breaks. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.2.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo append ‘hello world’ 100 times to the file ~/agent_test/test1.2.txt separated by line breaks. 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test1.2.txt is created and contains "hello world" 100 time separated by line breaks. 
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.2.txt

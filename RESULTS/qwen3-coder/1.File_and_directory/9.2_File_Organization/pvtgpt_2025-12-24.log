@@ -1,0 +1,370 @@
+poetry run python -m private_gpt
+14:28:34.756 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:28:39.064 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:28:39.127 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:28:39.129 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:28:40.026 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:28:40.181 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:28:40.183 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:28:40.184 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:28:41.072 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:28:41.113 [INFO    ]             uvicorn.error - Started server process [80595]
+14:28:41.113 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:28:41.113 [INFO    ]             uvicorn.error - Application startup complete.
+14:28:41.113 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:29:14.580 [INFO    ]            uvicorn.access - 127.0.0.1:35842 - "GET /config HTTP/1.1" 200
+14:29:14.635 [INFO    ]            uvicorn.access - 127.0.0.1:35854 - "GET /info?serialize=False HTTP/1.1" 200
+14:29:14.702 [INFO    ]            uvicorn.access - 127.0.0.1:35866 - "GET /heartbeat/c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:29:14.704 [INFO    ]            uvicorn.access - 127.0.0.1:35870 - "POST /queue/join HTTP/1.1" 200
+14:29:14.760 [INFO    ]            uvicorn.access - 127.0.0.1:35876 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:29:31.380 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:29:55.091 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp /etc/X11/rgb.txt ~/agent_test/test9.2.txt && chmod --reference=/etc/X11/rgb.txt ~/agent_test/test9.2.txt && touch -r /etc/X11/rgb.txt ~/agent_test/test9.2.txt
+[AGENT] ✅ Remote command executed successfully: cp /etc/X11/rgb.txt ~/agent_test/test9.2.txt && chmod --reference=/etc/X11/rgb.txt ~/agent_test/test9.2.txt && touch -r /etc/X11/rgb.txt ~/agent_test/test9.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp /etc/X11/rgb.txt 
+~/agent_test/test9.2.txt && chmod --reference=/etc/X11/rgb.txt 
+~/agent_test/test9.2.txt && touch -r /etc/X11/rgb.txt ~/agent_test/test9.2.txt''
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:29:55.090943112Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cp 
+/etc/X11/rgb.txt ~/agent_test/test9.2.txt && chmod --reference=/etc/X11/rgb.txt 
+~/agent_test/test9.2.txt && touch -r /etc/X11/rgb.txt ~/agent_test/test9.2.txt''
+executed successfully on remote host.\nOutput: \n\nThe command has been 
+successfully executed on the remote host. Here's what was done:\n\n1. The file 
+`/etc/X11/rgb.txt` was copied to `~/agent_test/test9.2.txt`.\n2. The permissions
+of the original file were preserved using `chmod --reference`.\n3. The timestamp
+(date) of the original file was preserved using `touch -r`.\n\nThe file 
+`test9.2.txt` now exists in the `~/agent_test` directory with the same 
+permissions and timestamp as the original file."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17852100467,
+    'load_duration': 134821087,
+    'prompt_eval_count': 659,
+    'prompt_eval_duration': 4604474890,
+    'eval_count': 109,
+    'eval_duration': 13004608604
+}
+14:29:55.203 [INFO    ]            uvicorn.access - 127.0.0.1:55842 - "POST /queue/join HTTP/1.1" 200
+14:29:55.263 [INFO    ]            uvicorn.access - 127.0.0.1:55844 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:30:08.534 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:30:28.683 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+[AGENT] ❌ Remote command failed: find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+find: missing argument to `-exec'
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'find ~/agent_test 
+-name \'"\'"\'*.txt\'"\'"\' -type f -newermt \'"\'"\'2020-10-09\'"\'"\' ! 
+-newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} /tmp/ \\\\;\'\' failed on remote
+host.', 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to the 
+list of known hosts.\nfind: missing argument to `-exec'"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:30:28.683034805Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'find ~/agent_test -name \'"\'"\'*.txt\'"\'"\' -type f -newermt 
+\'"\'"\'2020-10-09\'"\'"\' ! -newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} 
+/tmp/ \\\\;\'\' failed on remote host.\nOutput: Warning: Permanently added 
+\'eraigra-rpi\' (ED25519) to the list of known hosts.\nfind: missing argument to
+`-exec\'\n\nI see the issue with the command. The problem is with the escaping 
+of the semicolon in the `-exec` clause. Let me correct this and provide a 
+working command:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "find ~/agent_test -name '*.txt' -type f 
+-newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\\\;",
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18575656796,
+    'load_duration': 128844232,
+    'prompt_eval_count': 982,
+    'prompt_eval_duration': 2367510445,
+    'eval_count': 136,
+    'eval_duration': 15955791221
+}
+14:30:33.776 [INFO    ]            uvicorn.access - 127.0.0.1:54438 - "POST /queue/join HTTP/1.1" 200
+14:30:33.831 [INFO    ]            uvicorn.access - 127.0.0.1:54454 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:30:47.470 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:31:10.051 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+[AGENT] ❌ Remote command failed: find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+find: missing argument to `-exec'
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'find ~/agent_test 
+-name \'"\'"\'*.txt\'"\'"\' -type f -newermt \'"\'"\'2020-10-09\'"\'"\' ! 
+-newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} /tmp/ \\\\;\'\' failed on remote
+host.', 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to the 
+list of known hosts.\nfind: missing argument to `-exec'"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:31:10.051157397Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'find ~/agent_test -name \'"\'"\'*.txt\'"\'"\' -type f -newermt 
+\'"\'"\'2020-10-09\'"\'"\' ! -newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} 
+/tmp/ \\\\;\'\' failed on remote host.\nOutput: Warning: Permanently added 
+\'eraigra-rpi\' (ED25519) to the list of known hosts.\nfind: missing argument to
+`-exec\'\n\nI need to fix the command with proper escaping for the semicolon. 
+Let me provide the correct command:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "find ~/agent_test -name '*.txt' -type f 
+-newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\\\;",
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17209011836,
+    'load_duration': 130483721,
+    'prompt_eval_count': 1232,
+    'prompt_eval_duration': 2565828497,
+    'eval_count': 122,
+    'eval_duration': 14392011421
+}
+14:31:15.200 [INFO    ]            uvicorn.access - 127.0.0.1:59608 - "POST /queue/join HTTP/1.1" 200
+14:31:15.255 [INFO    ]            uvicorn.access - 127.0.0.1:59624 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:31:39.945 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:32:12.375 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+[AGENT] ❌ Remote command failed: find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+find: missing argument to `-exec'
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'find ~/agent_test 
+-name \'"\'"\'*.txt\'"\'"\' -type f -newermt \'"\'"\'2020-10-09\'"\'"\' ! 
+-newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} /tmp/ \\\\;\'\' failed on remote
+host.', 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to the 
+list of known hosts.\nfind: missing argument to `-exec'"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:32:12.374879085Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'find ~/agent_test -name \'"\'"\'*.txt\'"\'"\' -type f -newermt 
+\'"\'"\'2020-10-09\'"\'"\' ! -newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} 
+/tmp/ \\\\;\'\' failed on remote host.\nOutput: Warning: Permanently added 
+\'eraigra-rpi\' (ED25519) to the list of known hosts.\nfind: missing argument to
+`-exec\'\n\nI see the issue. Let me provide a simpler and correctly formatted 
+command to copy .txt files modified on October 9th, 2020 from ~/agent_test to 
+/tmp folder:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "find ~/agent_test -name '*.txt' -type f 
+-newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\\\;",
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30865631370,
+    'load_duration': 129690291,
+    'prompt_eval_count': 1468,
+    'prompt_eval_duration': 13588343235,
+    'eval_count': 141,
+    'eval_duration': 16993587578
+}
+14:32:17.461 [INFO    ]            uvicorn.access - 127.0.0.1:51920 - "POST /queue/join HTTP/1.1" 200
+14:32:17.521 [INFO    ]            uvicorn.access - 127.0.0.1:51930 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:32:44.606 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:33:20.012 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+[AGENT] ❌ Remote command failed: find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\;
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+find: missing argument to `-exec'
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'find ~/agent_test 
+-name \'"\'"\'*.txt\'"\'"\' -type f -newermt \'"\'"\'2020-10-09\'"\'"\' ! 
+-newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} /tmp/ \\\\;\'\' failed on remote
+host.', 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to the 
+list of known hosts.\nfind: missing argument to `-exec'"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:33:20.011960814Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'find ~/agent_test -name \'"\'"\'*.txt\'"\'"\' -type f -newermt 
+\'"\'"\'2020-10-09\'"\'"\' ! -newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} 
+/tmp/ \\\\;\'\' failed on remote host.\nOutput: Warning: Permanently added 
+\'eraigra-rpi\' (ED25519) to the list of known hosts.\nfind: missing argument to
+`-exec\'\n\nLet me try a different approach with a properly escaped command:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "find ~/agent_test -name '*.txt' -type f 
+-newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \\\\;",
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30058412042,
+    'load_duration': 132656479,
+    'prompt_eval_count': 1723,
+    'prompt_eval_duration': 16290059019,
+    'eval_count': 113,
+    'eval_duration': 13490001209
+}
+14:33:25.137 [INFO    ]            uvicorn.access - 127.0.0.1:37890 - "POST /queue/join HTTP/1.1" 200
+14:33:25.191 [INFO    ]            uvicorn.access - 127.0.0.1:37904 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:33:55.636 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:34:36.621 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \;
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -name '*.txt' -type f -newermt '2020-10-09' ! -newermt '2020-10-10' -exec cp {} /tmp/ \;
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'find ~/agent_test 
+-name \'"\'"\'*.txt\'"\'"\' -type f -newermt \'"\'"\'2020-10-09\'"\'"\' ! 
+-newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} /tmp/ \\;\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:34:36.620611104Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'find ~/agent_test -name \'"\'"\'*.txt\'"\'"\' -type f -newermt 
+\'"\'"\'2020-10-09\'"\'"\' ! -newermt \'"\'"\'2020-10-10\'"\'"\' -exec cp {} 
+/tmp/ \\;\'\' executed successfully on remote host.\nOutput: \n\nThe command has
+been successfully executed on the remote host. Here\'s what was done:\n\n1. The 
+command searched for all `.txt` files in the `~/agent_test` directory\n2. It 
+filtered files that were modified on October 9th, 2020 (between October 9th 
+00:00:00 and October 10th 00:00:00)\n3. All matching files were copied to the 
+`/tmp` folder\n\nThe files that were modified on October 9th, 2020 have now been
+copied from `~/agent_test` to `/tmp`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 35731298025,
+    'load_duration': 134191363,
+    'prompt_eval_count': 1912,
+    'prompt_eval_duration': 19333709263,
+    'eval_count': 132,
+    'eval_duration': 16093069208
+}
+14:34:36.756 [INFO    ]            uvicorn.access - 127.0.0.1:37572 - "POST /queue/join HTTP/1.1" 200
+14:34:36.809 [INFO    ]            uvicorn.access - 127.0.0.1:37588 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:35:04.797 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:35:31.859 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l /tmp/test9.2.txt
+[AGENT] ✅ Remote command executed successfully: ls -l /tmp/test9.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+/tmp/test9.2.txt'' executed successfully on remote host.", 'output': '-rw-r--r--
+1 raimondo raimondo 17394 Dec 24 16:34 /tmp/test9.2.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:35:31.859100583Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /tmp/test9.2.txt'' executed successfully on remote host.\nOutput: -rw-r--r-- 
+1 raimondo raimondo 17394 Dec 24 16:34 /tmp/test9.2.txt\n\nI've checked the /tmp
+folder and found the file test9.2.txt. Here are its details:\n\n```\n-rw-r--r-- 
+1 raimondo raimondo 17394 Dec 24 16:34 /tmp/test9.2.txt\n```\n\nThe file is 
+present in the /tmp folder with:\n- Read and write permissions for the owner 
+(raimondo)\n- Read permissions for the group (raimondo) \n- Read permissions for
+others\n- Size of 17394 bytes\n- Last modified on December 24, 2024 at 
+16:34\n\nThis confirms that the file was successfully copied to the /tmp folder 
+as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21656096582,
+    'load_duration': 133186106,
+    'prompt_eval_count': 2160,
+    'prompt_eval_duration': 2241099926,
+    'eval_count': 156,
+    'eval_duration': 19097941929
+}
+14:35:32.008 [INFO    ]            uvicorn.access - 127.0.0.1:43922 - "POST /queue/join HTTP/1.1" 200
+14:35:32.061 [INFO    ]            uvicorn.access - 127.0.0.1:43936 - "GET /queue/data?session_hash=c0399092-5875-444e-ab0d-8dc2fea6abfe HTTP/1.1" 200
+14:35:42.666 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:35:54.834 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /tmp/test9.2.txt ~/agent_test/test9.2.txt
+[AGENT] ✅ Remote command executed successfully: rm -f /tmp/test9.2.txt ~/agent_test/test9.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/tmp/test9.2.txt ~/agent_test/test9.2.txt'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:35:54.834124565Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /tmp/test9.2.txt ~/agent_test/test9.2.txt'' executed successfully on remote 
+host.\nOutput: \n\nThe command has been successfully executed on the remote 
+host. I've removed the file `test9.2.txt` from both locations:\n\n1. 
+`/tmp/test9.2.txt` - removed from the /tmp folder\n2. `~/agent_test/test9.2.txt`
+- removed from the agent_test folder\n\nBoth files have been deleted 
+successfully."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10570128253,
+    'load_duration': 137758895,
+    'prompt_eval_count': 2409,
+    'prompt_eval_duration': 1601228046,
+    'eval_count': 73,
+    'eval_duration': 8665976671
+}
+14:35:54.951 [INFO    ]             uvicorn.error - Shutting down
+14:35:55.051 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:35:55.051 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:35:55.051 [INFO    ]             uvicorn.error - Finished server process [80595]
+make: *** [Makefile:36: run] Terminated

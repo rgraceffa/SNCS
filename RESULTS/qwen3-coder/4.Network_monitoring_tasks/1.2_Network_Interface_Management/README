@@ -1,0 +1,5 @@
+TASKNAME=Enable and disable network interfaces.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test1.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo enable veth0 and disable veth1 network interfaces using sudo and log the outcome in the file ~/agent_test/test1.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test1.2.log exists and check that veth0 is enabled and that veth1 is disabled
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test1.2.log

@@ -1,0 +1,5 @@
+TASKNAME=List missing dependencies for a specific package using package manager commands.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo install if not already done the zip package using the package manager. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo list missing dependencies for zip package using package manager commands. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=
+TASKPOST_EXECUTION=

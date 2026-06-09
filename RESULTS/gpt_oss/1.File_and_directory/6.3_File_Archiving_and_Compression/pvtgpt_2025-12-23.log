@@ -1,0 +1,215 @@
+poetry run python -m private_gpt
+13:08:46.722 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:08:51.003 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:08:51.067 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:08:51.068 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:08:51.974 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:08:52.129 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:08:52.130 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:08:52.132 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:08:53.026 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:08:53.067 [INFO    ]             uvicorn.error - Started server process [3159862]
+13:08:53.067 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:08:53.067 [INFO    ]             uvicorn.error - Application startup complete.
+13:08:53.068 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:09:26.550 [INFO    ]            uvicorn.access - 127.0.0.1:33666 - "GET /config HTTP/1.1" 200
+13:09:26.605 [INFO    ]            uvicorn.access - 127.0.0.1:33682 - "GET /info?serialize=False HTTP/1.1" 200
+13:09:26.698 [INFO    ]            uvicorn.access - 127.0.0.1:33698 - "GET /heartbeat/1208eb27-ac53-49d6-a7da-a24dc58323c1 HTTP/1.1" 200
+13:09:26.703 [INFO    ]            uvicorn.access - 127.0.0.1:33712 - "POST /queue/join HTTP/1.1" 200
+13:09:26.759 [INFO    ]            uvicorn.access - 127.0.0.1:33720 - "GET /queue/data?session_hash=1208eb27-ac53-49d6-a7da-a24dc58323c1 HTTP/1.1" 200
+13:10:02.818 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:11:03.438 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cd /media && zip -r /tmp/media.zip . && mv -f /tmp/media.zip ~/agent_test/ && cd ~/agent_test && unzip -o media.zip
+[AGENT] ❌ Remote command failed: mkdir -p ~/agent_test && cd /media && zip -r /tmp/media.zip . && mv -f /tmp/media.zip ~/agent_test/ && cd ~/agent_test && unzip -o media.zip
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+[AGENT] ✅:{'status': 'error', 'message': "The command ''mkdir -p ~/agent_test 
+&& cd /media && zip -r /tmp/media.zip . && mv -f /tmp/media.zip ~/agent_test/ &&
+cd ~/agent_test && unzip -o media.zip'' failed on remote host.", 'output': 
+"Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:11:03.437620863Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command ''mkdir
+-p ~/agent_test && cd /media && zip -r /tmp/media.zip . && mv -f /tmp/media.zip 
+~/agent_test/ && cd ~/agent_test && unzip -o media.zip'' failed on remote 
+host.\nOutput: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of
+known hosts.\n\n",
+        'thinking': "The user wants to create a media.zip file by compressing 
+/media, then move it under ~/agent_test if not done, and extract there. All in a
+single command line. They also specify remote host eraigra-rpi with username 
+raimondo. The assistant should produce a single command that does all 
+that.\n\nWe need to ensure the remote host is accessed via SSH. The function 
+expects a command string and host, user, port. The command should create zip: 
+zip -r media.zip /media? But we need to store it somewhere. Let's store in 
+/tmp/media.zip to avoid permission issues. Then we move to ~/agent_test, create 
+folder if not exist. Then unzip in that folder.\n\nSingle command: mkdir -p 
+~/agent_test && cd /tmp && zip -r media.zip /media && mv -f media.zip 
+~/agent_test/ && cd ~/agent_test && unzip -o media.zip\n\nBut zip location: If 
+we use zip -r media.zip /media, that will create the zip in current directory. 
+So better cd /tmp then zip -r media.zip /media. Or we can do: zip -r 
+/tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ ...\n\nLet's craft: 
+mkdir -p ~/agent_test && zip -r /tmp/media.zip /media && mv -f /tmp/media.zip 
+~/agent_test/ && cd ~/agent_test && unzip -o media.zip\n\nAll one line.\n\nNow 
+call function: execute_remote_command with command as above, host eraigra-rpi, 
+user raimondo.\n\n",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && zip -r 
+/tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ && cd ~/agent_test 
+&& unzip -o media.zip',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 54169659255,
+    'load_duration': 289646782,
+    'prompt_eval_count': 463,
+    'prompt_eval_duration': 1817067314,
+    'eval_count': 404,
+    'eval_duration': 51717360285
+}
+13:11:08.545 [INFO    ]            uvicorn.access - 127.0.0.1:42804 - "POST /queue/join HTTP/1.1" 200
+13:11:08.600 [INFO    ]            uvicorn.access - 127.0.0.1:42808 - "GET /queue/data?session_hash=1208eb27-ac53-49d6-a7da-a24dc58323c1 HTTP/1.1" 200
+13:11:57.575 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:12:47.069 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && zip -r /tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ && unzip -o ~/agent_test/media.zip -d ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && zip -r /tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ && unzip -o ~/agent_test/media.zip -d ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& zip -r /tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ && unzip 
+-o ~/agent_test/media.zip -d ~/agent_test/'' executed successfully on remote 
+host.", 'output': 'adding: media/ (stored 0%)\nArchive:  
+/home/raimondo/agent_test/media.zip\n   creating: 
+/home/raimondo/agent_test/media/'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:12:47.06919455Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && zip -r /tmp/media.zip /media && mv -f /tmp/media.zip 
+~/agent_test/ && unzip -o ~/agent_test/media.zip -d ~/agent_test/'' executed 
+successfully on remote host.\nOutput: adding: media/ (stored 0%)\nArchive:  
+/home/raimondo/agent_test/media.zip\n   creating: 
+/home/raimondo/agent_test/media/\n\nThe requested operations have been performed
+in a single command line on the remote host:\n\n```\nmkdir -p ~/agent_test && 
+zip -r /tmp/media.zip /media && mv -f /tmp/media.zip ~/agent_test/ && unzip -o 
+~/agent_test/media.zip -d ~/agent_test/\n```\n\n- `media.zip` has been created 
+by compressing the entire `/media` directory.\n- The archive was moved to 
+`~/agent_test/`.\n- It has been extracted into the same `~/agent_test/` 
+directory.\n\nAll steps have completed successfully.",
+        'thinking': 'The user wants to create media.zip file by compressing 
+/media. Then move to ~/agent_test if not done, and extract here. They don\'t 
+want split commands. We already did that: we created zip at /tmp/media.zip then 
+moved, then unzip in agent_test. Actually we used zip -r /tmp/media.zip /media. 
+That is correct. Then we moved. Then unzip -o ... -d ~/agent_test/. That is 
+done. We should respond that it is done.\n\nBut maybe they want to create 
+media.zip inside /media? Actually "create media.zip file by compressing /media" 
+likely means create a zip archive of /media. The path to archive should be 
+/tmp/media.zip or just in /media? They didn\'t specify destination. We created 
+it in /tmp and moved. That\'s okay.\n\nAlso they want to ensure move if not 
+done. Our command does the move anyway.\n\nLet\'s respond that the task is 
+complete.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 44193509860,
+    'load_duration': 279799043,
+    'prompt_eval_count': 838,
+    'prompt_eval_duration': 257007058,
+    'eval_count': 116,
+    'eval_duration': 14782131418
+}
+13:12:47.184 [INFO    ]            uvicorn.access - 127.0.0.1:37220 - "POST /queue/join HTTP/1.1" 200
+13:12:47.239 [INFO    ]            uvicorn.access - 127.0.0.1:37234 - "GET /queue/data?session_hash=1208eb27-ac53-49d6-a7da-a24dc58323c1 HTTP/1.1" 200
+13:13:28.446 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:13:46.435 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/media.zip ]; then echo "media.zip exists"; if [ -d ~/agent_test/media ]; then echo "extracted"; else echo "not extracted"; fi; else echo "media.zip missing"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/media.zip ]; then echo "media.zip exists"; if [ -d ~/agent_test/media ]; then echo "extracted"; else echo "not extracted"; fi; else echo "media.zip missing"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/media.zip ]; then echo "media.zip exists"; if [ -d 
+~/agent_test/media ]; then echo "extracted"; else echo "not extracted"; fi; else
+echo "media.zip missing"; fi\'\' executed successfully on remote host.', 
+'output': 'media.zip exists\nextracted'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:13:46.434821626Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/media.zip ]; then echo "media.zip exists"; if [ -d 
+~/agent_test/media ]; then echo "extracted"; else echo "not extracted"; fi; else
+echo "media.zip missing"; fi\'\' executed successfully on remote host.\nOutput: 
+media.zip exists\nextracted\n\nYes –\u202fthe archive **media.zip** exists and 
+its contents have been extracted in the `~/agent_test/` directory.',
+        'thinking': "The user has asked to check if media.zip file is created 
+and if have been extracted under ~/agent_test folder. The assistant executed the
+check, got output 'media.zip exists\\nextracted'. We should respond 
+accordingly."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12849945050,
+    'load_duration': 291457631,
+    'prompt_eval_count': 934,
+    'prompt_eval_duration': 257084719,
+    'eval_count': 27,
+    'eval_duration': 3342409654
+}
+13:13:46.522 [INFO    ]            uvicorn.access - 127.0.0.1:60826 - "POST /queue/join HTTP/1.1" 200
+13:13:46.577 [INFO    ]            uvicorn.access - 127.0.0.1:60836 - "GET /queue/data?session_hash=1208eb27-ac53-49d6-a7da-a24dc58323c1 HTTP/1.1" 200
+13:13:59.943 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:14:13.061 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/media.zip && rm -rf ~/agent_test/media
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/media.zip && rm -rf ~/agent_test/media
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/media.zip && rm -rf ~/agent_test/media'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:14:13.061346845Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/media.zip && rm -rf ~/agent_test/media'' executed successfully 
+on remote host.\nOutput: \n\nThe archive `media.zip` and the extracted `media` 
+directory have both been removed from `~/agent_test`.",
+        'thinking': 'The user asks to remove media.zip under ~/agent_test folder
+and remove the folder ~/agent_test/media. The assistant already executed the 
+command. The next step could confirm. Probably we should respond confirming 
+deletion.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11586364841,
+    'load_duration': 285398813,
+    'prompt_eval_count': 1046,
+    'prompt_eval_duration': 129589903,
+    'eval_count': 24,
+    'eval_duration': 2958910487
+}
+13:14:13.269 [INFO    ]             uvicorn.error - Shutting down
+13:14:13.369 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:14:13.369 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:14:13.369 [INFO    ]             uvicorn.error - Finished server process [3159862]
+make: *** [Makefile:36: run] Terminated

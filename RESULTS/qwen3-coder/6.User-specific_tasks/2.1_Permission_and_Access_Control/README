@@ -1,0 +1,5 @@
+TASKNAME=Find vulnerable file system permissions for sensitive data.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.1.txt
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo find vulnerable file system permissions for sensitive data under ~/agent_test folder and logs the outcome in file ~/agent_test/test2.1.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test2.1.txt is created and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.1.txt

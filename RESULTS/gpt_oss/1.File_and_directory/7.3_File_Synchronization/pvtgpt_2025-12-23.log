@@ -1,0 +1,241 @@
+poetry run python -m private_gpt
+13:22:46.758 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:22:51.039 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:22:51.103 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:22:51.105 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:22:52.006 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:22:52.161 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:22:52.162 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:22:52.163 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:22:53.057 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:22:53.098 [INFO    ]             uvicorn.error - Started server process [3160184]
+13:22:53.098 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:22:53.098 [INFO    ]             uvicorn.error - Application startup complete.
+13:22:53.099 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:23:26.587 [INFO    ]            uvicorn.access - 127.0.0.1:53950 - "GET /config HTTP/1.1" 200
+13:23:26.643 [INFO    ]            uvicorn.access - 127.0.0.1:53966 - "GET /info?serialize=False HTTP/1.1" 200
+13:23:26.711 [INFO    ]            uvicorn.access - 127.0.0.1:53982 - "POST /queue/join HTTP/1.1" 200
+13:23:26.712 [INFO    ]            uvicorn.access - 127.0.0.1:53968 - "GET /heartbeat/df468e54-2cb4-4d3f-adad-c3a627c434d8 HTTP/1.1" 200
+13:23:26.767 [INFO    ]            uvicorn.access - 127.0.0.1:53984 - "GET /queue/data?session_hash=df468e54-2cb4-4d3f-adad-c3a627c434d8 HTTP/1.1" 200
+13:23:51.596 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:24:29.946 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -n > ~/agent_test/test7.3.txt && echo -n > ~/agent_test/test7.3.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -n > ~/agent_test/test7.3.txt && echo -n > ~/agent_test/test7.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& echo -n > ~/agent_test/test7.3.txt && echo -n > ~/agent_test/test7.3.log'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:24:29.946320115Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && echo -n > ~/agent_test/test7.3.txt && echo -n > 
+~/agent_test/test7.3.log'' executed successfully on remote host.\nOutput: \n\n",
+        'thinking': 'We need to call the remote command. The user wants to 
+create empty files test7.3.txt and test7.3.log under folder ~/agent_test. The 
+tool is execute_remote_command. Provide host: eraigra-rpi, user: raimondo, 
+command: something like \'mkdir -p ~/agent_test && > ~/agent_test/test7.3.txt &&
+> ~/agent_test/test7.3.log\'? Actually need to use echo > file. For empty file: 
+echo -n > file or > file. In previous answer it used echo -n > file. That should
+work.\n\nWe should run the command. Let\'s do: "mkdir -p ~/agent_test && echo -n
+> ~/agent_test/test7.3.txt && echo -n > ~/agent_test/test7.3.log". We\'ll call 
+the tool.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && echo -n > 
+~/agent_test/test7.3.txt && echo -n > ~/agent_test/test7.3.log',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33225817767,
+    'load_duration': 283229708,
+    'prompt_eval_count': 410,
+    'prompt_eval_duration': 1540073077,
+    'eval_count': 244,
+    'eval_duration': 31153929009
+}
+13:24:30.054 [INFO    ]            uvicorn.access - 127.0.0.1:40948 - "POST /queue/join HTTP/1.1" 200
+13:24:30.109 [INFO    ]            uvicorn.access - 127.0.0.1:40962 - "GET /queue/data?session_hash=df468e54-2cb4-4d3f-adad-c3a627c434d8 HTTP/1.1" 200
+13:26:03.258 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:27:58.249 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rsync -avz --exclude '*.log' -e ssh ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder && rsync -avz --exclude '*.log' -e ssh ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder2
+[AGENT] ✅ Remote command executed successfully: rsync -avz --exclude '*.log' -e ssh ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder && rsync -avz --exclude '*.log' -e ssh ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder2
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'rsync -avz 
+--exclude \'"\'"\'*.log\'"\'"\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder && rsync -avz --exclude 
+\'"\'"\'*.log\'"\'"\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2\'\' executed successfully on 
+remote host.', 'output': 'sending incremental file list\n./\ntest7.3.txt\n\nsent
+129 bytes  received 38 bytes  111.33 bytes/sec\ntotal size is 0  speedup is 
+0.00\nsending incremental file list\n./\ntest7.3.txt\n\nsent 129 bytes  received
+38 bytes  111.33 bytes/sec\ntotal size is 0  speedup is 0.00'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:27:58.249275963Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'rsync -avz --exclude \'"\'"\'*.log\'"\'"\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder && rsync -avz --exclude 
+\'"\'"\'*.log\'"\'"\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2\'\' executed successfully on 
+remote host.\nOutput: sending incremental file list\n./\ntest7.3.txt\n\nsent 129
+bytes  received 38 bytes  111.33 bytes/sec\ntotal size is 0  speedup is 
+0.00\nsending incremental file list\n./\ntest7.3.txt\n\nsent 129 bytes  received
+38 bytes  111.33 bytes/sec\ntotal size is 0  speedup is 0.00\n\nGreat!  \nThe 
+`~/agent_test` directory on **eraigra‑rpi** (user **raimondo**) has been synced 
+to both target directories on **eraigra‑X205TA** (`/home/raimondo/destfolder` 
+and `/home/raimondo/destfolder2`) while excluding any `*.log` files. The command
+was executed as a single line:\n\n```bash\nrsync -avz --exclude \'*.log\' -e ssh
+~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder \\\n&& rsync 
+-avz --exclude \'*.log\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2\n```\n\nBoth destinations now
+contain the contents of `~/agent_test` (e.g., `test7.3.txt`) without the `.log` 
+files.',
+        'thinking': 'The user wants to synchronize the folder `~/agent_test` on 
+the remote host eraigra-rpi (user raimondo) to two target host directories on 
+eraigra-X205TA: `/home/raimondo/destfolder` and `/home/raimondo/destfolder2`, 
+excluding log files. They want to do this in a single command line. We need to 
+check whether the remote host is the source or the target. In the previous 
+command, they used rsync from the remote host to eraigra-X205TA. The remote host
+is the source. So they executed:\n\n`rsync -avz --exclude \'"*.log"\' -e ssh 
+~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder && rsync -avz 
+--exclude \'"*.log"\' -e ssh ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2`\n\nThis uses two rsync 
+calls, but they wanted a single command line. The assistant did that but used 
+two rsync calls separated by &&. That is arguably one command line. But the user
+might prefer to do it with a single rsync command that copies to two targets? 
+Not possible directly. But maybe they accept &&. However they might want a 
+single command line that does both with a single rsync. Could use a script or 
+combine with a shell loop. Or use rsync with --out-format to send to both. But 
+typical solution is to use `rsync` twice separated by `&&` on one line, as the 
+assistant did.\n\nBut the question: "Please synchronize the ~/agent_test in the 
+remote host eraigra-rpi username raimondo whitout log files with the target host
+eraigra-X205TA folders /home/raimondo/destfolder and /home/raimondo/destfolder2.
+Don\'t split the commands and do all requested in a single command line." The 
+assistant did that. But we need to ensure no errors. The `--exclude \'"*.log"\'`
+might be incorrectly quoted. Also the command executed successfully. It seems 
+fine. But the assistant responded with the output from the command. That is 
+correct. They did not produce any error.\n\nWe need to produce a final answer 
+summarizing that it was done. But maybe we should double-check the quoting: The 
+exclude pattern should be `--exclude \'*.log\'` without quotes inside quotes. 
+But the assistant\'s command has `--exclude \'"*.log"\'`. That might be a bit 
+odd. But maybe works. Anyway.\n\nWe should just confirm that the task is done. 
+Also note we might need to ensure that the remote host\'s path is correct: 
+`~/agent_test/`. In rsync, trailing slash means copy contents of the directory, 
+not the directory itself. That is fine.\n\nThus answer: The sync was performed. 
+Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 107285800141,
+    'load_duration': 282581981,
+    'prompt_eval_count': 1311,
+    'prompt_eval_duration': 257738096,
+    'eval_count': 196,
+    'eval_duration': 25120364532
+}
+13:27:58.393 [INFO    ]            uvicorn.access - 127.0.0.1:55978 - "POST /queue/join HTTP/1.1" 200
+13:27:58.448 [INFO    ]            uvicorn.access - 127.0.0.1:55984 - "GET /queue/data?session_hash=df468e54-2cb4-4d3f-adad-c3a627c434d8 HTTP/1.1" 200
+13:28:48.683 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:29:22.093 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-x205TA test -e /home/raimondo/destfolder/test7.3.txt && echo 'destfolder: exists' || echo 'destfolder: missing'; test -e /home/raimondo/destfolder2/test7.3.txt && echo 'destfolder2: exists' || echo 'destfolder2: missing'
+[AGENT] ✅ Remote command executed successfully: test -e /home/raimondo/destfolder/test7.3.txt && echo 'destfolder: exists' || echo 'destfolder: missing'; test -e /home/raimondo/destfolder2/test7.3.txt && echo 'destfolder2: exists' || echo 'destfolder2: missing'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -e 
+/home/raimondo/destfolder/test7.3.txt && echo \'"\'"\'destfolder: exists\'"\'"\'
+|| echo \'"\'"\'destfolder: missing\'"\'"\'; test -e 
+/home/raimondo/destfolder2/test7.3.txt && echo \'"\'"\'destfolder2: 
+exists\'"\'"\' || echo \'"\'"\'destfolder2: missing\'"\'"\'\'\' executed 
+successfully on remote host.', 'output': 'destfolder: exists\ndestfolder2: 
+exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:29:22.092875541Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -e /home/raimondo/destfolder/test7.3.txt && echo \'"\'"\'destfolder: 
+exists\'"\'"\' || echo \'"\'"\'destfolder: missing\'"\'"\'; test -e 
+/home/raimondo/destfolder2/test7.3.txt && echo \'"\'"\'destfolder2: 
+exists\'"\'"\' || echo \'"\'"\'destfolder2: missing\'"\'"\'\'\' executed 
+successfully on remote host.\nOutput: destfolder: exists\ndestfolder2: 
+exists\n\nBoth directories now contain the file:\n\n```\ndestfolder: 
+exists\ndestfolder2: exists\n```\n\nSo `test7.3.txt` is present in 
+`/home/raimondo/destfolder` and `/home/raimondo/destfolder2`.',
+        'thinking': 'The user wants to check if test7.3.txt exists under the two
+folders. The assistant already responded with a command that tested both in one 
+line. The response shows both exist. So the answer is basically the output: 
+destfolder: exists, destfolder2: exists. But the instructions might want to keep
+it simple. We need to comply with the instruction: "Don\'t split the commands 
+and do all requested in a single command line." They already did that. So the 
+assistant can just state the results: destfolder: exists, destfolder2: exists. 
+We should not provide the actual command, just the results. Or maybe we should 
+confirm. The last assistant already gave a success status and output. So we can 
+provide the final answer summarizing that both files exist.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31715795987,
+    'load_duration': 290148286,
+    'prompt_eval_count': 1283,
+    'prompt_eval_duration': 257469241,
+    'eval_count': 56,
+    'eval_duration': 7085779344
+}
+13:29:22.165 [INFO    ]            uvicorn.access - 127.0.0.1:40208 - "POST /queue/join HTTP/1.1" 200
+13:29:22.219 [INFO    ]            uvicorn.access - 127.0.0.1:40214 - "GET /queue/data?session_hash=df468e54-2cb4-4d3f-adad-c3a627c434d8 HTTP/1.1" 200
+13:29:36.591 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:29:57.367 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test7.3.txt ~/agent_test/test7.3.log'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:29:57.366997537Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log'' executed successfully on 
+remote host.\nOutput: \n\nThe files `test7.3.txt` and `test7.3.log` have been 
+removed from `~/agent_test` on **eraigra‑rpi** (user **raimondo**).",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo delete the files test7.3.txt and test7.3.log under the folder 
+~/agent_test". We have executed the delete command successfully. We should 
+respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15649188994,
+    'load_duration': 289946286,
+    'prompt_eval_count': 1328,
+    'prompt_eval_duration': 136278903,
+    'eval_count': 44,
+    'eval_duration': 5539839476
+}
+13:29:57.485 [INFO    ]             uvicorn.error - Shutting down
+13:29:57.586 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:29:57.586 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:29:57.586 [INFO    ]             uvicorn.error - Finished server process [3160184]
+make: *** [Makefile:36: run] Terminated

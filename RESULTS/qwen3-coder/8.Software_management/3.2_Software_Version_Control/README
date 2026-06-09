@@ -1,0 +1,5 @@
+TASKNAME=Downgrade a software package to a specific version using package manager commands.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo check that the package mypackage version installed is 1.0-2 using the package manager query command. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo downgrade using sudo the installation of the package mypackage to 1.0-1 using the package manager query command. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that package mypackage is version 1.0-1. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo upgrade using sudo the installation of the package mypackage to 1.0-2 using the package manager query command. Don't split the commands and do all requested in a single command line.

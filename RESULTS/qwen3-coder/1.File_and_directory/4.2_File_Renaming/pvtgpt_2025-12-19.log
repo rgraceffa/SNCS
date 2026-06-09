@@ -1,0 +1,145 @@
+poetry run python -m private_gpt
+09:06:25.974 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:06:30.259 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:06:30.323 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:06:30.325 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:06:31.248 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:06:31.403 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:06:31.405 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:06:31.406 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:06:32.296 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:06:32.337 [INFO    ]             uvicorn.error - Started server process [468745]
+09:06:32.337 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:06:32.337 [INFO    ]             uvicorn.error - Application startup complete.
+09:06:32.337 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:07:05.803 [INFO    ]            uvicorn.access - 127.0.0.1:34236 - "GET /config HTTP/1.1" 200
+09:07:05.858 [INFO    ]            uvicorn.access - 127.0.0.1:34244 - "GET /info?serialize=False HTTP/1.1" 200
+09:07:05.925 [INFO    ]            uvicorn.access - 127.0.0.1:34250 - "GET /heartbeat/d8d33b68-c435-4272-b292-9f56ae09a1ed HTTP/1.1" 200
+09:07:05.928 [INFO    ]            uvicorn.access - 127.0.0.1:34254 - "POST /queue/join HTTP/1.1" 200
+09:07:05.983 [INFO    ]            uvicorn.access - 127.0.0.1:34256 - "GET /queue/data?session_hash=d8d33b68-c435-4272-b292-9f56ae09a1ed HTTP/1.1" 200
+09:07:19.108 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:07:43.461 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.jpg && touch ~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.jpg && touch ~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.jpg && touch ~/agent_test/test4.2a.jpg 
+~/agent_test/test4.2b.jpg'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T09:07:43.460481666Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.jpg && touch ~/agent_test/test4.2a.jpg 
+~/agent_test/test4.2b.jpg'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove all `.jpg` files in the `~/agent_test/` folder and 
+create the empty files `test4.2a.jpg` and `test4.2b.jpg` has been executed 
+successfully on the remote host. \n\nHere's a summary of what was done:\n1. 
+Removed all `.jpg` files in the `~/agent_test/` folder.\n2. Created two new 
+empty files: `test4.2a.jpg` and `test4.2b.jpg` in the same folder.\n\nLet me 
+know if you need any further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18085979264,
+    'load_duration': 129022860,
+    'prompt_eval_count': 617,
+    'prompt_eval_duration': 4273171356,
+    'eval_count': 118,
+    'eval_duration': 13583624691
+}
+09:07:43.608 [INFO    ]            uvicorn.access - 127.0.0.1:55052 - "POST /queue/join HTTP/1.1" 200
+09:07:43.663 [INFO    ]            uvicorn.access - 127.0.0.1:55060 - "GET /queue/data?session_hash=d8d33b68-c435-4272-b292-9f56ae09a1ed HTTP/1.1" 200
+09:07:55.596 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:08:15.418 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/ && for file in *.jpg; do if [ -f "$file" ]; then mv "$file" "$(date +%Y-%m-%d)_$file"; fi; done
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test/ && for file in *.jpg; do if [ -f "$file" ]; then mv "$file" "$(date +%Y-%m-%d)_$file"; fi; done
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'cd ~/agent_test/ &&
+for file in *.jpg; do if [ -f "$file" ]; then mv "$file" "$(date 
++%Y-%m-%d)_$file"; fi; done\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T09:08:15.417616681Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cd ~/agent_test/ && for file in *.jpg; do if [ -f "$file" ]; then mv "$file"
+"$(date +%Y-%m-%d)_$file"; fi; done\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command to rename all `.jpg` files in the `~/agent_test/`
+folder with the current date prefix has been executed successfully on the remote
+host.\n\nHere\'s what was done:\n1. Changed to the `~/agent_test/` 
+directory.\n2. Iterated through all `.jpg` files in the directory.\n3. For each 
+file, it added the current date (in YYYY-MM-DD format) as a prefix followed by 
+an underscore.\n\nFor example, a file named `image.jpg` would be renamed to 
+something like `2023-04-05_image.jpg`.\n\nLet me know if you need any further 
+assistance!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18049908950,
+    'load_duration': 131244138,
+    'prompt_eval_count': 865,
+    'prompt_eval_duration': 1824039365,
+    'eval_count': 132,
+    'eval_duration': 15972785696
+}
+09:08:15.534 [INFO    ]            uvicorn.access - 127.0.0.1:52220 - "POST /queue/join HTTP/1.1" 200
+09:08:15.594 [INFO    ]            uvicorn.access - 127.0.0.1:52230 - "GET /queue/data?session_hash=d8d33b68-c435-4272-b292-9f56ae09a1ed HTTP/1.1" 200
+09:08:36.987 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:09:00.495 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/ && ls -la *.jpg | grep -E '^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [0-9]{4}-[0-9]{2}-[0-9]{2}_'
+[AGENT] ❌ Remote command failed: cd ~/agent_test/ && ls -la *.jpg | grep -E '^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [0-9]{4}-[0-9]{2}-[0-9]{2}_'
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'cd ~/agent_test/ && 
+ls -la *.jpg | grep -E \'"\'"\'^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ 
+[0-9]{4}-[0-9]{2}-[0-9]{2}_\'"\'"\'\'\' failed on remote host.', 'output': 
+"Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T09:09:00.495404971Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command \'\'cd 
+~/agent_test/ && ls -la *.jpg | grep -E \'"\'"\'^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ 
+[0-9]{4}-[0-9]{2}-[0-9]{2}_\'"\'"\'\'\' failed on remote host.\nOutput: Warning:
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known hosts.\n\nI 
+apologize for the error in the previous command. Let me try a different approach
+to verify the date prefix in the .jpg filenames.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "cd ~/agent_test/ && ls -la *.jpg | grep -E 
+'^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [0-9]{4}-[0-9]{2}-[0-9]{2}_'",
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18243775416,
+    'load_duration': 124263570,
+    'prompt_eval_count': 1185,
+    'prompt_eval_duration': 2366502182,
+    'eval_count': 132,
+    'eval_duration': 15611914634
+}
+09:09:00.757 [INFO    ]             uvicorn.error - Shutting down
+09:09:00.857 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:09:00.857 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:09:00.857 [INFO    ]             uvicorn.error - Finished server process [468745]
+make: *** [Makefile:36: run] Terminated

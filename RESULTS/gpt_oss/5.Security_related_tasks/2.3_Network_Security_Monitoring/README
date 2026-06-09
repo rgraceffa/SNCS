@@ -1,0 +1,5 @@
+TASKNAME=Write a Python script to parse pcap traces.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.py 
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a python script ~/agent_test/test2.2.py to parse pcap traces. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test2.2.py is created and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.py 

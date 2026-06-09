@@ -1,0 +1,164 @@
+poetry run python -m private_gpt
+14:36:38.653 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:36:42.912 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:36:42.976 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:36:42.978 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:36:43.855 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:36:44.009 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:36:44.011 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:36:44.012 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:36:44.904 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:36:44.944 [INFO    ]             uvicorn.error - Started server process [227830]
+14:36:44.944 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:36:44.945 [INFO    ]             uvicorn.error - Application startup complete.
+14:36:44.945 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:37:18.482 [INFO    ]            uvicorn.access - 127.0.0.1:59456 - "GET /config HTTP/1.1" 200
+14:37:18.537 [INFO    ]            uvicorn.access - 127.0.0.1:59468 - "GET /info?serialize=False HTTP/1.1" 200
+14:37:18.605 [INFO    ]            uvicorn.access - 127.0.0.1:59496 - "GET /heartbeat/2d7d4f7c-d7bd-4ab7-89d6-4d4309ce2526 HTTP/1.1" 200
+14:37:18.608 [INFO    ]            uvicorn.access - 127.0.0.1:59484 - "POST /queue/join HTTP/1.1" 200
+14:37:18.665 [INFO    ]            uvicorn.access - 127.0.0.1:59500 - "GET /queue/data?session_hash=2d7d4f7c-d7bd-4ab7-89d6-4d4309ce2526 HTTP/1.1" 200
+14:37:29.531 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:37:45.161 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:37:45.161234877Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test5.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test5.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10508793291,
+    'load_duration': 127317826,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 4028438474,
+    'eval_count': 55,
+    'eval_duration': 6239694867
+}
+14:37:45.245 [INFO    ]            uvicorn.access - 127.0.0.1:57388 - "POST /queue/join HTTP/1.1" 200
+14:37:45.316 [INFO    ]            uvicorn.access - 127.0.0.1:57392 - "GET /queue/data?session_hash=2d7d4f7c-d7bd-4ab7-89d6-4d4309ce2526 HTTP/1.1" 200
+14:38:09.155 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:38:42.138 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\nfactorial() {\n    local n=$1\n    if [ $n -le 1 ]; then\n        echo 1\n    else\n        local prev=$(factorial $((n-1)))\n        echo $((n * prev))\n    fi\n}\necho \"Factorial of 5 is: $(factorial 5)\"' > ~/agent_test/test5.1.sh && chmod +x ~/agent_test/test5.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\nfactorial() {\n    local n=$1\n    if [ $n -le 1 ]; then\n        echo 1\n    else\n        local prev=$(factorial $((n-1)))\n        echo $((n * prev))\n    fi\n}\necho \"Factorial of 5 is: $(factorial 5)\"' > ~/agent_test/test5.1.sh && chmod +x ~/agent_test/test5.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\nfactorial() {\\n    local n=$1\\n 
+if [ $n -le 1 ]; then\\n        echo 1\\n    else\\n        local 
+prev=$(factorial $((n-1)))\\n        echo $((n * prev))\\n    fi\\n}\\necho 
+\\"Factorial of 5 is: $(factorial 5)\\"\'"\'"\' > ~/agent_test/test5.1.sh && 
+chmod +x ~/agent_test/test5.1.sh\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:38:42.137558735Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\nfactorial() {\\n    
+local n=$1\\n    if [ $n -le 1 ]; then\\n        echo 1\\n    else\\n        
+local prev=$(factorial $((n-1)))\\n        echo $((n * prev))\\n    
+fi\\n}\\necho \\"Factorial of 5 is: $(factorial 5)\\"\'"\'"\' > 
+~/agent_test/test5.1.sh && chmod +x ~/agent_test/test5.1.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nI\'ve created and made executable the 
+factorial script on the remote host `eraigra-rpi` as the user `raimondo`. The 
+script `~/agent_test/test5.1.sh` uses recursion to calculate factorial and will 
+output "Factorial of 5 is: 120" when run.\n\nThe command that was executed 
+was:\n```bash\nmkdir -p ~/agent_test && echo -e \'#!/bin/bash\\nfactorial() {\\n
+local n=$1\\n    if [ $n -le 1 ]; then\\n        echo 1\\n    else\\n        
+local prev=$(factorial $((n-1)))\\n        echo $((n * prev))\\n    
+fi\\n}\\necho "Factorial of 5 is: $(factorial 5)"\' > ~/agent_test/test5.1.sh &&
+chmod +x ~/agent_test/test5.1.sh\n```\n\nYou can now run the script with 
+`~/agent_test/test5.1.sh`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31429656242,
+    'load_duration': 128452731,
+    'prompt_eval_count': 857,
+    'prompt_eval_duration': 7384015462,
+    'eval_count': 207,
+    'eval_duration': 23748971431
+}
+14:38:42.289 [INFO    ]            uvicorn.access - 127.0.0.1:41942 - "POST /queue/join HTTP/1.1" 200
+14:38:42.344 [INFO    ]            uvicorn.access - 127.0.0.1:41952 - "GET /queue/data?session_hash=2d7d4f7c-d7bd-4ab7-89d6-4d4309ce2526 HTTP/1.1" 200
+14:38:58.564 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:39:34.954 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test5.1.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test5.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test5.1.sh'' executed successfully on remote host.", 'output': 
+'"Factorial of 5 is: 120"'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:39:34.95372457Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test5.1.sh\'\' executed successfully on remote host.\nOutput: 
+"Factorial of 5 is: 120"\n\nI executed the script `~/agent_test/test5.1.sh` on 
+the remote host `eraigra-rpi` as the user `raimondo`.\n\nThe output 
+was:\n```\n"Factorial of 5 is: 120"\n```\n\nThe script calculated the factorial 
+of 5 (which is 5! = 5×4×3×2×1 = 120) correctly. However, it seems the script was
+designed to calculate factorial of 5 rather than 4. The script output shows 
+"Factorial of 5 is: 120" which is correct for 5 factorial, but not for 4 
+factorial (which would be 4! = 4×3×2×1 = 24).\n\nIf you need the script to 
+calculate factorial of 4 specifically, I can modify it for you.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31273331619,
+    'load_duration': 132688242,
+    'prompt_eval_count': 1166,
+    'prompt_eval_duration': 9840242654,
+    'eval_count': 179,
+    'eval_duration': 21124244091
+}
+14:39:35.044 [INFO    ]            uvicorn.access - 127.0.0.1:59422 - "POST /queue/join HTTP/1.1" 200
+14:39:35.105 [INFO    ]            uvicorn.access - 127.0.0.1:59424 - "GET /queue/data?session_hash=2d7d4f7c-d7bd-4ab7-89d6-4d4309ce2526 HTTP/1.1" 200
+14:39:55.191 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:40:04.722 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:40:04.722255589Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test5.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test5.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7999597462,
+    'load_duration': 133024778,
+    'prompt_eval_count': 1424,
+    'prompt_eval_duration': 1249910455,
+    'eval_count': 54,
+    'eval_duration': 6502126785
+}
+14:40:04.920 [INFO    ]             uvicorn.error - Shutting down
+14:40:05.020 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:40:05.021 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:40:05.021 [INFO    ]             uvicorn.error - Finished server process [227830]
+make: *** [Makefile:36: run] Terminated

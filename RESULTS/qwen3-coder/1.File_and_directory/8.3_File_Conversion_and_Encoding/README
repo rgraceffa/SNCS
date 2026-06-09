@@ -1,0 +1,5 @@
+TASKNAME=Convert .txt file encoding from ASCII to UTF-8 in a directory recursively. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /etc/X11/rgb.txt into the folder ~/agent_test renaming into test8.3.txt
+TASKCOMMAND=convert all txt files from ascii to utf-8 in the folder ~/agent_test in the remote host eraigra-rpi username raimondo. To all converted files append the extension .conv. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that file test8.3.txt.conv exists in ~/agent_test folder and it's in UTF-8 format. Do both checks in the same command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove files test8.3.txt and test8.3.txt.conv if exists in ~/agent_test folder

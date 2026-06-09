@@ -1,0 +1,221 @@
+poetry run python -m private_gpt
+14:08:57.771 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:09:02.043 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:09:02.107 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:09:02.109 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:09:03.008 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:09:03.163 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:09:03.165 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:09:03.166 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:09:04.056 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:09:04.097 [INFO    ]             uvicorn.error - Started server process [120962]
+14:09:04.097 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:09:04.097 [INFO    ]             uvicorn.error - Application startup complete.
+14:09:04.097 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:09:37.598 [INFO    ]            uvicorn.access - 127.0.0.1:41400 - "GET /config HTTP/1.1" 200
+14:09:37.654 [INFO    ]            uvicorn.access - 127.0.0.1:41402 - "GET /info?serialize=False HTTP/1.1" 200
+14:09:37.718 [INFO    ]            uvicorn.access - 127.0.0.1:41412 - "GET /heartbeat/6596a465-a260-4a9d-bea9-c1aa95826a42 HTTP/1.1" 200
+14:09:37.721 [INFO    ]            uvicorn.access - 127.0.0.1:41428 - "POST /queue/join HTTP/1.1" 200
+14:09:37.776 [INFO    ]            uvicorn.access - 127.0.0.1:41438 - "GET /queue/data?session_hash=6596a465-a260-4a9d-bea9-c1aa95826a42 HTTP/1.1" 200
+14:09:48.689 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:10:04.666 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:10:04.665629475Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test2.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10543084652,
+    'load_duration': 129345265,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 3995096451,
+    'eval_count': 54,
+    'eval_duration': 6343835687
+}
+14:10:04.753 [INFO    ]            uvicorn.access - 127.0.0.1:33884 - "POST /queue/join HTTP/1.1" 200
+14:10:04.808 [INFO    ]            uvicorn.access - 127.0.0.1:33898 - "GET /queue/data?session_hash=6596a465-a260-4a9d-bea9-c1aa95826a42 HTTP/1.1" 200
+14:10:34.324 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:11:07.317 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash
+
+# For loop example
+echo "For loop example:"
+for i in {1..5}; do
+    echo "Iteration $i"
+done
+
+# While loop example
+echo -e "\nWhile loop example:"
+counter=1
+while [ $counter -le 5 ]; do
+    echo "While iteration $counter"
+    ((counter++))
+done
+
+# Until loop example
+echo -e "\nUntil loop example:"
+until_counter=1
+until [ $until_counter -gt 5 ]; do
+    echo "Until iteration $until_counter"
+    ((until_counter++))
+done' > ~/agent_test/test2.2.sh && chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash
+
+# For loop example
+echo "For loop example:"
+for i in {1..5}; do
+    echo "Iteration $i"
+done
+
+# While loop example
+echo -e "\nWhile loop example:"
+counter=1
+while [ $counter -le 5 ]; do
+    echo "While iteration $counter"
+    ((counter++))
+done
+
+# Until loop example
+echo -e "\nUntil loop example:"
+until_counter=1
+until [ $until_counter -gt 5 ]; do
+    echo "Until iteration $until_counter"
+    ((until_counter++))
+done' > ~/agent_test/test2.2.sh && chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\n\n# For loop example\necho "For loop 
+example:"\nfor i in {1..5}; do\n    echo "Iteration $i"\ndone\n\n# While loop 
+example\necho -e "\\nWhile loop example:"\ncounter=1\nwhile [ $counter -le 5 ]; 
+do\n    echo "While iteration $counter"\n    ((counter++))\ndone\n\n# Until loop
+example\necho -e "\\nUntil loop example:"\nuntil_counter=1\nuntil [ 
+$until_counter -gt 5 ]; do\n    echo "Until iteration $until_counter"\n    
+((until_counter++))\ndone\'"\'"\' > ~/agent_test/test2.2.sh && chmod +x 
+~/agent_test/test2.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:11:07.316716553Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\n\n# For loop 
+example\necho "For loop example:"\nfor i in {1..5}; do\n    echo "Iteration 
+$i"\ndone\n\n# While loop example\necho -e "\\nWhile loop 
+example:"\ncounter=1\nwhile [ $counter -le 5 ]; do\n    echo "While iteration 
+$counter"\n    ((counter++))\ndone\n\n# Until loop example\necho -e "\\nUntil 
+loop example:"\nuntil_counter=1\nuntil [ $until_counter -gt 5 ]; do\n    echo 
+"Until iteration $until_counter"\n    ((until_counter++))\ndone\'"\'"\' > 
+~/agent_test/test2.2.sh && chmod +x ~/agent_test/test2.2.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nThe command has been executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The script
+`~/agent_test/test2.2.sh` has been created with the following 
+content:\n\n```bash\n#!/bin/bash\n\n# For loop example\necho "For loop 
+example:"\nfor i in {1..5}; do\n    echo "Iteration $i"\ndone\n\n# While loop 
+example\necho -e "\\nWhile loop example:"\ncounter=1\nwhile [ $counter -le 5 ]; 
+do\n    echo "While iteration $counter"\n    ((counter++))\ndone\n\n# Until loop
+example\necho -e "\\nUntil loop example:"\nuntil_counter=1\nuntil [ 
+$until_counter -gt 5 ]; do\n    echo "Until iteration $until_counter"\n    
+((until_counter++))\ndone\n```\n\nThe script is now executable. You can run it 
+with `~/agent_test/test2.2.sh`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31433806708,
+    'load_duration': 128212491,
+    'prompt_eval_count': 918,
+    'prompt_eval_duration': 8055827635,
+    'eval_count': 198,
+    'eval_duration': 23075485177
+}
+14:11:07.428 [INFO    ]            uvicorn.access - 127.0.0.1:47442 - "POST /queue/join HTTP/1.1" 200
+14:11:07.490 [INFO    ]            uvicorn.access - 127.0.0.1:47448 - "GET /queue/data?session_hash=6596a465-a260-4a9d-bea9-c1aa95826a42 HTTP/1.1" 200
+14:11:15.424 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:11:45.429 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': 
+'For loop example:\nIteration 1\nIteration 2\nIteration 3\nIteration 
+4\nIteration 5\n\nWhile loop example:\nWhile iteration 1\nWhile iteration 
+2\nWhile iteration 3\nWhile iteration 4\nWhile iteration 5\n\nUntil loop 
+example:\nUntil iteration 1\nUntil iteration 2\nUntil iteration 3\nUntil 
+iteration 4\nUntil iteration 5'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:11:45.428728268Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: For 
+loop example:\nIteration 1\nIteration 2\nIteration 3\nIteration 4\nIteration 
+5\n\nWhile loop example:\nWhile iteration 1\nWhile iteration 2\nWhile iteration 
+3\nWhile iteration 4\nWhile iteration 5\n\nUntil loop example:\nUntil iteration 
+1\nUntil iteration 2\nUntil iteration 3\nUntil iteration 4\nUntil iteration 
+5\n\nThe script `~/agent_test/test2.2.sh` has been executed successfully. Here 
+is the output:\n\n```\nFor loop example:\nIteration 1\nIteration 2\nIteration 
+3\nIteration 4\nIteration 5\n\nWhile loop example:\nWhile iteration 1\nWhile 
+iteration 2\nWhile iteration 3\nWhile iteration 4\nWhile iteration 5\n\nUntil 
+loop example:\nUntil iteration 1\nUntil iteration 2\nUntil iteration 3\nUntil 
+iteration 4\nUntil iteration 5\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24740092033,
+    'load_duration': 130521741,
+    'prompt_eval_count': 1283,
+    'prompt_eval_duration': 11917255742,
+    'eval_count': 108,
+    'eval_duration': 12578411618
+}
+14:11:45.527 [INFO    ]            uvicorn.access - 127.0.0.1:45388 - "POST /queue/join HTTP/1.1" 200
+14:11:45.587 [INFO    ]            uvicorn.access - 127.0.0.1:45394 - "GET /queue/data?session_hash=6596a465-a260-4a9d-bea9-c1aa95826a42 HTTP/1.1" 200
+14:12:06.481 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:12:15.800 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:12:15.79988278Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test2.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7773700037,
+    'load_duration': 134651064,
+    'prompt_eval_count': 1469,
+    'prompt_eval_duration': 1261810552,
+    'eval_count': 54,
+    'eval_duration': 6262471049
+}
+14:12:15.964 [INFO    ]             uvicorn.error - Shutting down
+14:12:16.064 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:12:16.065 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:12:16.065 [INFO    ]             uvicorn.error - Finished server process [120962]
+make: *** [Makefile:36: run] Terminated

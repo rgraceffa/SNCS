@@ -1,0 +1,5 @@
+TASKNAME=Sequentially rename .txt files in a directory. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files in the folder ~/agent_test/ and in the same command line create the empty files test4.1a.txt and test4.1b.txt in the folder ~/agent_test/
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo rename sequentially by appending "_"numbers before the extension for all .txt files in the ~/agent_test/ directory. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo tell us if in the folder ~/agent_test/ the files test4.1a_1.txt and test4.1b_2.txt are present
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files in the folder ~/agent_test/ 

@@ -1,0 +1,5 @@
+TASKNAME=Rename .jpg files with current date prefix. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .jpg files in the folder ~/agent_test/ and in the same command line create the empty files test4.2a.jpg and test4.2b.jpg in the folder ~/agent_test/
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo rename .jpg files in the folder ~/agent_test/ with current date prefix"_". Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that the names of all .jpg files in the folder ~/agent_test/ have as prefix the date. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .jpg files in the folder ~/agent_test/ if present

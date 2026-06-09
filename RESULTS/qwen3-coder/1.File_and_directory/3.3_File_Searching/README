@@ -1,0 +1,5 @@
+TASKNAME=Find occurrences of an ip address in Apache logs and extract relevant lines. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/test3.3.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo search for occurrences of '100.119.118.97' ip address in Apache /var/log/apache2/access.log and create the file ~/agent_test/test3.3.txt with the findings. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify if the file ~/agent_test/test3.3.txt is present
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove the file ~/agent_test/test3.3.txt if present

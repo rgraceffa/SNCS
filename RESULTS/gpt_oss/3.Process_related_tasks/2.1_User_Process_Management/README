@@ -1,0 +1,5 @@
+TASKNAME=List all active user processes, excluding system processes.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.1.log
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo lists all active user processes excluding system processes and put the findings in the file ~/agent_test/test2.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test2.1.log exists and provide us the content 
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.1.log

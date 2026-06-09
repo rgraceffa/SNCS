@@ -1,0 +1,155 @@
+poetry run python -m private_gpt
+11:50:38.312 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:50:42.618 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:50:42.681 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:50:42.683 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:50:43.558 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:50:43.712 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:50:43.714 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:50:43.715 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:50:44.604 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:50:44.645 [INFO    ]             uvicorn.error - Started server process [44651]
+11:50:44.645 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:50:44.646 [INFO    ]             uvicorn.error - Application startup complete.
+11:50:44.646 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:51:18.137 [INFO    ]            uvicorn.access - 127.0.0.1:33496 - "GET /config HTTP/1.1" 200
+11:51:18.193 [INFO    ]            uvicorn.access - 127.0.0.1:33504 - "GET /info?serialize=False HTTP/1.1" 200
+11:51:18.288 [INFO    ]            uvicorn.access - 127.0.0.1:33512 - "GET /heartbeat/0b763500-77fe-4a4b-9e44-2cb7e416ca6c HTTP/1.1" 200
+11:51:18.291 [INFO    ]            uvicorn.access - 127.0.0.1:33510 - "POST /queue/join HTTP/1.1" 200
+11:51:18.346 [INFO    ]            uvicorn.access - 127.0.0.1:33526 - "GET /queue/data?session_hash=0b763500-77fe-4a4b-9e44-2cb7e416ca6c HTTP/1.1" 200
+11:51:31.191 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:51:49.991 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cp ~/mydockerfile.cfg ~/agent_test/ && cp ~/hello.py ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && cp ~/mydockerfile.cfg ~/agent_test/ && cp ~/hello.py ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& cp ~/mydockerfile.cfg ~/agent_test/ && cp ~/hello.py ~/agent_test/'' executed
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T11:51:49.990555389Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && cp ~/mydockerfile.cfg ~/agent_test/ && cp ~/hello.py 
+~/agent_test/'' executed successfully on remote host.\nOutput: \n\nThe command 
+has been successfully executed on the remote host. Here's what was done:\n\n1. 
+Created the directory `~/agent_test` if it didn't already exist.\n2. Copied the 
+file `~/mydockerfile.cfg` to `~/agent_test/`.\n3. Copied the file `~/hello.py` 
+to `~/agent_test/`.\n\nBoth files are now in the `~/agent_test/` folder on the 
+remote host."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12273994592,
+    'load_duration': 129523051,
+    'prompt_eval_count': 610,
+    'prompt_eval_duration': 1418998400,
+    'eval_count': 91,
+    'eval_duration': 10626995089
+}
+11:51:50.092 [INFO    ]            uvicorn.access - 127.0.0.1:42856 - "POST /queue/join HTTP/1.1" 200
+11:51:50.150 [INFO    ]            uvicorn.access - 127.0.0.1:42864 - "GET /queue/data?session_hash=0b763500-77fe-4a4b-9e44-2cb7e416ca6c HTTP/1.1" 200
+11:51:59.144 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:59:27.760 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test && docker build -f mydockerfile.cfg -t myimage .
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test && docker build -f mydockerfile.cfg -t myimage .
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd ~/agent_test && 
+docker build -f mydockerfile.cfg -t myimage .'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T11:59:27.759926772Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~/agent_test && docker build -f mydockerfile.cfg -t myimage .'' executed 
+successfully on remote host.\nOutput: \n\nThe Docker image has been successfully
+built on the remote host. Here's what was done:\n\n1. Changed to the directory 
+`~/agent_test`\n2. Ran `docker build` using the Dockerfile 
+`mydockerfile.cfg`\n3. Tagged the image as `myimage`\n\nThe Docker image 
+`myimage` is now available on the remote host."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20390681603,
+    'load_duration': 3613635388,
+    'prompt_eval_count': 805,
+    'prompt_eval_duration': 8089930823,
+    'eval_count': 73,
+    'eval_duration': 8531233963
+}
+11:59:27.918 [INFO    ]            uvicorn.access - 127.0.0.1:49302 - "POST /queue/join HTTP/1.1" 200
+11:59:27.973 [INFO    ]            uvicorn.access - 127.0.0.1:49304 - "GET /queue/data?session_hash=0b763500-77fe-4a4b-9e44-2cb7e416ca6c HTTP/1.1" 200
+11:59:42.091 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:00:09.908 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker images | grep myimage
+[AGENT] ✅ Remote command executed successfully: docker images | grep myimage
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker images | grep 
+myimage'' executed successfully on remote host.", 'output': 'myimage:latest   
+4d75a5d7416c        349MB             0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T12:00:09.907905716Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker images | grep myimage'' executed successfully on remote host.\nOutput: 
+myimage:latest   4d75a5d7416c        349MB             0B\n\nI've checked the 
+Docker images on the remote host and found that the image `myimage` has been 
+successfully created. Here are the details:\n\n```\nmyimage:latest   
+4d75a5d7416c        349MB             0B\n```\n\nThe image is named 
+`myimage:latest`, has the image ID `4d75a5d7416c`, and is 349MB in size. It 
+appears to have been created successfully."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21286592148,
+    'load_duration': 127199134,
+    'prompt_eval_count': 978,
+    'prompt_eval_duration': 8355586222,
+    'eval_count': 109,
+    'eval_duration': 12686930290
+}
+12:00:10.028 [INFO    ]            uvicorn.access - 127.0.0.1:44884 - "POST /queue/join HTTP/1.1" 200
+12:00:10.083 [INFO    ]            uvicorn.access - 127.0.0.1:44676 - "GET /queue/data?session_hash=0b763500-77fe-4a4b-9e44-2cb7e416ca6c HTTP/1.1" 200
+12:00:27.540 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:00:45.828 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/mydockerfile.cfg ~/agent_test/hello.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/mydockerfile.cfg ~/agent_test/hello.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/mydockerfile.cfg ~/agent_test/hello.py'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T12:00:45.827618713Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/mydockerfile.cfg ~/agent_test/hello.py'' executed successfully 
+on remote host.\nOutput: \n\nThe command has been successfully executed on the 
+remote host. Both files have been removed:\n\n1. 
+`~/agent_test/mydockerfile.cfg`\n2. `~/agent_test/hello.py`\n\nThe files have 
+been deleted from the `~/agent_test/` directory on the remote host."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16744667685,
+    'load_duration': 128252743,
+    'prompt_eval_count': 1195,
+    'prompt_eval_duration': 9890482384,
+    'eval_count': 58,
+    'eval_duration': 6624244484
+}
+12:00:46.035 [INFO    ]             uvicorn.error - Shutting down
+12:00:46.135 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:00:46.135 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:00:46.135 [INFO    ]             uvicorn.error - Finished server process [44651]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,199 @@
+poetry run python -m private_gpt
+06:50:49.057 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+06:50:53.310 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+06:50:53.373 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+06:50:53.375 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+06:50:54.245 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+06:50:54.398 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+06:50:54.400 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+06:50:54.401 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+06:50:55.282 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+06:50:55.322 [INFO    ]             uvicorn.error - Started server process [19816]
+06:50:55.323 [INFO    ]             uvicorn.error - Waiting for application startup.
+06:50:55.323 [INFO    ]             uvicorn.error - Application startup complete.
+06:50:55.323 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+06:51:28.888 [INFO    ]            uvicorn.access - 127.0.0.1:39202 - "GET /config HTTP/1.1" 200
+06:51:28.943 [INFO    ]            uvicorn.access - 127.0.0.1:39204 - "GET /info?serialize=False HTTP/1.1" 200
+06:51:29.044 [INFO    ]            uvicorn.access - 127.0.0.1:46790 - "GET /heartbeat/91346c57-34f5-40a6-8287-abffe53c534f HTTP/1.1" 200
+06:51:29.046 [INFO    ]            uvicorn.access - 127.0.0.1:46788 - "POST /queue/join HTTP/1.1" 200
+06:51:29.102 [INFO    ]            uvicorn.access - 127.0.0.1:46792 - "GET /queue/data?session_hash=91346c57-34f5-40a6-8287-abffe53c534f HTTP/1.1" 200
+06:51:54.055 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+06:52:15.682 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T06:52:15.682402782Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test1.1.sh` has been removed (if it existed) on the 
+remote host `eraigra-rpi` as user `raimondo`. Let me know if you need anything 
+else.",
+        'thinking': 'The user wants to remove if exists ~/agent_test/test1.1.sh 
+on remote host eraigra-rpi with username raimondo. They tried "rm -f" which will
+succeed. It returned success. So we can confirm removal. Probably we need to 
+provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16488865133,
+    'load_duration': 292236376,
+    'prompt_eval_count': 446,
+    'prompt_eval_duration': 256127964,
+    'eval_count': 48,
+    'eval_duration': 6018308741
+}
+06:52:15.822 [INFO    ]            uvicorn.access - 127.0.0.1:55836 - "POST /queue/join HTTP/1.1" 200
+06:52:15.876 [INFO    ]            uvicorn.access - 127.0.0.1:55852 - "GET /queue/data?session_hash=91346c57-34f5-40a6-8287-abffe53c534f HTTP/1.1" 200
+06:57:00.372 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+06:57:42.262 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#!/bin/bash\n# Advanced variable assignments and manipulations\ndeclare -A fruit\nfruit[apple]="red"\nfruit[banana]="yellow"\nfor key in "${!fruit[@]}"; do\n  echo "$key is ${fruit[$key]}"\ndone\n# Arithmetic expansion\nnum=10\nnum=$((num * 2 + 5))\necho "Calculated number: $num"\n# Parameter expansion with defaults\nname=${USER:-unknown}\necho "User: $name"\n# Using process substitution\ncount=$(wc -l <(echo -e "line1\nline2\nline3"))\necho "Lines counted: $count"\n# Using array and slicing\narr=(one two three four five)\necho "Second element: ${arr[1]}"\necho "Slice: ${arr[@]:2:2}"' > ~/agent_test/test1.1.sh && chmod +x ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: echo -e '#!/bin/bash\n# Advanced variable assignments and manipulations\ndeclare -A fruit\nfruit[apple]="red"\nfruit[banana]="yellow"\nfor key in "${!fruit[@]}"; do\n  echo "$key is ${fruit[$key]}"\ndone\n# Arithmetic expansion\nnum=10\nnum=$((num * 2 + 5))\necho "Calculated number: $num"\n# Parameter expansion with defaults\nname=${USER:-unknown}\necho "User: $name"\n# Using process substitution\ncount=$(wc -l <(echo -e "line1\nline2\nline3"))\necho "Lines counted: $count"\n# Using array and slicing\narr=(one two three four five)\necho "Second element: ${arr[1]}"\necho "Slice: ${arr[@]:2:2}"' > ~/agent_test/test1.1.sh && chmod +x ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#!/bin/bash\\n# Advanced variable assignments and 
+manipulations\\ndeclare -A fruit\\nfruit="red"\\nfruit="yellow"\\nfor key in 
+"${!fruit}"; do\\n  echo "$key is ${fruit[$key]}"\\ndone\\n# Arithmetic 
+expansion\\nnum=10\\nnum=$((num * 2 + 5))\\necho "Calculated number: $num"\\n# 
+Parameter expansion with defaults\\nname=${USER:-unknown}\\necho "User: 
+$name"\\n# Using process substitution\\ncount=$(wc -l <(echo -e 
+"line1\\nline2\\nline3"))\\necho "Lines counted: $count"\\n# Using array and 
+slicing\\narr=(one two three four five)\\necho "Second element: 
+${arr[1]}"\\necho "Slice: ${arr:2:2}"\'"\'"\' > ~/agent_test/test1.1.sh && chmod
++x ~/agent_test/test1.1.sh\'\' executed successfully on remote host.', 'output':
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T06:57:42.261972546Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#!/bin/bash\\n# Advanced variable assignments and 
+manipulations\\ndeclare -A 
+fruit\\nfruit[apple]="red"\\nfruit[banana]="yellow"\\nfor key in "${!fruit[@]}";
+do\\n  echo "$key is ${fruit[$key]}"\\ndone\\n# Arithmetic 
+expansion\\nnum=10\\nnum=$((num * 2 + 5))\\necho "Calculated number: $num"\\n# 
+Parameter expansion with defaults\\nname=${USER:-unknown}\\necho "User: 
+$name"\\n# Using process substitution\\ncount=$(wc -l <(echo -e 
+"line1\\nline2\\nline3"))\\necho "Lines counted: $count"\\n# Using array and 
+slicing\\narr=(one two three four five)\\necho "Second element: 
+${arr[1]}"\\necho "Slice: ${arr[@]:2:2}"\'"\'"\' > ~/agent_test/test1.1.sh && 
+chmod +x ~/agent_test/test1.1.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe script `~/agent_test/test1.1.sh` has been created and 
+marked executable on the remote host `eraigra-rpi` as user `raimondo`. It 
+contains advanced variable assignments, associative arrays, arithmetic 
+expansion, parameter expansion with defaults, process substitution, and array 
+slicing—all done in a single command line. Let me know if you’d like to review 
+the script or run it.',
+        'thinking': 'The user requested to create a script using advanced 
+variable assignments and manipulations, make it executable in same command line.
+We provided a long echo with -e. We used quoting and we used > to redirect. We 
+also did chmod. The command is executed successfully. It says executed 
+successfully. However, we might need to confirm that the path exists 
+(agent_test). We didn\'t create directory. Should we create? They didn\'t ask to
+create directory. Might fail if directory doesn\'t exist. Our command might 
+produce error "No such file or directory" if agent_test does not exist. But we 
+got success message. Might have created file under home? The echo > path will 
+create directory if not exists? It will error if directory missing. But success 
+message indicates maybe directory existed. So it\'s fine. We should respond 
+confirming creation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36798027923,
+    'load_duration': 304739098,
+    'prompt_eval_count': 939,
+    'prompt_eval_duration': 256862260,
+    'eval_count': 83,
+    'eval_duration': 10542949107
+}
+06:57:42.331 [INFO    ]            uvicorn.access - 127.0.0.1:39288 - "POST /queue/join HTTP/1.1" 200
+06:57:42.386 [INFO    ]            uvicorn.access - 127.0.0.1:39292 - "GET /queue/data?session_hash=91346c57-34f5-40a6-8287-abffe53c534f HTTP/1.1" 200
+06:57:55.106 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+06:58:33.021 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: bash ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''bash 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': 
+'apple is red\nbanana is yellow\nCalculated number: 25\nUser: raimondo\nLines 
+counted: 3 /dev/fd/63\nSecond element: two\nSlice: three four'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T06:58:33.02077424Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''bash ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+apple is red\nbanana is yellow\nCalculated number: 25\nUser: raimondo\nLines 
+counted: 3 /dev/fd/63\nSecond element: two\nSlice: three four\n\nHere is the 
+output from running `~/agent_test/test1.1.sh` on **eraigra-rpi** as user 
+**raimondo**:\n\n```\napple is red\nbanana is yellow\nCalculated number: 
+25\nUser: raimondo\nLines counted: 3 /dev/fd/63\nSecond element: two\nSlice: 
+three four\n```\n\nThe line “Lines counted: 3 /dev/fd/63” is the normal output 
+of `wc -l` when using process substitution; it shows the count followed by the 
+path of the temporary file descriptor.",
+        'thinking': 'We got output but there\'s weird part: "Lines counted: 3 
+/dev/fd/63". The wc -l with process substitution likely prints output 
+differently. In bash, wc -l <(echo -e ...) returns count then maybe the file 
+descriptor printed? Actually wc -l <(echo ...) prints number followed by 
+pathname, e.g., "3 /dev/fd/63". That is expected. We might want to adjust script
+to not print the path. But user didn\'t ask to modify. They executed script. We 
+need to give output. The output we have is correct. Might want to explain? 
+Probably just give the output.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36447295290,
+    'load_duration': 292546447,
+    'prompt_eval_count': 1110,
+    'prompt_eval_duration': 211060575,
+    'eval_count': 123,
+    'eval_duration': 15693642698
+}
+06:58:33.112 [INFO    ]            uvicorn.access - 127.0.0.1:49172 - "POST /queue/join HTTP/1.1" 200
+06:58:33.166 [INFO    ]            uvicorn.access - 127.0.0.1:49178 - "GET /queue/data?session_hash=91346c57-34f5-40a6-8287-abffe53c534f HTTP/1.1" 200
+06:58:48.568 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+06:59:06.469 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T06:59:06.468867634Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test1.1.sh` has been removed (if it existed) on the 
+remote host `eraigra-rpi` as user `raimondo`. Let me know if you need anything 
+else.",
+        'thinking': 'We need to understand user requests: They removed 
+test1.1.sh. Nothing else. We should respond acknowledging removal. Probably 
+nothing else.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12917243826,
+    'load_duration': 293520003,
+    'prompt_eval_count': 1208,
+    'prompt_eval_duration': 129594899,
+    'eval_count': 48,
+    'eval_duration': 6044068813
+}
+06:59:06.604 [INFO    ]             uvicorn.error - Shutting down
+06:59:06.703 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+06:59:06.703 [INFO    ]             uvicorn.error - Application shutdown complete.
+06:59:06.703 [INFO    ]             uvicorn.error - Finished server process [19816]
+make: *** [Makefile:36: run] Terminated

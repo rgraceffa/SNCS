@@ -1,0 +1,177 @@
+poetry run python -m private_gpt
+17:52:05.583 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:52:09.840 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:52:09.903 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:52:09.905 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:52:10.806 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:52:10.960 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:52:10.961 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:52:10.962 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:52:11.858 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:52:11.898 [INFO    ]             uvicorn.error - Started server process [166767]
+17:52:11.898 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:52:11.899 [INFO    ]             uvicorn.error - Application startup complete.
+17:52:11.899 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:52:45.406 [INFO    ]            uvicorn.access - 127.0.0.1:44006 - "GET /config HTTP/1.1" 200
+17:52:45.461 [INFO    ]            uvicorn.access - 127.0.0.1:44022 - "GET /info?serialize=False HTTP/1.1" 200
+17:52:45.547 [INFO    ]            uvicorn.access - 127.0.0.1:44036 - "POST /queue/join HTTP/1.1" 200
+17:52:45.547 [INFO    ]            uvicorn.access - 127.0.0.1:44048 - "GET /heartbeat/f9d84816-5534-499a-810c-4b5cc8d21ef2 HTTP/1.1" 200
+17:52:45.603 [INFO    ]            uvicorn.access - 127.0.0.1:44058 - "GET /queue/data?session_hash=f9d84816-5534-499a-810c-4b5cc8d21ef2 HTTP/1.1" 200
+17:53:17.412 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:53:42.505 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3_1.java ~/agent_test/test3_1.class
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3_1.java ~/agent_test/test3_1.class
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3_1.java ~/agent_test/test3_1.class'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T17:53:42.504771567Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3_1.java ~/agent_test/test3_1.class'' executed successfully 
+on remote host.\nOutput: \n\nThe requested files were removed with a single 
+command:\n\n```bash\nrm -f ~/agent_test/test3_1.java 
+~/agent_test/test3_1.class\n```",
+        'thinking': 'User requested to remove files on remote host eraigra-rpi, 
+username raimondo, files ~/agent_test/test3_1.java and 
+~/agent_test/test3_1.class. They said "Don\'t split the commands and do all 
+requested in a single command line." So we should provide a single command that 
+does this. We used remote command. It executed successfully. We should respond 
+with the command used or confirmation. Let\'s produce a concise answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19546853473,
+    'load_duration': 292649103,
+    'prompt_eval_count': 513,
+    'prompt_eval_duration': 256606978,
+    'eval_count': 35,
+    'eval_duration': 4361140804
+}
+17:53:42.584 [INFO    ]            uvicorn.access - 127.0.0.1:49258 - "POST /queue/join HTTP/1.1" 200
+17:53:42.639 [INFO    ]            uvicorn.access - 127.0.0.1:49262 - "GET /queue/data?session_hash=f9d84816-5534-499a-810c-4b5cc8d21ef2 HTTP/1.1" 200
+17:54:11.796 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:54:51.683 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo 'public class test3_1 { public static void main(String[] args) { System.out.println("hello world!"); } }' > ~/agent_test/test3_1.java && javac ~/agent_test/test3_1.java
+[AGENT] ✅ Remote command executed successfully: echo 'public class test3_1 { public static void main(String[] args) { System.out.println("hello world!"); } }' > ~/agent_test/test3_1.java && javac ~/agent_test/test3_1.java
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo \'"\'"\'public
+class test3_1 { public static void main(String[] args) { 
+System.out.println("hello world!"); } }\'"\'"\' > ~/agent_test/test3_1.java && 
+javac ~/agent_test/test3_1.java\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T17:54:51.683013287Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo \'"\'"\'public class test3_1 { public static void main(String[] args) {
+System.out.println("hello world!"); } }\'"\'"\' > ~/agent_test/test3_1.java && 
+javac ~/agent_test/test3_1.java\'\' executed successfully on remote 
+host.\nOutput: \n\nThe Java source file `~/agent_test/test3_1.java` has been 
+created with a “Hello\u202fWorld!” program and compiled successfully into 
+`~/agent_test/test3_1.class`.',
+        'thinking': 'We need to ensure the command line is correct and didn\'t 
+split commands incorrectly. The command used: echo \'"\'"public class test3_1 { 
+public static void main(String[] args) { System.out.println("hello world!"); } 
+}\'"\'" > ~/agent_test/test3_1.java && javac ~/agent_test/test3_1.java\n\nThis 
+is a single command line. We removed splitting? It\'s a single command line with
+`&&`. Good.\n\nCheck that we didn\'t break quotes. It should output the java 
+file content correctly.\n\nWe need to confirm that the output is as 
+expected.\n\nBut we must respond that we executed the commands. And maybe show 
+the content of the file. Since no request to print, just confirm.\n\nThus reply:
+The file has been created and compiled.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 29278896092,
+    'load_duration': 298360490,
+    'prompt_eval_count': 778,
+    'prompt_eval_duration': 257049625,
+    'eval_count': 40,
+    'eval_duration': 5014770279
+}
+17:54:51.787 [INFO    ]            uvicorn.access - 127.0.0.1:41942 - "POST /queue/join HTTP/1.1" 200
+17:54:51.842 [INFO    ]            uvicorn.access - 127.0.0.1:41952 - "GET /queue/data?session_hash=f9d84816-5534-499a-810c-4b5cc8d21ef2 HTTP/1.1" 200
+17:55:05.204 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:55:31.027 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test3_1.class
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test3_1.class
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test3_1.class'' executed successfully on remote host.", 'output': 
+'-rw-rw-r-- 1 raimondo raimondo 416 Dec 25 19:54 
+/home/raimondo/agent_test/test3_1.class'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T17:55:31.026732778Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test3_1.class'' executed successfully on remote host.\nOutput: 
+-rw-rw-r-- 1 raimondo raimondo 416 Dec 25 19:54 
+/home/raimondo/agent_test/test3_1.class\n\nThe class file 
+**`~/agent_test/test3_1.class`** exists and was created 
+successfully:\n\n```\n-rw-rw-r-- 1 raimondo raimondo 416 Dec 25 19:54 
+/home/raimondo/agent_test/test3_1.class\n```\n\nIf you need to run it, you can 
+execute:\n\n```bash\njava -cp ~/agent_test test3_1\n```\n\nand it should 
+print:\n\n```\nhello world!\n```",
+        'thinking': 'User wants to check if the class file exists. Already the 
+assistant provided ls -l. The output shows the file exists. Probably should 
+respond confirming existence.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20778226100,
+    'load_duration': 300435209,
+    'prompt_eval_count': 809,
+    'prompt_eval_duration': 214485315,
+    'eval_count': 102,
+    'eval_duration': 12982842073
+}
+17:55:31.099 [INFO    ]            uvicorn.access - 127.0.0.1:33828 - "POST /queue/join HTTP/1.1" 200
+17:55:31.154 [INFO    ]            uvicorn.access - 127.0.0.1:33834 - "GET /queue/data?session_hash=f9d84816-5534-499a-810c-4b5cc8d21ef2 HTTP/1.1" 200
+17:55:54.200 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:56:10.090 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3_1.java ~/agent_test/test3_1.class
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3_1.java ~/agent_test/test3_1.class
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3_1.java ~/agent_test/test3_1.class'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T17:56:10.089672167Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3_1.java ~/agent_test/test3_1.class'' executed successfully 
+on remote host.\nOutput: \n\nFiles `~/agent_test/test3_1.java` and 
+`~/agent_test/test3_1.class` have been removed (if they existed). If you need 
+anything else, just let me know!",
+        'thinking': "The user asks to remove the files again. The assistant has 
+executed rm -f. It's fine. They want all in one command. The assistant did that.
+We should confirm removal. Probably okay. Just respond confirming."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14371357915,
+    'load_duration': 304757606,
+    'prompt_eval_count': 1035,
+    'prompt_eval_duration': 129626312,
+    'eval_count': 42,
+    'eval_duration': 5275691150
+}
+17:56:10.311 [INFO    ]             uvicorn.error - Shutting down
+17:56:10.411 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:56:10.412 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:56:10.412 [INFO    ]             uvicorn.error - Finished server process [166767]
+make: *** [Makefile:36: run] Terminated

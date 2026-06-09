@@ -1,0 +1,178 @@
+poetry run python -m private_gpt
+07:29:54.193 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+07:29:58.465 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+07:29:58.528 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:29:58.530 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:29:59.467 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+07:29:59.621 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:29:59.622 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:29:59.623 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+07:30:00.511 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+07:30:00.552 [INFO    ]             uvicorn.error - Started server process [23543]
+07:30:00.552 [INFO    ]             uvicorn.error - Waiting for application startup.
+07:30:00.552 [INFO    ]             uvicorn.error - Application startup complete.
+07:30:00.552 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+07:30:34.018 [INFO    ]            uvicorn.access - 127.0.0.1:39032 - "GET /config HTTP/1.1" 200
+07:30:34.072 [INFO    ]            uvicorn.access - 127.0.0.1:39042 - "GET /info?serialize=False HTTP/1.1" 200
+07:30:34.140 [INFO    ]            uvicorn.access - 127.0.0.1:39046 - "GET /heartbeat/9f34ca29-44f4-4e96-ae5e-0522230fb5a9 HTTP/1.1" 200
+07:30:34.142 [INFO    ]            uvicorn.access - 127.0.0.1:39062 - "POST /queue/join HTTP/1.1" 200
+07:30:34.197 [INFO    ]            uvicorn.access - 127.0.0.1:39066 - "GET /queue/data?session_hash=9f34ca29-44f4-4e96-ae5e-0522230fb5a9 HTTP/1.1" 200
+07:30:51.927 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:31:14.555 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T07:31:14.555308961Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nDone. The file `~/agent_test/test1.3.sh` was removed (if it existed) on the 
+remote host `eraigra-rpi` as user `raimondo`.",
+        'thinking': 'User: "in the remost host eraigra-rpi username raimondo 
+remove if exists ~/agent_test/test1.3.sh". They want to remove file if exists. 
+The assistant executed rm -f. That works but we should mention that it was 
+removed. Also maybe confirm existence? They asked to remove if exists. The 
+command executed. So reply acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17636471676,
+    'load_duration': 280225524,
+    'prompt_eval_count': 464,
+    'prompt_eval_duration': 256131725,
+    'eval_count': 40,
+    'eval_duration': 4994818238
+}
+07:31:14.653 [INFO    ]            uvicorn.access - 127.0.0.1:52894 - "POST /queue/join HTTP/1.1" 200
+07:31:14.708 [INFO    ]            uvicorn.access - 127.0.0.1:52902 - "GET /queue/data?session_hash=9f34ca29-44f4-4e96-ae5e-0522230fb5a9 HTTP/1.1" 200
+07:34:23.363 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:35:06.706 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && printf '#!/bin/bash\nwhile getopts "a:b:c:" opt; do\n  case $opt in\n    a) echo "Option a with value: $OPTARG";;\n    b) echo "Option b with value: $OPTARG";;\n    c) echo "Option c with value: $OPTARG";;\n    \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;\n  esac\ndone\nshift $((OPTIND -1))\necho "Remaining arguments: $@"\n' > ~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && printf '#!/bin/bash\nwhile getopts "a:b:c:" opt; do\n  case $opt in\n    a) echo "Option a with value: $OPTARG";;\n    b) echo "Option b with value: $OPTARG";;\n    c) echo "Option c with value: $OPTARG";;\n    \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;\n  esac\ndone\nshift $((OPTIND -1))\necho "Remaining arguments: $@"\n' > ~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && printf \'"\'"\'#!/bin/bash\\nwhile getopts "a🅱c:" opt; do\\n  
+case $opt in\\n    a) echo "Option a with value: $OPTARG";;\\n    b) echo 
+"Option b with value: $OPTARG";;\\n    c) echo "Option c with value: 
+$OPTARG";;\\n    \\?) echo "Invalid option: -$OPTARG" >&2; exit 1;;\\n  
+esac\\ndone\\nshift $((OPTIND -1))\\necho "Remaining arguments: $@"\\n\'"\'"\' >
+~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T07:35:06.706460044Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && printf \'"\'"\'#!/bin/bash\\nwhile getopts "a:b:c:"
+opt; do\\n  case $opt in\\n    a) echo "Option a with value: $OPTARG";;\\n    b)
+echo "Option b with value: $OPTARG";;\\n    c) echo "Option c with value: 
+$OPTARG";;\\n    \\?) echo "Invalid option: -$OPTARG" >&2; exit 1;;\\n  
+esac\\ndone\\nshift $((OPTIND -1))\\necho "Remaining arguments: $@"\\n\'"\'"\' >
+~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nThe script has been created and made 
+executable on the remote host `eraigra-rpi` (user `raimondo`).  \nYou can verify
+it with:\n\n```bash\ncat ~/agent_test/test1.3.sh\n```\n\nand test it, 
+e.g.:\n\n```bash\n~/agent_test/test1.3.sh -a value1 -b value2 -c value3 arg1 
+arg2\n```\n\nIt should output the parsed options and the remaining arguments.',
+        'thinking': 'We have completed the task. The user asked: "in the remote 
+host eraigra-rpi username raimondo write a bash script ~/agent_test/test1.3.sh 
+that demonstrates how to parse command-line arguments using getopts. Please make
+it executable in the same command line. Don\'t split the commands and do all 
+requested in a single command line."\n\nWe used a single command line: "mkdir -p
+~/agent_test && printf \'...\' > ~/agent_test/test1.3.sh && chmod +x 
+~/agent_test/test1.3.sh". That\'s correct. The script uses getopts. Provide a 
+final answer: confirm.\n\nWe may want to mention the script content, just to be 
+thorough. But the instruction is to do it. The remote command has been executed 
+successfully. We should respond with a confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 38243978723,
+    'load_duration': 301815187,
+    'prompt_eval_count': 865,
+    'prompt_eval_duration': 256933009,
+    'eval_count': 97,
+    'eval_duration': 12333990504
+}
+07:35:06.825 [INFO    ]            uvicorn.access - 127.0.0.1:53810 - "POST /queue/join HTTP/1.1" 200
+07:35:06.879 [INFO    ]            uvicorn.access - 127.0.0.1:53818 - "GET /queue/data?session_hash=9f34ca29-44f4-4e96-ae5e-0522230fb5a9 HTTP/1.1" 200
+07:35:24.298 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:35:41.598 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test1.3.sh -a test -b foo -c bar arg1 arg2
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test1.3.sh -a test -b foo -c bar arg1 arg2
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test1.3.sh -a test -b foo -c bar arg1 arg2'' executed 
+successfully on remote host.", 'output': 'Option a with value: test\nOption b 
+with value: foo\nOption c with value: bar\nRemaining arguments: arg1 arg2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T07:35:41.598112315Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test1.3.sh -a test -b foo -c bar arg1 arg2'' executed 
+successfully on remote host.\nOutput: Option a with value: test\nOption b with 
+value: foo\nOption c with value: bar\nRemaining arguments: arg1 arg2\n\nHere is 
+the output from running the script on `eraigra-rpi` (user 
+`raimondo`):\n\n```\nOption a with value: test\nOption b with value: foo\nOption
+c with value: bar\nRemaining arguments: arg1 arg2\n```\n\nThis shows that the 
+script correctly parsed the options `-a`, `-b`, `-c` and then printed the 
+remaining positional arguments.",
+        'thinking': 'We have output already. Just present.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15843910100,
+    'load_duration': 284377562,
+    'prompt_eval_count': 925,
+    'prompt_eval_duration': 222376884,
+    'eval_count': 87,
+    'eval_duration': 11046702132
+}
+07:35:41.677 [INFO    ]            uvicorn.access - 127.0.0.1:56012 - "POST /queue/join HTTP/1.1" 200
+07:35:41.732 [INFO    ]            uvicorn.access - 127.0.0.1:56024 - "GET /queue/data?session_hash=9f34ca29-44f4-4e96-ae5e-0522230fb5a9 HTTP/1.1" 200
+07:35:59.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:36:16.454 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T07:36:16.453737808Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.sh'' executed successfully on remote host.\nOutput: 
+\n\n`~/agent_test/test1.3.sh` has been removed from the remote host 
+`eraigra-rpi` (user `raimondo`).",
+        'thinking': "The user wants to remove the file test1.3.sh on remote 
+host. Already done. The assistant responded that it was removed. This is likely 
+all that's needed. No further action."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12146538117,
+    'load_duration': 292370100,
+    'prompt_eval_count': 1120,
+    'prompt_eval_duration': 129914284,
+    'eval_count': 32,
+    'eval_duration': 3985505690
+}
+07:36:16.587 [INFO    ]             uvicorn.error - Shutting down
+07:36:16.687 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+07:36:16.687 [INFO    ]             uvicorn.error - Application shutdown complete.
+07:36:16.687 [INFO    ]             uvicorn.error - Finished server process [23543]
+make: *** [Makefile:36: run] Terminated

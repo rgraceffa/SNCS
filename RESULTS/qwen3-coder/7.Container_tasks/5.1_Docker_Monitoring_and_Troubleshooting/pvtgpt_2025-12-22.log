@@ -1,0 +1,288 @@
+poetry run python -m private_gpt
+15:34:41.663 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:34:45.940 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:34:46.004 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:34:46.005 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:34:46.904 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:34:47.059 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:34:47.061 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:34:47.062 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:34:47.956 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:34:47.996 [INFO    ]             uvicorn.error - Started server process [2502751]
+15:34:47.997 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:34:47.997 [INFO    ]             uvicorn.error - Application startup complete.
+15:34:47.997 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:35:21.491 [INFO    ]            uvicorn.access - 127.0.0.1:46162 - "GET /config HTTP/1.1" 200
+15:35:21.546 [INFO    ]            uvicorn.access - 127.0.0.1:46174 - "GET /info?serialize=False HTTP/1.1" 200
+15:35:21.644 [INFO    ]            uvicorn.access - 127.0.0.1:46180 - "GET /heartbeat/bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:35:21.647 [INFO    ]            uvicorn.access - 127.0.0.1:46186 - "POST /queue/join HTTP/1.1" 200
+15:35:21.703 [INFO    ]            uvicorn.access - 127.0.0.1:46190 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:35:34.778 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:38:53.079 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull ubuntu && docker run -d --name test_container ubuntu sleep infinity && rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: docker pull ubuntu && docker run -d --name test_container ubuntu sleep infinity && rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull ubuntu &&
+docker run -d --name test_container ubuntu sleep infinity && rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': 
+'Using default tag: latest\nlatest: Pulling from library/ubuntu\n6cdc0abf996c: 
+Pulling fs layer\n6cdc0abf996c: Verifying Checksum\n6cdc0abf996c: Download 
+complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\nfa8e99b65f8da496cfebe36d702da1db
+e7af068b39510d5a85e1dd48dd38f7bc'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:38:53.07943441Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker pull ubuntu && docker run -d --name test_container ubuntu sleep 
+infinity && rm -f ~/agent_test/test5.1.log\'\' executed successfully on remote 
+host.\nOutput: Using default tag: latest\nlatest: Pulling from 
+library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\nfa8e99b65f8da496cfebe36d702da1db
+e7af068b39510d5a85e1dd48dd38f7bc\n\nThe command has been successfully executed 
+on the remote host. Here\'s what was done:\n\n1. Pulled the latest Ubuntu Docker
+image from the Docker Hub\n2. Started a new Docker container named 
+"test_container" based on the Ubuntu image, running in detached mode with the 
+command "sleep infinity"\n3. Removed the file ~/agent_test/test5.1.log if it 
+existed\n\nThe output shows that the Ubuntu image was successfully downloaded 
+and the container was started. The container ID is 
+fa8e99b65f8da496cfebe36d702da1dbe7af068b39510d5a85e1dd48dd38f7bc.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24914841165,
+    'load_duration': 136707735,
+    'prompt_eval_count': 824,
+    'prompt_eval_duration': 6819880508,
+    'eval_count': 152,
+    'eval_duration': 17820505509
+}
+15:38:53.204 [INFO    ]            uvicorn.access - 127.0.0.1:57576 - "POST /queue/join HTTP/1.1" 200
+15:38:53.259 [INFO    ]            uvicorn.access - 127.0.0.1:57592 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:39:09.689 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:54:43.103 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker logs -f test_container > ~/agent_test/test5.1.log
+[AGENT] ⏱️ Command timed out: docker logs -f test_container > ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'error', 'message': "The command ''docker logs -f 
+test_container > ~/agent_test/test5.1.log'' timed out on remote host.", 
+'output': "Command '['ssh', '-p', '22', '-o', 'ConnectTimeout=65', '-o', 
+'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', 
+'raimondo@eraigra-rpi', 'docker logs -f test_container > 
+~/agent_test/test5.1.log']' timed out after 900 seconds"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:54:43.102777067Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+''docker logs -f test_container > ~/agent_test/test5.1.log'' timed out on remote
+host.\nOutput: Command '['ssh', '-p', '22', '-o', 'ConnectTimeout=65', '-o', 
+'UserKnownHostsFile=/dev/null', '-o', 'StrictHostKeyChecking=no', 
+'raimondo@eraigra-rpi', 'docker logs -f test_container > 
+~/agent_test/test5.1.log']' timed out after 900 seconds\n\nI see that the 
+command timed out because the `docker logs -f` command runs indefinitely, which 
+caused the SSH connection to timeout. Let me provide you with an alternative 
+approach that will capture the logs without running indefinitely.\n\nThe command
+needs to be modified to capture a specific amount of logs or use a different 
+approach. Here's a solution that will capture the logs and save them to the 
+file:",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker logs test_container | tail -n 100 > 
+~/agent_test/test5.1.log',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33374514696,
+    'load_duration': 3605236227,
+    'prompt_eval_count': 1168,
+    'prompt_eval_duration': 12003330718,
+    'eval_count': 148,
+    'eval_duration': 17589211770
+}
+15:54:48.182 [INFO    ]            uvicorn.access - 127.0.0.1:54180 - "POST /queue/join HTTP/1.1" 200
+15:54:48.236 [INFO    ]            uvicorn.access - 127.0.0.1:54188 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:55:02.828 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] ❌: agent not called
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:55:02.827972221Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: UNKNOWN\nMessage: Unable to parse 
+user input and detect the right agent\nOutput: No output detected\n\nI 
+understand you want to capture the real-time logs from the Docker container, but
+the previous attempt timed out because `docker logs -f` runs indefinitely. Let 
+me provide a solution that will capture the logs properly:',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker logs -f test_container | tee 
+~/agent_test/test5.1.log',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14603904362,
+    'load_duration': 126696987,
+    'prompt_eval_count': 1310,
+    'prompt_eval_duration': 1501235720,
+    'eval_count': 107,
+    'eval_duration': 12810433549
+}
+15:55:07.961 [INFO    ]            uvicorn.access - 127.0.0.1:38226 - "POST /queue/join HTTP/1.1" 200
+15:55:08.016 [INFO    ]            uvicorn.access - 127.0.0.1:38240 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:55:29.086 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:56:03.458 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker logs -f test_container > ~/agent_test/test5.1.log 2>&1 &
+[AGENT] ✅ Remote command executed successfully: docker logs -f test_container > ~/agent_test/test5.1.log 2>&1 &
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker logs -f 
+test_container > ~/agent_test/test5.1.log 2>&1 &'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:56:03.457609775Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker logs -f test_container > ~/agent_test/test5.1.log 2>&1 &\'\' executed
+successfully on remote host.\nOutput: \n\nThe command has been successfully 
+executed on the remote host. Here\'s what was done:\n\n1. Started the Docker 
+container logs in the background using `docker logs -f test_container`\n2. 
+Redirected both stdout and stderr to the file `~/agent_test/test5.1.log`\n3. 
+Used `&` to run the process in the background\n\nThe real-time logs from the 
+Docker container named "test_container" are now being continuously written to 
+the file `~/agent_test/test5.1.log` on the remote host. The process is running 
+in the background, so it won\'t block your terminal or cause timeout issues.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 29086607096,
+    'load_duration': 131070117,
+    'prompt_eval_count': 1469,
+    'prompt_eval_duration': 13407570179,
+    'eval_count': 128,
+    'eval_duration': 15407765714
+}
+15:56:03.566 [INFO    ]            uvicorn.access - 127.0.0.1:36626 - "POST /queue/join HTTP/1.1" 200
+15:56:03.625 [INFO    ]            uvicorn.access - 127.0.0.1:36632 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:56:13.430 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:56:33.972 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test5.1.log && cat ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test5.1.log && cat ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test5.1.log && cat ~/agent_test/test5.1.log'' executed successfully
+on remote host.", 'output': '-rw-rw-r-- 1 raimondo raimondo 0 Dec 22 17:55 
+/home/raimondo/agent_test/test5.1.log'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:56:33.972124023Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test5.1.log && cat ~/agent_test/test5.1.log'' executed 
+successfully on remote host.\nOutput: -rw-rw-r-- 1 raimondo raimondo 0 Dec 22 
+17:55 /home/raimondo/agent_test/test5.1.log\n\nI've checked the file 
+~/agent_test/test5.1.log on the remote host and here's the result:\n\nThe file 
+was created successfully with the following details:\n- File permissions: 
+-rw-rw-r--\n- Owner: raimondo\n- Group: raimondo\n- Size: 0 bytes\n- Last 
+modified: Dec 22 17:55\n\nThe file exists but is currently empty (0 bytes) 
+because the Docker container logs are being written to it in real-time in the 
+background, and the command to check the file content was executed before any 
+logs were generated. The file is ready to receive logs from the Docker 
+container."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18972924554,
+    'load_duration': 127510761,
+    'prompt_eval_count': 1747,
+    'prompt_eval_duration': 2280221265,
+    'eval_count': 136,
+    'eval_duration': 16416024462
+}
+15:56:34.089 [INFO    ]            uvicorn.access - 127.0.0.1:59390 - "POST /queue/join HTTP/1.1" 200
+15:56:34.147 [INFO    ]            uvicorn.access - 127.0.0.1:59396 - "GET /queue/data?session_hash=bb2ea4b8-7d99-4b07-99ef-7ff2dcd79fcb HTTP/1.1" 200
+15:56:47.142 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:57:19.317 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -aq) 2>/dev/null; docker rmi -f $(docker images -q) 2>/dev/null; rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -aq) 2>/dev/null; docker rmi -f $(docker images -q) 2>/dev/null; rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -aq) 2>/dev/null; docker rmi -f $(docker images -q) 2>/dev/null; rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': 
+'fa8e99b65f8d\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:57:19.317151082Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -aq) 2>/dev/null; docker rmi -f $(docker images -q) 
+2>/dev/null; rm -f ~/agent_test/test5.1.log'' executed successfully on remote 
+host.\nOutput: fa8e99b65f8d\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\n\nThe
+command has been successfully executed on the remote host. Here's what was 
+done:\n\n1. Removed all Docker containers (both running and stopped) using 
+`docker rm -f $(docker ps -aq)`\n2. Removed all Docker images using `docker rmi 
+-f $(docker images -q)`\n3. Removed the file ~/agent_test/test5.1.log if it 
+existed\n\nThe output shows:\n- The container with ID `fa8e99b65f8d` was 
+removed\n- The Ubuntu image was untagged and deleted\n- The file 
+~/agent_test/test5.1.log was removed\n\nAll Docker containers and images have 
+been cleaned up, and the specified log file has been deleted from the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23293020665,
+    'load_duration': 130306578,
+    'prompt_eval_count': 2246,
+    'prompt_eval_duration': 4521410813,
+    'eval_count': 150,
+    'eval_duration': 18468389623
+}
+15:57:19.498 [INFO    ]             uvicorn.error - Shutting down
+15:57:19.599 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:57:19.599 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:57:19.599 [INFO    ]             uvicorn.error - Finished server process [2502751]
+make: *** [Makefile:36: run] Terminated

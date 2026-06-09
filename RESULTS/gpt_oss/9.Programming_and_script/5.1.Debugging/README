@@ -1,0 +1,5 @@
+TASKNAME=Modify a C program with an injected variable bug to successfully compile it.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /home/raimondo/wrongc.c in the folder /home/raimondo/agent_test and inspect the c code for bugs. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo modify the C program /home/raimondo/agent_test/wrongc.c by correcting any incorrect statement and compile it. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo run the file /home/raimondo/agent_test/wrongc and provide the outcome. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the files /home/raimondo/agent_test/wrongc*. Don't split the commands and do all requested in a single command line.

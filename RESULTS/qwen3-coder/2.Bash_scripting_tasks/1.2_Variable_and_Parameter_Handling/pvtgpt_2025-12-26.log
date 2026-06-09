@@ -1,0 +1,162 @@
+poetry run python -m private_gpt
+14:00:04.961 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:00:09.239 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:00:09.302 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:00:09.304 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:00:10.198 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:00:10.352 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:00:10.354 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:00:10.355 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:00:11.247 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:00:11.287 [INFO    ]             uvicorn.error - Started server process [88718]
+14:00:11.287 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:00:11.288 [INFO    ]             uvicorn.error - Application startup complete.
+14:00:11.288 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:00:44.786 [INFO    ]            uvicorn.access - 127.0.0.1:50714 - "GET /config HTTP/1.1" 200
+14:00:44.841 [INFO    ]            uvicorn.access - 127.0.0.1:50720 - "GET /info?serialize=False HTTP/1.1" 200
+14:00:44.911 [INFO    ]            uvicorn.access - 127.0.0.1:50736 - "GET /heartbeat/bbec95be-45b9-4e33-9a58-4084d520e8b7 HTTP/1.1" 200
+14:00:44.913 [INFO    ]            uvicorn.access - 127.0.0.1:50738 - "POST /queue/join HTTP/1.1" 200
+14:00:44.969 [INFO    ]            uvicorn.access - 127.0.0.1:50750 - "GET /queue/data?session_hash=bbec95be-45b9-4e33-9a58-4084d520e8b7 HTTP/1.1" 200
+14:00:52.408 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:01:05.492 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:01:05.491777398Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7861215426,
+    'load_duration': 128798043,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1174494932,
+    'eval_count': 54,
+    'eval_duration': 6487923550
+}
+14:01:05.635 [INFO    ]            uvicorn.access - 127.0.0.1:57460 - "POST /queue/join HTTP/1.1" 200
+14:01:05.690 [INFO    ]            uvicorn.access - 127.0.0.1:57474 - "GET /queue/data?session_hash=bbec95be-45b9-4e33-9a58-4084d520e8b7 HTTP/1.1" 200
+14:01:23.008 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:01:45.967 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "Number of positional parameters: $#"\necho "All parameters: $@"\necho "First parameter: $1"\necho "Second parameter: $2"\necho "Third parameter: $3"' > ~/agent_test/test1.2.sh && chmod +x ~/agent_test/test1.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "Number of positional parameters: $#"\necho "All parameters: $@"\necho "First parameter: $1"\necho "Second parameter: $2"\necho "Third parameter: $3"' > ~/agent_test/test1.2.sh && chmod +x ~/agent_test/test1.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "Number of positional 
+parameters: $#"\\necho "All parameters: $@"\\necho "First parameter: $1"\\necho 
+"Second parameter: $2"\\necho "Third parameter: $3"\'"\'"\' > 
+~/agent_test/test1.2.sh && chmod +x ~/agent_test/test1.2.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:01:45.96692611Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "Number of 
+positional parameters: $#"\\necho "All parameters: $@"\\necho "First parameter: 
+$1"\\necho "Second parameter: $2"\\necho "Third parameter: $3"\'"\'"\' > 
+~/agent_test/test1.2.sh && chmod +x ~/agent_test/test1.2.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nThe command has been executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. Here\'s 
+what was done:\n\n1. Created the directory `~/agent_test` if it didn\'t 
+exist\n2. Created the script file `~/agent_test/test1.2.sh` with the following 
+content:\n   ```bash\n   #!/bin/bash\n\n   echo "Number of positional 
+parameters: $#"\n   echo "All parameters: $@"\n   echo "First parameter: $1"\n  
+echo "Second parameter: $2"\n   echo "Third parameter: $3"\n   ```\n3. Made the 
+script executable with `chmod +x ~/agent_test/test1.2.sh`\n\nThe script can now 
+be run with positional parameters, and it will display information about those 
+parameters.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21368825481,
+    'load_duration': 132426900,
+    'prompt_eval_count': 822,
+    'prompt_eval_duration': 2218151116,
+    'eval_count': 165,
+    'eval_duration': 18863197554
+}
+14:01:46.071 [INFO    ]            uvicorn.access - 127.0.0.1:44040 - "POST /queue/join HTTP/1.1" 200
+14:01:46.127 [INFO    ]            uvicorn.access - 127.0.0.1:44044 - "GET /queue/data?session_hash=bbec95be-45b9-4e33-9a58-4084d520e8b7 HTTP/1.1" 200
+14:01:53.944 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:02:08.612 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test1.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test1.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test1.2.sh'' executed successfully on remote host.", 'output': 
+'Number of positional parameters: 0\nAll parameters: \nFirst parameter: \nSecond
+parameter: \nThird parameter:'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:02:08.612198946Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test1.2.sh'' executed successfully on remote host.\nOutput: 
+Number of positional parameters: 0\nAll parameters: \nFirst parameter: \nSecond 
+parameter: \nThird parameter:\n\nThe script `~/agent_test/test1.2.sh` was 
+executed successfully on the remote host `eraigra-rpi` as the user `raimondo`. 
+Here is the output:\n\n```\nNumber of positional parameters: 0\nAll parameters: 
+\nFirst parameter: \nSecond parameter: \nThird parameter:\n```\n\nThe script ran
+without any positional parameters, so all parameter variables are empty. The 
+script correctly shows that there are 0 positional parameters passed to it."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13040502101,
+    'load_duration': 128366386,
+    'prompt_eval_count': 1093,
+    'prompt_eval_duration': 1768778314,
+    'eval_count': 97,
+    'eval_duration': 11028393706
+}
+14:02:08.756 [INFO    ]            uvicorn.access - 127.0.0.1:40724 - "POST /queue/join HTTP/1.1" 200
+14:02:08.812 [INFO    ]            uvicorn.access - 127.0.0.1:40740 - "GET /queue/data?session_hash=bbec95be-45b9-4e33-9a58-4084d520e8b7 HTTP/1.1" 200
+14:02:17.493 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:02:41.927 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:02:41.927132155Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18369591852,
+    'load_duration': 128388479,
+    'prompt_eval_count': 1269,
+    'prompt_eval_duration': 11759442739,
+    'eval_count': 54,
+    'eval_duration': 6388944099
+}
+14:02:42.131 [INFO    ]             uvicorn.error - Shutting down
+14:02:42.232 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:02:42.232 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:02:42.232 [INFO    ]             uvicorn.error - Finished server process [88718]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,5 @@
+TASKNAME=Update a specific software package to the latest version using package manager commands.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo update libnss-systemd to the latest version using package manager commands. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that libnss-systemd is updated to the latest version. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=

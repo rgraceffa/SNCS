@@ -1,0 +1,5 @@
+TASKNAME=Copy files into folders based on types. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /etc/X11/rgb.txt into the folder ~/agent_test renaming into test9.1a.txt and create an empty file test9.1b.txt into the folder ~/agent_test in the same command line
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo copy all .txt file from ~/agent_test to /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check that files test9.1a.txt and test9.1b.txt are present in /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove (if present) files test9.1a.txt and test9.1b.txt from /tmp and ~/agent_test folder.Don't split the commands and do all requested in a single command line.

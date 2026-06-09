@@ -1,0 +1,163 @@
+poetry run python -m private_gpt
+09:32:35.532 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:32:39.814 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:32:39.877 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:32:39.879 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:32:40.782 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:32:40.936 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:32:40.938 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:32:40.939 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:32:41.832 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:32:41.873 [INFO    ]             uvicorn.error - Started server process [2817285]
+09:32:41.873 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:32:41.873 [INFO    ]             uvicorn.error - Application startup complete.
+09:32:41.873 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:33:15.359 [INFO    ]            uvicorn.access - 127.0.0.1:48090 - "GET /config HTTP/1.1" 200
+09:33:15.415 [INFO    ]            uvicorn.access - 127.0.0.1:48092 - "GET /info?serialize=False HTTP/1.1" 200
+09:33:15.484 [INFO    ]            uvicorn.access - 127.0.0.1:48108 - "POST /queue/join HTTP/1.1" 200
+09:33:15.484 [INFO    ]            uvicorn.access - 127.0.0.1:48100 - "GET /heartbeat/5518e9d3-dc88-492f-82ae-5032647c8000 HTTP/1.1" 200
+09:33:15.540 [INFO    ]            uvicorn.access - 127.0.0.1:48124 - "GET /queue/data?session_hash=5518e9d3-dc88-492f-82ae-5032647c8000 HTTP/1.1" 200
+09:33:23.462 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:33:37.526 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:33:37.526444225Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.2.sh` was executed successfully on the
+remote host, and the file has been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8354500527,
+    'load_duration': 129284108,
+    'prompt_eval_count': 586,
+    'prompt_eval_duration': 4092378302,
+    'eval_count': 35,
+    'eval_duration': 4066247914
+}
+09:33:37.653 [INFO    ]            uvicorn.access - 127.0.0.1:49572 - "POST /queue/join HTTP/1.1" 200
+09:33:37.708 [INFO    ]            uvicorn.access - 127.0.0.1:49588 - "GET /queue/data?session_hash=5518e9d3-dc88-492f-82ae-5032647c8000 HTTP/1.1" 200
+09:34:03.229 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:34:26.726 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Basic Git configuration\n\ngit config --global user.name "Raimondo"\ngit config --global user.email "raimondo@example.com"\ngit config --global core.editor "nano"\ngit config --global push.default simple\ngit config --global alias.st status\ngit config --global alias.co checkout\ngit config --global alias.br branch\ngit config --global alias.ci commit' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Basic Git configuration\n\ngit config --global user.name "Raimondo"\ngit config --global user.email "raimondo@example.com"\ngit config --global core.editor "nano"\ngit config --global push.default simple\ngit config --global alias.st status\ngit config --global alias.co checkout\ngit config --global alias.br branch\ngit config --global alias.ci commit' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Basic Git configuration\\n\\ngit
+config --global user.name "Raimondo"\\ngit config --global user.email 
+"raimondo@example.com"\\ngit config --global core.editor "nano"\\ngit config 
+--global push.default simple\\ngit config --global alias.st status\\ngit config 
+--global alias.co checkout\\ngit config --global alias.br branch\\ngit config 
+--global alias.ci commit\'"\'"\' > ~/agent_test/test4.2.sh && chmod +x 
+~/agent_test/test4.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:34:26.725584617Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Basic Git 
+configuration\\n\\ngit config --global user.name "Raimondo"\\ngit config 
+--global user.email "raimondo@example.com"\\ngit config --global core.editor 
+"nano"\\ngit config --global push.default simple\\ngit config --global alias.st 
+status\\ngit config --global alias.co checkout\\ngit config --global alias.br 
+branch\\ngit config --global alias.ci commit\'"\'"\' > ~/agent_test/test4.2.sh 
+&& chmod +x ~/agent_test/test4.2.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe script `~/agent_test/test4.2.sh` has been created 
+successfully on the remote host with the following 
+content:\n\n```bash\n#!/bin/bash\n# Basic Git configuration\n\ngit config 
+--global user.name "Raimondo"\ngit config --global user.email 
+"raimondo@example.com"\ngit config --global core.editor "nano"\ngit config 
+--global push.default simple\ngit config --global alias.st status\ngit config 
+--global alias.co checkout\ngit config --global alias.br branch\ngit config 
+--global alias.ci commit\n```\n\nThe script has been given execute permissions.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21891629501,
+    'load_duration': 129603819,
+    'prompt_eval_count': 869,
+    'prompt_eval_duration': 7379767157,
+    'eval_count': 121,
+    'eval_duration': 14257775475
+}
+09:34:26.878 [INFO    ]            uvicorn.access - 127.0.0.1:33372 - "POST /queue/join HTTP/1.1" 200
+09:34:26.933 [INFO    ]            uvicorn.access - 127.0.0.1:33376 - "GET /queue/data?session_hash=5518e9d3-dc88-492f-82ae-5032647c8000 HTTP/1.1" 200
+09:34:42.448 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:35:12.295 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:35:12.29464655Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test4.2.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test4.2.sh` has been executed successfully on the 
+remote host. The script applied the following Git configurations:\n\n- User name
+set to "Raimondo"\n- User email set to "raimondo@example.com"\n- Core editor set
+to "nano"\n- Push default set to "simple"\n- Aliases created for:\n  - `st` for 
+`status`\n  - `co` for `checkout`\n  - `br` for `branch`\n  - `ci` for 
+`commit`\n\nNo output was returned, which typically indicates that the commands 
+executed without errors.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24186870099,
+    'load_duration': 130015802,
+    'prompt_eval_count': 1088,
+    'prompt_eval_duration': 9130462355,
+    'eval_count': 125,
+    'eval_duration': 14801539608
+}
+09:35:12.438 [INFO    ]            uvicorn.access - 127.0.0.1:55388 - "POST /queue/join HTTP/1.1" 200
+09:35:12.494 [INFO    ]            uvicorn.access - 127.0.0.1:55392 - "GET /queue/data?session_hash=5518e9d3-dc88-492f-82ae-5032647c8000 HTTP/1.1" 200
+09:35:21.056 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:35:39.150 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T09:35:39.150224452Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.2.sh` was executed successfully on the
+remote host, and the file has been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16521236733,
+    'load_duration': 128461125,
+    'prompt_eval_count': 1307,
+    'prompt_eval_duration': 12416234403,
+    'eval_count': 34,
+    'eval_duration': 3893361386
+}
+09:35:39.293 [INFO    ]             uvicorn.error - Shutting down
+09:35:39.393 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:35:39.393 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:35:39.393 [INFO    ]             uvicorn.error - Finished server process [2817285]
+make: *** [Makefile:36: run] Terminated

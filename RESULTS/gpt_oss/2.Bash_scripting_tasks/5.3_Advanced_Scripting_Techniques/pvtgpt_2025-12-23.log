@@ -1,0 +1,355 @@
+poetry run python -m private_gpt
+17:07:04.543 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:07:08.832 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:07:08.895 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:07:08.896 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:07:09.777 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:07:09.929 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:07:09.931 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:07:09.932 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:07:10.818 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:07:10.860 [INFO    ]             uvicorn.error - Started server process [4991]
+17:07:10.860 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:07:10.861 [INFO    ]             uvicorn.error - Application startup complete.
+17:07:10.861 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:07:44.373 [INFO    ]            uvicorn.access - 127.0.0.1:59678 - "GET /config HTTP/1.1" 200
+17:07:44.428 [INFO    ]            uvicorn.access - 127.0.0.1:59688 - "GET /info?serialize=False HTTP/1.1" 200
+17:07:44.497 [INFO    ]            uvicorn.access - 127.0.0.1:59694 - "GET /heartbeat/b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:07:44.499 [INFO    ]            uvicorn.access - 127.0.0.1:59698 - "POST /queue/join HTTP/1.1" 200
+17:07:44.554 [INFO    ]            uvicorn.access - 127.0.0.1:59700 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:08:00.198 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:08:25.019 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:08:25.018634647Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test5.3.sh` has been removed (if it existed) on the 
+host **eraigra‑rpi** under user **raimondo**.",
+        'thinking': 'The user wants to "remove if exists 
+~/agent_test/test5.3.sh" on remote host eraigra-rpi username raimondo. We used 
+rm -f which works. They didn\'t specify whether to check existence. Using -f 
+removes regardless. It succeeded. Probably answer with confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16332048727,
+    'load_duration': 296191908,
+    'prompt_eval_count': 449,
+    'prompt_eval_duration': 256020726,
+    'eval_count': 40,
+    'eval_duration': 4994408181
+}
+17:08:25.111 [INFO    ]            uvicorn.access - 127.0.0.1:41176 - "POST /queue/join HTTP/1.1" 200
+17:08:25.165 [INFO    ]            uvicorn.access - 127.0.0.1:41178 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:09:43.785 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:11:00.987 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c 'cat > ~/agent_test/test5.3.sh <<\'EOF\'
+#!/usr/bin/env bash
+
+# Call Python
+python3 - <<"PY"
+print("Hello from Python")
+PY
+
+# Call AWK
+awk \'{print "Hello from AWK"}\' <<<""
+EOF
+chmod +x ~/agent_test/test5.3.sh'
+[AGENT] ❌ Remote command failed: bash -c 'cat > ~/agent_test/test5.3.sh <<\'EOF\'
+#!/usr/bin/env bash
+
+# Call Python
+python3 - <<"PY"
+print("Hello from Python")
+PY
+
+# Call AWK
+awk \'{print "Hello from AWK"}\' <<<""
+EOF
+chmod +x ~/agent_test/test5.3.sh'
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+bash: -c: line 1: unexpected EOF while looking for matching `''
+bash: -c: line 2: syntax error: unexpected end of file
+awk: cmd. line:1: '{print
+awk: cmd. line:1: ^ invalid char ''' in expression
+bash: line 11: EOF: command not found
+bash: -c: line 12: unexpected EOF while looking for matching `''
+bash: -c: line 13: syntax error: unexpected end of file
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'bash -c \'"\'"\'cat >
+~/agent_test/test5.3.sh <<\\\'"\'"\'EOF\\\'"\'"\'\n#!/usr/bin/env bash\n\n# Call
+Python\npython3 - <<"PY"\nprint("Hello from Python")\nPY\n\n# Call AWK\nawk 
+\\\'"\'"\'{print "Hello from AWK"}\\\'"\'"\' <<<""\nEOF\nchmod +x 
+~/agent_test/test5.3.sh\'"\'"\'\'\' failed on remote host.', 'output': "Warning:
+Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.\nbash: -c:
+line 1: unexpected EOF while looking for matching `''\nbash: -c: line 2: syntax 
+error: unexpected end of file\nawk: cmd. line:1: '{print\nawk: cmd. line:1: ^ 
+invalid char ''' in expression\nbash: line 11: EOF: command not found\nbash: -c:
+line 12: unexpected EOF while looking for matching `''\nbash: -c: line 13: 
+syntax error: unexpected end of file"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:11:00.986642553Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'bash -c \'"\'"\'cat > ~/agent_test/test5.3.sh 
+<<\\\'"\'"\'EOF\\\'"\'"\'\n#!/usr/bin/env bash\n\n# Call Python\npython3 - 
+<<"PY"\nprint("Hello from Python")\nPY\n\n# Call AWK\nawk \\\'"\'"\'{print 
+"Hello from AWK"}\\\'"\'"\' <<<""\nEOF\nchmod +x 
+~/agent_test/test5.3.sh\'"\'"\'\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known hosts.\nbash: 
+-c: line 1: unexpected EOF while looking for matching `\'\'\nbash: -c: line 2: 
+syntax error: unexpected end of file\nawk: cmd. line:1: \'{print\nawk: cmd. 
+line:1: ^ invalid char \'\'\' in expression\nbash: line 11: EOF: command not 
+found\nbash: -c: line 12: unexpected EOF while looking for matching `\'\'\nbash:
+-c: line 13: syntax error: unexpected end of file\n\n',
+        'thinking': 'We need to create a file with content using echo > etc. 
+Must be single command line. We can use cat <<EOF >file. In single command line,
+we need to escape properly. We need to run remote command via function. The 
+command string must include newline handling. Use cat <<\'EOF\' >... The script 
+content includes python code with heredoc. But nested heredoc might be tricky. 
+We can use echo -e with newline escapes. But easier: use cat <<\'EOF\' with file
+path. Then write lines. Inside script we can call python with echo -e or with 
+python -c. Use python - <<\'PY\'. But that again nested. Simpler: embed python 
+code via cat inside script? Actually script just needs to contain a python 
+invocation: python3 - <<\'PY\'\\nprint("Hello")\\nPY\\n. We can use single 
+quotes to avoid interpolation. But cat <<\'EOF\' will treat the content 
+literally until EOF. That can include the python block. So our single command: 
+cat <<\'EOF\' >~/agent_test/test5.3.sh\\n...script...\\nEOF && chmod +x 
+~/agent_test/test5.3.sh\n\nLet\'s craft script content:\n\n#!/usr/bin/env 
+bash\necho "Running Python snippet"\npython3 - <<\'PY\'\nprint("Hello from 
+Python")\nPY\necho "Running AWK snippet"\nawk \'BEGIN{print "Hello from 
+AWK"}\'\n\nThus the command string.\n\nLet\'s produce as single line: cat 
+<<\'EOF\' >~/agent_test/test5.3.sh \\n#!/usr/bin/env bash\\n... etc\\nEOF && 
+chmod +x ~/agent_test/test5.3.sh\n\nWe need to include newline characters. The 
+function can send a single string with newlines.\n\nWe have to escape the 
+newlines inside the JSON. Provide as a string. Let\'s produce final.\n\n',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'cat <<\'EOF\' 
+>~/agent_test/test5.3.sh\n#!/usr/bin/env bash\n\n# Example: invoke 
+Python\npython3 - <<\'PY\'\nprint("Hello from Python")\nPY\n\n# Example: invoke 
+AWK\nawk \'BEGIN{print "Hello from AWK"}\'\n\nEOF\nchmod +x 
+~/agent_test/test5.3.sh',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 68375847228,
+    'load_duration': 294268759,
+    'prompt_eval_count': 772,
+    'prompt_eval_duration': 2739965070,
+    'eval_count': 506,
+    'eval_duration': 64904334415
+}
+17:11:06.075 [INFO    ]            uvicorn.access - 127.0.0.1:60952 - "POST /queue/join HTTP/1.1" 200
+17:11:06.130 [INFO    ]            uvicorn.access - 127.0.0.1:60958 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:12:47.766 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] ❌: agent not called
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:12:47.766183475Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: UNKNOWN\nMessage: Unable to parse 
+user input and detect the right agent\nOutput: No output detected\n\nHere’s a 
+single line that creates the script, puts a simple Bash‑Python‑AWK example 
+inside it, and makes it executable—all on one command:\n\n```bash\nbash -c \'cat
+<<\'EOF\' > ~/agent_test/test5.3.sh\n#!/usr/bin/env bash\necho "Running 
+Python:"\npython3 -c "print(\\"Hello from Python\\")"\necho "Running AWK:"\nawk 
+\'\\\'\'{print "Hello from AWK"}\'\\\'\' <<< ""\nEOF\nchmod +x 
+~/agent_test/test5.3.sh\'\n```\n\n**What this does**\n\n1. `cat <<\'EOF\' > 
+~/agent_test/test5.3.sh` starts a here‑document that writes the lines between 
+`EOF` markers into `~/agent_test/test5.3.sh`.  \n2. The script prints a message,
+runs a tiny Python one‑liner (`print("Hello from Python")`), prints another 
+message, and runs a one‑liner AWK command that prints `"Hello from AWK"`.  \n3. 
+After the here‑document closes, `chmod +x ~/agent_test/test5.3.sh` makes the 
+script executable.  \n\nRun that command on **eraigra‑rpi** as user **raimondo**
+and you’ll have an executable Bash script that demonstrates integration with 
+Python and AWK.',
+        'thinking': 'We need to construct a single command line that creates a 
+file with content and makes it executable. The user wants to create 
+~/agent_test/test5.3.sh on remote host eraigra-rpi as user raimondo. We can use 
+echo and redirect to create file. We need to avoid quoting issues. We can use 
+cat <<\'EOF\' > file. But that might be considered multiple commands? We need a 
+single command line, but can use a compound command with semicolons. For 
+example:\n\nbash -c \'cat <<\'EOF\' > ~/agent_test/test5.3.sh\n#!/usr/bin/env 
+bash\necho "Running Python: "\npython3 -c "print(\\"Hello from Python\\")"\necho
+"Running AWK: "\nawk \'\\\'\'{print "Hello from AWK"}\'\\\'\' <<< ""\nEOF\nchmod
++x ~/agent_test/test5.3.sh\'\n\nBut that uses multiple commands: cat and chmod. 
+But we can combine with ;. Single command line with semicolons counts as one 
+command. We need to ensure quoting. Let\'s produce:\n\nbash -c \'cat <<\'EOF\' >
+~/agent_test/test5.3.sh\n#!/usr/bin/env bash\necho "Running Python: "\npython3 
+-c "print(\\"Hello from Python\\")"\necho "Running AWK: "\nawk \'\\\'\'{print 
+"Hello from AWK"}\'\\\'\' <<< ""\nEOF\nchmod +x ~/agent_test/test5.3.sh\'\n\nBut
+the \'EOF\' inside single quotes might break. We can use <<\'EOF\' to avoid 
+variable expansion. The quoting inside can be tricky. Alternative: Use printf to
+write file: printf "%s\\n" "#!/usr/bin/env bash" "echo ..." > file. But we need 
+to preserve newline. We can use cat with EOF. We can use a single command with 
+"bash -c". Let\'s craft:\n\nbash -c \'cat <<\'EOF\' > 
+~/agent_test/test5.3.sh\n#!/usr/bin/env bash\necho "Running Python:"\npython3 -c
+"print(\\"Hello from Python\\")"\necho "Running AWK:"\nawk \'\\\'\'{print "Hello
+from AWK"}\'\\\'\' <<< ""\nEOF\nchmod +x ~/agent_test/test5.3.sh\'\n\nThis is a 
+single bash command that runs a script containing two commands. Need to ensure 
+quoting. Let\'s produce final answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 101662788063,
+    'load_duration': 291150710,
+    'prompt_eval_count': 1331,
+    'prompt_eval_duration': 257521217,
+    'eval_count': 274,
+    'eval_duration': 35162956877
+}
+17:12:52.869 [INFO    ]            uvicorn.access - 127.0.0.1:39672 - "POST /queue/join HTTP/1.1" 200
+17:12:52.923 [INFO    ]            uvicorn.access - 127.0.0.1:39678 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:15:56.754 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:16:24.755 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c "cat <<'EOF' > ~/agent_test/test5.3.sh
+#!/usr/bin/env bash
+echo 'Running Python:'
+python3 -c \"print('Hello from Python')\"
+echo 'Running AWK:'
+awk '{print \"Hello from AWK\"}' <<< \"\"
+EOF
+chmod +x ~/agent_test/test5.3.sh"
+[AGENT] ✅ Remote command executed successfully: bash -c "cat <<'EOF' > ~/agent_test/test5.3.sh
+#!/usr/bin/env bash
+echo 'Running Python:'
+python3 -c \"print('Hello from Python')\"
+echo 'Running AWK:'
+awk '{print \"Hello from AWK\"}' <<< \"\"
+EOF
+chmod +x ~/agent_test/test5.3.sh"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'bash -c "cat 
+<<\'"\'"\'EOF\'"\'"\' > ~/agent_test/test5.3.sh\n#!/usr/bin/env bash\necho 
+\'"\'"\'Running Python:\'"\'"\'\npython3 -c \\"print(\'"\'"\'Hello from 
+Python\'"\'"\')\\"\necho \'"\'"\'Running AWK:\'"\'"\'\nawk \'"\'"\'{print 
+\\"Hello from AWK\\"}\'"\'"\' <<< \\"\\"\nEOF\nchmod +x 
+~/agent_test/test5.3.sh"\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:16:24.755169275Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'bash -c "cat <<\'"\'"\'EOF\'"\'"\' > ~/agent_test/test5.3.sh\n#!/usr/bin/env
+bash\necho \'"\'"\'Running Python:\'"\'"\'\npython3 -c \\"print(\'"\'"\'Hello 
+from Python\'"\'"\')\\"\necho \'"\'"\'Running AWK:\'"\'"\'\nawk \'"\'"\'{print 
+\\"Hello from AWK\\"}\'"\'"\' <<< \\"\\"\nEOF\nchmod +x 
+~/agent_test/test5.3.sh"\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test5.3.sh` has been created and made executable on
+**eraigra‑rpi** as user **raimondo**. It contains a Bash example that calls both
+a Python one‑liner and an AWK one‑liner. You can run it 
+with:\n\n```bash\n~/agent_test/test5.3.sh\n```\n\nEnjoy experimenting with the 
+integrated languages!',
+        'thinking': "The assistant successfully executed the command, creating 
+the script and making it executable. The user didn't ask for anything else. So 
+we can respond confirming the action."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18957620302,
+    'load_duration': 296203324,
+    'prompt_eval_count': 1390,
+    'prompt_eval_duration': 162474227,
+    'eval_count': 84,
+    'eval_duration': 10700991708
+}
+17:16:24.869 [INFO    ]            uvicorn.access - 127.0.0.1:50064 - "POST /queue/join HTTP/1.1" 200
+17:16:24.922 [INFO    ]            uvicorn.access - 127.0.0.1:50078 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:16:37.610 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:16:57.452 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test5.3.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test5.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test5.3.sh'' executed successfully on remote host.", 'output': 
+'Running Python:\nHello from Python\nRunning AWK:\nHello from AWK'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:16:57.452173942Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test5.3.sh'' executed successfully on remote host.\nOutput: 
+Running Python:\nHello from Python\nRunning AWK:\nHello from AWK\n\nGreat! The 
+script ran successfully and produced:\n\n```\nRunning Python:\nHello from 
+Python\nRunning AWK:\nHello from AWK\n```\n\nFeel free to modify the script or 
+add more language integrations as needed. Let me know if you’d like to explore 
+anything else!",
+        'thinking': 'We need to produce final answer summarizing that the script
+ran, output given. The user executed script and got output. So we respond 
+accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14618579387,
+    'load_duration': 294375147,
+    'prompt_eval_count': 1563,
+    'prompt_eval_duration': 258178127,
+    'eval_count': 56,
+    'eval_duration': 7097245807
+}
+17:16:57.572 [INFO    ]            uvicorn.access - 127.0.0.1:52396 - "POST /queue/join HTTP/1.1" 200
+17:16:57.627 [INFO    ]            uvicorn.access - 127.0.0.1:52408 - "GET /queue/data?session_hash=b4df2c36-d191-4b6f-bc6f-b478eb0b12c7 HTTP/1.1" 200
+17:17:11.642 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:17:30.082 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T17:17:30.082287644Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test5.3.sh` has been removed (if it existed).",
+        'thinking': 'We need to respond. The user requested removal of the file.
+The assistant executed rm -f successfully. Now we should respond acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9780539196,
+    'load_duration': 293201629,
+    'prompt_eval_count': 1695,
+    'prompt_eval_duration': 129980590,
+    'eval_count': 21,
+    'eval_duration': 2581453033
+}
+17:17:30.297 [INFO    ]             uvicorn.error - Shutting down
+17:17:30.397 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:17:30.397 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:17:30.397 [INFO    ]             uvicorn.error - Finished server process [4991]
+make: *** [Makefile:36: run] Terminated

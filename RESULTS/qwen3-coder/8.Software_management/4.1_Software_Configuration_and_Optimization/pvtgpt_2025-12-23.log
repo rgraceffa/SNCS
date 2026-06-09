@@ -1,0 +1,82 @@
+poetry run python -m private_gpt
+08:49:56.313 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:50:00.618 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:50:00.682 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:50:00.684 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:50:01.597 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:50:01.753 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:50:01.755 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:50:01.756 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:50:02.667 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:50:02.708 [INFO    ]             uvicorn.error - Started server process [2731701]
+08:50:02.709 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:50:02.709 [INFO    ]             uvicorn.error - Application startup complete.
+08:50:02.709 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:50:36.139 [INFO    ]            uvicorn.access - 127.0.0.1:45842 - "GET /config HTTP/1.1" 200
+08:50:36.194 [INFO    ]            uvicorn.access - 127.0.0.1:45844 - "GET /info?serialize=False HTTP/1.1" 200
+08:50:36.263 [INFO    ]            uvicorn.access - 127.0.0.1:45858 - "GET /heartbeat/e5699a34-0eda-4e89-ad44-ef65244aa30b HTTP/1.1" 200
+08:50:36.266 [INFO    ]            uvicorn.access - 127.0.0.1:45856 - "POST /queue/join HTTP/1.1" 200
+08:50:36.320 [INFO    ]            uvicorn.access - 127.0.0.1:45886 - "GET /queue/data?session_hash=e5699a34-0eda-4e89-ad44-ef65244aa30b HTTP/1.1" 200
+08:51:08.636 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:52:08.114 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt update && sudo apt install -y git
+[AGENT] ✅ Remote command executed successfully: sudo apt update && sudo apt install -y git
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt update && 
+sudo apt install -y git'' executed successfully on remote host.", 'output': 
+'Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 file:/usr/local/mydebs ./ 
+InRelease\nGet:2 file:/usr/local/mydebs ./ Release\nIgn:2 file:/usr/local/mydebs
+./ Release\nGet:3 file:/usr/local/mydebs ./ Packages [424 B]\nHit:4 
+http://ports.ubuntu.com/ubuntu-ports jammy InRelease\nHit:5 
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:6 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nHit:8 
+https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1159 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\ngit is already the newest 
+version (1:2.34.1-1ubuntu1.15).\ngit set to manually installed.\n0 upgraded, 0 
+newly installed, 0 to remove and 0 not upgraded.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:52:08.113628931Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt update && sudo apt install -y git'' executed successfully on remote 
+host.\nOutput: Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 http://ports.ubuntu.com/ubuntu-ports jammy-updates 
+InRelease\nHit:6 http://ports.ubuntu.com/ubuntu-ports jammy-backports 
+InRelease\nHit:7 http://ports.ubuntu.com/ubuntu-ports jammy-security 
+InRelease\nHit:8 https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1159 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\ngit is already the newest 
+version (1:2.34.1-1ubuntu1.15).\ngit set to manually installed.\n0 upgraded, 0 
+newly installed, 0 to remove and 0 not upgraded.\n\nThe command `sudo apt update
+&& sudo apt install -y git` has been successfully executed on the remote host. 
+Here's the summary of the output:\n\n- The package lists were updated 
+successfully.\n- The system checked for updates and found that `git` was already
+installed and up to date.\n- No new packages were installed or upgraded.\n\nSo, 
+`git` is already installed on the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16906990503,
+    'load_duration': 128953608,
+    'prompt_eval_count': 873,
+    'prompt_eval_duration': 7293318835,
+    'eval_count': 81,
+    'eval_duration': 9388397613
+}
+08:52:08.281 [INFO    ]             uvicorn.error - Shutting down
+08:52:08.382 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:52:08.382 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:52:08.382 [INFO    ]             uvicorn.error - Finished server process [2731701]
+make: *** [Makefile:36: run] Terminated

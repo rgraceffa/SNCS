@@ -1,0 +1,162 @@
+poetry run python -m private_gpt
+08:21:30.621 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:21:34.890 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:21:34.954 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:21:34.956 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:21:35.834 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:21:35.988 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:21:35.991 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:21:35.992 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:21:36.883 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:21:36.924 [INFO    ]             uvicorn.error - Started server process [24955]
+08:21:36.924 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:21:36.924 [INFO    ]             uvicorn.error - Application startup complete.
+08:21:36.924 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:22:10.452 [INFO    ]            uvicorn.access - 127.0.0.1:49832 - "GET /config HTTP/1.1" 200
+08:22:10.506 [INFO    ]            uvicorn.access - 127.0.0.1:49842 - "GET /info?serialize=False HTTP/1.1" 200
+08:22:10.592 [INFO    ]            uvicorn.access - 127.0.0.1:49856 - "GET /heartbeat/93b034d7-af14-46fe-8127-6387ef1fb140 HTTP/1.1" 200
+08:22:10.597 [INFO    ]            uvicorn.access - 127.0.0.1:49864 - "POST /queue/join HTTP/1.1" 200
+08:22:10.652 [INFO    ]            uvicorn.access - 127.0.0.1:49876 - "GET /queue/data?session_hash=93b034d7-af14-46fe-8127-6387ef1fb140 HTTP/1.1" 200
+08:22:23.850 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:22:41.520 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:22:41.519989726Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.2.log` has been removed (if it existed).",
+        'thinking': 'The user says "in the remost host eraigra-rpi username 
+raimondo remove if exists ~/agent_test/test3.2.log". They likely want to delete 
+the file if it exists. The assistant executed rm -f which is fine. Now respond 
+confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12613149106,
+    'load_duration': 285439117,
+    'prompt_eval_count': 444,
+    'prompt_eval_duration': 256127482,
+    'eval_count': 21,
+    'eval_duration': 2560635196
+}
+08:22:41.645 [INFO    ]            uvicorn.access - 127.0.0.1:57062 - "POST /queue/join HTTP/1.1" 200
+08:22:41.699 [INFO    ]            uvicorn.access - 127.0.0.1:57076 - "GET /queue/data?session_hash=93b034d7-af14-46fe-8127-6387ef1fb140 HTTP/1.1" 200
+08:24:11.833 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:24:36.302 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo systemctl status apache2 >> ~/agent_test/test3.2.log 2>&1 && sudo systemctl is-active --quiet apache2 || (sudo systemctl restart apache2 >> ~/agent_test/test3.2.log 2>&1)
+[AGENT] ✅ Remote command executed successfully: sudo systemctl status apache2 >> ~/agent_test/test3.2.log 2>&1 && sudo systemctl is-active --quiet apache2 || (sudo systemctl restart apache2 >> ~/agent_test/test3.2.log 2>&1)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo systemctl status
+apache2 >> ~/agent_test/test3.2.log 2>&1 && sudo systemctl is-active --quiet 
+apache2 || (sudo systemctl restart apache2 >> ~/agent_test/test3.2.log 2>&1)'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:24:36.301973595Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo systemctl status apache2 >> ~/agent_test/test3.2.log 2>&1 && sudo 
+systemctl is-active --quiet apache2 || (sudo systemctl restart apache2 >> 
+~/agent_test/test3.2.log 2>&1)'' executed successfully on remote host.\nOutput: 
+\n\nCommand executed successfully.  \nThe Apache2 status was appended to 
+`~/agent_test/test3.2.log`, and if it was not running, Apache2 was restarted 
+with the restart output also logged to the same file.",
+        'thinking': 'The assistant executed: "sudo systemctl status apache2 >> 
+~/agent_test/test3.2.log 2>&1 && sudo systemctl is-active --quiet apache2 || 
+(sudo systemctl restart apache2 >> ~/agent_test/test3.2.log 2>&1)". That should 
+log status and restart only if not running.\n\nWe should reply confirming 
+success.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18961439644,
+    'load_duration': 293466906,
+    'prompt_eval_count': 633,
+    'prompt_eval_duration': 256317822,
+    'eval_count': 45,
+    'eval_duration': 5641677768
+}
+08:24:36.453 [INFO    ]            uvicorn.access - 127.0.0.1:38138 - "POST /queue/join HTTP/1.1" 200
+08:24:36.507 [INFO    ]            uvicorn.access - 127.0.0.1:38146 - "GET /queue/data?session_hash=93b034d7-af14-46fe-8127-6387ef1fb140 HTTP/1.1" 200
+08:24:54.795 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:25:14.944 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi [ -s ~/agent_test/test1.3.log ] && echo "exists and not empty" || echo "does not exist or empty"
+[AGENT] ✅ Remote command executed successfully: [ -s ~/agent_test/test1.3.log ] && echo "exists and not empty" || echo "does not exist or empty"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'[ -s 
+~/agent_test/test1.3.log ] && echo "exists and not empty" || echo "does not 
+exist or empty"\'\' executed successfully on remote host.', 'output': 'does not 
+exist or empty'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:25:14.943565492Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command \'\'[
+-s ~/agent_test/test1.3.log ] && echo "exists and not empty" || echo "does not 
+exist or empty"\'\' executed successfully on remote host.\nOutput: does not 
+exist or empty\n\nThe file `~/agent_test/test1.3.log` **does not exist or is 
+empty**.',
+        'thinking': 'User says: "in the remost host eraigra-rpi username 
+raimondo check if exists ~/agent_test/test1.3.log and is not empty". We 
+responded with a command and got output "does not exist or empty". That seems 
+correct. But maybe they want to check again? They might want the result or 
+command. We should confirm. They might expect the result "does not exist or 
+empty". We can respond with the result. Let\'s respond confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18661517859,
+    'load_duration': 287209580,
+    'prompt_eval_count': 807,
+    'prompt_eval_duration': 212741955,
+    'eval_count': 22,
+    'eval_duration': 2697732164
+}
+08:25:15.061 [INFO    ]            uvicorn.access - 127.0.0.1:38458 - "POST /queue/join HTTP/1.1" 200
+08:25:15.115 [INFO    ]            uvicorn.access - 127.0.0.1:38462 - "GET /queue/data?session_hash=93b034d7-af14-46fe-8127-6387ef1fb140 HTTP/1.1" 200
+08:25:26.938 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:25:42.052 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:25:42.052159549Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.2.log` has been removed (if it existed).",
+        'thinking': "User asked to remove if exists file 
+~/agent_test/test3.2.log. The assistant already removed it successfully. There's
+no further action. Possibly confirm or note."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10092415461,
+    'load_duration': 289850884,
+    'prompt_eval_count': 844,
+    'prompt_eval_duration': 129376977,
+    'eval_count': 21,
+    'eval_duration': 2569607407
+}
+08:25:42.260 [INFO    ]             uvicorn.error - Shutting down
+08:25:42.360 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:25:42.360 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:25:42.360 [INFO    ]             uvicorn.error - Finished server process [24955]
+make: *** [Makefile:36: run] Terminated

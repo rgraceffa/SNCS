@@ -1,0 +1,263 @@
+poetry run python -m private_gpt
+14:33:47.460 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:33:51.712 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:33:51.775 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:33:51.776 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:33:52.707 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:33:52.858 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:33:52.860 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:33:52.868 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:33:53.758 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:33:53.799 [INFO    ]             uvicorn.error - Started server process [247056]
+14:33:53.799 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:33:53.799 [INFO    ]             uvicorn.error - Application startup complete.
+14:33:53.799 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:34:27.284 [INFO    ]            uvicorn.access - 127.0.0.1:57326 - "GET /config HTTP/1.1" 200
+14:34:27.339 [INFO    ]            uvicorn.access - 127.0.0.1:57336 - "GET /info?serialize=False HTTP/1.1" 200
+14:34:27.444 [INFO    ]            uvicorn.access - 127.0.0.1:57338 - "GET /heartbeat/3eec58a2-66c4-48a2-b2b4-454fc49f55f1 HTTP/1.1" 200
+14:34:27.447 [INFO    ]            uvicorn.access - 127.0.0.1:57340 - "POST /queue/join HTTP/1.1" 200
+14:34:27.501 [INFO    ]            uvicorn.access - 127.0.0.1:57348 - "GET /queue/data?session_hash=3eec58a2-66c4-48a2-b2b4-454fc49f55f1 HTTP/1.1" 200
+14:35:21.861 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:35:38.592 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -s mypackage 2>/dev/null | grep -q '^Version: 1.0-2' && echo "mypackage version is 1.0-2" || echo "mypackage version mismatch"
+[AGENT] ✅ Remote command executed successfully: dpkg -s mypackage 2>/dev/null | grep -q '^Version: 1.0-2' && echo "mypackage version is 1.0-2" || echo "mypackage version mismatch"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'dpkg -s mypackage 
+2>/dev/null | grep -q \'"\'"\'^Version: 1.0-2\'"\'"\' && echo "mypackage version
+is 1.0-2" || echo "mypackage version mismatch"\'\' executed successfully on 
+remote host.', 'output': 'mypackage version is 1.0-2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-06T14:35:38.592499947Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'dpkg -s mypackage 2>/dev/null | grep -q \'"\'"\'^Version: 1.0-2\'"\'"\' && 
+echo "mypackage version is 1.0-2" || echo "mypackage version mismatch"\'\' 
+executed successfully on remote host.\nOutput: mypackage version is 1.0-2\n\nThe
+check was successful – the package **mypackage** is installed at version 
+**1.0‑2** on host *eraigra-rpi* (user *raimondo*).',
+        'thinking': 'We need to produce the answer: we performed command and 
+output indicates version matches. So respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11133507097,
+    'load_duration': 297001694,
+    'prompt_eval_count': 490,
+    'prompt_eval_duration': 249559307,
+    'eval_count': 40,
+    'eval_duration': 4871096997
+}
+14:35:38.698 [INFO    ]            uvicorn.access - 127.0.0.1:60812 - "POST /queue/join HTTP/1.1" 200
+14:35:38.752 [INFO    ]            uvicorn.access - 127.0.0.1:60816 - "GET /queue/data?session_hash=3eec58a2-66c4-48a2-b2b4-454fc49f55f1 HTTP/1.1" 200
+14:36:32.711 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:37:52.626 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get install -y --allow-downgrades mypackage=1.0-1 && dpkg -s mypackage | grep ^Version:
+[AGENT] ✅ Remote command executed successfully: sudo apt-get install -y --allow-downgrades mypackage=1.0-1 && dpkg -s mypackage | grep ^Version:
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get install 
+-y --allow-downgrades mypackage=1.0-1 && dpkg -s mypackage | grep ^Version:'' 
+executed successfully on remote host.", 'output': 'Reading package 
+lists...\nBuilding dependency tree...\nReading state information...\nThe 
+following packages will be DOWNGRADED:\n  mypackage\n0 upgraded, 0 newly 
+installed, 1 downgraded, 0 to remove and 81 not upgraded.\nNeed to get 0 B/704 B
+of archives.\nAfter this operation, 0 B of additional disk space will be 
+used.\nGet:1 file:/usr/local/mydebs ./ mypackage 1.0-1 [704 B]\ndpkg: warning: 
+downgrading mypackage from 1.0-2 to 1.0-1\n(Reading database ... \n(Reading 
+database ... 5%\n(Reading database ... 10%\n(Reading database ... 15%\n(Reading 
+database ... 20%\n(Reading database ... 25%\n(Reading database ... 30%\n(Reading
+database ... 35%\n(Reading database ... 40%\n(Reading database ... 45%\n(Reading
+database ... 50%\n(Reading database ... 55%\n(Reading database ... 60%\n(Reading
+database ... 65%\n(Reading database ... 70%\n(Reading database ... 75%\n(Reading
+database ... 80%\n(Reading database ... 85%\n(Reading database ... 90%\n(Reading
+database ... 95%\n(Reading database ... 100%\n(Reading database ... 154649 files
+and directories currently installed.)\nPreparing to unpack 
+..././mypackage_1.0-1_arm64.deb ...\nUnpacking mypackage (1.0-1) over (1.0-2) 
+...\nSetting up mypackage (1.0-1) ...\n\nRunning kernel seems to be 
+up-to-date.\n\nFailed to check for processor microcode upgrades.\n\nServices to 
+be restarted:\n\nService restarts being deferred:\n 
+/etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n 
+systemctl restart getty@tty1.service\n systemctl restart 
+networkd-dispatcher.service\n systemctl restart systemd-logind.service\n 
+systemctl restart unattended-upgrades.service\n systemctl restart 
+user@1000.service\n systemctl restart wpa_supplicant.service\n\nNo containers 
+need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo 
+VM guests are running outdated hypervisor (qemu) binaries on this 
+host.\nVersion: 1.0-1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-06T14:37:52.626399346Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get install -y --allow-downgrades mypackage=1.0-1 && dpkg -s 
+mypackage | grep ^Version:'' executed successfully on remote host.\nOutput: 
+Reading package lists...\nBuilding dependency tree...\nReading state 
+information...\nThe following packages will be DOWNGRADED:\n  mypackage\n0 
+upgraded, 0 newly installed, 1 downgraded, 0 to remove and 81 not 
+upgraded.\nNeed to get 0 B/704 B of archives.\nAfter this operation, 0 B of 
+additional disk space will be used.\nGet:1 file:/usr/local/mydebs ./ mypackage 
+1.0-1 [704 B]\ndpkg: warning: downgrading mypackage from 1.0-2 to 
+1.0-1\n(Reading database ... \n(Reading database ... 5%\n(Reading database ... 
+10%\n(Reading database ... 15%\n(Reading database ... 20%\n(Reading database ...
+25%\n(Reading database ... 30%\n(Reading database ... 35%\n(Reading database ...
+40%\n(Reading database ... 45%\n(Reading database ... 50%\n(Reading database ...
+55%\n(Reading database ... 60%\n(Reading database ... 65%\n(Reading database ...
+70%\n(Reading database ... 75%\n(Reading database ... 80%\n(Reading database ...
+85%\n(Reading database ... 90%\n(Reading database ... 95%\n(Reading database ...
+100%\n(Reading database ... 154649 files and directories currently 
+installed.)\nPreparing to unpack ..././mypackage_1.0-1_arm64.deb ...\nUnpacking 
+mypackage (1.0-1) over (1.0-2) ...\nSetting up mypackage (1.0-1) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n\nService restarts being deferred:\n 
+/etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n 
+systemctl restart getty@tty1.service\n systemctl restart 
+networkd-dispatcher.service\n systemctl restart systemd-logind.service\n 
+systemctl restart unattended-upgrades.service\n systemctl restart 
+user@1000.service\n systemctl restart wpa_supplicant.service\n\nNo containers 
+need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo 
+VM guests are running outdated hypervisor (qemu) binaries on this 
+host.\nVersion: 1.0-1\n\nThe downgrade was carried out successfully.  \nThe 
+package **mypackage** is now at version **1.0‑1** on host *eraigra‑rpi* (user 
+*raimondo*).",
+        'thinking': 'We need to output final.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13769897299,
+    'load_duration': 299026004,
+    'prompt_eval_count': 1167,
+    'prompt_eval_duration': 251348199,
+    'eval_count': 44,
+    'eval_duration': 5396920648
+}
+14:37:52.737 [INFO    ]            uvicorn.access - 127.0.0.1:51804 - "POST /queue/join HTTP/1.1" 200
+14:37:52.791 [INFO    ]            uvicorn.access - 127.0.0.1:51818 - "GET /queue/data?session_hash=3eec58a2-66c4-48a2-b2b4-454fc49f55f1 HTTP/1.1" 200
+14:38:20.785 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:38:44.015 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -s mypackage 2>/dev/null | grep '^Version: 1.0-1' && echo 'mypackage version is 1.0-1' || echo 'version mismatch'
+[AGENT] ✅ Remote command executed successfully: dpkg -s mypackage 2>/dev/null | grep '^Version: 1.0-1' && echo 'mypackage version is 1.0-1' || echo 'version mismatch'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'dpkg -s mypackage 
+2>/dev/null | grep \'"\'"\'^Version: 1.0-1\'"\'"\' && echo \'"\'"\'mypackage 
+version is 1.0-1\'"\'"\' || echo \'"\'"\'version mismatch\'"\'"\'\'\' executed 
+successfully on remote host.', 'output': 'Version: 1.0-1\nmypackage version is 
+1.0-1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-06T14:38:44.015465545Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'dpkg -s mypackage 2>/dev/null | grep \'"\'"\'^Version: 1.0-1\'"\'"\' && echo
+\'"\'"\'mypackage version is 1.0-1\'"\'"\' || echo \'"\'"\'version 
+mismatch\'"\'"\'\'\' executed successfully on remote host.\nOutput: Version: 
+1.0-1\nmypackage version is 1.0-1\n\nVerified – **mypackage** is currently 
+installed at version **1.0‑1** on host *eraigra‑rpi* (user *raimondo*).',
+        'thinking': "User wants to verify package mypackage is version 1.0-1 on 
+remote host eraigra-rpi, username raimondo. The assistant already executed a 
+command that returned 'mypackage version is 1.0-1'. We just need to respond 
+confirming. Probably mention that we verified and it's at 1.0-1."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17574608589,
+    'load_duration': 302152677,
+    'prompt_eval_count': 1448,
+    'prompt_eval_duration': 196173022,
+    'eval_count': 37,
+    'eval_duration': 4527086425
+}
+14:38:44.111 [INFO    ]            uvicorn.access - 127.0.0.1:55128 - "POST /queue/join HTTP/1.1" 200
+14:38:44.165 [INFO    ]            uvicorn.access - 127.0.0.1:55130 - "GET /queue/data?session_hash=3eec58a2-66c4-48a2-b2b4-454fc49f55f1 HTTP/1.1" 200
+14:39:11.546 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:40:40.785 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get install -y mypackage=1.0-2 && dpkg -s mypackage | grep ^Version
+[AGENT] ✅ Remote command executed successfully: sudo apt-get install -y mypackage=1.0-2 && dpkg -s mypackage | grep ^Version
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get install 
+-y mypackage=1.0-2 && dpkg -s mypackage | grep ^Version'' executed successfully 
+on remote host.", 'output': 'Reading package lists...\nBuilding dependency 
+tree...\nReading state information...\nThe following packages will be 
+upgraded:\n  mypackage\n1 upgraded, 0 newly installed, 0 to remove and 81 not 
+upgraded.\nNeed to get 0 B/704 B of archives.\nAfter this operation, 0 B of 
+additional disk space will be used.\nGet:1 file:/usr/local/mydebs ./ mypackage 
+1.0-2 [704 B]\n(Reading database ... \n(Reading database ... 5%\n(Reading 
+database ... 10%\n(Reading database ... 15%\n(Reading database ... 20%\n(Reading
+database ... 25%\n(Reading database ... 30%\n(Reading database ... 35%\n(Reading
+database ... 40%\n(Reading database ... 45%\n(Reading database ... 50%\n(Reading
+database ... 55%\n(Reading database ... 60%\n(Reading database ... 65%\n(Reading
+database ... 70%\n(Reading database ... 75%\n(Reading database ... 80%\n(Reading
+database ... 85%\n(Reading database ... 90%\n(Reading database ... 95%\n(Reading
+database ... 100%\n(Reading database ... 154649 files and directories currently 
+installed.)\nPreparing to unpack .../mydebs/./mypackage_1.0-2.deb ...\nUnpacking
+mypackage (1.0-2) over (1.0-1) ...\nSetting up mypackage (1.0-2) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n\nService restarts being deferred:\n 
+/etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n 
+systemctl restart getty@tty1.service\n systemctl restart 
+networkd-dispatcher.service\n systemctl restart systemd-logind.service\n 
+systemctl restart unattended-upgrades.service\n systemctl restart 
+user@1000.service\n systemctl restart wpa_supplicant.service\n\nNo containers 
+need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo 
+VM guests are running outdated hypervisor (qemu) binaries on this 
+host.\nVersion: 1.0-2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-06T14:40:40.784956965Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get install -y mypackage=1.0-2 && dpkg -s mypackage | grep ^Version''
+executed successfully on remote host.\nOutput: Reading package 
+lists...\nBuilding dependency tree...\nReading state information...\nThe 
+following packages will be upgraded:\n  mypackage\n1 upgraded, 0 newly 
+installed, 0 to remove and 81 not upgraded.\nNeed to get 0 B/704 B of 
+archives.\nAfter this operation, 0 B of additional disk space will be 
+used.\nGet:1 file:/usr/local/mydebs ./ mypackage 1.0-2 [704 B]\n(Reading 
+database ... \n(Reading database ... 5%\n(Reading database ... 10%\n(Reading 
+database ... 15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading
+database ... 30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading
+database ... 45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading
+database ... 60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading
+database ... 75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading
+database ... 90%\n(Reading database ... 95%\n(Reading database ... 
+100%\n(Reading database ... 154649 files and directories currently 
+installed.)\nPreparing to unpack .../mydebs/./mypackage_1.0-2.deb ...\nUnpacking
+mypackage (1.0-2) over (1.0-1) ...\nSetting up mypackage (1.0-2) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n\nService restarts being deferred:\n 
+/etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n 
+systemctl restart getty@tty1.service\n systemctl restart 
+networkd-dispatcher.service\n systemctl restart systemd-logind.service\n 
+systemctl restart unattended-upgrades.service\n systemctl restart 
+user@1000.service\n systemctl restart wpa_supplicant.service\n\nNo containers 
+need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo 
+VM guests are running outdated hypervisor (qemu) binaries on this 
+host.\nVersion: 1.0-2\n\nThe upgrade was carried out successfully.  \nThe 
+package **mypackage** is now installed at version **1.0‑2** on host 
+*eraigra‑rpi* (user *raimondo*).",
+        'thinking': 'User wants to upgrade to 1.0-2. We executed apt-get install
+-y mypackage=1.0-2 which worked. We might need to confirm version. Already 
+included dpkg -s mypackage | grep ^Version. Output shows version: 1.0-2. So 
+answer: confirm upgrade.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21478216834,
+    'load_duration': 298611927,
+    'prompt_eval_count': 2095,
+    'prompt_eval_duration': 127409278,
+    'eval_count': 45,
+    'eval_duration': 5570165374
+}
+14:40:40.998 [INFO    ]             uvicorn.error - Shutting down
+14:40:41.098 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:40:41.098 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:40:41.098 [INFO    ]             uvicorn.error - Finished server process [247056]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,5 @@
+TASKNAME=Find and convert .jpeg to .png in a directory including zip files, and save in a directory. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /home/raimondo/eraigra/gqgmc/GQLogo.jpg into the folder ~/agent_test renaming into test8.2.jpg and gzip it. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo convert all jpeg files in the ~/agent_test and sub folders (including gz files) in png format and save the converted files under /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that file test8.2.png exists in /tmp folder
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove file test8.2.png if exists in /tmp folder and remove (if present) files test8.2.jpg, and test8.2.png and file test8.2.jpg.gz in the folder ~/agent_test. Don't split the commands and do all requested in a single command line.

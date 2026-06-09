@@ -1,0 +1,185 @@
+poetry run python -m private_gpt
+14:21:07.835 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:21:12.113 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:21:12.177 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:21:12.179 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:21:13.079 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:21:13.233 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:21:13.235 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:21:13.236 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:21:14.127 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:21:14.168 [INFO    ]             uvicorn.error - Started server process [174010]
+14:21:14.168 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:21:14.168 [INFO    ]             uvicorn.error - Application startup complete.
+14:21:14.169 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:21:47.657 [INFO    ]            uvicorn.access - 127.0.0.1:55270 - "GET /config HTTP/1.1" 200
+14:21:47.712 [INFO    ]            uvicorn.access - 127.0.0.1:55278 - "GET /info?serialize=False HTTP/1.1" 200
+14:21:47.807 [INFO    ]            uvicorn.access - 127.0.0.1:55292 - "GET /heartbeat/756071af-6ce8-4c19-8b1f-ec80f08b7073 HTTP/1.1" 200
+14:21:47.810 [INFO    ]            uvicorn.access - 127.0.0.1:55302 - "POST /queue/join HTTP/1.1" 200
+14:21:47.866 [INFO    ]            uvicorn.access - 127.0.0.1:55314 - "GET /queue/data?session_hash=756071af-6ce8-4c19-8b1f-ec80f08b7073 HTTP/1.1" 200
+14:21:55.275 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:22:08.323 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:22:08.323313576Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7536816113,
+    'load_duration': 126179319,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1138512455,
+    'eval_count': 54,
+    'eval_duration': 6202112936
+}
+14:22:08.485 [INFO    ]            uvicorn.access - 127.0.0.1:44882 - "POST /queue/join HTTP/1.1" 200
+14:22:08.540 [INFO    ]            uvicorn.access - 127.0.0.1:44884 - "GET /queue/data?session_hash=756071af-6ce8-4c19-8b1f-ec80f08b7073 HTTP/1.1" 200
+14:22:44.068 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:23:11.222 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Example script for string manipulation and pattern matching\n\n# String manipulation\noriginal_string="Hello World"\necho "Original string: $original_string"\n\n# Uppercase conversion\nuppercase=$(echo "$original_string" | tr '[:lower:]' '[:upper:]')\necho "Uppercase: $uppercase"\n\n# Substring extraction\nsubstring=${original_string:0:5}\necho "First 5 characters: $substring"\n\n# Pattern matching\nif [[ "$original_string" == *"World"* ]]; then\n  echo "Pattern 'World' found in string"\nfi\n\n# Using grep for pattern matching\necho "Original string:"\necho "$original_string" | grep -q "World" && echo "Found 'World' using grep"\n\n# Replace pattern\nreplaced=$(echo "$original_string" | sed "s/World/Universe/")\necho "After replacement: $replaced"\n' > ~/agent_test/test3.2.sh && chmod +x ~/agent_test/test3.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Example script for string manipulation and pattern matching\n\n# String manipulation\noriginal_string="Hello World"\necho "Original string: $original_string"\n\n# Uppercase conversion\nuppercase=$(echo "$original_string" | tr '[:lower:]' '[:upper:]')\necho "Uppercase: $uppercase"\n\n# Substring extraction\nsubstring=${original_string:0:5}\necho "First 5 characters: $substring"\n\n# Pattern matching\nif [[ "$original_string" == *"World"* ]]; then\n  echo "Pattern 'World' found in string"\nfi\n\n# Using grep for pattern matching\necho "Original string:"\necho "$original_string" | grep -q "World" && echo "Found 'World' using grep"\n\n# Replace pattern\nreplaced=$(echo "$original_string" | sed "s/World/Universe/")\necho "After replacement: $replaced"\n' > ~/agent_test/test3.2.sh && chmod +x ~/agent_test/test3.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Example script for string 
+manipulation and pattern matching\\n\\n# String 
+manipulation\\noriginal_string="Hello World"\\necho "Original string: 
+$original_string"\\n\\n# Uppercase conversion\\nuppercase=$(echo 
+"$original_string" | tr \'"\'"\'[:lower:]\'"\'"\' 
+\'"\'"\'[:upper:]\'"\'"\')\\necho "Uppercase: $uppercase"\\n\\n# Substring 
+extraction\\nsubstring=${original_string:0:5}\\necho "First 5 characters: 
+$substring"\\n\\n# Pattern matching\\nif [[ "$original_string" == *"World"* ]]; 
+then\\n  echo "Pattern \'"\'"\'World\'"\'"\' found in string"\\nfi\\n\\n# Using 
+grep for pattern matching\\necho "Original string:"\\necho "$original_string" | 
+grep -q "World" && echo "Found \'"\'"\'World\'"\'"\' using grep"\\n\\n# Replace 
+pattern\\nreplaced=$(echo "$original_string" | sed "s/World/Universe/")\\necho 
+"After replacement: $replaced"\\n\'"\'"\' > ~/agent_test/test3.2.sh && chmod +x 
+~/agent_test/test3.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:23:11.222109608Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Example script for 
+string manipulation and pattern matching\\n\\n# String 
+manipulation\\noriginal_string="Hello World"\\necho "Original string: 
+$original_string"\\n\\n# Uppercase conversion\\nuppercase=$(echo 
+"$original_string" | tr \'"\'"\'[:lower:]\'"\'"\' 
+\'"\'"\'[:upper:]\'"\'"\')\\necho "Uppercase: $uppercase"\\n\\n# Substring 
+extraction\\nsubstring=${original_string:0:5}\\necho "First 5 characters: 
+$substring"\\n\\n# Pattern matching\\nif [[ "$original_string" == *"World"* ]]; 
+then\\n  echo "Pattern \'"\'"\'World\'"\'"\' found in string"\\nfi\\n\\n# Using 
+grep for pattern matching\\necho "Original string:"\\necho "$original_string" | 
+grep -q "World" && echo "Found \'"\'"\'World\'"\'"\' using grep"\\n\\n# Replace 
+pattern\\nreplaced=$(echo "$original_string" | sed "s/World/Universe/")\\necho 
+"After replacement: $replaced"\\n\'"\'"\' > ~/agent_test/test3.2.sh && chmod +x 
+~/agent_test/test3.2.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host `eraigra-rpi` 
+as the user `raimondo`. Here\'s what was done:\n\n1. Created the directory 
+`~/agent_test` if it didn\'t exist\n2. Wrote a bash script to 
+`~/agent_test/test3.2.sh` that performs:\n   - String manipulation (uppercase 
+conversion, substring extraction)\n   - Pattern matching (using `[[ ]]` and 
+`grep`)\n   - Pattern replacement (using `sed`)\n3. Made the script executable 
+with `chmod +x`\n\nThe script is now ready to run. You can execute it 
+with:\n```bash\n~/agent_test/test3.2.sh\n```\n\nThe script will output:\n- The 
+original string\n- Uppercase version of the string\n- First 5 characters of the 
+string\n- Pattern matching results\n- Replacement result'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25580079650,
+    'load_duration': 131622190,
+    'prompt_eval_count': 1033,
+    'prompt_eval_duration': 4159714142,
+    'eval_count': 180,
+    'eval_duration': 21128471425
+}
+14:23:11.368 [INFO    ]            uvicorn.access - 127.0.0.1:51974 - "POST /queue/join HTTP/1.1" 200
+14:23:11.423 [INFO    ]            uvicorn.access - 127.0.0.1:51988 - "GET /queue/data?session_hash=756071af-6ce8-4c19-8b1f-ec80f08b7073 HTTP/1.1" 200
+14:23:20.157 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:23:39.599 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test3.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test3.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test3.2.sh'' executed successfully on remote host.", 'output': 
+'Original string: Hello World\nUppercase: HELLO WORLD\nFirst 5 characters: 
+Hello\nPattern World found in string\nOriginal string:\nFound World using 
+grep\nAfter replacement: Hello Universe'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:23:39.599259338Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test3.2.sh'' executed successfully on remote host.\nOutput: 
+Original string: Hello World\nUppercase: HELLO WORLD\nFirst 5 characters: 
+Hello\nPattern World found in string\nOriginal string:\nFound World using 
+grep\nAfter replacement: Hello Universe\n\nThe script ~/agent_test/test3.2.sh 
+has been executed successfully. Here is the output:\n\nOriginal string: Hello 
+World\nUppercase: HELLO WORLD\nFirst 5 characters: Hello\nPattern World found in
+string\nOriginal string:\nFound World using grep\nAfter replacement: Hello 
+Universe\n\nThe script performed string manipulation and pattern matching as 
+requested, showing the original string, its uppercase version, first 5 
+characters, pattern matching results, and a replacement operation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14043616103,
+    'load_duration': 126899618,
+    'prompt_eval_count': 1336,
+    'prompt_eval_duration': 2095249860,
+    'eval_count': 97,
+    'eval_duration': 11673345222
+}
+14:23:39.686 [INFO    ]            uvicorn.access - 127.0.0.1:35504 - "POST /queue/join HTTP/1.1" 200
+14:23:39.746 [INFO    ]            uvicorn.access - 127.0.0.1:35512 - "GET /queue/data?session_hash=756071af-6ce8-4c19-8b1f-ec80f08b7073 HTTP/1.1" 200
+14:23:47.961 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:24:10.367 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:24:10.366840813Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.2.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.2.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20790633212,
+    'load_duration': 132052071,
+    'prompt_eval_count': 1511,
+    'prompt_eval_duration': 14082828934,
+    'eval_count': 54,
+    'eval_duration': 6467351717
+}
+14:24:10.580 [INFO    ]             uvicorn.error - Shutting down
+14:24:10.680 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:24:10.680 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:24:10.680 [INFO    ]             uvicorn.error - Finished server process [174010]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,177 @@
+poetry run python -m private_gpt
+11:07:24.086 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:07:28.388 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:07:28.452 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:07:28.454 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:07:29.353 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:07:29.508 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:07:29.510 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:07:29.511 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:07:30.401 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:07:30.441 [INFO    ]             uvicorn.error - Started server process [3087153]
+11:07:30.441 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:07:30.442 [INFO    ]             uvicorn.error - Application startup complete.
+11:07:30.442 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:08:03.910 [INFO    ]            uvicorn.access - 127.0.0.1:56344 - "GET /config HTTP/1.1" 200
+11:08:03.965 [INFO    ]            uvicorn.access - 127.0.0.1:56348 - "GET /info?serialize=False HTTP/1.1" 200
+11:08:04.051 [INFO    ]            uvicorn.access - 127.0.0.1:56358 - "GET /heartbeat/bfbd37d2-989a-49df-82eb-20603530bde8 HTTP/1.1" 200
+11:08:04.054 [INFO    ]            uvicorn.access - 127.0.0.1:56350 - "POST /queue/join HTTP/1.1" 200
+11:08:04.109 [INFO    ]            uvicorn.access - 127.0.0.1:56370 - "GET /queue/data?session_hash=bfbd37d2-989a-49df-82eb-20603530bde8 HTTP/1.1" 200
+11:08:19.533 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:08:56.391 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp -r /home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.2prj/test5.2.log
+[AGENT] ✅ Remote command executed successfully: cp -r /home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.2prj/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp -r 
+/home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.2prj/test5.2.log'' executed successfully on 
+remote host.", 'output': 'main.c: In function ‘main’:\nmain.c:5:28: error: ‘bad’
+undeclared (first use in this function)\n    5 |     printf("Value = %d\\n", 
+bad);\n      |                            ^~~\nmain.c:5:28: note: each 
+undeclared identifier is reported only once for each function it appears 
+in\nmain.c:4:9: warning: unused variable ‘value’ [-Wunused-variable]\n    4 |   
+int value = 10;\n      |         ^~~~~\nmake: *** [Makefile:10: main.o] Error 
+1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:08:56.391141874Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cp -r /home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.2prj/test5.2.log\'\' executed successfully on 
+remote host.\nOutput: main.c: In function ‘main’:\nmain.c:5:28: error: ‘bad’ 
+undeclared (first use in this function)\n    5 |     printf("Value = %d\\n", 
+bad);\n      |                            ^~~\nmain.c:5:28: note: each 
+undeclared identifier is reported only once for each function it appears 
+in\nmain.c:4:9: warning: unused variable ‘value’ [-Wunused-variable]\n    4 |   
+int value = 10;\n      |         ^~~~~\nmake: *** [Makefile:10: main.o] Error 
+1\n\nThe command has been executed successfully on the remote host. Here\'s the 
+output of the compilation error:\n\n```\nmain.c: In function 
+‘main’:\nmain.c:5:28: error: ‘bad’ undeclared (first use in this function)\n    
+5 |     printf("Value = %d\\\\n", bad);\n      |                            
+^~~\nmain.c:5:28: note: each undeclared identifier is reported only once for 
+each function it appears in\nmain.c:4:9: warning: unused variable ‘value’ 
+[-Wunused-variable]\n    4 |     int value = 10;\n      |         ^~~~~\nmake: 
+*** [Makefile:10: main.o] Error 1\n```\n\nThe error indicates that the variable 
+`bad` is not declared in the `main` function, and there\'s also a warning about 
+an unused variable `value`. The compilation failed because of the undeclared 
+variable `bad` on line 5 of `main.c`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31802458809,
+    'load_duration': 128324825,
+    'prompt_eval_count': 812,
+    'prompt_eval_duration': 7311895090,
+    'eval_count': 209,
+    'eval_duration': 24198084103
+}
+11:08:56.533 [INFO    ]            uvicorn.access - 127.0.0.1:39196 - "POST /queue/join HTTP/1.1" 200
+11:08:56.588 [INFO    ]            uvicorn.access - 127.0.0.1:39202 - "GET /queue/data?session_hash=bfbd37d2-989a-49df-82eb-20603530bde8 HTTP/1.1" 200
+11:09:17.585 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:09:42.651 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd /home/raimondo/agent_test/test5.2prj && sed -i 's/printf("Value = %d\\n", bad);/printf("Value = %d\\n", value);/' main.c && make
+[AGENT] ✅ Remote command executed successfully: cd /home/raimondo/agent_test/test5.2prj && sed -i 's/printf("Value = %d\\n", bad);/printf("Value = %d\\n", value);/' main.c && make
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'cd 
+/home/raimondo/agent_test/test5.2prj && sed -i \'"\'"\'s/printf("Value = 
+%d\\\\n", bad);/printf("Value = %d\\\\n", value);/\'"\'"\' main.c && make\'\' 
+executed successfully on remote host.', 'output': 'gcc -Wall -g -c main.c\ngcc 
+-Wall -g -o app main.o'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:09:42.651098045Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cd /home/raimondo/agent_test/test5.2prj && sed -i \'"\'"\'s/printf("Value = 
+%d\\\\n", bad);/printf("Value = %d\\\\n", value);/\'"\'"\' main.c && make\'\' 
+executed successfully on remote host.\nOutput: gcc -Wall -g -c main.c\ngcc -Wall
+-g -o app main.o\n\nThe command has been executed successfully on the remote 
+host. The software bug has been fixed and the makefile has been launched again. 
+Here\'s the output:\n\n```\ngcc -Wall -g -c main.c\ngcc -Wall -g -o app 
+main.o\n```\n\nThe compilation was successful, and the executable `app` has been
+created. The fix involved replacing the reference to the undeclared variable 
+`bad` with the declared variable `value` in the `main.c` file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22993139275,
+    'load_duration': 128800149,
+    'prompt_eval_count': 1224,
+    'prompt_eval_duration': 10886343818,
+    'eval_count': 101,
+    'eval_duration': 11859731247
+}
+11:09:42.750 [INFO    ]            uvicorn.access - 127.0.0.1:57124 - "POST /queue/join HTTP/1.1" 200
+11:09:42.810 [INFO    ]            uvicorn.access - 127.0.0.1:57126 - "GET /queue/data?session_hash=bfbd37d2-989a-49df-82eb-20603530bde8 HTTP/1.1" 200
+11:10:03.715 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:10:30.529 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd /home/raimondo/agent_test/test5.2prj && ./app
+[AGENT] ✅ Remote command executed successfully: cd /home/raimondo/agent_test/test5.2prj && ./app
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd 
+/home/raimondo/agent_test/test5.2prj && ./app'' executed successfully on remote 
+host.", 'output': 'Value = 10'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:10:30.528742995Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+/home/raimondo/agent_test/test5.2prj && ./app'' executed successfully on remote 
+host.\nOutput: Value = 10\n\nThe command has been executed successfully on the 
+remote host. The output of running the application is:\n\n```\nValue = 
+10\n```\n\nThe application has successfully executed and printed the value 10, 
+which corresponds to the value of the variable `value` that was used as a fix 
+for the previous compilation error."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21769332620,
+    'load_duration': 129564415,
+    'prompt_eval_count': 1439,
+    'prompt_eval_duration': 13723657488,
+    'eval_count': 66,
+    'eval_duration': 7822497177
+}
+11:10:30.629 [INFO    ]            uvicorn.access - 127.0.0.1:36048 - "POST /queue/join HTTP/1.1" 200
+11:10:30.689 [INFO    ]            uvicorn.access - 127.0.0.1:36062 - "GET /queue/data?session_hash=bfbd37d2-989a-49df-82eb-20603530bde8 HTTP/1.1" 200
+11:10:53.448 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:11:01.234 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf /home/raimondo/agent_test/test5.2prj/
+[AGENT] ✅ Remote command executed successfully: rm -rf /home/raimondo/agent_test/test5.2prj/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+/home/raimondo/agent_test/test5.2prj/'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:11:01.233561616Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf /home/raimondo/agent_test/test5.2prj/'' executed successfully on remote 
+host.\nOutput: \n\nThe command has been executed successfully on the remote 
+host. The folder `/home/raimondo/agent_test/test5.2prj/` has been removed if it 
+was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 6249393922,
+    'load_duration': 131066970,
+    'prompt_eval_count': 1616,
+    'prompt_eval_duration': 1539845355,
+    'eval_count': 39,
+    'eval_duration': 4489324144
+}
+11:11:01.468 [INFO    ]             uvicorn.error - Shutting down
+11:11:01.569 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:11:01.569 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:11:01.569 [INFO    ]             uvicorn.error - Finished server process [3087153]
+make: *** [Makefile:36: run] Terminated

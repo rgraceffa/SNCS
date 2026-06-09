@@ -1,0 +1,200 @@
+poetry run python -m private_gpt
+09:16:26.987 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:16:31.283 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:16:31.347 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:16:31.348 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:16:32.228 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:16:32.382 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:16:32.384 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:16:32.385 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:16:33.275 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:16:33.316 [INFO    ]             uvicorn.error - Started server process [1448562]
+09:16:33.316 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:16:33.316 [INFO    ]             uvicorn.error - Application startup complete.
+09:16:33.317 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:17:06.811 [INFO    ]            uvicorn.access - 127.0.0.1:51456 - "GET /config HTTP/1.1" 200
+09:17:06.866 [INFO    ]            uvicorn.access - 127.0.0.1:51460 - "GET /info?serialize=False HTTP/1.1" 200
+09:17:06.933 [INFO    ]            uvicorn.access - 127.0.0.1:51470 - "GET /heartbeat/36d29f44-d21c-4f91-927a-b46d0b4124bc HTTP/1.1" 200
+09:17:06.937 [INFO    ]            uvicorn.access - 127.0.0.1:51486 - "POST /queue/join HTTP/1.1" 200
+09:17:06.993 [INFO    ]            uvicorn.access - 127.0.0.1:51488 - "GET /queue/data?session_hash=36d29f44-d21c-4f91-927a-b46d0b4124bc HTTP/1.1" 200
+09:17:22.889 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:17:35.833 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T09:17:35.833037412Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.1.sh` was executed successfully on the
+remote host eraigra-rpi as user raimondo. The file `test2.1.sh` has been removed
+if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7141338168,
+    'load_duration': 129080228,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1135722105,
+    'eval_count': 50,
+    'eval_duration': 5809345233
+}
+09:17:35.959 [INFO    ]            uvicorn.access - 127.0.0.1:54364 - "POST /queue/join HTTP/1.1" 200
+09:17:36.014 [INFO    ]            uvicorn.access - 127.0.0.1:54372 - "GET /queue/data?session_hash=36d29f44-d21c-4f91-927a-b46d0b4124bc HTTP/1.1" 200
+09:17:56.501 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:18:25.172 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash
+sudo timeout 5 tcpdump -i any -w /tmp/network_capture.pcap
+echo "Network capture completed. Analyzing packets..."
+sudo tcpdump -r /tmp/network_capture.pcap -n
+rm /tmp/network_capture.pcap' > ~/agent_test/test2.1.sh && chmod +x ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash
+sudo timeout 5 tcpdump -i any -w /tmp/network_capture.pcap
+echo "Network capture completed. Analyzing packets..."
+sudo tcpdump -r /tmp/network_capture.pcap -n
+rm /tmp/network_capture.pcap' > ~/agent_test/test2.1.sh && chmod +x ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\nsudo timeout 5 tcpdump -i any -w 
+/tmp/network_capture.pcap\necho "Network capture completed. Analyzing 
+packets..."\nsudo tcpdump -r /tmp/network_capture.pcap -n\nrm 
+/tmp/network_capture.pcap\'"\'"\' > ~/agent_test/test2.1.sh && chmod +x 
+~/agent_test/test2.1.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T09:18:25.171889379Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\nsudo timeout 5 tcpdump -i
+any -w /tmp/network_capture.pcap\necho "Network capture completed. Analyzing 
+packets..."\nsudo tcpdump -r /tmp/network_capture.pcap -n\nrm 
+/tmp/network_capture.pcap\'"\'"\' > ~/agent_test/test2.1.sh && chmod +x 
+~/agent_test/test2.1.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe bash script `~/agent_test/test2.1.sh` has been created successfully on 
+the remote host eraigra-rpi as user raimondo. The script performs the following 
+actions:\n\n1. Creates the directory `~/agent_test` if it doesn\'t exist\n2. 
+Writes a bash script that:\n   - Uses `sudo timeout 5 tcpdump` to capture 
+network packets for 5 seconds on all interfaces\n   - Saves the capture to 
+`/tmp/network_capture.pcap`\n   - Displays a message indicating capture 
+completion\n   - Uses `sudo tcpdump` to analyze the captured packets\n   - 
+Removes the temporary capture file\n3. Makes the script executable with `chmod 
++x`\n\nYou can now execute the script with `~/agent_test/test2.1.sh` to capture 
+and analyze network packets for 5 seconds.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27052228357,
+    'load_duration': 127609245,
+    'prompt_eval_count': 825,
+    'prompt_eval_duration': 6898321320,
+    'eval_count': 171,
+    'eval_duration': 19879740838
+}
+09:18:25.291 [INFO    ]            uvicorn.access - 127.0.0.1:41720 - "POST /queue/join HTTP/1.1" 200
+09:18:25.346 [INFO    ]            uvicorn.access - 127.0.0.1:41734 - "GET /queue/data?session_hash=36d29f44-d21c-4f91-927a-b46d0b4124bc HTTP/1.1" 200
+09:18:40.816 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:19:28.216 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.1.sh
+[AGENT] ❌ Remote command failed: ~/agent_test/test2.1.sh
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+tcpdump: data link type LINUX_SLL2
+tcpdump: listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+17 packets captured
+18 packets received by filter
+0 packets dropped by kernel
+reading from file /tmp/network_capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+rm: cannot remove '/tmp/network_capture.pcap': Operation not permitted
+[AGENT] ✅:{'status': 'error', 'message': "The command 
+''~/agent_test/test2.1.sh'' failed on remote host.", 'output': "Warning: 
+Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.\ntcpdump: 
+data link type LINUX_SLL2\ntcpdump: listening on any, link-type LINUX_SLL2 
+(Linux cooked v2), snapshot length 262144 bytes\n17 packets captured\n18 packets
+received by filter\n0 packets dropped by kernel\nreading from file 
+/tmp/network_capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot 
+length 262144\nWarning: interface names might be incorrect\nrm: cannot remove 
+'/tmp/network_capture.pcap': Operation not permitted"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T09:19:28.216109215Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+''~/agent_test/test2.1.sh'' failed on remote host.\nOutput: Warning: Permanently
+added 'eraigra-rpi' (ED25519) to the list of known hosts.\ntcpdump: data link 
+type LINUX_SLL2\ntcpdump: listening on any, link-type LINUX_SLL2 (Linux cooked 
+v2), snapshot length 262144 bytes\n17 packets captured\n18 packets received by 
+filter\n0 packets dropped by kernel\nreading from file 
+/tmp/network_capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot 
+length 262144\nWarning: interface names might be incorrect\nrm: cannot remove 
+'/tmp/network_capture.pcap': Operation not permitted\n\nThe script 
+`~/agent_test/test2.1.sh` has been executed on the remote host eraigra-rpi as 
+user raimondo. Here's what happened:\n\n1. The script successfully captured 17 
+network packets for 5 seconds\n2. It analyzed the captured packets\n3. However, 
+there was an error when trying to remove the temporary file 
+`/tmp/network_capture.pcap`:\n   ```\n   rm: cannot remove 
+'/tmp/network_capture.pcap': Operation not permitted\n   ```\n\nThis error 
+occurred because the script tried to remove a file that was created by `tcpdump`
+(which runs with elevated privileges) but the removal command was executed 
+without sufficient permissions. The file `/tmp/network_capture.pcap` was created
+with root privileges and cannot be deleted by a regular user.\n\nThe network 
+capture and analysis completed successfully, but the temporary file cleanup 
+failed due to permission restrictions. The capture file remains in `/tmp/` and 
+would need to be removed with appropriate privileges (e.g., using `sudo rm 
+/tmp/network_capture.pcap`)."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36910972400,
+    'load_duration': 130739880,
+    'prompt_eval_count': 1232,
+    'prompt_eval_duration': 10975580038,
+    'eval_count': 215,
+    'eval_duration': 25650574244
+}
+09:19:28.356 [INFO    ]            uvicorn.access - 127.0.0.1:54202 - "POST /queue/join HTTP/1.1" 200
+09:19:28.411 [INFO    ]            uvicorn.access - 127.0.0.1:54206 - "GET /queue/data?session_hash=36d29f44-d21c-4f91-927a-b46d0b4124bc HTTP/1.1" 200
+09:19:49.547 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:20:14.868 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T09:20:14.867643383Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.1.sh` executed successfully on remote 
+host eraigra-rpi as user raimondo. The file `test2.1.sh` has been removed if it 
+existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20104290140,
+    'load_duration': 131302414,
+    'prompt_eval_count': 1541,
+    'prompt_eval_duration': 14278276521,
+    'eval_count': 48,
+    'eval_duration': 5591702852
+}
+09:20:15.040 [INFO    ]             uvicorn.error - Shutting down
+09:20:15.141 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:20:15.141 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:20:15.141 [INFO    ]             uvicorn.error - Finished server process [1448562]
+make: *** [Makefile:36: run] Terminated

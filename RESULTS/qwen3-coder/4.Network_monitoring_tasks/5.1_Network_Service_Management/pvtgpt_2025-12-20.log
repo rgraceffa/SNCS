@@ -1,0 +1,166 @@
+poetry run python -m private_gpt
+15:06:24.293 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:06:28.607 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:06:28.670 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:06:28.672 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:06:29.553 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:06:29.707 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:06:29.709 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:06:29.710 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:06:30.598 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:06:30.639 [INFO    ]             uvicorn.error - Started server process [1247085]
+15:06:30.639 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:06:30.639 [INFO    ]             uvicorn.error - Application startup complete.
+15:06:30.640 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:07:04.123 [INFO    ]            uvicorn.access - 127.0.0.1:45608 - "GET /config HTTP/1.1" 200
+15:07:04.178 [INFO    ]            uvicorn.access - 127.0.0.1:45616 - "GET /info?serialize=False HTTP/1.1" 200
+15:07:04.251 [INFO    ]            uvicorn.access - 127.0.0.1:45638 - "POST /queue/join HTTP/1.1" 200
+15:07:04.254 [INFO    ]            uvicorn.access - 127.0.0.1:45630 - "GET /heartbeat/9ac204ca-0f46-4acb-8144-77d093c522e1 HTTP/1.1" 200
+15:07:04.309 [INFO    ]            uvicorn.access - 127.0.0.1:45642 - "GET /queue/data?session_hash=9ac204ca-0f46-4acb-8144-77d093c522e1 HTTP/1.1" 200
+15:07:11.714 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:07:27.944 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T15:07:27.944207493Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test5.1.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file `test5.1.log` has
+been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10632513756,
+    'load_duration': 127677392,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 4015120859,
+    'eval_count': 55,
+    'eval_duration': 6417830676
+}
+15:07:28.076 [INFO    ]            uvicorn.access - 127.0.0.1:57418 - "POST /queue/join HTTP/1.1" 200
+15:07:28.130 [INFO    ]            uvicorn.access - 127.0.0.1:57430 - "GET /queue/data?session_hash=9ac204ca-0f46-4acb-8144-77d093c522e1 HTTP/1.1" 200
+15:07:41.592 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:08:02.360 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ping -c 1 google.com > ~/agent_test/test5.1.log 2>&1 && echo "Google is reachable" >> ~/agent_test/test5.1.log || echo "Google is not reachable" >> ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: ping -c 1 google.com > ~/agent_test/test5.1.log 2>&1 && echo "Google is reachable" >> ~/agent_test/test5.1.log || echo "Google is not reachable" >> ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'ping -c 1 
+google.com > ~/agent_test/test5.1.log 2>&1 && echo "Google is reachable" >> 
+~/agent_test/test5.1.log || echo "Google is not reachable" >> 
+~/agent_test/test5.1.log\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T15:08:02.359755231Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'ping -c 1 google.com > ~/agent_test/test5.1.log 2>&1 && echo "Google is 
+reachable" >> ~/agent_test/test5.1.log || echo "Google is not reachable" >> 
+~/agent_test/test5.1.log\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command to check the status of Google and log the outcome into the file 
+`~/agent_test/test5.1.log` was executed successfully on the remote host 
+`eraigra-rpi` as the user `raimondo`. The command performed the following 
+actions:\n\n1. Ping Google once (`ping -c 1 google.com`).\n2. Redirected the 
+output to `~/agent_test/test5.1.log`.\n3. If the ping is successful, it appends 
+"Google is reachable" to the log file.\n4. If the ping fails, it appends "Google
+is not reachable" to the log file.\n\nThe result of the check is now logged in 
+the specified file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19107016217,
+    'load_duration': 129994365,
+    'prompt_eval_count': 771,
+    'prompt_eval_duration': 1992400471,
+    'eval_count': 142,
+    'eval_duration': 16854013654
+}
+15:08:02.468 [INFO    ]            uvicorn.access - 127.0.0.1:46458 - "POST /queue/join HTTP/1.1" 200
+15:08:02.524 [INFO    ]            uvicorn.access - 127.0.0.1:46474 - "GET /queue/data?session_hash=9ac204ca-0f46-4acb-8144-77d093c522e1 HTTP/1.1" 200
+15:08:10.281 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:08:47.194 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': 
+'PING google.com (172.217.17.142) 56(84) bytes of data.\n64 bytes from 
+ams15s30-in-f14.1e100.net (172.217.17.142): icmp_seq=1 ttl=116 time=22.9 
+ms\n\n--- google.com ping statistics ---\n1 packets transmitted, 1 received, 0% 
+packet loss, time 0ms\nrtt min/avg/max/mdev = 22.884/22.884/22.884/0.000 
+ms\nGoogle is reachable'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T15:08:47.194410617Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: PING 
+google.com (172.217.17.142) 56(84) bytes of data.\n64 bytes from 
+ams15s30-in-f14.1e100.net (172.217.17.142): icmp_seq=1 ttl=116 time=22.9 
+ms\n\n--- google.com ping statistics ---\n1 packets transmitted, 1 received, 0% 
+packet loss, time 0ms\nrtt min/avg/max/mdev = 22.884/22.884/22.884/0.000 
+ms\nGoogle is reachable\n\nThe content of the file `~/agent_test/test5.1.log` on
+the remote host `eraigra-rpi` as the user `raimondo` is as follows:\n\n```\nPING
+google.com (172.217.17.142) 56(84) bytes of data.\n64 bytes from 
+ams15s30-in-f14.1e100.net (172.217.17.142): icmp_seq=1 ttl=116 time=22.9 
+ms\n\n--- google.com ping statistics ---\n1 packets transmitted, 1 received, 0% 
+packet loss, time 0ms\nrtt min/avg/max/mdev = 22.884/22.884/22.884/0.000 
+ms\nGoogle is reachable\n```\n\nThis indicates that Google is reachable, with a 
+ping time of 22.9 ms."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 35356409092,
+    'load_duration': 127541952,
+    'prompt_eval_count': 1148,
+    'prompt_eval_duration': 9632629942,
+    'eval_count': 214,
+    'eval_duration': 25426023597
+}
+15:08:47.338 [INFO    ]            uvicorn.access - 127.0.0.1:34848 - "POST /queue/join HTTP/1.1" 200
+15:08:47.393 [INFO    ]            uvicorn.access - 127.0.0.1:34860 - "GET /queue/data?session_hash=9ac204ca-0f46-4acb-8144-77d093c522e1 HTTP/1.1" 200
+15:08:56.142 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:09:09.268 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-20T15:09:09.267588434Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test5.1.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test5.1.log` has been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7921290488,
+    'load_duration': 126275177,
+    'prompt_eval_count': 1441,
+    'prompt_eval_duration': 1261207336,
+    'eval_count': 57,
+    'eval_duration': 6432494728
+}
+15:09:09.491 [INFO    ]             uvicorn.error - Shutting down
+15:09:09.591 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:09:09.592 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:09:09.592 [INFO    ]             uvicorn.error - Finished server process [1247085]
+make: *** [Makefile:36: run] Terminated

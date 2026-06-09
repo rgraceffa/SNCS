@@ -1,0 +1,179 @@
+poetry run python -m private_gpt
+11:35:21.310 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:35:25.589 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:35:25.652 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:35:25.654 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:35:26.531 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:35:26.685 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:35:26.687 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:35:26.688 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:35:27.580 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:35:27.620 [INFO    ]             uvicorn.error - Started server process [1858113]
+11:35:27.620 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:35:27.621 [INFO    ]             uvicorn.error - Application startup complete.
+11:35:27.621 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:36:01.141 [INFO    ]            uvicorn.access - 127.0.0.1:49582 - "GET /config HTTP/1.1" 200
+11:36:01.196 [INFO    ]            uvicorn.access - 127.0.0.1:49596 - "GET /info?serialize=False HTTP/1.1" 200
+11:36:01.261 [INFO    ]            uvicorn.access - 127.0.0.1:49602 - "POST /queue/join HTTP/1.1" 200
+11:36:01.261 [INFO    ]            uvicorn.access - 127.0.0.1:49600 - "GET /heartbeat/dd8dff5a-7f78-4ee6-a6e0-7e9729d0cc07 HTTP/1.1" 200
+11:36:01.317 [INFO    ]            uvicorn.access - 127.0.0.1:49610 - "GET /queue/data?session_hash=dd8dff5a-7f78-4ee6-a6e0-7e9729d0cc07 HTTP/1.1" 200
+11:36:14.549 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:36:37.911 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP
+[AGENT] ✅ Remote command executed successfully: sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -A 
+OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:36:37.911076063Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP'' executed 
+successfully on remote host.\nOutput: \n\nThe command to block HTTP traffic to 
+the host 1.2.3.4 has been successfully executed on the remote host eraigra-rpi 
+as the user raimondo. Here's the command that was run:\n\n```bash\nsudo iptables
+-A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP\n```\n\nThis rule will drop all 
+outgoing HTTP (port 80) traffic destined for 1.2.3.4. If you need to make this 
+rule persistent across reboots, you might want to save the iptables 
+configuration. Let me know if you need assistance with that."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17873165300,
+    'load_duration': 129931207,
+    'prompt_eval_count': 616,
+    'prompt_eval_duration': 1479137750,
+    'eval_count': 138,
+    'eval_duration': 16138716964
+}
+11:36:37.999 [INFO    ]            uvicorn.access - 127.0.0.1:44848 - "POST /queue/join HTTP/1.1" 200
+11:36:38.056 [INFO    ]            uvicorn.access - 127.0.0.1:44860 - "GET /queue/data?session_hash=dd8dff5a-7f78-4ee6-a6e0-7e9729d0cc07 HTTP/1.1" 200
+11:36:51.488 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:37:34.833 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -L -n -v
+[AGENT] ✅ Remote command executed successfully: sudo iptables -L -n -v
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -L -n 
+-v'' executed successfully on remote host.", 'output': 'Chain INPUT (policy 
+ACCEPT 0 packets, 0 bytes)\n pkts bytes target     prot opt in     out     
+source               destination         \n3594K 1047M ts-input   all  --  *    
+*       0.0.0.0/0            0.0.0.0/0           \n\nChain FORWARD (policy DROP 
+0 packets, 0 bytes)\n pkts bytes target     prot opt in     out     source      
+destination         \n    0     0 DOCKER-USER  all  --  *      *       0.0.0.0/0
+0.0.0.0/0           \n    0     0 DOCKER-FORWARD  all  --  *      *       
+0.0.0.0/0            0.0.0.0/0           \n    0     0 ts-forward  all  --  *   
+*       0.0.0.0/0            0.0.0.0/0           \n\nChain OUTPUT (policy ACCEPT
+0 packets, 0 bytes)\n pkts bytes target     prot opt in     out     source      
+destination         \n    0     0 DROP       tcp  --  *      *       0.0.0.0/0  
+1.2.3.4              tcp dpt:80\n\nChain DOCKER (1 references)\n pkts bytes 
+target     prot opt in     out     source               destination         \n  
+0     0 DROP       all  --  !docker0 docker0  0.0.0.0/0            0.0.0.0/0    
+\n\nChain DOCKER-BRIDGE (1 references)\n pkts bytes target     prot opt in     
+out     source               destination         \n    0     0 DOCKER     all  
+--  *      docker0  0.0.0.0/0            0.0.0.0/0           \n\nChain DOCKER-CT
+(1 references)\n pkts bytes target     prot opt in     out     source           
+destination         \n    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0 
+0.0.0.0/0            ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 
+references)\n pkts bytes target     prot opt in     out     source              
+destination         \n    0     0 DOCKER-CT  all  --  *      *       0.0.0.0/0  
+0.0.0.0/0           \n    0     0 DOCKER-INTERNAL  all  --  *      *       
+0.0.0.0/0            0.0.0.0/0           \n    0     0 DOCKER-BRIDGE  all  --  *
+*       0.0.0.0/0            0.0.0.0/0           \n    0     0 ACCEPT     all  
+--  docker0 *       0.0.0.0/0            0.0.0.0/0           \n\nChain 
+DOCKER-INTERNAL (1 references)\n pkts bytes target     prot opt in     out     
+source               destination         \n\nChain DOCKER-USER (1 references)\n 
+pkts bytes target     prot opt in     out     source               destination  
+\n\nChain ts-forward (1 references)\n pkts bytes target     prot opt in     out 
+source               destination         \n    0     0 MARK       all  --  
+tailscale0 *       0.0.0.0/0            0.0.0.0/0            MARK xset 
+0x40000/0xff0000\n    0     0 ACCEPT     all  --  *      *       0.0.0.0/0      
+0.0.0.0/0            mark match 0x40000/0xff0000\n    0     0 DROP       all  --
+*      tailscale0  100.64.0.0/10        0.0.0.0/0           \n    0     0 ACCEPT
+all  --  *      tailscale0  0.0.0.0/0            0.0.0.0/0           \n\nChain 
+ts-input (1 references)\n pkts bytes target     prot opt in     out     source  
+destination         \n    0     0 ACCEPT     all  --  lo     *       
+100.119.118.97       0.0.0.0/0           \n    0     0 RETURN     all  --  
+!tailscale0 *       100.115.92.0/23      0.0.0.0/0           \n    0     0 DROP 
+all  --  !tailscale0 *       100.64.0.0/10        0.0.0.0/0           \n52201 
+7317K ACCEPT     all  --  tailscale0 *       0.0.0.0/0            0.0.0.0/0     
+\n73926 8352K ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0 
+udp dpt:41641'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:37:34.833296668Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -L -n -v'' executed successfully on remote host.\nOutput: Chain 
+INPUT (policy ACCEPT 0 packets, 0 bytes)\n pkts bytes target     prot opt in    
+out     source               destination         \n3594K 1047M ts-input   all  
+--  *      *       0.0.0.0/0            0.0.0.0/0           \n\nChain FORWARD 
+(policy DROP 0 packets, 0 bytes)\n pkts bytes target     prot opt in     out    
+source               destination         \n    0     0 DOCKER-USER  all  --  *  
+*       0.0.0.0/0            0.0.0.0/0           \n    0     0 DOCKER-FORWARD  
+all  --  *      *       0.0.0.0/0            0.0.0.0/0           \n    0     0 
+ts-forward  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+\n\nChain OUTPUT (policy ACCEPT 0 packets, 0 bytes)\n pkts bytes target     prot
+opt in     out     source               destination         \n    0     0 DROP  
+tcp  --  *      *       0.0.0.0/0            1.2.3.4              tcp 
+dpt:80\n\nChain DOCKER (1 references)\n pkts bytes target     prot opt in     
+out     source               destination         \n    0     0 DROP       all  
+--  !docker0 docker0  0.0.0.0/0            0.0.0.0/0           \n\nChain 
+DOCKER-BRIDGE (1 references)\n pkts bytes target     prot opt in     out     
+source               destination         \n    0     0 DOCKER     all  --  *    
+docker0  0.0.0.0/0            0.0.0.0/0           \n\nChain DOCKER-CT (1 
+references)\n pkts bytes target     prot opt in     out     source              
+destination         \n    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0 
+0.0.0.0/0            ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 
+references)\n pkts bytes target     prot opt in     out     source              
+destination         \n    0     0 DOCKER-CT  all  --  *      *       0.0.0.0/0  
+0.0.0.0/0           \n    0     0 DOCKER-INTERNAL  all  --  *      *       
+0.0.0.0/0            0.0.0.0/0           \n    0     0 DOCKER-BRIDGE  all  --  *
+*       0.0.0.0/0            0.0.0.0/0           \n    0     0 ACCEPT     all  
+--  docker0 *       0.0.0.0/0            0.0.0.0/0           \n\nChain 
+DOCKER-INTERNAL (1 references)\n pkts bytes target     prot opt in     out     
+source               destination         \n\nChain DOCKER-USER (1 references)\n 
+pkts bytes target     prot opt in     out     source               destination  
+\n\nChain ts-forward (1 references)\n pkts bytes target     prot opt in     out 
+source               destination         \n    0     0 MARK       all  --  
+tailscale0 *       0.0.0.0/0            0.0.0.0/0            MARK xset 
+0x40000/0xff0000\n    0     0 ACCEPT     all  --  *      *       0.0.0.0/0      
+0.0.0.0/0            mark match 0x40000/0xff0000\n    0     0 DROP       all  --
+*      tailscale0  100.64.0.0/10        0.0.0.0/0           \n    0     0 ACCEPT
+all  --  *      tailscale0  0.0.0.0/0            0.0.0.0/0           \n\nChain 
+ts-input (1 references)\n pkts bytes target     prot opt in     out     source  
+destination         \n    0     0 ACCEPT     all  --  lo     *       
+100.119.118.97       0.0.0.0/0           \n    0     0 RETURN     all  --  
+!tailscale0 *       100.115.92.0/23      0.0.0.0/0           \n    0     0 DROP 
+all  --  !tailscale0 *       100.64.0.0/10        0.0.0.0/0           \n52201 
+7317K ACCEPT     all  --  tailscale0 *       0.0.0.0/0            0.0.0.0/0     
+\n73926 8352K ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0 
+udp dpt:41641\n\nI can see that the iptables rule for blocking HTTP traffic to 
+host 1.2.3.4 has been successfully created. Looking at the OUTPUT chain in the 
+iptables output, there is a rule that matches exactly what we set up:\n\n```\n0 
+0 DROP       tcp  --  *      *       0.0.0.0/0            1.2.3.4              
+tcp dpt:80\n```\n\nThis rule drops all TCP traffic on port 80 (HTTP) destined 
+for 1.2.3.4. The rule is active in the OUTPUT chain, which means it will block 
+outgoing HTTP requests to that specific IP address. The packet counter is 0, 
+which means no traffic has hit this rule yet, but the rule is properly 
+configured and active."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 41689719415,
+    'load_duration': 127863632,
+    'prompt_eval_count': 2132,
+    'prompt_eval_duration': 20994566522,
+    'eval_count': 170,
+    'eval_duration': 20416753130
+}
+11:37:35.054 [INFO    ]             uvicorn.error - Shutting down
+11:37:35.155 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:37:35.155 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:37:35.155 [INFO    ]             uvicorn.error - Finished server process [1858113]
+make: *** [Makefile:36: run] Terminated

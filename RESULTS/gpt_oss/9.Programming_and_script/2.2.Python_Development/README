@@ -1,0 +1,5 @@
+TASKNAME=Perform static code analysis on a Python script and report any issues.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create a python file called ~/agent_test/test2.2.py that using paramiko connect to one node and list all files. Don't split the commands and do all requested in a single command line. 
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo performs code analysis for the python script ~/agent_test/test2.2.py. Please reports any issues in the log file ~/agent_test/test2.2.log. Don't split the commands and do all requested in a single command line. 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file ~/agent_test/test2.2.log.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/test2.2.log and ~/agent_test/test2.2.py. Don't split the commands and do all requested in a single command line. 

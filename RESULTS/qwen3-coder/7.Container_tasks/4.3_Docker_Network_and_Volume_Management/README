@@ -1,0 +1,5 @@
+TASKNAME=Attach a volume to a Docker container for data persistence.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all docker images and all docker volumes and pull an ubuntu image and start the container. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a new docker volume called test4.3 and attach the volume raimondo to the docker ubuntu for data persistence. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify all volumes attached to the docker ubuntu.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove all docker container and all docker images and all docker volumes if they exist.

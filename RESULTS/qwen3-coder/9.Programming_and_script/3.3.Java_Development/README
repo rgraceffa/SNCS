@@ -1,0 +1,5 @@
+TASKNAME=Use Maven or Gradle to build a Java project and verify successful build.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create if not present the folder ~/agent_test/mavenprj.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo use Maven to build a simple java project in the folder ~/agent_test/mavenprj. Don't forget to build the project. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify if the maven project in the folder ~/agent_test/mavenprj has been built correctly. Don't split the commands and do all requested in a single command line. 
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the folder ~/agent_test/mavenprj.

@@ -1,0 +1,5 @@
+TASKNAME=Create a file with content "hello, world". 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.1.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create the file test1.1.txt with content "hello, world" in the already created folder ~/agent_test 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test1.1.txt is created and contains "hello, world"
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.1.txt

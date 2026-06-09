@@ -1,0 +1,5 @@
+TASKNAME=Install a specific software package using the package manager.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists ffmpeg package using the package manager. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo installs ffmpeg package using the package manager. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify if ffmpeg is installed. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists ffmpeg package using the package manager. Don't split the commands and do all requested in a single command line.

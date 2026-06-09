@@ -1,0 +1,521 @@
+poetry run python -m private_gpt
+15:03:59.075 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:04:03.376 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:04:03.440 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:04:03.442 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:04:04.321 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:04:04.476 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:04:04.477 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:04:04.478 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:04:05.369 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:04:05.410 [INFO    ]             uvicorn.error - Started server process [1029369]
+15:04:05.410 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:04:05.410 [INFO    ]             uvicorn.error - Application startup complete.
+15:04:05.411 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:04:38.899 [INFO    ]            uvicorn.access - 127.0.0.1:42074 - "GET /config HTTP/1.1" 200
+15:04:38.954 [INFO    ]            uvicorn.access - 127.0.0.1:42084 - "GET /info?serialize=False HTTP/1.1" 200
+15:04:39.019 [INFO    ]            uvicorn.access - 127.0.0.1:42094 - "GET /heartbeat/bd0ce52e-1f26-4f1b-8f78-ca75a5f9d6ec HTTP/1.1" 200
+15:04:39.022 [INFO    ]            uvicorn.access - 127.0.0.1:42092 - "POST /queue/join HTTP/1.1" 200
+15:04:39.077 [INFO    ]            uvicorn.access - 127.0.0.1:42108 - "GET /queue/data?session_hash=bd0ce52e-1f26-4f1b-8f78-ca75a5f9d6ec HTTP/1.1" 200
+15:04:49.696 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:05:10.316 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T15:05:10.316263753Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.3.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file `test1.3.log` has
+been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13795859359,
+    'load_duration': 125077533,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 5483068647,
+    'eval_count': 54,
+    'eval_duration': 8095595514
+}
+15:05:10.462 [INFO    ]            uvicorn.access - 127.0.0.1:43396 - "POST /queue/join HTTP/1.1" 200
+15:05:10.518 [INFO    ]            uvicorn.access - 127.0.0.1:43406 - "GET /queue/data?session_hash=bd0ce52e-1f26-4f1b-8f78-ca75a5f9d6ec HTTP/1.1" 200
+15:05:23.359 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:08:05.232 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ps aux && echo "---" && date && echo "---" && top -bn1 | head -20
+[AGENT] ✅ Remote command executed successfully: ps aux && echo "---" && date && echo "---" && top -bn1 | head -20
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'ps aux && echo 
+"---" && date && echo "---" && top -bn1 | head -20\'\' executed successfully on 
+remote host.', 'output': 'USER       PID %CPU %MEM    VSZ   RSS TTY      STAT 
+START   TIME COMMAND\nroot         1  0.0  0.9  34180  8460 ?        Ss   Nov17 
+6:26 /sbin/init fixrtc splash\nroot         2  0.0  0.0      0     0 ?        S 
+Nov17   0:10 \nroot         3  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+\nroot         4  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       
+5  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot         6  0.0  0.0  
+0     0 ?        I<   Nov17   0:00 \nroot        10  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot        11  0.0  0.0      0     0 ?        S    Nov17   
+0:00 \nroot        12  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot  
+13  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot        14  0.0  0.0 
+0     0 ?        S    Nov17   5:28 \nroot        15  0.0  0.0      0     0 ?    
+I    Nov17  12:52 \nroot        16  0.0  0.0      0     0 ?        S    Nov17   
+0:38 \nroot        17  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot  
+19  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot        20  0.0  0.0 
+0     0 ?        S    Nov17   0:00 \nroot        21  0.0  0.0      0     0 ?    
+S    Nov17   0:00 \nroot        22  0.0  0.0      0     0 ?        S    Nov17   
+0:36 \nroot        23  0.0  0.0      0     0 ?        S    Nov17   0:46 \nroot  
+26  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot        27  0.0  0.0 
+0     0 ?        S    Nov17   0:00 \nroot        28  0.0  0.0      0     0 ?    
+S    Nov17   0:31 \nroot        29  0.0  0.0      0     0 ?        S    Nov17   
+0:36 \nroot        32  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot  
+33  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot        34  0.0  0.0 
+0     0 ?        S    Nov17   0:32 \nroot        35  0.0  0.0      0     0 ?    
+S    Nov17   0:28 \nroot        38  0.0  0.0      0     0 ?        S    Nov17   
+0:00 \nroot        39  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+43  0.0  0.0      0     0 ?        S    Nov17   0:07 \nroot        44  0.0  0.0 
+0     0 ?        S    Nov17   0:04 \nroot        45  0.0  0.0      0     0 ?    
+S    Nov17   0:00 \nroot        46  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot        47  0.0  0.0      0     0 ?        S    Nov17   6:44 \nroot  
+48  0.0  0.0      0     0 ?        SN   Nov17   0:00 \nroot        94  0.0  0.0 
+0     0 ?        I<   Nov17   0:00 \nroot        95  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot        96  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot        97  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+98  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot        99  0.0  0.0 
+0     0 ?        I<   Nov17   0:00 \nroot       100  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot       101  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot       102  0.0  0.0      0     0 ?        S    Nov17   0:00 \nroot  
+106  0.0  0.0      0     0 ?        S    Nov17   1:35 \nroot       107  0.0  0.0
+0     0 ?        S    Nov17   0:00 \nroot       109  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot       110  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot       111  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+112  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       113  0.0  0.0
+0     0 ?        I<   Nov17   0:00 [DWC Notificatio]\nroot       116  0.0  0.0  
+0     0 ?        S<   Nov17   0:00 \nroot       117  0.0  0.0      0     0 ?    
+S<   Nov17   0:00 \nroot       118  0.0  0.0      0     0 ?        S<   Nov17   
+0:00 \nroot       119  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+121  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       123  0.0  0.0
+0     0 ?        I<   Nov17   0:00 \nroot       132  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot       135  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot       136  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+139  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       154  0.0  0.0
+0     0 ?        I<   Nov17   0:00 \nroot       189  0.0  0.0      0     0 ?    
+S    Nov17   0:00 \nroot       192  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot       240  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot  
+305  0.0  0.0      0     0 ?        S    Nov17   1:15 \nroot       306  0.0  0.0
+0     0 ?        I<   Nov17   0:00 \nroot       385  0.0  6.4 494028 60320 ?    
+S<s  Nov17   8:42 /lib/systemd/systemd-journald\nroot       413  0.0  0.0      0
+0 ?        I<   Nov17   0:00 \nroot       414  0.0  0.0      0     0 ?        I<
+Nov17   0:00 \nroot       415  0.0  2.4  28452 22788 ?        SLsl Nov17   9:46 
+/sbin/multipathd -d -s\nroot       420  0.0  0.3   7448  3580 ?        Ss   
+Nov17   0:19 /lib/systemd/systemd-udevd\nroot       447  0.0  0.0      0     0 ?
+S    Nov17   0:00 \nroot       448  0.0  0.0      0     0 ?        S<   Nov17   
+0:00 [SMIO]\nroot       453  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+\nroot       454  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       
+457  0.0  0.0      0     0 ?        I<   Nov17   0:00 \nroot       459  0.0  0.0
+0     0 ?        I<   Nov17   0:00 \nroot       460  0.0  0.0      0     0 ?    
+I<   Nov17   0:00 \nroot       461  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 \nroot       462  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+\nsystemd+   544  0.0  0.4  20092  4136 ?        Ssl  Nov17   0:26 
+/lib/systemd/systemd-timesyncd\nsystemd+   617  0.0  0.5  11776  5108 ?        
+Ss   Nov17   1:58 /lib/systemd/systemd-networkd\nroot       618  0.0  0.1  10728
+1644 ?        S<sl Nov17   0:34 /sbin/auditd\nsystemd+   641  0.0  0.9  19728  
+9256 ?        Ss   Nov17   2:50 /lib/systemd/systemd-resolved\navahi      652  
+0.0  0.2   6012  2580 ?        Ss   Nov17   2:10 avahi-daemon: running 
+\nmessage+   653  0.0  0.3   7080  3428 ?        Ss   Nov17   1:53 @dbus-daemon 
+--system --address=systemd: --nofork --nopidfile --systemd-activation 
+--syslog-only\nroot       656  0.0  0.2  15304  2112 ?        Ssl  Nov17  19:48 
+/usr/sbin/irqbalance --foreground\nroot       657  0.0  1.0  22776 10100 ?      
+Ss   Nov17   0:10 /usr/bin/python3 /usr/bin/networkd-dispatcher 
+--run-startup-triggers\nsyslog     659  0.0  0.3  25900  3240 ?        Ssl  
+Nov17   1:33 /usr/sbin/rsyslogd -n -iNONE\nroot       664  0.0  0.4  11436  4480
+?        Ss   Nov17   1:04 /lib/systemd/systemd-logind\nroot       666  0.0  0.3
+10528  3456 ?        Ss   Nov17   0:34 /sbin/wpa_supplicant -u -s -O 
+/run/wpa_supplicant\navahi      669  0.0  0.0   5832   284 ?        S    Nov17  
+0:00 avahi-daemon: chroot helper\nroot       702  0.0  0.2   5196  1900 ?       
+Ss   Nov17   0:32 /usr/sbin/cron -f -P\nroot       720  0.0  1.1  34484 10888 ? 
+Ssl  Nov17   0:00 /usr/bin/python3 
+/usr/share/unattended-upgrades/unattended-upgrade-shutdown 
+--wait-for-signal\nroot       730  0.0  0.0   4132   648 ?        Ss+  Nov17   
+0:00 /sbin/agetty -o -p -- \\u --keep-baud 115200,57600,38400,9600 ttyAMA0 
+vt220\nroot       734  0.0  0.0   4088   676 tty1     Ss+  Nov17   0:00 
+/sbin/agetty -o -p -- \\u --noclear tty1 linux\nroot       739  0.0  0.5  38216 
+5056 ?        Ssl  Nov17   0:24 /usr/libexec/polkitd --no-debug\nroot       753 
+0.0  0.5  11204  5596 ?        Ss   Nov17   0:09 sshd: /usr/sbin/sshd -D  0 of 
+10-100 startups\nroot      5299  0.0  0.4   6316  3948 ?        Ss   Nov17   
+6:30 /usr/sbin/apache2 -k start\nroot      8055  0.0  1.1  90516 10988 ?        
+Ssl  Nov18   0:59 /usr/libexec/packagekitd\nroot      8209  0.0  0.0      0     
+0 ?        S    Nov20   0:00 \nwww-data 10817  0.0  0.4 235592  3924 ?        Sl
+00:00   0:00 /usr/sbin/apache2 -k start\nwww-data 10818  0.0  0.4 235592  3924 ?
+Sl   00:00   0:00 /usr/sbin/apache2 -k start\nroot     12227  0.0  0.7  13808  
+7492 ?        Ss   09:27   0:01 sshd: raimondo \nraimondo 12231  0.0  0.7  13124
+7464 ?        Ss   09:27   0:03 /lib/systemd/systemd --user\nraimondo 12232  0.0
+0.5  37732  5188 ?        S    09:27   0:00 (sd-pam)\nraimondo 12315  0.0  0.7  
+14068  6780 ?        S    09:27   0:01 sshd: raimondo@pts/0\nraimondo 12317  0.0
+0.5   8116  5476 pts/0    Ss+  09:27   0:02 -bash\nroot     13656  0.0  0.0     
+0     0 ?        I<   10:46   0:01 \nroot     14702  0.0  0.0      0     0 ?    
+I<   11:03   0:01 \nroot     15140  0.0  0.0      0     0 ?        I<   11:45   
+0:01 \nroot     19234  0.0  0.0      0     0 ?        I<   16:11   0:01 \nroot  
+19258  0.0  0.0      0     0 ?        I    16:12   0:01 \nroot     19943  0.0  
+0.0      0     0 ?        I    16:35   0:00 \nroot     20341  0.0  0.0      0   
+0 ?        I    16:39   0:00 \nroot     20516  0.0  0.0      0     0 ?        I 
+16:43   0:00 \nroot     20911  0.0  0.0      0     0 ?        I    16:49   0:00 
+\nroot     20989  0.0  1.8 918384 17112 ?        Ssl  Nov26  16:04 
+/usr/lib/snapd/snapd\nroot     21158  0.0  0.0      0     0 ?        I    16:52 
+0:00 \nroot     21207  0.1  1.3 656492 12556 ?        Ssl  Nov26  50:34 
+/usr/bin/containerd\nroot     21331  0.0  0.0      0     0 ?        I    16:54  
+0:00 \nroot     21332  0.2  2.9 557652 27932 ?        Ssl  Nov26  79:32 
+/usr/sbin/tailscaled --state=/var/lib/tailscale/tailscaled.state 
+--socket=/run/tailscale/tailscaled.sock --port=41641\nroot     21340  0.0  0.0  
+0     0 ?        I<   16:54   0:00 \nroot     21405  0.0  0.0      0     0 ?    
+I<   16:55   0:00 \nroot     21406  0.0  0.0      0     0 ?        I    16:55   
+0:00 \nroot     21468  0.0  0.0      0     0 ?        I<   16:56   0:00 \nroot  
+21471  0.0  0.0      0     0 ?        I<   16:56   0:00 \nroot     21504  0.0  
+2.0 692576 18964 ?        Ssl  Nov26  24:06 /usr/bin/dockerd -H fd:// 
+--containerd=/run/containerd/containerd.sock\nroot     21531  0.0  0.0      0   
+0 ?        I    16:57   0:00 \nroot     21643  0.0  0.0      0     0 ?        I 
+16:58   0:00 \nroot     21757  0.0  0.0      0     0 ?        I    16:59   0:00 
+\nroot     21866  0.0  0.0      0     0 ?        I<   17:00   0:00 \nroot     
+21867  0.0  0.0      0     0 ?        I    17:02   0:00 \nroot     21868  0.0  
+0.0      0     0 ?        I    17:03   0:00 \nroot     21876  0.0  0.0      0   
+0 ?        I    17:04   0:00 \nroot     21877  0.0  0.0      0     0 ?        I<
+17:04   0:00 \nroot     21938  0.0  0.0      0     0 ?        I    17:05   0:00 
+\nroot     21939  0.0  0.0      0     0 ?        I    17:05   0:00 \nroot     
+21940  9.5  0.7  13796  7516 ?        Ss   17:05   0:00 sshd: raimondo 
+\nraimondo 21987  2.0  0.5  14056  5240 ?        S    17:05   0:00 sshd: 
+raimondo@notty\nraimondo 21988  0.0  0.2   5112  2208 ?        Ss   17:05   0:00
+bash -c ps aux && echo "---" && date && echo "---" && top -bn1 | head 
+-20\nraimondo 21989  0.0  0.1   7488  1260 ?        R    17:05   0:00 ps 
+aux\n---\nFri Dec 19 17:05:24 EET 2025\n---\ntop - 17:05:25 up 32 days,  2:38,  
+1 user,  load average: 0.05, 0.06, 0.07\nTasks: 144 total,   1 running, 143 
+sleeping,   0 stopped,   0 zombie\n%Cpu(s):  3.1 us,  6.2 sy,  0.0 ni, 90.6 id, 
+0.0 wa,  0.0 hi,  0.0 si,  0.0 st\nMiB Mem :    917.8 total,    429.7 free,    
+180.7 used,    307.3 buff/cache\nMiB Swap:   1024.0 total,   1022.5 free,      
+1.5 used.    709.2 avail Mem \n\n  PID USER      PR  NI    VIRT    RES    SHR S 
+%CPU  %MEM     TIME+ COMMAND\n21991 raimondo  20   0    7864   2196   1912 R  
+20.0   0.2   0:00.11 top\n21332 root      20   0  557652  27932  10808 S   5.0  
+3.0  79:32.74 tailscaled\n    1 root      20   0   34180   8460   5160 S   0.0  
+0.9   6:26.82 systemd\n    2 root      20   0       0      0      0 S   0.0   
+0.0   0:10.98 kthreadd\n    3 root       0 -20       0      0      0 I   0.0   
+0.0   0:00.00 rcu_gp\n    4 root       0 -20       0      0      0 I   0.0   0.0
+0:00.00 rcu_par_gp\n    5 root       0 -20       0      0      0 I   0.0   0.0  
+0:00.00 slub_flus+\n    6 root       0 -20       0      0      0 I   0.0   0.0  
+0:00.00 netns\n   10 root       0 -20       0      0      0 I   0.0   0.0   
+0:00.00 mm_percpu+\n   11 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   12 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   13 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   14 root      20   0       0      0      0 S   0.0   0.0  
+5:28.23 ksoftirqd+'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T15:08:05.231574355Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'ps aux && echo "---" && date && echo "---" && top -bn1 | head -20\'\' 
+executed successfully on remote host.\nOutput: USER       PID %CPU %MEM    VSZ  
+RSS TTY      STAT START   TIME COMMAND\nroot         1  0.0  0.9  34180  8460 ? 
+Ss   Nov17   6:26 /sbin/init fixrtc splash\nroot         2  0.0  0.0      0     
+0 ?        S    Nov17   0:10 [kthreadd]\nroot         3  0.0  0.0      0     0 ?
+I<   Nov17   0:00 [rcu_gp]\nroot         4  0.0  0.0      0     0 ?        I<   
+Nov17   0:00 [rcu_par_gp]\nroot         5  0.0  0.0      0     0 ?        I<   
+Nov17   0:00 [slub_flushwq]\nroot         6  0.0  0.0      0     0 ?        I<  
+Nov17   0:00 [netns]\nroot        10  0.0  0.0      0     0 ?        I<   Nov17 
+0:00 [mm_percpu_wq]\nroot        11  0.0  0.0      0     0 ?        S    Nov17  
+0:00 [rcu_tasks_kthre]\nroot        12  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [rcu_tasks_rude_]\nroot        13  0.0  0.0      0     0 ?        S
+Nov17   0:00 [rcu_tasks_trace]\nroot        14  0.0  0.0      0     0 ?        S
+Nov17   5:28 [ksoftirqd/0]\nroot        15  0.0  0.0      0     0 ?        I    
+Nov17  12:52 [rcu_preempt]\nroot        16  0.0  0.0      0     0 ?        S    
+Nov17   0:38 [migration/0]\nroot        17  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [idle_inject/0]\nroot        19  0.0  0.0      0     0 ?        S  
+Nov17   0:00 [cpuhp/0]\nroot        20  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [cpuhp/1]\nroot        21  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [idle_inject/1]\nroot        22  0.0  0.0      0     0 ?        S  
+Nov17   0:36 [migration/1]\nroot        23  0.0  0.0      0     0 ?        S    
+Nov17   0:46 [ksoftirqd/1]\nroot        26  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [cpuhp/2]\nroot        27  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [idle_inject/2]\nroot        28  0.0  0.0      0     0 ?        S  
+Nov17   0:31 [migration/2]\nroot        29  0.0  0.0      0     0 ?        S    
+Nov17   0:36 [ksoftirqd/2]\nroot        32  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [cpuhp/3]\nroot        33  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [idle_inject/3]\nroot        34  0.0  0.0      0     0 ?        S  
+Nov17   0:32 [migration/3]\nroot        35  0.0  0.0      0     0 ?        S    
+Nov17   0:28 [ksoftirqd/3]\nroot        38  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [kdevtmpfs]\nroot        39  0.0  0.0      0     0 ?        I<   
+Nov17   0:00 [inet_frag_wq]\nroot        43  0.0  0.0      0     0 ?        S   
+Nov17   0:07 [kauditd]\nroot        44  0.0  0.0      0     0 ?        S    
+Nov17   0:04 [khungtaskd]\nroot        45  0.0  0.0      0     0 ?        S    
+Nov17   0:00 [oom_reaper]\nroot        46  0.0  0.0      0     0 ?        I<   
+Nov17   0:00 [writeback]\nroot        47  0.0  0.0      0     0 ?        S    
+Nov17   6:44 [kcompactd0]\nroot        48  0.0  0.0      0     0 ?        SN   
+Nov17   0:00 [ksmd]\nroot        94  0.0  0.0      0     0 ?        I<   Nov17  
+0:00 [kintegrityd]\nroot        95  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [kblockd]\nroot        96  0.0  0.0      0     0 ?        I<   Nov17   0:00
+[blkcg_punt_bio]\nroot        97  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [tpm_dev_wq]\nroot        98  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [ata_sff]\nroot        99  0.0  0.0      0     0 ?        I<   Nov17   0:00
+[md]\nroot       100  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[edac-poller]\nroot       101  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[devfreq_wq]\nroot       102  0.0  0.0      0     0 ?        S    Nov17   0:00 
+[watchdogd]\nroot       106  0.0  0.0      0     0 ?        S    Nov17   1:35 
+[kswapd0]\nroot       107  0.0  0.0      0     0 ?        S    Nov17   0:00 
+[ecryptfs-kthrea]\nroot       109  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [kthrotld]\nroot       110  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [nvme-wq]\nroot       111  0.0  0.0      0     0 ?        I<   Nov17   0:00
+[nvme-reset-wq]\nroot       112  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [nvme-delete-wq]\nroot       113  0.0  0.0      0     0 ?        I<   Nov17
+0:00 [DWC Notificatio]\nroot       116  0.0  0.0      0     0 ?        S<   
+Nov17   0:00 [vchiq-slot/0]\nroot       117  0.0  0.0      0     0 ?        S<  
+Nov17   0:00 [vchiq-recy/0]\nroot       118  0.0  0.0      0     0 ?        S<  
+Nov17   0:00 [vchiq-sync/0]\nroot       119  0.0  0.0      0     0 ?        I<  
+Nov17   0:00 [mld]\nroot       121  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [ipv6_addrconf]\nroot       123  0.0  0.0      0     0 ?        I<   Nov17 
+0:00 [mmc_complete]\nroot       132  0.0  0.0      0     0 ?        I<   Nov17  
+0:00 [kstrp]\nroot       135  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[zswap-shrink]\nroot       136  0.0  0.0      0     0 ?        I<   Nov17   0:00
+[kworker/u9:0]\nroot       139  0.0  0.0      0     0 ?        I<   Nov17   0:00
+[cryptd]\nroot       154  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[charger_manager]\nroot       189  0.0  0.0      0     0 ?        S    Nov17   
+0:00 [spi0]\nroot       192  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[dwc_otg]\nroot       240  0.0  0.0      0     0 ?        I<   Nov17   0:00 
+[raid5wq]\nroot       305  0.0  0.0      0     0 ?        S    Nov17   1:15 
+[jbd2/mmcblk0p2-]\nroot       306  0.0  0.0      0     0 ?        I<   Nov17   
+0:00 [ext4-rsv-conver]\nroot       385  0.0  6.4 494028 60320 ?        S<s  
+Nov17   8:42 /lib/systemd/systemd-journald\nroot       413  0.0  0.0      0     
+0 ?        I<   Nov17   0:00 [kmpathd]\nroot       414  0.0  0.0      0     0 ? 
+I<   Nov17   0:00 [kmpath_handlerd]\nroot       415  0.0  2.4  28452 22788 ?    
+SLsl Nov17   9:46 /sbin/multipathd -d -s\nroot       420  0.0  0.3   7448  3580 
+?        Ss   Nov17   0:19 /lib/systemd/systemd-udevd\nroot       447  0.0  0.0 
+0     0 ?        S    Nov17   0:00 [vchiq-keep/0]\nroot       448  0.0  0.0     
+0     0 ?        S<   Nov17   0:00 [SMIO]\nroot       453  0.0  0.0      0     0
+?        I<   Nov17   0:00 [mmal-vchiq]\nroot       454  0.0  0.0      0     0 ?
+I<   Nov17   0:00 [mmal-vchiq]\nroot       457  0.0  0.0      0     0 ?        
+I<   Nov17   0:00 [mmal-vchiq]\nroot       459  0.0  0.0      0     0 ?        
+I<   Nov17   0:00 [mmal-vchiq]\nroot       460  0.0  0.0      0     0 ?        
+I<   Nov17   0:00 [mmal-vchiq]\nroot       461  0.0  0.0      0     0 ?        
+I<   Nov17   0:00 [mmal-vchiq]\nroot       462  0.0  0.0      0     0 ?        
+I<   Nov17   0:00 [mmal-vchiq]\nsystemd+   544  0.0  0.4  20092  4136 ?        
+Ssl  Nov17   0:26 /lib/systemd/systemd-timesyncd\nsystemd+   617  0.0  0.5  
+11776  5108 ?        Ss   Nov17   1:58 /lib/systemd/systemd-networkd\nroot      
+618  0.0  0.1  10728  1644 ?        S<sl Nov17   0:34 /sbin/auditd\nsystemd+   
+641  0.0  0.9  19728  9256 ?        Ss   Nov17   2:50 
+/lib/systemd/systemd-resolved\navahi      652  0.0  0.2   6012  2580 ?        Ss
+Nov17   2:10 avahi-daemon: running [eraigra-rpi.local]\nmessage+   653  0.0  0.3
+7080  3428 ?        Ss   Nov17   1:53 @dbus-daemon --system --address=systemd: 
+--nofork --nopidfile --systemd-activation --syslog-only\nroot       656  0.0  
+0.2  15304  2112 ?        Ssl  Nov17  19:48 /usr/sbin/irqbalance 
+--foreground\nroot       657  0.0  1.0  22776 10100 ?        Ss   Nov17   0:10 
+/usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers\nsyslog    
+659  0.0  0.3  25900  3240 ?        Ssl  Nov17   1:33 /usr/sbin/rsyslogd -n 
+-iNONE\nroot       664  0.0  0.4  11436  4480 ?        Ss   Nov17   1:04 
+/lib/systemd/systemd-logind\nroot       666  0.0  0.3  10528  3456 ?        Ss  
+Nov17   0:34 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant\navahi      669  
+0.0  0.0   5832   284 ?        S    Nov17   0:00 avahi-daemon: chroot 
+helper\nroot       702  0.0  0.2   5196  1900 ?        Ss   Nov17   0:32 
+/usr/sbin/cron -f -P\nroot       720  0.0  1.1  34484 10888 ?        Ssl  Nov17 
+0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown
+--wait-for-signal\nroot       730  0.0  0.0   4132   648 ?        Ss+  Nov17   
+0:00 /sbin/agetty -o -p -- \\u --keep-baud 115200,57600,38400,9600 ttyAMA0 
+vt220\nroot       734  0.0  0.0   4088   676 tty1     Ss+  Nov17   0:00 
+/sbin/agetty -o -p -- \\u --noclear tty1 linux\nroot       739  0.0  0.5  38216 
+5056 ?        Ssl  Nov17   0:24 /usr/libexec/polkitd --no-debug\nroot       753 
+0.0  0.5  11204  5596 ?        Ss   Nov17   0:09 sshd: /usr/sbin/sshd -D 
+[listener] 0 of 10-100 startups\nroot      5299  0.0  0.4   6316  3948 ?        
+Ss   Nov17   6:30 /usr/sbin/apache2 -k start\nroot      8055  0.0  1.1  90516 
+10988 ?        Ssl  Nov18   0:59 /usr/libexec/packagekitd\nroot      8209  0.0  
+0.0      0     0 ?        S    Nov20   0:00 [audit_prune_tre]\nwww-data 10817  
+0.0  0.4 235592  3924 ?        Sl   00:00   0:00 /usr/sbin/apache2 -k 
+start\nwww-data 10818  0.0  0.4 235592  3924 ?        Sl   00:00   0:00 
+/usr/sbin/apache2 -k start\nroot     12227  0.0  0.7  13808  7492 ?        Ss   
+09:27   0:01 sshd: raimondo [priv]\nraimondo 12231  0.0  0.7  13124  7464 ?     
+Ss   09:27   0:03 /lib/systemd/systemd --user\nraimondo 12232  0.0  0.5  37732  
+5188 ?        S    09:27   0:00 (sd-pam)\nraimondo 12315  0.0  0.7  14068  6780 
+?        S    09:27   0:01 sshd: raimondo@pts/0\nraimondo 12317  0.0  0.5   8116
+5476 pts/0    Ss+  09:27   0:02 -bash\nroot     13656  0.0  0.0      0     0 ?  
+I<   10:46   0:01 [kworker/1:2H-kblockd]\nroot     14702  0.0  0.0      0     0 
+?        I<   11:03   0:01 [kworker/2:1H-kblockd]\nroot     15140  0.0  0.0     
+0     0 ?        I<   11:45   0:01 [kworker/3:2H-kblockd]\nroot     19234  0.0  
+0.0      0     0 ?        I<   16:11   0:01 [kworker/0:2H-mmc_complete]\nroot   
+19258  0.0  0.0      0     0 ?        I    16:12   0:01 
+[kworker/u8:2-events_power_efficient]\nroot     19943  0.0  0.0      0     0 ?  
+I    16:35   0:00 [kworker/u8:0-events_power_efficient]\nroot     20341  0.0  
+0.0      0     0 ?        I    16:39   0:00 [kworker/3:1-events]\nroot     20516
+0.0  0.0      0     0 ?        I    16:43   0:00 
+[kworker/u8:3-flush-179:0]\nroot     20911  0.0  0.0      0     0 ?        I    
+16:49   0:00 [kworker/1:2-mm_percpu_wq]\nroot     20989  0.0  1.8 918384 17112 ?
+Ssl  Nov26  16:04 /usr/lib/snapd/snapd\nroot     21158  0.0  0.0      0     0 ? 
+I    16:52   0:00 [kworker/0:1-events_freezable]\nroot     21207  0.1  1.3 
+656492 12556 ?        Ssl  Nov26  50:34 /usr/bin/containerd\nroot     21331  0.0
+0.0      0     0 ?        I    16:54   0:00 [kworker/2:0-events]\nroot     21332
+0.2  2.9 557652 27932 ?        Ssl  Nov26  79:32 /usr/sbin/tailscaled 
+--state=/var/lib/tailscale/tailscaled.state 
+--socket=/run/tailscale/tailscaled.sock --port=41641\nroot     21340  0.0  0.0  
+0     0 ?        I<   16:54   0:00 [kworker/1:0H]\nroot     21405  0.0  0.0     
+0     0 ?        I<   16:55   0:00 [kworker/3:1H]\nroot     21406  0.0  0.0     
+0     0 ?        I    16:55   0:00 [kworker/3:2-events]\nroot     21468  0.0  
+0.0      0     0 ?        I<   16:56   0:00 [kworker/2:2H-kblockd]\nroot     
+21471  0.0  0.0      0     0 ?        I<   16:56   0:00 [kworker/0:0H]\nroot    
+21504  0.0  2.0 692576 18964 ?        Ssl  Nov26  24:06 /usr/bin/dockerd -H 
+fd:// --containerd=/run/containerd/containerd.sock\nroot     21531  0.0  0.0    
+0     0 ?        I    16:57   0:00 [kworker/0:2-events]\nroot     21643  0.0  
+0.0      0     0 ?        I    16:58   0:00 [kworker/1:0-events]\nroot     21757
+0.0  0.0      0     0 ?        I    16:59   0:00 [kworker/2:1-events]\nroot     
+21866  0.0  0.0      0     0 ?        I<   17:00   0:00 [kworker/1:1H]\nroot    
+21867  0.0  0.0      0     0 ?        I    17:02   0:00 
+[kworker/0:0-events]\nroot     21868  0.0  0.0      0     0 ?        I    17:03 
+0:00 [kworker/u8:1-events_power_efficient]\nroot     21876  0.0  0.0      0     
+0 ?        I    17:04   0:00 [kworker/1:1-mm_percpu_wq]\nroot     21877  0.0  
+0.0      0     0 ?        I<   17:04   0:00 [kworker/2:0H]\nroot     21938  0.0 
+0.0      0     0 ?        I    17:05   0:00 [kworker/u8:4]\nroot     21939  0.0 
+0.0      0     0 ?        I    17:05   0:00 [kworker/u8:5]\nroot     21940  9.5 
+0.7  13796  7516 ?        Ss   17:05   0:00 sshd: raimondo [priv]\nraimondo 
+21987  2.0  0.5  14056  5240 ?        S    17:05   0:00 sshd: 
+raimondo@notty\nraimondo 21988  0.0  0.2   5112  2208 ?        Ss   17:05   0:00
+bash -c ps aux && echo "---" && date && echo "---" && top -bn1 | head 
+-20\nraimondo 21989  0.0  0.1   7488  1260 ?        R    17:05   0:00 ps 
+aux\n---\nFri Dec 19 17:05:24 EET 2025\n---\ntop - 17:05:25 up 32 days,  2:38,  
+1 user,  load average: 0.05, 0.06, 0.07\nTasks: 144 total,   1 running, 143 
+sleeping,   0 stopped,   0 zombie\n%Cpu(s):  3.1 us,  6.2 sy,  0.0 ni, 90.6 id, 
+0.0 wa,  0.0 hi,  0.0 si,  0.0 st\nMiB Mem :    917.8 total,    429.7 free,    
+180.7 used,    307.3 buff/cache\nMiB Swap:   1024.0 total,   1022.5 free,      
+1.5 used.    709.2 avail Mem \n\n  PID USER      PR  NI    VIRT    RES    SHR S 
+%CPU  %MEM     TIME+ COMMAND\n21991 raimondo  20   0    7864   2196   1912 R  
+20.0   0.2   0:00.11 top\n21332 root      20   0  557652  27932  10808 S   5.0  
+3.0  79:32.74 tailscaled\n    1 root      20   0   34180   8460   5160 S   0.0  
+0.9   6:26.82 systemd\n    2 root      20   0       0      0      0 S   0.0   
+0.0   0:10.98 kthreadd\n    3 root       0 -20       0      0      0 I   0.0   
+0.0   0:00.00 rcu_gp\n    4 root       0 -20       0      0      0 I   0.0   0.0
+0:00.00 rcu_par_gp\n    5 root       0 -20       0      0      0 I   0.0   0.0  
+0:00.00 slub_flus+\n    6 root       0 -20       0      0      0 I   0.0   0.0  
+0:00.00 netns\n   10 root       0 -20       0      0      0 I   0.0   0.0   
+0:00.00 mm_percpu+\n   11 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   12 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   13 root      20   0       0      0      0 S   0.0   0.0  
+0:00.00 rcu_tasks+\n   14 root      20   0       0      0      0 S   0.0   0.0  
+5:28.23 ksoftirqd+\n\nIt looks like you\'ve pasted a **`ps aux`** output and a 
+**`top`** command output from a Linux system, possibly running on a Raspberry Pi
+or similar ARM-based device (given the low memory and typical services). Here\'s
+a breakdown of what\'s happening in the system:\n\n---\n\n### 🔍 **Overview of 
+System Status**\n\n- **System Uptime:**  \n  ```\n  32 days,  2:38\n  ```\n  The
+system has been running for 32 days and 2 hours, which is normal for a server or
+headless device.\n\n- **Load Average:**  \n  ```\n  0.05, 0.06, 0.07\n  ```\n  
+Very low load — system is idle or under minimal load.\n\n- **Memory Usage 
+(MiB):**\n  ```\n  Total:    917.8\n  Free:     429.7\n  Used:     180.7\n  
+Buff/Cache: 307.3\n  Available: 709.2\n  ```\n  - Only ~180 MB used, with ~429 
+MB free.\n  - Buff/cache is ~307 MB, which is normal and can be freed if 
+needed.\n  - Available memory is ~709 MB — plenty of room.\n\n- **Swap Usage:** 
+\n  ```\n  Total: 1024.0 MiB  \n  Free:  1022.5 MiB  \n  Used:  1.5 MiB\n  ```\n
+- Very little swap usage — not a concern.\n\n---\n\n### 🧠 **Key Processes 
+Running**\n\n#### 🔧 **Critical Services**\n| PID | User   | Command            
+|\n|-----|--------|-------------------------------------|\n| 21332 | root   | 
+`/usr/sbin/tailscaled`              |\n| 21504 | root   | `/usr/bin/dockerd`    
+|\n| 21531 | root   | (kworker for events)                |\n| 21940 | root   | 
+`sshd` (private session)            |\n| 21988 | raimondo | `bash -c ps aux && 
+echo "---" && date && echo "---" && top -bn1 | head -20` |\n\n#### 📈 **Top CPU 
+Consumers**\n| PID | User     | %CPU | COMMAND 
+|\n|-----|----------|------|---------|\n| 21991 | raimondo | 20.0 | `top` |\n| 
+21332 | root     | 5.0  | `tailscaled` |\n\n> Note: `top` is consuming 20% CPU 
+because it\'s being run manually by the user. `tailscaled` (Tailscale daemon) is
+also using 5% CPU — likely syncing or maintaining the secure 
+tunnel.\n\n---\n\n### 🛠️ **What You Can Do**\n\n1. **Stop `top` if you don’t need
+it anymore:**\n   ```bash\n   kill 21991\n   ```\n\n2. **Check Tailscale 
+status:**\n   ```bash\n   sudo tailscale status\n   ```\n\n3. **Check Docker 
+usage:**\n   ```bash\n   docker ps\n   ```\n\n4. **Check logs for services 
+(optional):**\n   ```bash\n   journalctl -u tailscaled\n   journalctl -u 
+docker\n   ```\n\n---\n\n### 🧾 Summary\n\n- Your system is **idle**, with very 
+low CPU and memory usage.\n- Tailscale is running (secure tunnel), Docker is 
+active, and SSH is accessible.\n- No critical issues or high resource usage 
+detected.\n- You\'re likely running a **headless server or Raspberry Pi** with a
+secure tunnel and container support.\n\n---\n\nWould you like help with:\n- 
+Monitoring logs?\n- Optimizing Docker usage?\n- Configuring Tailscale?\n- 
+Setting up auto-restart for services?\n\nLet me know!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 159897279781,
+    'load_duration': 128773195,
+    'prompt_eval_count': 4096,
+    'prompt_eval_duration': 50788741209,
+    'eval_count': 850,
+    'eval_duration': 108515525702
+}
+15:08:05.428 [INFO    ]            uvicorn.access - 127.0.0.1:47880 - "POST /queue/join HTTP/1.1" 200
+15:08:05.485 [INFO    ]            uvicorn.access - 127.0.0.1:47896 - "GET /queue/data?session_hash=bd0ce52e-1f26-4f1b-8f78-ca75a5f9d6ec HTTP/1.1" 200
+15:08:31.067 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:08:49.527 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi [ -f ~/agent_test/test1.3.log ] && [ -s ~/agent_test/test1.3.log ] && echo "File exists and is not empty" || echo "File does not exist or is empty"
+[AGENT] ✅ Remote command executed successfully: [ -f ~/agent_test/test1.3.log ] && [ -s ~/agent_test/test1.3.log ] && echo "File exists and is not empty" || echo "File does not exist or is empty"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'[ -f 
+~/agent_test/test1.3.log ] && [ -s ~/agent_test/test1.3.log ] && echo "File 
+exists and is not empty" || echo "File does not exist or is empty"\'\' executed 
+successfully on remote host.', 'output': 'File does not exist or is empty'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T15:08:49.527419388Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command \'\'[
+-f ~/agent_test/test1.3.log ] && [ -s ~/agent_test/test1.3.log ] && echo "File 
+exists and is not empty" || echo "File does not exist or is empty"\'\' executed 
+successfully on remote host.\nOutput: File does not exist or is empty\n\nThe 
+command executed successfully on the remote host `eraigra-rpi` as user 
+`raimondo`. The output indicates that the file `~/agent_test/test1.3.log` does 
+not exist or is empty.\n\nTo summarize:\n- The file `~/agent_test/test1.3.log` 
+either does not exist or is empty.\n\nIf you need further actions like creating 
+the file or checking its contents, let me know!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12774370153,
+    'load_duration': 130485564,
+    'prompt_eval_count': 1486,
+    'prompt_eval_duration': 2059015948,
+    'eval_count': 88,
+    'eval_duration': 10471954110
+}
+15:08:49.679 [INFO    ]            uvicorn.access - 127.0.0.1:36092 - "POST /queue/join HTTP/1.1" 200
+15:08:49.734 [INFO    ]            uvicorn.access - 127.0.0.1:36098 - "GET /queue/data?session_hash=bd0ce52e-1f26-4f1b-8f78-ca75a5f9d6ec HTTP/1.1" 200
+15:09:11.521 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:09:35.859 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T15:09:35.858582519Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test1.3.log` was executed 
+successfully on the remote host `eraigra-rpi` as user `raimondo`. The file has 
+been deleted if it existed. If the file did not exist, the command executed 
+without any issues."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22747759133,
+    'load_duration': 128785529,
+    'prompt_eval_count': 1652,
+    'prompt_eval_duration': 15117058188,
+    'eval_count': 61,
+    'eval_duration': 7399843155
+}
+15:09:35.983 [INFO    ]             uvicorn.error - Shutting down
+15:09:36.084 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:09:36.084 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:09:36.084 [INFO    ]             uvicorn.error - Finished server process [1029369]
+make: *** [Makefile:36: run] Terminated

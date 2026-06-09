@@ -1,0 +1,5 @@
+TASKNAME=Audit the licenses of software packages by reading their documentation.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test5.3.log. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo check all LICENSE files. Summarize the findings in a table with columns: Package | License | Source | Notes and put all the outcome in the file file ~/agent_test/test5.3.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file ~/agent_test/test5.3.log. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/test5.3.log. Don't split the commands and do all requested in a single command line.

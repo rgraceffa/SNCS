@@ -1,0 +1,363 @@
+poetry run python -m private_gpt
+10:49:48.861 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:49:53.177 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:49:53.240 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:49:53.242 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:49:54.141 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:49:54.294 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:49:54.295 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:49:54.297 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:49:55.185 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:49:55.226 [INFO    ]             uvicorn.error - Started server process [157934]
+10:49:55.226 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:49:55.226 [INFO    ]             uvicorn.error - Application startup complete.
+10:49:55.226 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:50:28.692 [INFO    ]            uvicorn.access - 127.0.0.1:53860 - "GET /config HTTP/1.1" 200
+10:50:28.747 [INFO    ]            uvicorn.access - 127.0.0.1:53876 - "GET /info?serialize=False HTTP/1.1" 200
+10:50:28.814 [INFO    ]            uvicorn.access - 127.0.0.1:53884 - "POST /queue/join HTTP/1.1" 200
+10:50:28.814 [INFO    ]            uvicorn.access - 127.0.0.1:53880 - "GET /heartbeat/0c3c109b-85e4-44eb-8b51-a6512e4f435b HTTP/1.1" 200
+10:50:28.872 [INFO    ]            uvicorn.access - 127.0.0.1:53900 - "GET /queue/data?session_hash=0c3c109b-85e4-44eb-8b51-a6512e4f435b HTTP/1.1" 200
+10:51:23.925 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:53:21.509 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi git --version && git help -a
+[AGENT] ✅ Remote command executed successfully: git --version && git help -a
+[AGENT] ✅:{'status': 'success', 'message': "The command ''git --version && git 
+help -a'' executed successfully on remote host.", 'output': "git version 
+2.34.1\nSee 'git help <command>' to read about a specific subcommand\n\nMain 
+Porcelain Commands\n   add                  Add file contents to the index\n   
+am                   Apply a series of patches from a mailbox\n   archive       
+Create an archive of files from a named tree\n   bisect               Use binary
+search to find the commit that introduced a bug\n   branch               List, 
+create, or delete branches\n   bundle               Move objects and refs by 
+archive\n   checkout             Switch branches or restore working tree files\n
+cherry-pick          Apply the changes introduced by some existing commits\n   
+citool               Graphical alternative to git-commit\n   clean              
+Remove untracked files from the working tree\n   clone                Clone a 
+repository into a new directory\n   commit               Record changes to the 
+repository\n   describe             Give an object a human readable name based 
+on an available ref\n   diff                 Show changes between commits, 
+commit and working tree, etc\n   fetch                Download objects and refs 
+from another repository\n   format-patch         Prepare patches for e-mail 
+submission\n   gc                   Cleanup unnecessary files and optimize the 
+local repository\n   gitk                 The Git repository browser\n   grep   
+Print lines matching a pattern\n   gui                  A portable graphical 
+interface to Git\n   init                 Create an empty Git repository or 
+reinitialize an existing one\n   log                  Show commit logs\n   
+maintenance          Run tasks to optimize Git repository data\n   merge        
+Join two or more development histories together\n   mv                   Move or
+rename a file, a directory, or a symlink\n   notes                Add or inspect
+object notes\n   pull                 Fetch from and integrate with another 
+repository or a local branch\n   push                 Update remote refs along 
+with associated objects\n   range-diff           Compare two commit ranges (e.g.
+two versions of a branch)\n   rebase               Reapply commits on top of 
+another base tip\n   reset                Reset current HEAD to the specified 
+state\n   restore              Restore working tree files\n   revert            
+Revert some existing commits\n   rm                   Remove files from the 
+working tree and from the index\n   shortlog             Summarize 'git log' 
+output\n   show                 Show various types of objects\n   
+sparse-checkout      Initialize and modify the sparse-checkout\n   stash        
+Stash the changes in a dirty working directory away\n   status               
+Show the working tree status\n   submodule            Initialize, update or 
+inspect submodules\n   switch               Switch branches\n   tag             
+Create, list, delete or verify a tag object signed with GPG\n   worktree        
+Manage multiple working trees\n\nAncillary Commands / Manipulators\n   config   
+Get and set repository or global options\n   fast-export          Git data 
+exporter\n   fast-import          Backend for fast Git data importers\n   
+filter-branch        Rewrite branches\n   mergetool            Run merge 
+conflict resolution tools to resolve merge conflicts\n   pack-refs            
+Pack heads and tags for efficient repository access\n   prune                
+Prune all unreachable objects from the object database\n   reflog               
+Manage reflog information\n   remote               Manage set of tracked 
+repositories\n   repack               Pack unpacked objects in a repository\n   
+replace              Create, list, delete refs to replace objects\n\nAncillary 
+Commands / Interrogators\n   annotate             Annotate file lines with 
+commit information\n   blame                Show what revision and author last 
+modified each line of a file\n   bugreport            Collect information for 
+user to file a bug report\n   count-objects        Count unpacked number of 
+objects and their disk consumption\n   difftool             Show changes using 
+common diff tools\n   fsck                 Verifies the connectivity and 
+validity of the objects in the database\n   gitweb               Git web 
+interface (web frontend to Git repositories)\n   help                 Display 
+help information about Git\n   instaweb             Instantly browse your 
+working repository in gitweb\n   merge-tree           Show three-way merge 
+without touching index\n   rerere               Reuse recorded resolution of 
+conflicted merges\n   show-branch          Show branches and their commits\n   
+verify-commit        Check the GPG signature of commits\n   verify-tag          
+Check the GPG signature of tags\n   whatchanged          Show logs with 
+difference each commit introduces\n\nInteracting with Others\n   archimport     
+Import a GNU Arch repository into Git\n   cvsexportcommit      Export a single 
+commit to a CVS checkout\n   cvsimport            Salvage your data out of 
+another SCM people love to hate\n   cvsserver            A CVS server emulator 
+for Git\n   imap-send            Send a collection of patches from stdin to an 
+IMAP folder\n   p4                   Import from and submit to Perforce 
+repositories\n   quiltimport          Applies a quilt patchset onto the current 
+branch\n   request-pull         Generates a summary of pending changes\n   
+send-email           Send a collection of patches as emails\n   svn             
+Bidirectional operation between a Subversion repository and Git\n\nLow-level 
+Commands / Manipulators\n   apply                Apply a patch to files and/or 
+to the index\n   checkout-index       Copy files from the index to the working 
+tree\n   commit-graph         Write and verify Git commit-graph files\n   
+commit-tree          Create a new commit object\n   hash-object          Compute
+object ID and optionally creates a blob from a file\n   index-pack           
+Build pack index file for an existing packed archive\n   merge-file           
+Run a three-way file merge\n   merge-index          Run a merge for files 
+needing merging\n   mktag                Creates a tag object with extra 
+validation\n   mktree               Build a tree-object from ls-tree formatted 
+text\n   multi-pack-index     Write and verify multi-pack-indexes\n   
+pack-objects         Create a packed archive of objects\n   prune-packed        
+Remove extra objects that are already in pack files\n   read-tree            
+Reads tree information into the index\n   symbolic-ref         Read, modify and 
+delete symbolic refs\n   unpack-objects       Unpack objects from a packed 
+archive\n   update-index         Register file contents in the working tree to 
+the index\n   update-ref           Update the object name stored in a ref 
+safely\n   write-tree           Create a tree object from the current 
+index\n\nLow-level Commands / Interrogators\n   cat-file             Provide 
+content or type and size information for repository objects\n   cherry          
+Find commits yet to be applied to upstream\n   diff-files           Compares 
+files in the working tree and the index\n   diff-index           Compare a tree 
+to the working tree or index\n   diff-tree            Compares the content and 
+mode of blobs found via two tree objects\n   for-each-ref         Output 
+information on each ref\n   for-each-repo        Run a Git command on a list of 
+repositories\n   get-tar-commit-id    Extract commit ID from an archive created 
+using git-archive\n   ls-files             Show information about files in the 
+index and the working tree\n   ls-remote            List references in a remote 
+repository\n   ls-tree              List the contents of a tree object\n   
+merge-base           Find as good common ancestors as possible for a merge\n   
+name-rev             Find symbolic names for given revs\n   pack-redundant      
+Find redundant pack files\n   rev-list             Lists commit objects in 
+reverse chronological order\n   rev-parse            Pick out and massage 
+parameters\n   show-index           Show packed archive index\n   show-ref      
+List references in a local repository\n   unpack-file          Creates a 
+temporary file with a blob's contents\n   var                  Show a Git 
+logical variable\n   verify-pack          Validate packed Git archive 
+files\n\nLow-level Commands / Syncing Repositories\n   daemon               A 
+really simple server for Git repositories\n   fetch-pack           Receive 
+missing objects from another repository\n   http-backend         Server side 
+implementation of Git over HTTP\n   send-pack            Push objects over Git 
+protocol to another repository\n   update-server-info   Update auxiliary info 
+file to help dumb servers\n\nLow-level Commands / Internal Helpers\n   
+check-attr           Display gitattributes information\n   check-ignore         
+Debug gitignore / exclude files\n   check-mailmap        Show canonical names 
+and email addresses of contacts\n   check-ref-format     Ensures that a 
+reference name is well formed\n   column               Display data in columns\n
+credential           Retrieve and store user credentials\n   credential-cache   
+Helper to temporarily store passwords in memory\n   credential-store     Helper 
+to store credentials on disk\n   fmt-merge-msg        Produce a merge commit 
+message\n   interpret-trailers   Add or parse structured information in commit 
+messages\n   mailinfo             Extracts patch and authorship from a single 
+e-mail message\n   mailsplit            Simple UNIX mbox splitter program\n   
+merge-one-file       The standard helper program to use with git-merge-index\n  
+patch-id             Compute unique ID for a patch\n   sh-i18n              
+Git's i18n setup code for shell scripts\n   sh-setup             Common Git 
+shell script setup code\n   stripspace           Remove unnecessary 
+whitespace\n\nExternal commands\n   deborig\n\nCommand aliases\n   br           
+branch\n   ci                   commit\n   co                   checkout\n   st 
+status"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:53:21.50917318Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''git
+--version && git help -a'' executed successfully on remote host.\nOutput: git 
+version 2.34.1\nSee 'git help <command>' to read about a specific 
+subcommand\n\nMain Porcelain Commands\n   add                  Add file contents
+to the index\n   am                   Apply a series of patches from a mailbox\n
+archive              Create an archive of files from a named tree\n   bisect    
+Use binary search to find the commit that introduced a bug\n   branch           
+List, create, or delete branches\n   bundle               Move objects and refs 
+by archive\n   checkout             Switch branches or restore working tree 
+files\n   cherry-pick          Apply the changes introduced by some existing 
+commits\n   citool               Graphical alternative to git-commit\n   clean  
+Remove untracked files from the working tree\n   clone                Clone a 
+repository into a new directory\n   commit               Record changes to the 
+repository\n   describe             Give an object a human readable name based 
+on an available ref\n   diff                 Show changes between commits, 
+commit and working tree, etc\n   fetch                Download objects and refs 
+from another repository\n   format-patch         Prepare patches for e-mail 
+submission\n   gc                   Cleanup unnecessary files and optimize the 
+local repository\n   gitk                 The Git repository browser\n   grep   
+Print lines matching a pattern\n   gui                  A portable graphical 
+interface to Git\n   init                 Create an empty Git repository or 
+reinitialize an existing one\n   log                  Show commit logs\n   
+maintenance          Run tasks to optimize Git repository data\n   merge        
+Join two or more development histories together\n   mv                   Move or
+rename a file, a directory, or a symlink\n   notes                Add or inspect
+object notes\n   pull                 Fetch from and integrate with another 
+repository or a local branch\n   push                 Update remote refs along 
+with associated objects\n   range-diff           Compare two commit ranges (e.g.
+two versions of a branch)\n   rebase               Reapply commits on top of 
+another base tip\n   reset                Reset current HEAD to the specified 
+state\n   restore              Restore working tree files\n   revert            
+Revert some existing commits\n   rm                   Remove files from the 
+working tree and from the index\n   shortlog             Summarize 'git log' 
+output\n   show                 Show various types of objects\n   
+sparse-checkout      Initialize and modify the sparse-checkout\n   stash        
+Stash the changes in a dirty working directory away\n   status               
+Show the working tree status\n   submodule            Initialize, update or 
+inspect submodules\n   switch               Switch branches\n   tag             
+Create, list, delete or verify a tag object signed with GPG\n   worktree        
+Manage multiple working trees\n\nAncillary Commands / Manipulators\n   config   
+Get and set repository or global options\n   fast-export          Git data 
+exporter\n   fast-import          Backend for fast Git data importers\n   
+filter-branch        Rewrite branches\n   mergetool            Run merge 
+conflict resolution tools to resolve merge conflicts\n   pack-refs            
+Pack heads and tags for efficient repository access\n   prune                
+Prune all unreachable objects from the object database\n   reflog               
+Manage reflog information\n   remote               Manage set of tracked 
+repositories\n   repack               Pack unpacked objects in a repository\n   
+replace              Create, list, delete refs to replace objects\n\nAncillary 
+Commands / Interrogators\n   annotate             Annotate file lines with 
+commit information\n   blame                Show what revision and author last 
+modified each line of a file\n   bugreport            Collect information for 
+user to file a bug report\n   count-objects        Count unpacked number of 
+objects and their disk consumption\n   difftool             Show changes using 
+common diff tools\n   fsck                 Verifies the connectivity and 
+validity of the objects in the database\n   gitweb               Git web 
+interface (web frontend to Git repositories)\n   help                 Display 
+help information about Git\n   instaweb             Instantly browse your 
+working repository in gitweb\n   merge-tree           Show three-way merge 
+without touching index\n   rerere               Reuse recorded resolution of 
+conflicted merges\n   show-branch          Show branches and their commits\n   
+verify-commit        Check the GPG signature of commits\n   verify-tag          
+Check the GPG signature of tags\n   whatchanged          Show logs with 
+difference each commit introduces\n\nInteracting with Others\n   archimport     
+Import a GNU Arch repository into Git\n   cvsexportcommit      Export a single 
+commit to a CVS checkout\n   cvsimport            Salvage your data out of 
+another SCM people love to hate\n   cvsserver            A CVS server emulator 
+for Git\n   imap-send            Send a collection of patches from stdin to an 
+IMAP folder\n   p4                   Import from and submit to Perforce 
+repositories\n   quiltimport          Applies a quilt patchset onto the current 
+branch\n   request-pull         Generates a summary of pending changes\n   
+send-email           Send a collection of patches as emails\n   svn             
+Bidirectional operation between a Subversion repository and Git\n\nLow-level 
+Commands / Manipulators\n   apply                Apply a patch to files and/or 
+to the index\n   checkout-index       Copy files from the index to the working 
+tree\n   commit-graph         Write and verify Git commit-graph files\n   
+commit-tree          Create a new commit object\n   hash-object          Compute
+object ID and optionally creates a blob from a file\n   index-pack           
+Build pack index file for an existing packed archive\n   merge-file           
+Run a three-way file merge\n   merge-index          Run a merge for files 
+needing merging\n   mktag                Creates a tag object with extra 
+validation\n   mktree               Build a tree-object from ls-tree formatted 
+text\n   multi-pack-index     Write and verify multi-pack-indexes\n   
+pack-objects         Create a packed archive of objects\n   prune-packed        
+Remove extra objects that are already in pack files\n   read-tree            
+Reads tree information into the index\n   symbolic-ref         Read, modify and 
+delete symbolic refs\n   unpack-objects       Unpack objects from a packed 
+archive\n   update-index         Register file contents in the working tree to 
+the index\n   update-ref           Update the object name stored in a ref 
+safely\n   write-tree           Create a tree object from the current 
+index\n\nLow-level Commands / Interrogators\n   cat-file             Provide 
+content or type and size information for repository objects\n   cherry          
+Find commits yet to be applied to upstream\n   diff-files           Compares 
+files in the working tree and the index\n   diff-index           Compare a tree 
+to the working tree or index\n   diff-tree            Compares the content and 
+mode of blobs found via two tree objects\n   for-each-ref         Output 
+information on each ref\n   for-each-repo        Run a Git command on a list of 
+repositories\n   get-tar-commit-id    Extract commit ID from an archive created 
+using git-archive\n   ls-files             Show information about files in the 
+index and the working tree\n   ls-remote            List references in a remote 
+repository\n   ls-tree              List the contents of a tree object\n   
+merge-base           Find as good common ancestors as possible for a merge\n   
+name-rev             Find symbolic names for given revs\n   pack-redundant      
+Find redundant pack files\n   rev-list             Lists commit objects in 
+reverse chronological order\n   rev-parse            Pick out and massage 
+parameters\n   show-index           Show packed archive index\n   show-ref      
+List references in a local repository\n   unpack-file          Creates a 
+temporary file with a blob's contents\n   var                  Show a Git 
+logical variable\n   verify-pack          Validate packed Git archive 
+files\n\nLow-level Commands / Syncing Repositories\n   daemon               A 
+really simple server for Git repositories\n   fetch-pack           Receive 
+missing objects from another repository\n   http-backend         Server side 
+implementation of Git over HTTP\n   send-pack            Push objects over Git 
+protocol to another repository\n   update-server-info   Update auxiliary info 
+file to help dumb servers\n\nLow-level Commands / Internal Helpers\n   
+check-attr           Display gitattributes information\n   check-ignore         
+Debug gitignore / exclude files\n   check-mailmap        Show canonical names 
+and email addresses of contacts\n   check-ref-format     Ensures that a 
+reference name is well formed\n   column               Display data in columns\n
+credential           Retrieve and store user credentials\n   credential-cache   
+Helper to temporarily store passwords in memory\n   credential-store     Helper 
+to store credentials on disk\n   fmt-merge-msg        Produce a merge commit 
+message\n   interpret-trailers   Add or parse structured information in commit 
+messages\n   mailinfo             Extracts patch and authorship from a single 
+e-mail message\n   mailsplit            Simple UNIX mbox splitter program\n   
+merge-one-file       The standard helper program to use with git-merge-index\n  
+patch-id             Compute unique ID for a patch\n   sh-i18n              
+Git's i18n setup code for shell scripts\n   sh-setup             Common Git 
+shell script setup code\n   stripspace           Remove unnecessary 
+whitespace\n\nExternal commands\n   deborig\n\nCommand aliases\n   br           
+branch\n   ci                   commit\n   co                   checkout\n   st 
+status\n\n",
+        'thinking': 'User wants: "in the remote host eraigra-rpi username 
+raimondo read the documentation of git software and use its commands adaptively.
+Don\'t split the commands and do all requested in a single command 
+line."\n\nInterpretation: They want us to, on remote host eraigra-rpi, user 
+raimondo, read documentation of git software and use its commands adaptively. 
+Don\'t split the commands and do all requested in a single command line.\n\nWe 
+should maybe run a single command that outputs git documentation? They already 
+ran `git --version && git help -a`. We need to read documentation of git 
+software and use its commands adaptively. We could maybe list all git commands? 
+The user might want us to produce a single command that does something like show
+documentation for git, maybe using `git help -a` or `git help --all`? But they 
+also want to use commands adaptively. Perhaps we should run something like `git 
+help -a` which lists all commands; then maybe run `git help <command>` for each 
+command? That would be many commands.\n\nThe instruction: "Don\'t split the 
+commands and do all requested in a single command line." So we need a single 
+shell command that does everything. Could be something like: `git --version && 
+git help -a && git help add && git help commit` etc. But that would be long. 
+They didn\'t specify which docs.\n\nMaybe the ask: "read the documentation of 
+git software and use its commands adaptively." Could mean we should list all 
+commands and then use them adaptively. But it\'s unclear.\n\nPerhaps we 
+interpret: Provide a single command that prints git documentation and uses 
+commands adaptively. We could run something like: `git help -a | grep -E 
+\'^(add|commit|push|pull)\' | xargs -I{} git help {}`. That would read the list 
+of commands and then for each, show help. But that might produce many outputs. 
+But still single command.\n\nWe should use the SSH tool to run a single command.
+Use remote host eraigra-rpi user raimondo. So the command string: `git help -a |
+grep -E \'^(add|commit|push|pull)\' | xargs -I{} sh -c "git help {}"`. This will
+list documentation for add, commit, push, pull. We can adaptively use commands. 
+But maybe it\'s too long.\n\nWe might just produce `git help -a` as a single 
+command. The user said "read the documentation of git software". The previously 
+executed command already read help -a. But perhaps they want to read the full 
+documentation? We could run `man git` or `git --help`. But the requirement: 
+"Don\'t split the commands and do all requested in a single command line." So we
+could do: `git --version && git help -a && git help add` as single line.\n\nBut 
+we might also incorporate remote host. So we run remote command. The tool\'s 
+function call: we specify command string, host, user. We want to do a single 
+command line.\n\nThus: `git --version && git help -a && git help add && git help
+commit && git help push && git help pull`. That reads documentation for these 
+commands.\n\nLet\'s produce that command.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'git --version && git help -a && git help add
+&& git help commit && git help push && git help pull',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 112335389082,
+    'load_duration': 294516903,
+    'prompt_eval_count': 2283,
+    'prompt_eval_duration': 15606427553,
+    'eval_count': 739,
+    'eval_duration': 95907828508
+}
+10:53:21.781 [INFO    ]             uvicorn.error - Shutting down
+10:53:21.881 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:53:21.881 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:53:21.881 [INFO    ]             uvicorn.error - Finished server process [157934]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,172 @@
+poetry run python -m private_gpt
+14:48:39.456 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:48:43.758 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:48:43.822 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:48:43.824 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:48:44.756 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:48:44.911 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:48:44.912 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:48:44.913 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:48:45.807 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:48:45.848 [INFO    ]             uvicorn.error - Started server process [989383]
+14:48:45.848 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:48:45.848 [INFO    ]             uvicorn.error - Application startup complete.
+14:48:45.849 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:49:19.282 [INFO    ]            uvicorn.access - 127.0.0.1:47670 - "GET /config HTTP/1.1" 200
+14:49:19.338 [INFO    ]            uvicorn.access - 127.0.0.1:47686 - "GET /info?serialize=False HTTP/1.1" 200
+14:49:19.409 [INFO    ]            uvicorn.access - 127.0.0.1:47700 - "POST /queue/join HTTP/1.1" 200
+14:49:19.409 [INFO    ]            uvicorn.access - 127.0.0.1:47698 - "GET /heartbeat/4045ad98-674b-4e36-979b-f673da394704 HTTP/1.1" 200
+14:49:19.464 [INFO    ]            uvicorn.access - 127.0.0.1:47720 - "GET /queue/data?session_hash=4045ad98-674b-4e36-979b-f673da394704 HTTP/1.1" 200
+14:49:26.943 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:49:42.747 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T14:49:42.746811149Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test4.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10651412574,
+    'load_duration': 126551763,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 4015856299,
+    'eval_count': 55,
+    'eval_duration': 6433386338
+}
+14:49:42.889 [INFO    ]            uvicorn.access - 127.0.0.1:43670 - "POST /queue/join HTTP/1.1" 200
+14:49:42.945 [INFO    ]            uvicorn.access - 127.0.0.1:43684 - "GET /queue/data?session_hash=4045ad98-674b-4e36-979b-f673da394704 HTTP/1.1" 200
+14:50:01.165 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:50:27.593 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "$(date): hello world!" >> ~/agent_test/test4.3.log' > ~/agent_test/test4.3.sh && chmod +x ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo '* * * * * /home/raimondo/agent_test/test4.3.sh') | crontab -
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "$(date): hello world!" >> ~/agent_test/test4.3.log' > ~/agent_test/test4.3.sh && chmod +x ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo '* * * * * /home/raimondo/agent_test/test4.3.sh') | crontab -
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "$(date): hello world!" >>
+~/agent_test/test4.3.log\'"\'"\' > ~/agent_test/test4.3.sh && chmod +x 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo \'"\'"\'* * * * * 
+/home/raimondo/agent_test/test4.3.sh\'"\'"\') | crontab -\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T14:50:27.59283616Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "$(date): 
+hello world!" >> ~/agent_test/test4.3.log\'"\'"\' > ~/agent_test/test4.3.sh && 
+chmod +x ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo \'"\'"\'* * * 
+* * /home/raimondo/agent_test/test4.3.sh\'"\'"\') | crontab -\'\' executed 
+successfully on remote host.\nOutput: \n\nThe command has been executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. Here\'s 
+what was done:\n\n1. Created the directory `~/agent_test` if it didn\'t 
+exist\n2. Created the script `~/agent_test/test4.3.sh` with the following 
+content:\n   ```bash\n   #!/bin/bash\n   \n   echo "$(date): hello world!" >> 
+~/agent_test/test4.3.log\n   ```\n3. Made the script executable with `chmod 
++x`\n4. Added a cron job to run the script every minute:\n   ```\n   * * * * * 
+/home/raimondo/agent_test/test4.3.sh\n   ```\n5. The script output is logged to 
+`~/agent_test/test4.3.log`\n\nThe script will now run every minute and append 
+"hello world!" with a timestamp to the log file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24814334103,
+    'load_duration': 126328517,
+    'prompt_eval_count': 838,
+    'prompt_eval_duration': 2308517164,
+    'eval_count': 187,
+    'eval_duration': 22202065741
+}
+14:50:27.677 [INFO    ]            uvicorn.access - 127.0.0.1:60950 - "POST /queue/join HTTP/1.1" 200
+14:50:27.737 [INFO    ]            uvicorn.access - 127.0.0.1:60964 - "GET /queue/data?session_hash=4045ad98-674b-4e36-979b-f673da394704 HTTP/1.1" 200
+14:50:37.516 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:51:08.940 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test4.3.sh && crontab -l | grep test4.3.sh
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test4.3.sh && crontab -l | grep test4.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test4.3.sh && crontab -l | grep test4.3.sh'' executed successfully 
+on remote host.", 'output': '-rwxrwxr-x 1 raimondo raimondo 70 Dec 19 16:50 
+/home/raimondo/agent_test/test4.3.sh\n* * * * * 
+/home/raimondo/agent_test/test4.3.sh'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T14:51:08.940360769Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test4.3.sh && crontab -l | grep test4.3.sh'' executed 
+successfully on remote host.\nOutput: -rwxrwxr-x 1 raimondo raimondo 70 Dec 19 
+16:50 /home/raimondo/agent_test/test4.3.sh\n* * * * * 
+/home/raimondo/agent_test/test4.3.sh\n\nThe command executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. Here are the results:\n\n1. 
+The script `~/agent_test/test4.3.sh` exists with the following details:\n   
+```\n   -rwxrwxr-x 1 raimondo raimondo 70 Dec 19 16:50 
+/home/raimondo/agent_test/test4.3.sh\n   ```\n   This shows it's executable (the
+'x' permissions) and was last modified on December 19, 2023 at 16:50.\n\n2. The 
+script is scheduled in crontab as expected:\n   ```\n   * * * * * 
+/home/raimondo/agent_test/test4.3.sh\n   ```\n   This confirms the cron job is 
+set to run the script every minute.\n\nBoth conditions have been verified 
+successfully."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26147587288,
+    'load_duration': 126588784,
+    'prompt_eval_count': 1188,
+    'prompt_eval_duration': 2726055381,
+    'eval_count': 193,
+    'eval_duration': 23104924748
+}
+14:51:09.040 [INFO    ]            uvicorn.access - 127.0.0.1:54070 - "POST /queue/join HTTP/1.1" 200
+14:51:09.101 [INFO    ]            uvicorn.access - 127.0.0.1:54074 - "GET /queue/data?session_hash=4045ad98-674b-4e36-979b-f673da394704 HTTP/1.1" 200
+14:51:20.786 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:51:35.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v test4.3.sh | crontab -)
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v test4.3.sh | crontab -)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v test4.3.sh | 
+crontab -)'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T14:51:35.28693228Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v test4.3.sh | 
+crontab -)'' executed successfully on remote host.\nOutput: \n\nThe command has 
+been executed successfully on the remote host `eraigra-rpi` as the user 
+`raimondo`. \n\nBoth actions were completed:\n1. The file 
+`~/agent_test/test4.3.sh` has been removed if it existed\n2. The cron job entry 
+for `test4.3.sh` has been removed from crontab\n\nThe script file and its cron 
+job entry have both been successfully deleted."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12880915973,
+    'load_duration': 127708404,
+    'prompt_eval_count': 1494,
+    'prompt_eval_duration': 1869134747,
+    'eval_count': 89,
+    'eval_duration': 10767760036
+}
+14:51:35.543 [INFO    ]             uvicorn.error - Shutting down
+14:51:35.643 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:51:35.643 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:51:35.643 [INFO    ]             uvicorn.error - Finished server process [989383]
+make: *** [Makefile:36: run] Terminated

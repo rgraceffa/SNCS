@@ -1,0 +1,246 @@
+poetry run python -m private_gpt
+10:10:10.155 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:10:14.445 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:10:14.509 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:10:14.511 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:10:15.406 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:10:15.560 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:10:15.561 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:10:15.563 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:10:16.449 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:10:16.490 [INFO    ]             uvicorn.error - Started server process [1541622]
+10:10:16.490 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:10:16.490 [INFO    ]             uvicorn.error - Application startup complete.
+10:10:16.491 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:10:49.983 [INFO    ]            uvicorn.access - 127.0.0.1:53170 - "GET /config HTTP/1.1" 200
+10:10:50.037 [INFO    ]            uvicorn.access - 127.0.0.1:53176 - "GET /info?serialize=False HTTP/1.1" 200
+10:10:50.107 [INFO    ]            uvicorn.access - 127.0.0.1:53178 - "GET /heartbeat/1d44a7c2-087d-4eb9-afd3-89e4fc00fe9f HTTP/1.1" 200
+10:10:50.110 [INFO    ]            uvicorn.access - 127.0.0.1:53192 - "POST /queue/join HTTP/1.1" 200
+10:10:50.165 [INFO    ]            uvicorn.access - 127.0.0.1:53208 - "GET /queue/data?session_hash=1d44a7c2-087d-4eb9-afd3-89e4fc00fe9f HTTP/1.1" 200
+10:11:01.101 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:11:11.811 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.py'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:11:11.811335684Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.py'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.py` was executed successfully on the
+remote host, and the file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 5419845209,
+    'load_duration': 127918318,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 1143637584,
+    'eval_count': 35,
+    'eval_duration': 4086377666
+}
+10:11:11.920 [INFO    ]            uvicorn.access - 127.0.0.1:57306 - "POST /queue/join HTTP/1.1" 200
+10:11:11.976 [INFO    ]            uvicorn.access - 127.0.0.1:57316 - "GET /queue/data?session_hash=1d44a7c2-087d-4eb9-afd3-89e4fc00fe9f HTTP/1.1" 200
+10:11:47.985 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:12:05.853 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cat > ~/agent_test/test2.2.py << 'EOF' && chmod +x ~/agent_test/test2.2.py
+#!/usr/bin/env python3
+
+import sys
+import dpkt
+import socket
+
+def parse_pcap(pcap_file):
+    with open(pcap_file, 'rb') as f:
+        pcap = dpkt.pcap.Reader(f)
+        for timestamp, buf in pcap:
+            eth = dpkt.ethernet.Ethernet(buf)
+            if isinstance(eth.data, dpkt.ip.IP):
+                ip = eth.data
+                src_ip = socket.inet_ntoa(ip.src)
+                dst_ip = socket.inet_ntoa(ip.dst)
+                print(f"Timestamp: {timestamp}, Source IP: {src_ip}, Destination IP: {dst_ip}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 test2.2.py <pcap_file>")
+        sys.exit(1)
+    parse_pcap(sys.argv[1])
+EOF
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && cat > ~/agent_test/test2.2.py << 'EOF' && chmod +x ~/agent_test/test2.2.py
+#!/usr/bin/env python3
+
+import sys
+import dpkt
+import socket
+
+def parse_pcap(pcap_file):
+    with open(pcap_file, 'rb') as f:
+        pcap = dpkt.pcap.Reader(f)
+        for timestamp, buf in pcap:
+            eth = dpkt.ethernet.Ethernet(buf)
+            if isinstance(eth.data, dpkt.ip.IP):
+                ip = eth.data
+                src_ip = socket.inet_ntoa(ip.src)
+                dst_ip = socket.inet_ntoa(ip.dst)
+                print(f"Timestamp: {timestamp}, Source IP: {src_ip}, Destination IP: {dst_ip}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 test2.2.py <pcap_file>")
+        sys.exit(1)
+    parse_pcap(sys.argv[1])
+EOF
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && cat > ~/agent_test/test2.2.py << \'"\'"\'EOF\'"\'"\' && chmod +x
+~/agent_test/test2.2.py\n#!/usr/bin/env python3\n\nimport sys\nimport 
+dpkt\nimport socket\n\ndef parse_pcap(pcap_file):\n    with open(pcap_file, 
+\'"\'"\'rb\'"\'"\') as f:\n        pcap = dpkt.pcap.Reader(f)\n        for 
+timestamp, buf in pcap:\n            eth = dpkt.ethernet.Ethernet(buf)\n        
+if isinstance(eth.data, dpkt.ip.IP):\n                ip = eth.data\n           
+src_ip = socket.inet_ntoa(ip.src)\n                dst_ip = 
+socket.inet_ntoa(ip.dst)\n                print(f"Timestamp: {timestamp}, Source
+IP: {src_ip}, Destination IP: {dst_ip}")\n\nif __name__ == "__main__":\n    if 
+len(sys.argv) != 2:\n        print("Usage: python3 test2.2.py <pcap_file>")\n   
+sys.exit(1)\n    parse_pcap(sys.argv[1])\nEOF\'\' executed successfully on 
+remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:12:05.852927662Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && cat > ~/agent_test/test2.2.py << 
+\'"\'"\'EOF\'"\'"\' && chmod +x ~/agent_test/test2.2.py\n#!/usr/bin/env 
+python3\n\nimport sys\nimport dpkt\nimport socket\n\ndef 
+parse_pcap(pcap_file):\n    with open(pcap_file, \'"\'"\'rb\'"\'"\') as f:\n    
+pcap = dpkt.pcap.Reader(f)\n        for timestamp, buf in pcap:\n            eth
+= dpkt.ethernet.Ethernet(buf)\n            if isinstance(eth.data, 
+dpkt.ip.IP):\n                ip = eth.data\n                src_ip = 
+socket.inet_ntoa(ip.src)\n                dst_ip = socket.inet_ntoa(ip.dst)\n   
+print(f"Timestamp: {timestamp}, Source IP: {src_ip}, Destination IP: 
+{dst_ip}")\n\nif __name__ == "__main__":\n    if len(sys.argv) != 2:\n        
+print("Usage: python3 test2.2.py <pcap_file>")\n        sys.exit(1)\n    
+parse_pcap(sys.argv[1])\nEOF\'\' executed successfully on remote host.\nOutput: 
+\n\nThe Python script `~/agent_test/test2.2.py` has been created successfully on
+the remote host. The script is designed to parse pcap traces and extract source 
+and destination IP addresses from the packets. It uses the `dpkt` library for 
+parsing and `socket` for IP address conversion.\n\nThe script can be executed 
+with:\n```bash\npython3 ~/agent_test/test2.2.py <pcap_file>\n```\n\nIt will 
+print the timestamp, source IP, and destination IP for each packet in the pcap 
+file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16277222205,
+    'load_duration': 128255425,
+    'prompt_eval_count': 952,
+    'prompt_eval_duration': 3756893808,
+    'eval_count': 108,
+    'eval_duration': 12276977154
+}
+10:12:05.976 [INFO    ]            uvicorn.access - 127.0.0.1:56014 - "POST /queue/join HTTP/1.1" 200
+10:12:06.032 [INFO    ]            uvicorn.access - 127.0.0.1:56018 - "GET /queue/data?session_hash=1d44a7c2-087d-4eb9-afd3-89e4fc00fe9f HTTP/1.1" 200
+10:12:18.100 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:13:10.677 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test2.2.py ]; then echo "File exists:"; cat ~/agent_test/test2.2.py; else echo "File does not exist"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test2.2.py ]; then echo "File exists:"; cat ~/agent_test/test2.2.py; else echo "File does not exist"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test2.2.py ]; then echo "File exists:"; cat 
+~/agent_test/test2.2.py; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.', 'output': 'File exists:\n#!/usr/bin/env 
+python3\n\nimport sys\nimport dpkt\nimport socket\n\ndef 
+parse_pcap(pcap_file):\n    with open(pcap_file, \'rb\') as f:\n        pcap = 
+dpkt.pcap.Reader(f)\n        for timestamp, buf in pcap:\n            eth = 
+dpkt.ethernet.Ethernet(buf)\n            if isinstance(eth.data, dpkt.ip.IP):\n 
+ip = eth.data\n                src_ip = socket.inet_ntoa(ip.src)\n              
+dst_ip = socket.inet_ntoa(ip.dst)\n                print(f"Timestamp: 
+{timestamp}, Source IP: {src_ip}, Destination IP: {dst_ip}")\n\nif __name__ == 
+"__main__":\n    if len(sys.argv) != 2:\n        print("Usage: python3 
+test2.2.py <pcap_file>")\n        sys.exit(1)\n    parse_pcap(sys.argv[1])'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:13:10.676904663Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test2.2.py ]; then echo "File exists:"; cat 
+~/agent_test/test2.2.py; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.\nOutput: File exists:\n#!/usr/bin/env 
+python3\n\nimport sys\nimport dpkt\nimport socket\n\ndef 
+parse_pcap(pcap_file):\n    with open(pcap_file, \'rb\') as f:\n        pcap = 
+dpkt.pcap.Reader(f)\n        for timestamp, buf in pcap:\n            eth = 
+dpkt.ethernet.Ethernet(buf)\n            if isinstance(eth.data, dpkt.ip.IP):\n 
+ip = eth.data\n                src_ip = socket.inet_ntoa(ip.src)\n              
+dst_ip = socket.inet_ntoa(ip.dst)\n                print(f"Timestamp: 
+{timestamp}, Source IP: {src_ip}, Destination IP: {dst_ip}")\n\nif __name__ == 
+"__main__":\n    if len(sys.argv) != 2:\n        print("Usage: python3 
+test2.2.py <pcap_file>")\n        sys.exit(1)\n    
+parse_pcap(sys.argv[1])\n\nThe file `~/agent_test/test2.2.py` has been 
+successfully created on the remote host. Here is its 
+content:\n\n```python\n#!/usr/bin/env python3\n\nimport sys\nimport dpkt\nimport
+socket\n\ndef parse_pcap(pcap_file):\n    with open(pcap_file, \'rb\') as f:\n  
+pcap = dpkt.pcap.Reader(f)\n        for timestamp, buf in pcap:\n            eth
+= dpkt.ethernet.Ethernet(buf)\n            if isinstance(eth.data, 
+dpkt.ip.IP):\n                ip = eth.data\n                src_ip = 
+socket.inet_ntoa(ip.src)\n                dst_ip = socket.inet_ntoa(ip.dst)\n   
+print(f"Timestamp: {timestamp}, Source IP: {src_ip}, Destination IP: 
+{dst_ip}")\n\nif __name__ == "__main__":\n    if len(sys.argv) != 2:\n        
+print("Usage: python3 test2.2.py <pcap_file>")\n        sys.exit(1)\n    
+parse_pcap(sys.argv[1])\n```\n\nThe script is designed to parse pcap traces and 
+extract source and destination IP addresses from the packets. It uses the `dpkt`
+library for parsing and `socket` for IP address conversion. To use it, 
+run:\n```bash\npython3 ~/agent_test/test2.2.py <pcap_file>\n```'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 47391329467,
+    'load_duration': 132533239,
+    'prompt_eval_count': 1400,
+    'prompt_eval_duration': 13335356405,
+    'eval_count': 278,
+    'eval_duration': 33710221649
+}
+10:13:10.754 [INFO    ]            uvicorn.access - 127.0.0.1:33616 - "POST /queue/join HTTP/1.1" 200
+10:13:10.821 [INFO    ]            uvicorn.access - 127.0.0.1:33622 - "GET /queue/data?session_hash=1d44a7c2-087d-4eb9-afd3-89e4fc00fe9f HTTP/1.1" 200
+10:13:34.271 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:13:44.994 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.py'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T10:13:44.993789573Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.py'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.py` was executed successfully on the
+remote host. The file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 5534902160,
+    'load_duration': 131990438,
+    'prompt_eval_count': 1758,
+    'prompt_eval_duration': 1294679641,
+    'eval_count': 34,
+    'eval_duration': 4014646354
+}
+10:13:45.216 [INFO    ]             uvicorn.error - Shutting down
+10:13:45.317 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:13:45.317 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:13:45.317 [INFO    ]             uvicorn.error - Finished server process [1541622]
+make: *** [Makefile:36: run] Terminated

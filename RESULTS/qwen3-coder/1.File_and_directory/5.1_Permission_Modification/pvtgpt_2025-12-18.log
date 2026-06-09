@@ -1,0 +1,124 @@
+poetry run python -m private_gpt
+13:39:13.521 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:39:17.826 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:39:17.889 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:39:17.891 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:39:18.793 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:39:18.947 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:39:18.949 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:39:18.950 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:39:19.839 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:39:19.880 [INFO    ]             uvicorn.error - Started server process [119228]
+13:39:19.880 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:39:19.880 [INFO    ]             uvicorn.error - Application startup complete.
+13:39:19.881 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:39:53.343 [INFO    ]            uvicorn.access - 127.0.0.1:42396 - "GET /config HTTP/1.1" 200
+13:39:53.399 [INFO    ]            uvicorn.access - 127.0.0.1:42398 - "GET /info?serialize=False HTTP/1.1" 200
+13:39:53.469 [INFO    ]            uvicorn.access - 127.0.0.1:42414 - "POST /queue/join HTTP/1.1" 200
+13:39:53.469 [INFO    ]            uvicorn.access - 127.0.0.1:42420 - "GET /heartbeat/1e9ea70d-105a-47ee-8d59-ebb56c58f9d6 HTTP/1.1" 200
+13:39:53.525 [INFO    ]            uvicorn.access - 127.0.0.1:42428 - "GET /queue/data?session_hash=1e9ea70d-105a-47ee-8d59-ebb56c58f9d6 HTTP/1.1" 200
+13:40:12.164 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:40:31.972 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test/ && touch ~/agent_test/test5.1.txt && chmod 444 ~/agent_test/test5.1.txt
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test/ && touch ~/agent_test/test5.1.txt && chmod 444 ~/agent_test/test5.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p 
+~/agent_test/ && touch ~/agent_test/test5.1.txt && chmod 444 
+~/agent_test/test5.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T13:40:31.971547468Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test/ && touch ~/agent_test/test5.1.txt && chmod 444 
+~/agent_test/test5.1.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host. Here's what 
+was done:\n\n1. Created the directory `~/agent_test/` (and any necessary parent 
+directories)\n2. Created an empty file named `test5.1.txt` in that directory\n3.
+Set the file permissions to read-only for all users (444)\n\nThe file 
+`test5.1.txt` is now in `~/agent_test/` and is read-only for all users."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13698389797,
+    'load_duration': 127533532,
+    'prompt_eval_count': 615,
+    'prompt_eval_duration': 1652505614,
+    'eval_count': 98,
+    'eval_duration': 11812590214
+}
+13:40:32.080 [INFO    ]            uvicorn.access - 127.0.0.1:37406 - "POST /queue/join HTTP/1.1" 200
+13:40:32.139 [INFO    ]            uvicorn.access - 127.0.0.1:37420 - "GET /queue/data?session_hash=1e9ea70d-105a-47ee-8d59-ebb56c58f9d6 HTTP/1.1" 200
+13:40:45.435 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:41:14.975 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test5.1.txt
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test5.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test5.1.txt'' executed successfully on remote host.", 'output': 
+'-r--r--r-- 1 raimondo raimondo 0 Dec 18 15:40 
+/home/raimondo/agent_test/test5.1.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T13:41:14.974942893Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test5.1.txt'' executed successfully on remote host.\nOutput: 
+-r--r--r-- 1 raimondo raimondo 0 Dec 18 15:40 
+/home/raimondo/agent_test/test5.1.txt\n\nI've checked the file in the remote 
+host eraigra-rpi under the username raimondo. The file `test5.1.txt` exists in 
+the `~/agent_test/` directory and has the correct read-only permissions for all 
+users.\n\nThe file details are:\n```\n-r--r--r-- 1 raimondo raimondo 0 Dec 18 
+15:40 /home/raimondo/agent_test/test5.1.txt\n```\n\nThe permissions `-r--r--r--`
+confirm that:\n- The file is readable by owner, group, and others (the 'r' in 
+each triplet)\n- The file is not writable or executable by anyone (no 'w' or 'x'
+in any triplet)\n\nThe file is indeed read-only for all users as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27394165173,
+    'load_duration': 132897337,
+    'prompt_eval_count': 844,
+    'prompt_eval_duration': 7054021380,
+    'eval_count': 171,
+    'eval_duration': 20053991718
+}
+13:41:15.079 [INFO    ]            uvicorn.access - 127.0.0.1:34994 - "POST /queue/join HTTP/1.1" 200
+13:41:15.143 [INFO    ]            uvicorn.access - 127.0.0.1:35002 - "GET /queue/data?session_hash=1e9ea70d-105a-47ee-8d59-ebb56c58f9d6 HTTP/1.1" 200
+13:41:24.423 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:41:44.000 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm ~/agent_test/test5.1.txt
+[AGENT] ✅ Remote command executed successfully: rm ~/agent_test/test5.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm 
+~/agent_test/test5.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T13:41:43.999949462Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+~/agent_test/test5.1.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully. The file `test5.1.txt` has been 
+removed from the `~/agent_test/` directory on the remote host eraigra-rpi under 
+the username raimondo."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14454952620,
+    'load_duration': 128691550,
+    'prompt_eval_count': 1096,
+    'prompt_eval_duration': 9150904267,
+    'eval_count': 45,
+    'eval_duration': 5088795833
+}
+13:41:44.231 [INFO    ]             uvicorn.error - Shutting down
+13:41:44.331 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:41:44.332 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:41:44.332 [INFO    ]             uvicorn.error - Finished server process [119228]
+make: *** [Makefile:36: run] Terminated

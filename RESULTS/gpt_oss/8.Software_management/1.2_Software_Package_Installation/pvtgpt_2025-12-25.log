@@ -1,0 +1,151 @@
+poetry run python -m private_gpt
+10:12:01.356 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:12:05.607 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:12:05.670 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:12:05.672 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:12:06.566 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:12:06.719 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:12:06.721 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:12:06.722 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:12:07.610 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:12:07.651 [INFO    ]             uvicorn.error - Started server process [155602]
+10:12:07.651 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:12:07.651 [INFO    ]             uvicorn.error - Application startup complete.
+10:12:07.652 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:12:41.183 [INFO    ]            uvicorn.access - 127.0.0.1:39086 - "GET /config HTTP/1.1" 200
+10:12:41.237 [INFO    ]            uvicorn.access - 127.0.0.1:39098 - "GET /info?serialize=False HTTP/1.1" 200
+10:12:41.310 [INFO    ]            uvicorn.access - 127.0.0.1:39112 - "POST /queue/join HTTP/1.1" 200
+10:12:41.310 [INFO    ]            uvicorn.access - 127.0.0.1:39118 - "GET /heartbeat/c8386c17-2562-42c2-9791-162a22bcd9fe HTTP/1.1" 200
+10:12:41.365 [INFO    ]            uvicorn.access - 127.0.0.1:39132 - "GET /queue/data?session_hash=c8386c17-2562-42c2-9791-162a22bcd9fe HTTP/1.1" 200
+10:13:18.512 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:14:02.452 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get update && sudo apt-get install -y systemd-hwe-hwdb=249.11.6
+[AGENT] ✅ Remote command executed successfully: sudo apt-get update && sudo apt-get install -y systemd-hwe-hwdb=249.11.6
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get update 
+&& sudo apt-get install -y systemd-hwe-hwdb=249.11.6'' executed successfully on 
+remote host.", 'output': "Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 5s 
+(1210 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nsystemd-hwe-hwdb is already 
+the newest version (249.11.6).\nThe following packages were automatically 
+installed and are no longer required:\n  libaacs0 libass9 libasyncns0 
+libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 libavformat58 
+libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 libcdio-cdda2 
+libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 libdc1394-25 
+libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 libgbm1 
+libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 liblapack3 
+liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:14:02.451821291Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get update && sudo apt-get install -y systemd-hwe-hwdb=249.11.6'' 
+executed successfully on remote host.\nOutput: Get:1 file:/usr/local/mydebs ./ 
+InRelease\nIgn:1 file:/usr/local/mydebs ./ InRelease\nGet:2 
+file:/usr/local/mydebs ./ Release\nIgn:2 file:/usr/local/mydebs ./ 
+Release\nGet:3 file:/usr/local/mydebs ./ Packages [424 B]\nHit:4 
+http://ports.ubuntu.com/ubuntu-ports jammy InRelease\nHit:5 
+https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6 
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 5s 
+(1210 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nsystemd-hwe-hwdb is already 
+the newest version (249.11.6).\nThe following packages were automatically 
+installed and are no longer required:\n  libaacs0 libass9 libasyncns0 
+libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 libavformat58 
+libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 libcdio-cdda2 
+libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 libdc1394-25 
+libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 libgbm1 
+libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 liblapack3 
+liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded.\n\nThe installation has been completed successfully. 
+`systemd-hwe-hwdb` version **249.11.6** is already the newest available version 
+on the remote host. No additional packages were upgraded or installed.",
+        'thinking': 'The tool returned success. We need to provide answer 
+acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15991202497,
+    'load_duration': 294295406,
+    'prompt_eval_count': 1179,
+    'prompt_eval_duration': 257359479,
+    'eval_count': 44,
+    'eval_duration': 5532401409
+}
+10:14:02.526 [INFO    ]            uvicorn.access - 127.0.0.1:45078 - "POST /queue/join HTTP/1.1" 200
+10:14:02.581 [INFO    ]            uvicorn.access - 127.0.0.1:45092 - "GET /queue/data?session_hash=c8386c17-2562-42c2-9791-162a22bcd9fe HTTP/1.1" 200
+10:14:29.904 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:14:58.952 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi apt show systemd-hwe-hwdb | grep Version:
+[AGENT] ✅ Remote command executed successfully: apt show systemd-hwe-hwdb | grep Version:
+[AGENT] ✅:{'status': 'success', 'message': "The command ''apt show 
+systemd-hwe-hwdb | grep Version:'' executed successfully on remote host.", 
+'output': 'Version: 249.11.6'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:14:58.951782095Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''apt
+show systemd-hwe-hwdb | grep Version:'' executed successfully on remote 
+host.\nOutput: Version: 249.11.6\n\nVerified: `systemd-hwe-hwdb` is at **Version
+249.11.6** on eraigra‑rpi.",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo verify that the version of systemd-hwe-hwdb is 249.11.6. Don\'t split 
+the commands and do all requested in a single command line."\n\nWe already 
+executed a command: "apt show systemd-hwe-hwdb | grep Version:" and got output 
+\'Version: 249.11.6\'. That satisfies the request. We should provide the 
+confirmation.\n\nLet\'s produce a succinct answer confirming the version is 
+249.11.6.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21588661797,
+    'load_duration': 294119845,
+    'prompt_eval_count': 1432,
+    'prompt_eval_duration': 257698066,
+    'eval_count': 31,
+    'eval_duration': 3864038513
+}
+10:14:59.107 [INFO    ]             uvicorn.error - Shutting down
+10:14:59.207 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:14:59.207 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:14:59.207 [INFO    ]             uvicorn.error - Finished server process [155602]
+make: *** [Makefile:36: run] Terminated

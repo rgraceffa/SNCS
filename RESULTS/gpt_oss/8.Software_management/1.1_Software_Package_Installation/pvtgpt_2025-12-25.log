@@ -1,0 +1,376 @@
+poetry run python -m private_gpt
+10:04:21.579 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:04:25.849 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:04:25.912 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:25.914 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:26.814 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:04:26.968 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:26.970 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:04:26.971 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:04:27.866 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:04:27.907 [INFO    ]             uvicorn.error - Started server process [154414]
+10:04:27.907 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:04:27.908 [INFO    ]             uvicorn.error - Application startup complete.
+10:04:27.908 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:05:01.399 [INFO    ]            uvicorn.access - 127.0.0.1:50884 - "GET /config HTTP/1.1" 200
+10:05:01.454 [INFO    ]            uvicorn.access - 127.0.0.1:50892 - "GET /info?serialize=False HTTP/1.1" 200
+10:05:01.564 [INFO    ]            uvicorn.access - 127.0.0.1:50906 - "GET /heartbeat/2d1cf43f-047c-481c-85c2-a81cf1227c5b HTTP/1.1" 200
+10:05:01.567 [INFO    ]            uvicorn.access - 127.0.0.1:50916 - "POST /queue/join HTTP/1.1" 200
+10:05:01.622 [INFO    ]            uvicorn.access - 127.0.0.1:50932 - "GET /queue/data?session_hash=2d1cf43f-047c-481c-85c2-a81cf1227c5b HTTP/1.1" 200
+10:05:46.035 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:06:46.398 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get purge -y ffmpeg || true
+[AGENT] ✅ Remote command executed successfully: sudo apt-get purge -y ffmpeg || true
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get purge -y
+ffmpeg || true'' executed successfully on remote host.", 'output': "Reading 
+package lists...\nBuilding dependency tree...\nReading state 
+information...\nPackage 'ffmpeg' is not installed, so not removed\nThe following
+packages were automatically installed and are no longer required:\n  libaacs0 
+libass9 libasyncns0 libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 
+libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 
+libcdio-cdda2 libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 
+libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 
+libgbm1 libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 
+liblapack3 liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:06:46.397519454Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get purge -y ffmpeg || true'' executed successfully on remote 
+host.\nOutput: Reading package lists...\nBuilding dependency tree...\nReading 
+state information...\nPackage 'ffmpeg' is not installed, so not removed\nThe 
+following packages were automatically installed and are no longer required:\n  
+libaacs0 libass9 libasyncns0 libavc1394-0 libavcodec58 libavdevice58\n  
+libavfilter7 libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0\n  
+libcaca0 libcdio-cdda2 libcdio-paranoia2 libcdio19 libchromaprint1\n  
+libcodec2-1.0 libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  
+libflite1 libgbm1 libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0
+liblapack3 liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded.\n\nThe command was executed in a single line on the 
+remote host (`eraigra-rpi` as user **raimondo**) and it confirmed that **ffmpeg 
+is not installed**, so nothing was removed.\n\n```\nsudo apt-get purge -y ffmpeg
+|| true\n```\n\nResult:\n```\nPackage 'ffmpeg' is not installed, so not 
+removed\n```\n\nIf you need to ensure it’s removed or want to install a specific
+version later, let me know!",
+        'thinking': 'We need to understand the user request: "in the remote host
+eraigra-rpi username raimondo remove if exists ffmpeg package using the package 
+manager. Don\'t split the commands and do all requested in a single command 
+line."\n\nWe executed `sudo apt-get purge -y ffmpeg || true`. The command is 
+executed successfully, but the output says "Package \'ffmpeg\' is not installed,
+so not removed".\n\nBut the user likely expects removal if it exists. But the 
+package was not installed. The command we used might not be the exact command 
+they expect. We should provide a response acknowledging the result. We may also 
+check if ffmpeg is installed. But the user wanted to remove if exists. Since 
+it\'s not installed, nothing happened.\n\nWe should reply that ffmpeg is not 
+installed, no action needed. But the instruction says: "Don\'t split the 
+commands and do all requested in a single command line." We already did that. So
+answer: confirm removal, mention not installed. Probably ask if they want to 
+install something else.\n\nThus final answer: ffmpeg not present. If they want 
+to install, we can provide install command.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 49885394902,
+    'load_duration': 290606111,
+    'prompt_eval_count': 1162,
+    'prompt_eval_duration': 257049239,
+    'eval_count': 98,
+    'eval_duration': 12467558945
+}
+10:06:46.513 [INFO    ]            uvicorn.access - 127.0.0.1:33338 - "POST /queue/join HTTP/1.1" 200
+10:06:46.568 [INFO    ]            uvicorn.access - 127.0.0.1:33352 - "GET /queue/data?session_hash=2d1cf43f-047c-481c-85c2-a81cf1227c5b HTTP/1.1" 200
+10:07:01.366 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:09:08.795 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get update && sudo apt-get install -y ffmpeg
+[AGENT] ✅ Remote command executed successfully: sudo apt-get update && sudo apt-get install -y ffmpeg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get update 
+&& sudo apt-get install -y ffmpeg'' executed successfully on remote host.", 
+'output': 'Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 http://ports.ubuntu.com/ubuntu-ports jammy-updates 
+InRelease\nHit:6 http://ports.ubuntu.com/ubuntu-ports jammy-backports 
+InRelease\nHit:7 http://ports.ubuntu.com/ubuntu-ports jammy-security 
+InRelease\nHit:8 https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 5s 
+(1216 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nSuggested packages:\n  
+ffmpeg-doc\nThe following NEW packages will be installed:\n  ffmpeg\n0 upgraded,
+1 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 0 B/1690 kB of 
+archives.\nAfter this operation, 2086 kB of additional disk space will be 
+used.\nSelecting previously unselected package ffmpeg.\n(Reading database ... 
+\n(Reading database ... 5%\n(Reading database ... 10%\n(Reading database ... 
+15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading database ...
+30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading database ...
+45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading database ...
+60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading database ...
+75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading database ...
+90%\n(Reading database ... 95%\n(Reading database ... 100%\n(Reading database 
+... 155240 files and directories currently installed.)\nPreparing to unpack 
+.../ffmpeg_7%3a4.4.2-0ubuntu0.22.04.1_armhf.deb ...\nUnpacking ffmpeg 
+(7:4.4.2-0ubuntu0.22.04.1) ...\nSetting up ffmpeg (7:4.4.2-0ubuntu0.22.04.1) 
+...\nProcessing triggers for man-db (2.10.2-1) ...\n\nRunning kernel seems to be
+up-to-date.\n\nFailed to check for processor microcode upgrades.\n\nNo services 
+need to be restarted.\n\nNo containers need to be restarted.\n\nNo user sessions
+are running outdated binaries.\n\nNo VM guests are running outdated hypervisor 
+(qemu) binaries on this host.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:09:08.7945738Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get update && sudo apt-get install -y ffmpeg'' executed successfully 
+on remote host.\nOutput: Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 http://ports.ubuntu.com/ubuntu-ports jammy-updates 
+InRelease\nHit:6 http://ports.ubuntu.com/ubuntu-ports jammy-backports 
+InRelease\nHit:7 http://ports.ubuntu.com/ubuntu-ports jammy-security 
+InRelease\nHit:8 https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 5s 
+(1216 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nSuggested packages:\n  
+ffmpeg-doc\nThe following NEW packages will be installed:\n  ffmpeg\n0 upgraded,
+1 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 0 B/1690 kB of 
+archives.\nAfter this operation, 2086 kB of additional disk space will be 
+used.\nSelecting previously unselected package ffmpeg.\n(Reading database ... 
+\n(Reading database ... 5%\n(Reading database ... 10%\n(Reading database ... 
+15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading database ...
+30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading database ...
+45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading database ...
+60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading database ...
+75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading database ...
+90%\n(Reading database ... 95%\n(Reading database ... 100%\n(Reading database 
+... 155240 files and directories currently installed.)\nPreparing to unpack 
+.../ffmpeg_7%3a4.4.2-0ubuntu0.22.04.1_armhf.deb ...\nUnpacking ffmpeg 
+(7:4.4.2-0ubuntu0.22.04.1) ...\nSetting up ffmpeg (7:4.4.2-0ubuntu0.22.04.1) 
+...\nProcessing triggers for man-db (2.10.2-1) ...\n\nRunning kernel seems to be
+up-to-date.\n\nFailed to check for processor microcode upgrades.\n\nNo services 
+need to be restarted.\n\nNo containers need to be restarted.\n\nNo user sessions
+are running outdated binaries.\n\nNo VM guests are running outdated hypervisor 
+(qemu) binaries on this host.\n\n`ffmpeg` has been installed successfully on 
+**eraigra‑rpi** (user *raimondo*).  \nNo additional action is required unless 
+you need a specific version or want to verify the installation.\n\n```bash\n# 
+Verify\nffmpeg -version\n```\n\nOutput will show the installed FFmpeg version.",
+        'thinking': 'We already executed the installation. The user just asked 
+to install ffmpeg, no further instructions. Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19617892640,
+    'load_duration': 295891414,
+    'prompt_eval_count': 1798,
+    'prompt_eval_duration': 259619487,
+    'eval_count': 67,
+    'eval_duration': 8554177573
+}
+10:09:08.914 [INFO    ]            uvicorn.access - 127.0.0.1:54650 - "POST /queue/join HTTP/1.1" 200
+10:09:08.969 [INFO    ]            uvicorn.access - 127.0.0.1:54660 - "GET /queue/data?session_hash=2d1cf43f-047c-481c-85c2-a81cf1227c5b HTTP/1.1" 200
+10:09:45.549 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:10:25.408 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -s ffmpeg
+[AGENT] ✅ Remote command executed successfully: dpkg -s ffmpeg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''dpkg -s ffmpeg'' 
+executed successfully on remote host.", 'output': 'Package: ffmpeg\nStatus: 
+install ok installed\nPriority: optional\nSection: video\nInstalled-Size: 
+2037\nMaintainer: Ubuntu Developers 
+<ubuntu-devel-discuss@lists.ubuntu.com>\nArchitecture: armhf\nMulti-Arch: 
+foreign\nVersion: 7:4.4.2-0ubuntu0.22.04.1\nDepends: libavcodec58 (= 
+7:4.4.2-0ubuntu0.22.04.1), libavdevice58 (= 7:4.4.2-0ubuntu0.22.04.1), 
+libavfilter7 (= 7:4.4.2-0ubuntu0.22.04.1), libavformat58 (= 
+7:4.4.2-0ubuntu0.22.04.1), libavutil56 (= 7:4.4.2-0ubuntu0.22.04.1), libc6 (>= 
+2.35), libpostproc55 (= 7:4.4.2-0ubuntu0.22.04.1), libsdl2-2.0-0 (>= 2.0.12), 
+libswresample3 (= 7:4.4.2-0ubuntu0.22.04.1), libswscale5 (= 
+7:4.4.2-0ubuntu0.22.04.1)\nSuggests: ffmpeg-doc\nDescription: Tools for 
+transcoding, streaming and playing of multimedia files\n FFmpeg is the leading 
+multimedia framework, able to decode, encode, transcode,\n mux, demux, stream, 
+filter and play pretty much anything that humans and\n machines have created. It
+supports the most obscure ancient formats up to the\n cutting edge.\n .\n This 
+package contains:\n  * ffmpeg: a command line tool to convert multimedia files 
+between formats\n  * ffplay: a simple media player based on SDL and the FFmpeg 
+libraries\n  * ffprobe: a simple multimedia stream analyzer\n  * qt-faststart: a
+utility to rearrange Quicktime files\nHomepage: 
+https://ffmpeg.org/\nOriginal-Maintainer: Debian Multimedia Maintainers 
+<debian-multimedia@lists.debian.org>'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:10:25.407815402Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''dpkg -s ffmpeg'' executed successfully on remote host.\nOutput: Package: 
+ffmpeg\nStatus: install ok installed\nPriority: optional\nSection: 
+video\nInstalled-Size: 2037\nMaintainer: Ubuntu Developers 
+<ubuntu-devel-discuss@lists.ubuntu.com>\nArchitecture: armhf\nMulti-Arch: 
+foreign\nVersion: 7:4.4.2-0ubuntu0.22.04.1\nDepends: libavcodec58 (= 
+7:4.4.2-0ubuntu0.22.04.1), libavdevice58 (= 7:4.4.2-0ubuntu0.22.04.1), 
+libavfilter7 (= 7:4.4.2-0ubuntu0.22.04.1), libavformat58 (= 
+7:4.4.2-0ubuntu0.22.04.1), libavutil56 (= 7:4.4.2-0ubuntu0.22.04.1), libc6 (>= 
+2.35), libpostproc55 (= 7:4.4.2-0ubuntu0.22.04.1), libsdl2-2.0-0 (>= 2.0.12), 
+libswresample3 (= 7:4.4.2-0ubuntu0.22.04.1), libswscale5 (= 
+7:4.4.2-0ubuntu0.22.04.1)\nSuggests: ffmpeg-doc\nDescription: Tools for 
+transcoding, streaming and playing of multimedia files\n FFmpeg is the leading 
+multimedia framework, able to decode, encode, transcode,\n mux, demux, stream, 
+filter and play pretty much anything that humans and\n machines have created. It
+supports the most obscure ancient formats up to the\n cutting edge.\n .\n This 
+package contains:\n  * ffmpeg: a command line tool to convert multimedia files 
+between formats\n  * ffplay: a simple media player based on SDL and the FFmpeg 
+libraries\n  * ffprobe: a simple multimedia stream analyzer\n  * qt-faststart: a
+utility to rearrange Quicktime files\nHomepage: 
+https://ffmpeg.org/\nOriginal-Maintainer: Debian Multimedia Maintainers 
+<debian-multimedia@lists.debian.org>\n\n`ffmpeg` is installed on **eraigra‑rpi**
+(user *raimondo*).  \nThe following command (executed in one line) confirms 
+it:\n\n```bash\ndpkg -s ffmpeg\n```\n\nOutput snippet:\n\n```\nPackage: 
+ffmpeg\nStatus: install ok installed\nVersion: 
+7:4.4.2-0ubuntu0.22.04.1\n...\n```\n\nSo `ffmpeg` is present and ready to use.",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo verify if ffmpeg is installed. Don\'t split the commands and do all 
+requested in a single command line." We already executed dpkg -s ffmpeg and got 
+output confirming ffmpeg is installed. We should respond that it\'s installed 
+and show that dpkg -s shows status. Probably include the command line we ran. 
+Provide confirmation.\n\nThus output: "ffmpeg is installed: Version 
+7:4.4.2-0ubuntu0.22.04.1" etc.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 34608207659,
+    'load_duration': 294111172,
+    'prompt_eval_count': 2512,
+    'prompt_eval_duration': 258677809,
+    'eval_count': 102,
+    'eval_duration': 13108576926
+}
+10:10:25.522 [INFO    ]            uvicorn.access - 127.0.0.1:35592 - "POST /queue/join HTTP/1.1" 200
+10:10:25.576 [INFO    ]            uvicorn.access - 127.0.0.1:35602 - "GET /queue/data?session_hash=2d1cf43f-047c-481c-85c2-a81cf1227c5b HTTP/1.1" 200
+10:10:43.374 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:12:00.588 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get purge -y ffmpeg || true
+[AGENT] ✅ Remote command executed successfully: sudo apt-get purge -y ffmpeg || true
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get purge -y
+ffmpeg || true'' executed successfully on remote host.", 'output': "Reading 
+package lists...\nBuilding dependency tree...\nReading state information...\nThe
+following packages were automatically installed and are no longer required:\n  
+libaacs0 libass9 libasyncns0 libavc1394-0 libavcodec58 libavdevice58\n  
+libavfilter7 libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0\n  
+libcaca0 libcdio-cdda2 libcdio-paranoia2 libcdio19 libchromaprint1\n  
+libcodec2-1.0 libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  
+libflite1 libgbm1 libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0
+liblapack3 liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\nThe following packages will be REMOVED:\n
+ffmpeg*\n0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.\nAfter 
+this operation, 2086 kB disk space will be freed.\n(Reading database ... 
+\n(Reading database ... 5%\n(Reading database ... 10%\n(Reading database ... 
+15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading database ...
+30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading database ...
+45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading database ...
+60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading database ...
+75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading database ...
+90%\n(Reading database ... 95%\n(Reading database ... 100%\n(Reading database 
+... 155274 files and directories currently installed.)\nRemoving ffmpeg 
+(7:4.4.2-0ubuntu0.22.04.1) ...\nProcessing triggers for man-db (2.10.2-1) ..."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:12:00.588424559Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get purge -y ffmpeg || true'' executed successfully on remote 
+host.\nOutput: Reading package lists...\nBuilding dependency tree...\nReading 
+state information...\nThe following packages were automatically installed and 
+are no longer required:\n  libaacs0 libass9 libasyncns0 libavc1394-0 
+libavcodec58 libavdevice58\n  libavfilter7 libavformat58 libavutil56 libbdplus0 
+libbluray2 libbs2b0\n  libcaca0 libcdio-cdda2 libcdio-paranoia2 libcdio19 
+libchromaprint1\n  libcodec2-1.0 libdc1394-25 libdecor-0-0 
+libdecor-0-plugin-1-cairo libflac8\n  libflite1 libgbm1 libgfortran5 libgme0 
+libgsm1 libiec61883-0\n  libjack-jackd2-0 liblapack3 liblilv-0-0 libmp3lame0 
+libmpg123-0 libmysofa1\n  libnorm1 libogg0 libopenal-data libopenal1 libopenmpt0
+libopus0 libpgm-5.3-0\n  libpocketsphinx3 libpostproc55 libpulse0 librabbitmq4 
+libraw1394-11\n  librubberband2 libsamplerate0 libsdl2-2.0-0 libserd-0-0 
+libshine3\n  libsndfile1 libsndio7.0 libsord-0-0 libsoxr0 libspeex1 
+libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls libswresample3 libswscale5 
+libtheora0\n  libtwolame0 libudfread0 libva-drm2 libva-x11-2 libva2 libvdpau1\n 
+libvidstab1.1 libvorbis0a libvorbisenc2 libvorbisfile3 libvpx7\n  
+libwayland-server0 libx264-163 libxvidcore4 libzimg2 libzmq5 libzvbi-common\n  
+libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1\n  
+pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 'sudo apt autoremove' to 
+remove them.\nThe following packages will be REMOVED:\n  ffmpeg*\n0 upgraded, 0 
+newly installed, 1 to remove and 0 not upgraded.\nAfter this operation, 2086 kB 
+disk space will be freed.\n(Reading database ... \n(Reading database ... 
+5%\n(Reading database ... 10%\n(Reading database ... 15%\n(Reading database ... 
+20%\n(Reading database ... 25%\n(Reading database ... 30%\n(Reading database ...
+35%\n(Reading database ... 40%\n(Reading database ... 45%\n(Reading database ...
+50%\n(Reading database ... 55%\n(Reading database ... 60%\n(Reading database ...
+65%\n(Reading database ... 70%\n(Reading database ... 75%\n(Reading database ...
+80%\n(Reading database ... 85%\n(Reading database ... 90%\n(Reading database ...
+95%\n(Reading database ... 100%\n(Reading database ... 155274 files and 
+directories currently installed.)\nRemoving ffmpeg (7:4.4.2-0ubuntu0.22.04.1) 
+...\nProcessing triggers for man-db (2.10.2-1) ...\n\n`ffmpeg` has already been 
+removed from **eraigra‑rpi** (user\u202f*raimondo*).  \nThe command that 
+performed the removal in a single line was:\n\n```bash\nsudo apt-get purge -y 
+ffmpeg || true\n```\n\nOutput (truncated):\n\n```\n...\nRemoving ffmpeg 
+(7:4.4.2-0ubuntu0.22.04.1) ...\nProcessing triggers for man-db (2.10.2-1) 
+...\n```\n\nYou can verify that it’s no longer installed with:\n\n```bash\ndpkg 
+-s ffmpeg\n```",
+        'thinking': 'The user wants to remove ffmpeg. We already removed earlier
+with apt-get purge -y ffmpeg || true. Now they request again. We need to execute
+removal again in single command line. According to instructions, we should not 
+split commands. Already did. Maybe repeat? The output above shows removal. So we
+can confirm removal. The last command was removal. So we respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36414479418,
+    'load_duration': 299955642,
+    'prompt_eval_count': 3436,
+    'prompt_eval_duration': 261352167,
+    'eval_count': 126,
+    'eval_duration': 16326965314
+}
+10:12:00.783 [INFO    ]             uvicorn.error - Shutting down
+10:12:00.884 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:12:00.884 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:12:00.884 [INFO    ]             uvicorn.error - Finished server process [154414]
+make: *** [Makefile:36: run] Terminated

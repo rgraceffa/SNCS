@@ -1,0 +1,153 @@
+poetry run python -m private_gpt
+17:28:33.643 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:28:37.946 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:28:38.009 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:28:38.011 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:28:38.918 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:28:39.071 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:28:39.073 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:28:39.074 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:28:39.963 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:28:40.004 [INFO    ]             uvicorn.error - Started server process [131680]
+17:28:40.004 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:28:40.004 [INFO    ]             uvicorn.error - Application startup complete.
+17:28:40.005 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:29:13.469 [INFO    ]            uvicorn.access - 127.0.0.1:39570 - "GET /config HTTP/1.1" 200
+17:29:13.524 [INFO    ]            uvicorn.access - 127.0.0.1:39574 - "GET /info?serialize=False HTTP/1.1" 200
+17:29:13.619 [INFO    ]            uvicorn.access - 127.0.0.1:39576 - "GET /heartbeat/b0a28013-3cf5-4d76-b9ae-4bacf6da7533 HTTP/1.1" 200
+17:29:13.622 [INFO    ]            uvicorn.access - 127.0.0.1:39580 - "POST /queue/join HTTP/1.1" 200
+17:29:13.677 [INFO    ]            uvicorn.access - 127.0.0.1:39590 - "GET /queue/data?session_hash=b0a28013-3cf5-4d76-b9ae-4bacf6da7533 HTTP/1.1" 200
+17:29:28.750 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:30:12.797 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull alpine
+[AGENT] ✅ Remote command executed successfully: docker pull alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull alpine'' 
+executed successfully on remote host.", 'output': 'Using default tag: 
+latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling fs 
+layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for alpine:latest\ndocker.io/library/alpine:latest'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:30:12.797350725Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull alpine'' executed successfully on remote host.\nOutput: Using 
+default tag: latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling 
+fs layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for alpine:latest\ndocker.io/library/alpine:latest\n\nThe
+requested command was executed on the remote host `eraigra-rpi` as user 
+`raimondo`:\n\n```bash\ndocker pull alpine\n```\n\nOutput:\n\n```\nUsing default
+tag: latest\nlatest: Pulling from library/alpine\nfb78f26011a0: Pulling fs 
+layer\nfb78f26011a0: Verifying Checksum\nfb78f26011a0: Download 
+complete\nfb78f26011a0: Pull complete\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Downloaded newer image for alpine:latest\ndocker.io/library/alpine:latest\n```",
+        'thinking': 'We need to output final answer acknowledging command 
+executed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26151599384,
+    'load_duration': 288117424,
+    'prompt_eval_count': 530,
+    'prompt_eval_duration': 256727364,
+    'eval_count': 163,
+    'eval_duration': 20788806667
+}
+17:30:12.910 [INFO    ]            uvicorn.access - 127.0.0.1:35808 - "POST /queue/join HTTP/1.1" 200
+17:30:12.965 [INFO    ]            uvicorn.access - 127.0.0.1:35814 - "GET /queue/data?session_hash=b0a28013-3cf5-4d76-b9ae-4bacf6da7533 HTTP/1.1" 200
+17:30:23.610 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:30:43.945 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker images
+[AGENT] ✅ Remote command executed successfully: docker images
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker images'' 
+executed successfully on remote host.", 'output': 'IMAGE           ID           
+DISK USAGE   CONTENT SIZE   EXTRA\nalpine:latest   4d000244d2e6       5.47MB    
+0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:30:43.945426403Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker images'' executed successfully on remote host.\nOutput: IMAGE          
+ID             DISK USAGE   CONTENT SIZE   EXTRA\nalpine:latest   4d000244d2e6  
+5.47MB             0B\n\nVerification complete. The `alpine` image is present on
+`eraigra-rpi`:\n\n```bash\ndocker images\n```\n\nOutput:\n\n```\nIMAGE          
+ID             DISK USAGE   CONTENT SIZE   EXTRA\nalpine:latest   4d000244d2e6  
+5.47MB             0B\n```\n\nThe image has been successfully pulled.",
+        'thinking': 'The user asked to verify that alpine image has been pulled.
+The assistant executed "docker images" and gave output. That satisfies the 
+request. Maybe we can add a brief confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18675610649,
+    'load_duration': 293528727,
+    'prompt_eval_count': 823,
+    'prompt_eval_duration': 257022960,
+    'eval_count': 81,
+    'eval_duration': 10286158219
+}
+17:30:44.059 [INFO    ]            uvicorn.access - 127.0.0.1:43242 - "POST /queue/join HTTP/1.1" 200
+17:30:44.114 [INFO    ]            uvicorn.access - 127.0.0.1:43244 - "GET /queue/data?session_hash=b0a28013-3cf5-4d76-b9ae-4bacf6da7533 HTTP/1.1" 200
+17:30:55.878 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:31:33.986 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rmi alpine
+[AGENT] ✅ Remote command executed successfully: docker rmi alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rmi alpine'' 
+executed successfully on remote host.", 'output': 'Untagged: 
+alpine:latest\nUntagged: 
+alpine@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\n
+Deleted: 
+sha256:4d000244d2e640c49d0ddc7edc21e748996e0a887551c100c410996cfd1ec2d0\nDeleted
+: sha256:027514901d7a1a7a97070a60def8f15fbc2be03e5673993c2c9a4c03a0f80c16'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:31:33.98601559Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rmi alpine'' executed successfully on remote host.\nOutput: Untagged: 
+alpine:latest\nUntagged: 
+alpine@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\n
+Deleted: 
+sha256:4d000244d2e640c49d0ddc7edc21e748996e0a887551c100c410996cfd1ec2d0\nDeleted
+: sha256:027514901d7a1a7a97070a60def8f15fbc2be03e5673993c2c9a4c03a0f80c16\n\nThe
+Alpine image has been removed from `eraigra-rpi`.  \nCommand 
+executed:\n\n```bash\ndocker rmi alpine\n```\n\nResult:\n\n```\nUntagged: 
+alpine:latest\nUntagged: 
+alpine@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\n
+Deleted: 
+sha256:4d000244d2e640c49d0ddc7edc21e748996e0a887551c100c410996cfd1ec2d0\nDeleted
+: 
+sha256:027514901d7a1a7a97070a60def8f15fbc2be03e5673993c2c9a4c03a0f80c16\n```\n\n
+You can verify that the image is no longer present with `docker images`.",
+        'thinking': 'User: "remove the alpine image." Already executed docker 
+rmi alpine. Good. Now maybe they want verification. Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 32654710054,
+    'load_duration': 292235088,
+    'prompt_eval_count': 1103,
+    'prompt_eval_duration': 257366314,
+    'eval_count': 195,
+    'eval_duration': 24944689922
+}
+17:31:34.163 [INFO    ]             uvicorn.error - Shutting down
+17:31:34.263 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:31:34.264 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:31:34.264 [INFO    ]             uvicorn.error - Finished server process [131680]
+make: *** [Makefile:36: run] Terminated

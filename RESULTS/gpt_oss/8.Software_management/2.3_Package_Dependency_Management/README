@@ -1,0 +1,5 @@
+TASKNAME=Script to list and report packages with unresolved dependencies.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists script ~/agent_test/test2.3.sh. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a script ~/agent_test/test2.3.sh to list and report packages with unresolved dependencies, using sudo if needed and give the execute permissions. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute if exists script ~/agent_test/test2.3.sh. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if existes script ~/agent_test/test2.3.sh. Don't split the commands and do all requested in a single command line.

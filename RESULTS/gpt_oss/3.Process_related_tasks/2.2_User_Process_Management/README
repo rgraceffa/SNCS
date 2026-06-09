@@ -1,0 +1,5 @@
+TASKNAME=Identify and reduce priority of user process with highest CPU usage.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo identifies and reduces priority of user process with highest CPU usage and logs the outcome in the file ~/agent_test/test2.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if exists the file ~/agent_test/test2.2.log and provide us the content
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.2.log

@@ -1,0 +1,176 @@
+poetry run python -m private_gpt
+12:47:41.109 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:47:45.398 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:47:45.462 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:47:45.464 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:47:46.343 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:47:46.497 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:47:46.498 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:47:46.499 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:47:47.391 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:47:47.432 [INFO    ]             uvicorn.error - Started server process [3158999]
+12:47:47.432 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:47:47.432 [INFO    ]             uvicorn.error - Application startup complete.
+12:47:47.432 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:48:20.936 [INFO    ]            uvicorn.access - 127.0.0.1:45110 - "GET /config HTTP/1.1" 200
+12:48:20.992 [INFO    ]            uvicorn.access - 127.0.0.1:45122 - "GET /info?serialize=False HTTP/1.1" 200
+12:48:21.059 [INFO    ]            uvicorn.access - 127.0.0.1:45130 - "GET /heartbeat/3c2d2a33-d4d2-4826-9b22-3e5bf5013e1d HTTP/1.1" 200
+12:48:21.062 [INFO    ]            uvicorn.access - 127.0.0.1:45138 - "POST /queue/join HTTP/1.1" 200
+12:48:21.118 [INFO    ]            uvicorn.access - 127.0.0.1:45144 - "GET /queue/data?session_hash=3c2d2a33-d4d2-4826-9b22-3e5bf5013e1d HTTP/1.1" 200
+12:48:50.940 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:49:03.488 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test/testdir && touch ~/agent_test/testdir/test5.2.txt
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test/testdir && touch ~/agent_test/testdir/test5.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p 
+~/agent_test/testdir && touch ~/agent_test/testdir/test5.2.txt'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:49:03.488386062Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test/testdir && touch ~/agent_test/testdir/test5.2.txt'' 
+executed successfully on remote host.\nOutput: \n\nThe requested directory and 
+file were created successfully.",
+        'thinking': 'We need to respond with the output? The tool responded 
+success, output empty. We need to provide final message.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7272850169,
+    'load_duration': 287286073,
+    'prompt_eval_count': 457,
+    'prompt_eval_duration': 256210277,
+    'eval_count': 10,
+    'eval_duration': 1153302743
+}
+12:49:03.577 [INFO    ]            uvicorn.access - 127.0.0.1:57482 - "POST /queue/join HTTP/1.1" 200
+12:49:03.632 [INFO    ]            uvicorn.access - 127.0.0.1:57488 - "GET /queue/data?session_hash=3c2d2a33-d4d2-4826-9b22-3e5bf5013e1d HTTP/1.1" 200
+12:49:20.862 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:49:27.601 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi chmod -R u+rw ~/agent_test/testdir
+[AGENT] ✅ Remote command executed successfully: chmod -R u+rw ~/agent_test/testdir
+[AGENT] ✅:{'status': 'success', 'message': "The command ''chmod -R u+rw 
+~/agent_test/testdir'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:49:27.601497431Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''chmod -R u+rw ~/agent_test/testdir'' executed successfully on remote 
+host.\nOutput: \n\nPermissions updated: the folder `~/agent_test/testdir` and 
+all of its contents now have read/write rights for the owner."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 5214040990,
+    'load_duration': 288027742,
+    'prompt_eval_count': 536,
+    'prompt_eval_duration': 1019032986,
+    'eval_count': 30,
+    'eval_duration': 3720164959
+}
+12:49:27.717 [INFO    ]            uvicorn.access - 127.0.0.1:41538 - "POST /queue/join HTTP/1.1" 200
+12:49:27.772 [INFO    ]            uvicorn.access - 127.0.0.1:41544 - "GET /queue/data?session_hash=3c2d2a33-d4d2-4826-9b22-3e5bf5013e1d HTTP/1.1" 200
+12:49:39.174 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:50:02.921 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/testdir
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/testdir
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/testdir'' executed successfully on remote host.", 'output': 'total 
+0\n-rw-rw-r-- 1 raimondo raimondo 0 Dec 23 14:48 test5.2.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:50:02.920791515Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/testdir'' executed successfully on remote host.\nOutput: total 
+0\n-rw-rw-r-- 1 raimondo raimondo 0 Dec 23 14:48 test5.2.txt\n\n",
+        'thinking': "We should provide verification output, but need to show 
+both folder and file. The folder should be listed by ls -ld. The output shows 
+file only. Need to run ls -ld to show folder perms. But can't split commands. We
+need a single command line that outputs both folder and file permissions. We can
+combine with &&. Use ls -ld ~/agent_test/testdir && ls -l ~/agent_test/testdir. 
+That will show folder perms and file list. Let's run that.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': '',
+                    'arguments': {
+                        'command': 'ls -ld ~/agent_test/testdir && ls -l 
+~/agent_test/testdir',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22211488373,
+    'load_duration': 284307579,
+    'prompt_eval_count': 676,
+    'prompt_eval_duration': 1552674778,
+    'eval_count': 157,
+    'eval_duration': 20029691284
+}
+12:50:03.021 [INFO    ]            uvicorn.access - 127.0.0.1:55240 - "POST /queue/join HTTP/1.1" 200
+12:50:03.076 [INFO    ]            uvicorn.access - 127.0.0.1:55252 - "GET /queue/data?session_hash=3c2d2a33-d4d2-4826-9b22-3e5bf5013e1d HTTP/1.1" 200
+12:50:13.109 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:50:30.135 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf ~/agent_test/testdir
+[AGENT] ✅ Remote command executed successfully: rm -rf ~/agent_test/testdir
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+~/agent_test/testdir'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:50:30.135049642Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf ~/agent_test/testdir'' executed successfully on remote host.\nOutput: \n\n",
+        'thinking': "User removed the folder. Now need to check? They might want
+confirmation. Probably we should confirm deletion. Let's run ls -l to confirm.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': '',
+                    'arguments': {
+                        'command': 'ls -l ~/agent_test',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11939332022,
+    'load_duration': 286151598,
+    'prompt_eval_count': 742,
+    'prompt_eval_duration': 1030056207,
+    'eval_count': 81,
+    'eval_duration': 10277913847
+}
+12:50:30.280 [INFO    ]             uvicorn.error - Shutting down
+12:50:30.379 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:50:30.379 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:50:30.379 [INFO    ]             uvicorn.error - Finished server process [3158999]
+make: *** [Makefile:36: run] Terminated

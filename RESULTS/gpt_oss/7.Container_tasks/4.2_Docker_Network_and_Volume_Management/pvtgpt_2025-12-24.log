@@ -1,0 +1,210 @@
+poetry run python -m private_gpt
+18:13:54.859 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+18:13:59.131 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+18:13:59.194 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:13:59.196 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:14:00.095 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+18:14:00.248 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:14:00.250 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:14:00.251 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+18:14:01.143 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+18:14:01.183 [INFO    ]             uvicorn.error - Started server process [134725]
+18:14:01.183 [INFO    ]             uvicorn.error - Waiting for application startup.
+18:14:01.184 [INFO    ]             uvicorn.error - Application startup complete.
+18:14:01.184 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+18:14:34.687 [INFO    ]            uvicorn.access - 127.0.0.1:49220 - "GET /config HTTP/1.1" 200
+18:14:34.742 [INFO    ]            uvicorn.access - 127.0.0.1:49232 - "GET /info?serialize=False HTTP/1.1" 200
+18:14:34.810 [INFO    ]            uvicorn.access - 127.0.0.1:49238 - "GET /heartbeat/5b0aec7b-df63-4b3d-ba91-ec927bb6f6ac HTTP/1.1" 200
+18:14:34.813 [INFO    ]            uvicorn.access - 127.0.0.1:49242 - "POST /queue/join HTTP/1.1" 200
+18:14:34.868 [INFO    ]            uvicorn.access - 127.0.0.1:49252 - "GET /queue/data?session_hash=5b0aec7b-df63-4b3d-ba91-ec927bb6f6ac HTTP/1.1" 200
+18:14:56.239 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:15:37.517 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅ Remote command executed successfully: docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume ls -q |
+xargs -r docker volume rm'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:15:37.517287302Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume ls -q | xargs -r docker volume rm'' executed successfully on 
+remote host.\nOutput: \n\n",
+        'thinking': 'The user: "in the remote host eraigra-rpi username raimondo
+remove all docker volumes if they exists". We need to remove all docker volumes.
+The assistant already executed the command: \'docker volume ls -q | xargs -r 
+docker volume rm\'. But we didn\'t specify host, user, etc. The tool invocation 
+shows it returned success but output is empty. Did we include host and user? In 
+the function call, arguments are wrong: we see \'command\': \'\' and then other 
+keys incorrectly placed. The tool output indicates a failure? Actually it says 
+success, output empty. But the command is missing. We need to run 
+properly.\n\nWe must run the command via SSH to remote host eraigra-rpi, user 
+raimondo. Probably port 22 default. We need to call 
+functions.execute_remote_command with correct args.\n\nWe need to provide the 
+command string: "docker volume ls -q | xargs -r docker volume rm". Provide host:
+"eraigra-rpi", user: "raimondo". port optional. Let\'s do that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker volume ls -q | xargs -r docker volume
+rm',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36040717432,
+    'load_duration': 293995339,
+    'prompt_eval_count': 377,
+    'prompt_eval_duration': 1008932657,
+    'eval_count': 270,
+    'eval_duration': 34467701390
+}
+18:15:37.654 [INFO    ]            uvicorn.access - 127.0.0.1:56492 - "POST /queue/join HTTP/1.1" 200
+18:15:37.709 [INFO    ]            uvicorn.access - 127.0.0.1:56502 - "GET /queue/data?session_hash=5b0aec7b-df63-4b3d-ba91-ec927bb6f6ac HTTP/1.1" 200
+18:15:54.503 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:16:30.772 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume create test4.2
+[AGENT] ✅ Remote command executed successfully: docker volume create test4.2
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume create 
+test4.2'' executed successfully on remote host.", 'output': 'test4.2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:16:30.772027627Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume create test4.2'' executed successfully on remote host.\nOutput: 
+test4.2\n\nThe Docker volume **`test4.2`** has been created successfully on 
+`eraigra-rpi` as the user `raimondo`. It is ready for persistent data storage. 
+If you need to verify or manage it further, you can run:\n\n```bash\ndocker 
+volume ls\n```\n\nor inspect its details with:\n\n```bash\ndocker volume inspect
+test4.2\n```\n\nLet me know if you need any other setup!",
+        'thinking': 'The user wants: "in the remote host eraigra-rpi username 
+raimondo create a new docker volume called test4.2 for persistent data storage. 
+Don\'t split the commands and do all requested in a single command line." They 
+want to create a docker volume. The assistant already executed docker volume 
+create test4.2. That\'s the correct command. But the user specifically says 
+"Don\'t split the commands and do all requested in a single command line." That 
+implies they want to ensure a single command. The assistant already used single 
+command. But maybe they want to also set options for persistent data? But docker
+volume create test4.2 already creates persistent volume. So no further action 
+needed. We should respond that the volume was created successfully. No further 
+action.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 34562427738,
+    'load_duration': 295466226,
+    'prompt_eval_count': 631,
+    'prompt_eval_duration': 256474961,
+    'eval_count': 92,
+    'eval_duration': 11667444964
+}
+18:16:30.881 [INFO    ]            uvicorn.access - 127.0.0.1:59386 - "POST /queue/join HTTP/1.1" 200
+18:16:30.936 [INFO    ]            uvicorn.access - 127.0.0.1:59402 - "GET /queue/data?session_hash=5b0aec7b-df63-4b3d-ba91-ec927bb6f6ac HTTP/1.1" 200
+18:17:21.745 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:17:48.180 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls -q; docker volume ls -q | grep -q test4.2 && echo "test4.2 exists" || echo "test4.2 not found"
+[AGENT] ✅ Remote command executed successfully: docker volume ls -q; docker volume ls -q | grep -q test4.2 && echo "test4.2 exists" || echo "test4.2 not found"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'docker volume ls 
+-q; docker volume ls -q | grep -q test4.2 && echo "test4.2 exists" || echo 
+"test4.2 not found"\'\' executed successfully on remote host.', 'output': 
+'test4.2\ntest4.2 exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:17:48.179667732Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker volume ls -q; docker volume ls -q | grep -q test4.2 && echo "test4.2 
+exists" || echo "test4.2 not found"\'\' executed successfully on remote 
+host.\nOutput: test4.2\ntest4.2 exists\n\nHere’s a single command that lists all
+Docker volumes and verifies the existence of `test4.2` on 
+`eraigra-rpi`:\n\n```bash\ndocker volume ls -q; docker volume ls -q | grep -q 
+test4.2 && echo "test4.2 exists" || echo "test4.2 not found"\n```\n\nThe output 
+you received shows `test4.2` was listed and confirmed to exist. Let me know if 
+you need anything else!',
+        'thinking': "We have completed the request. The assistant responded with
+the command that listed volumes and checked existence. No further instructions. 
+The user didn't ask more. So we can finalize."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20988752309,
+    'load_duration': 301879859,
+    'prompt_eval_count': 741,
+    'prompt_eval_duration': 237950687,
+    'eval_count': 101,
+    'eval_duration': 12842099879
+}
+18:17:48.297 [INFO    ]            uvicorn.access - 127.0.0.1:53112 - "POST /queue/join HTTP/1.1" 200
+18:17:48.352 [INFO    ]            uvicorn.access - 127.0.0.1:53124 - "GET /queue/data?session_hash=5b0aec7b-df63-4b3d-ba91-ec927bb6f6ac HTTP/1.1" 200
+18:18:16.884 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:19:05.197 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅ Remote command executed successfully: docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume ls -q |
+xargs -r docker volume rm'' executed successfully on remote host.", 'output': 
+'test4.2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:19:05.196931622Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume ls -q | xargs -r docker volume rm'' executed successfully on 
+remote host.\nOutput: test4.2\n\nAll Docker volumes on **eraigra-rpi** 
+(user\u202f`raimondo`) have been removed.  \nIf you want to double‑check that no
+volumes remain, you can run:\n\n```bash\ndocker volume ls -q\n```\n\nIt should 
+return nothing, confirming that the system is now volume‑free.",
+        'thinking': 'The user wants to remove all docker volumes on remote host 
+eraigra-rpi username raimondo. The assistant responded that the command \'docker
+volume ls -q | xargs -r docker volume rm\' executed successfully and output 
+\'test4.2\'. However, that indicates that it removed the volume test4.2. The 
+user might want to confirm removal. They want to "remove all docker volumes if 
+they exist." The assistant did that. They probably want confirmation. Maybe the 
+assistant should confirm that all volumes were removed. But the instruction: 
+"Don\'t split the commands and do all requested in a single command line." The 
+assistant already executed a single command line. The output says test4.2. That 
+implies that test4.2 was removed, which is correct. Maybe the user wants to 
+double-check nothing remains. Should the assistant provide a command that lists 
+volumes to confirm? Or just confirm that removal succeeded? The assistant should
+perhaps say that all volumes have been removed. Also maybe mention that if any 
+volumes were present, they have been removed. Possibly show that no volumes 
+remain: "docker volume ls -q" should show nothing. So assistant can respond that
+all volumes were removed successfully, and optionally provide the command to 
+verify. Let\'s craft answer: Confirm removal, optionally show that volumes list 
+is empty.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 46488933299,
+    'load_duration': 290511854,
+    'prompt_eval_count': 1168,
+    'prompt_eval_duration': 257232463,
+    'eval_count': 67,
+    'eval_duration': 8487485547
+}
+18:19:05.465 [INFO    ]             uvicorn.error - Shutting down
+18:19:05.565 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+18:19:05.565 [INFO    ]             uvicorn.error - Application shutdown complete.
+18:19:05.565 [INFO    ]             uvicorn.error - Finished server process [134725]
+make: *** [Makefile:36: run] Terminated

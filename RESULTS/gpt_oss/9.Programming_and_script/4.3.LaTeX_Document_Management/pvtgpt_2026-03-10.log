@@ -1,0 +1,215 @@
+poetry run python -m private_gpt
+14:31:30.140 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:31:34.430 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:31:34.493 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:31:34.495 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:31:35.429 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:31:35.580 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:31:35.581 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:31:35.588 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:31:36.482 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:31:36.522 [INFO    ]             uvicorn.error - Started server process [371150]
+14:31:36.522 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:31:36.522 [INFO    ]             uvicorn.error - Application startup complete.
+14:31:36.523 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:32:09.968 [INFO    ]            uvicorn.access - 127.0.0.1:55792 - "GET /config HTTP/1.1" 200
+14:32:10.023 [INFO    ]            uvicorn.access - 127.0.0.1:55808 - "GET /info?serialize=False HTTP/1.1" 200
+14:32:10.102 [INFO    ]            uvicorn.access - 127.0.0.1:55816 - "GET /heartbeat/569ca0d4-c221-4aea-a32e-5438aa6746b3 HTTP/1.1" 200
+14:32:10.107 [INFO    ]            uvicorn.access - 127.0.0.1:55826 - "POST /queue/join HTTP/1.1" 200
+14:32:10.161 [INFO    ]            uvicorn.access - 127.0.0.1:55842 - "GET /queue/data?session_hash=569ca0d4-c221-4aea-a32e-5438aa6746b3 HTTP/1.1" 200
+14:32:49.196 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:33:03.847 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:33:03.846565284Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.3.latex 
+/home/raimondo/agent_test/text4.3.log'' executed successfully on remote 
+host.\nOutput: \n\nAll requested files have been removed from the remote host.",
+        'thinking': 'The tool execution succeeded. The user asked to remove 
+those files in remote host eraigra-rpi as user raimondo. We need to produce a 
+response acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9125431600,
+    'load_duration': 299085581,
+    'prompt_eval_count': 482,
+    'prompt_eval_duration': 249547622,
+    'eval_count': 12,
+    'eval_duration': 1371773931
+}
+14:33:03.941 [INFO    ]            uvicorn.access - 127.0.0.1:60788 - "POST /queue/join HTTP/1.1" 200
+14:33:03.995 [INFO    ]            uvicorn.access - 127.0.0.1:60798 - "GET /queue/data?session_hash=569ca0d4-c221-4aea-a32e-5438aa6746b3 HTTP/1.1" 200
+14:34:02.195 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:34:56.257 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo "\\documentclass{article}\\begin{document}Hello world\\end{document}" > /home/raimondo/agent_test/text4.3.latex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp /home/raimondo/agent_test/text4.3.latex 2> /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅ Remote command executed successfully: echo "\\documentclass{article}\\begin{document}Hello world\\end{document}" > /home/raimondo/agent_test/text4.3.latex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp /home/raimondo/agent_test/text4.3.latex 2> /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo 
+"\\\\documentclass{article}\\\\begin{document}Hello world\\\\end{document}" > 
+/home/raimondo/agent_test/text4.3.latex && pdflatex -interaction=nonstopmode 
+-halt-on-error -output-directory=/tmp /home/raimondo/agent_test/text4.3.latex 2>
+/home/raimondo/agent_test/text4.3.log\'\' executed successfully on remote 
+host.', 'output': 'This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 
+2022/dev/Debian) (preloaded format=pdflatex)\n restricted \\write18 
+enabled.\nentering extended 
+mode\n(/home/raimondo/agent_test/text4.3.latex\nLaTeX2e <2021-11-15> patch level
+1\nL3 programming layer 
+<2022-01-21>\n(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\nDocumen
+t Class: article 2021/10/04 v1.4n Standard LaTeX document 
+class\n(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))\n(/usr/share/t
+exlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\nNo file 
+text4.3.aux.\n[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] 
+(/tmp/text4.3.aux) 
+)</us\nr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOut
+put written on /tmp/text4.3.pdf (1 page, 12387 bytes).\nTranscript written on 
+/tmp/text4.3.log.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:34:56.256931971Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo "\\\\documentclass{article}\\\\begin{document}Hello 
+world\\\\end{document}" > /home/raimondo/agent_test/text4.3.latex && pdflatex 
+-interaction=nonstopmode -halt-on-error -output-directory=/tmp 
+/home/raimondo/agent_test/text4.3.latex 2> 
+/home/raimondo/agent_test/text4.3.log\'\' executed successfully on remote 
+host.\nOutput: This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 
+2022/dev/Debian) (preloaded format=pdflatex)\n restricted \\write18 
+enabled.\nentering extended 
+mode\n(/home/raimondo/agent_test/text4.3.latex\nLaTeX2e <2021-11-15> patch level
+1\nL3 programming layer 
+<2022-01-21>\n(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\nDocumen
+t Class: article 2021/10/04 v1.4n Standard LaTeX document 
+class\n(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))\n(/usr/share/t
+exlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\nNo file 
+text4.3.aux.\n[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] 
+(/tmp/text4.3.aux) 
+)</us\nr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOut
+put written on /tmp/text4.3.pdf (1 page, 12387 bytes).\nTranscript written on 
+/tmp/text4.3.log.\n\n✅ The LaTeX file 
+**/home/raimondo/agent_test/text4.3.latex** was created with the 
+“Hello\u202fworld” document, compiled, and any syntax errors were written to 
+**/home/raimondo/agent_test/text4.3.log**.  \n\nNo compilation errors were 
+reported – the log shows a successful build of `text4.3.pdf` in `/tmp`. If you’d
+like to inspect the log file, you can view its contents with:\n\n```bash\ncat 
+/home/raimondo/agent_test/text4.3.log\n```',
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo create a latex files for \'hello world\' named 
+/home/raimondo/agent_test/text4.3.latex and check the file for syntax errors by 
+reporting errors in file /home/raimondo/agent_test/text4.3.log. Don\'t split the
+commands and do all requested in a single command line."\n\nWe executed: echo 
+... > text4.3.latex && pdflatex ... 2> text4.3.log.\n\nWe got success. We need 
+to respond. Probably mention that the file was created, compiled and any errors 
+logged.\n\nWe should provide content of log if errors exist? It says check file 
+for syntax errors by reporting errors in file /home/.../text4.3.log. Our log 
+likely has no errors. We can mention that.\n\nWe should respond that the latex 
+file was created and compiled, no syntax errors found, and the log file has the 
+compilation transcript. Maybe show log? But no need. Just respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 47992042994,
+    'load_duration': 301336620,
+    'prompt_eval_count': 1174,
+    'prompt_eval_duration': 250936886,
+    'eval_count': 123,
+    'eval_duration': 15318710002
+}
+14:34:56.349 [INFO    ]            uvicorn.access - 127.0.0.1:42474 - "POST /queue/join HTTP/1.1" 200
+14:34:56.402 [INFO    ]            uvicorn.access - 127.0.0.1:42478 - "GET /queue/data?session_hash=569ca0d4-c221-4aea-a32e-5438aa6746b3 HTTP/1.1" 200
+14:35:28.968 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:36:12.402 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f /home/raimondo/agent_test/text4.3.log && cat /home/raimondo/agent_test/text4.3.log || echo "File not found"
+[AGENT] ✅ Remote command executed successfully: test -f /home/raimondo/agent_test/text4.3.log && cat /home/raimondo/agent_test/text4.3.log || echo "File not found"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+/home/raimondo/agent_test/text4.3.log && cat 
+/home/raimondo/agent_test/text4.3.log || echo "File not found"\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:36:12.401642276Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f /home/raimondo/agent_test/text4.3.log && cat 
+/home/raimondo/agent_test/text4.3.log || echo "File not found"\'\' executed 
+successfully on remote host.\nOutput: \n\nThe file 
+**/home/raimondo/agent_test/text4.3.log** does exist, but it contains no output 
+because the LaTeX compilation produced no errors or warnings.  \nBelow is the 
+(empty) content of the file:\n\n```\n```\n\nIf you expected the full pdflatex 
+transcript, it was written to **/tmp/text4.3.log**.  \nYou can view it 
+with:\n\n```bash\ncat /tmp/text4.3.log\n```\n',
+        'thinking': "The command executed but no output returned? The log file 
+exists; maybe the output was empty because the log file was empty? But earlier 
+output indicated the compilation created a log file in /tmp, not 
+/home/raimondo/agent_test/text4.3.log. Wait, we created text4.3.log at the 
+target location? The command used: `pdflatex ... 2> /home/.../text4.3.log`. So 
+error output goes there. The log file may be empty because no errors. But we 
+expected content from pdflatex? That goes to /tmp/text4.3.log, not to target. So
+/home/.../text4.3.log is empty. The test -f succeeded, but cat produced no 
+output. The assistant should explain that file exists but is empty. Provide 
+content (empty). Let's respond accordingly."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 38342089107,
+    'load_duration': 307677534,
+    'prompt_eval_count': 1395,
+    'prompt_eval_duration': 189528941,
+    'eval_count': 100,
+    'eval_duration': 12445912875
+}
+14:36:12.506 [INFO    ]            uvicorn.access - 127.0.0.1:40652 - "POST /queue/join HTTP/1.1" 200
+14:36:12.561 [INFO    ]            uvicorn.access - 127.0.0.1:40658 - "GET /queue/data?session_hash=569ca0d4-c221-4aea-a32e-5438aa6746b3 HTTP/1.1" 200
+14:36:27.675 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:36:40.968 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.3.latex /home/raimondo/agent_test/text4.3.log'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2026-03-10T14:36:40.967610414Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.3.latex 
+/home/raimondo/agent_test/text4.3.log'' executed successfully on remote 
+host.\nOutput: \n\n✅ Both `/home/raimondo/agent_test/text4.3.latex` and 
+`/home/raimondo/agent_test/text4.3.log` have been removed from the remote 
+host.",
+        'thinking': 'User wants to remove both files. We have executed rm -f. 
+Should confirm. Probably respond with success.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11788982651,
+    'load_duration': 300657912,
+    'prompt_eval_count': 1478,
+    'prompt_eval_duration': 126557211,
+    'eval_count': 43,
+    'eval_duration': 5280678168
+}
+14:36:41.107 [INFO    ]             uvicorn.error - Shutting down
+14:36:41.208 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:36:41.208 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:36:41.208 [INFO    ]             uvicorn.error - Finished server process [371150]
+make: *** [Makefile:36: run] Terminated

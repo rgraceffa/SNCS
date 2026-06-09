@@ -1,0 +1,196 @@
+poetry run python -m private_gpt
+16:11:48.443 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:11:52.716 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:11:52.779 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:11:52.781 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:11:53.674 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:11:53.827 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:11:53.829 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:11:53.830 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:11:54.715 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:11:54.756 [INFO    ]             uvicorn.error - Started server process [3590]
+16:11:54.756 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:11:54.756 [INFO    ]             uvicorn.error - Application startup complete.
+16:11:54.756 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:12:28.270 [INFO    ]            uvicorn.access - 127.0.0.1:57176 - "GET /config HTTP/1.1" 200
+16:12:28.324 [INFO    ]            uvicorn.access - 127.0.0.1:57186 - "GET /info?serialize=False HTTP/1.1" 200
+16:12:28.433 [INFO    ]            uvicorn.access - 127.0.0.1:57204 - "POST /queue/join HTTP/1.1" 200
+16:12:28.433 [INFO    ]            uvicorn.access - 127.0.0.1:57202 - "GET /heartbeat/15c846d0-45c7-413b-874a-8179da1a02bc HTTP/1.1" 200
+16:12:28.488 [INFO    ]            uvicorn.access - 127.0.0.1:57218 - "GET /queue/data?session_hash=15c846d0-45c7-413b-874a-8179da1a02bc HTTP/1.1" 200
+16:12:55.081 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:13:26.321 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:13:26.320897481Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test2.2.sh` has been removed on the remote host 
+`eraigra-rpi` (if it existed). No errors were reported.",
+        'thinking': 'User: "in the remost host eraigra-rpi username raimondo 
+remove if exists ~/agent_test/test2.2.sh"\n\nWe need to remove if exists. The 
+assistant used rm -f. It responded success. However maybe need to use rm -f. 
+That\'s correct. But check if remote host name spelled eraigra-rpi? The user 
+spelled "eraigra-rpi" (typo? maybe eraigra-rpi). They want removal if exists. rm
+-f doesn\'t error if not exists. So fine. Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22303316891,
+    'load_duration': 285320773,
+    'prompt_eval_count': 503,
+    'prompt_eval_duration': 256170885,
+    'eval_count': 37,
+    'eval_duration': 4619520306
+}
+16:13:26.467 [INFO    ]            uvicorn.access - 127.0.0.1:58458 - "POST /queue/join HTTP/1.1" 200
+16:13:26.522 [INFO    ]            uvicorn.access - 127.0.0.1:58466 - "GET /queue/data?session_hash=15c846d0-45c7-413b-874a-8179da1a02bc HTTP/1.1" 200
+16:14:31.787 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:14:57.003 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#!/bin/bash\n\n# Example script with loops\n\n# For loop\nfor i in {1..5}; do\n  echo "For loop iteration $i"\n  sleep 0.2\n done\n\n# While loop\ncount=1\nwhile [ $count -le 5 ]; do\n  echo "While loop iteration $count"\n  ((count++))\n  sleep 0.2\n done\n\n# Until loop\nnum=5\nuntil [ $num -le 0 ]; do\n  echo "Until loop iteration $num"\n  ((num--))\n  sleep 0.2\n done' > ~/agent_test/test2.2.sh && chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: echo -e '#!/bin/bash\n\n# Example script with loops\n\n# For loop\nfor i in {1..5}; do\n  echo "For loop iteration $i"\n  sleep 0.2\n done\n\n# While loop\ncount=1\nwhile [ $count -le 5 ]; do\n  echo "While loop iteration $count"\n  ((count++))\n  sleep 0.2\n done\n\n# Until loop\nnum=5\nuntil [ $num -le 0 ]; do\n  echo "Until loop iteration $num"\n  ((num--))\n  sleep 0.2\n done' > ~/agent_test/test2.2.sh && chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#!/bin/bash\\n\\n# Example script with loops\\n\\n# For loop\\nfor i in 
+{1..5}; do\\n  echo "For loop iteration $i"\\n  sleep 0.2\\n done\\n\\n# While 
+loop\\ncount=1\\nwhile [ $count -le 5 ]; do\\n  echo "While loop iteration 
+$count"\\n  ((count++))\\n  sleep 0.2\\n done\\n\\n# Until loop\\nnum=5\\nuntil 
+[ $num -le 0 ]; do\\n  echo "Until loop iteration $num"\\n  ((num--))\\n  sleep 
+0.2\\n done\'"\'"\' > ~/agent_test/test2.2.sh && chmod +x 
+~/agent_test/test2.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:14:57.002973169Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#!/bin/bash\\n\\n# Example script with loops\\n\\n# For 
+loop\\nfor i in {1..5}; do\\n  echo "For loop iteration $i"\\n  sleep 0.2\\n 
+done\\n\\n# While loop\\ncount=1\\nwhile [ $count -le 5 ]; do\\n  echo "While 
+loop iteration $count"\\n  ((count++))\\n  sleep 0.2\\n done\\n\\n# Until 
+loop\\nnum=5\\nuntil [ $num -le 0 ]; do\\n  echo "Until loop iteration $num"\\n 
+((num--))\\n  sleep 0.2\\n done\'"\'"\' > ~/agent_test/test2.2.sh && chmod +x 
+~/agent_test/test2.2.sh\'\' executed successfully on remote host.\nOutput: 
+\n\n',
+        'thinking': 'We need to verify that the command executed successfully. 
+But the instruction: "please create an example script ... Do it all in a single 
+command line." We already provided a command string. We should confirm the 
+script was created and is executable. Let\'s run a check.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'ls -l ~/agent_test/test2.2.sh',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16655444998,
+    'load_duration': 295093907,
+    'prompt_eval_count': 719,
+    'prompt_eval_duration': 2656206658,
+    'eval_count': 106,
+    'eval_duration': 13491802235
+}
+16:14:57.093 [INFO    ]            uvicorn.access - 127.0.0.1:52636 - "POST /queue/join HTTP/1.1" 200
+16:14:57.147 [INFO    ]            uvicorn.access - 127.0.0.1:52650 - "GET /queue/data?session_hash=15c846d0-45c7-413b-874a-8179da1a02bc HTTP/1.1" 200
+16:15:05.703 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:15:45.516 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': 
+'For loop iteration 1\nFor loop iteration 2\nFor loop iteration 3\nFor loop 
+iteration 4\nFor loop iteration 5\nWhile loop iteration 1\nWhile loop iteration 
+2\nWhile loop iteration 3\nWhile loop iteration 4\nWhile loop iteration 5\nUntil
+loop iteration 5\nUntil loop iteration 4\nUntil loop iteration 3\nUntil loop 
+iteration 2\nUntil loop iteration 1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:15:45.515716903Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: For 
+loop iteration 1\nFor loop iteration 2\nFor loop iteration 3\nFor loop iteration
+4\nFor loop iteration 5\nWhile loop iteration 1\nWhile loop iteration 2\nWhile 
+loop iteration 3\nWhile loop iteration 4\nWhile loop iteration 5\nUntil loop 
+iteration 5\nUntil loop iteration 4\nUntil loop iteration 3\nUntil loop 
+iteration 2\nUntil loop iteration 1\n\nHere’s the output produced when the 
+script `~/agent_test/test2.2.sh` was executed on the remote host **eraigra‑rpi**
+(username `raimondo`):\n\n```\nFor loop iteration 1\nFor loop iteration 2\nFor 
+loop iteration 3\nFor loop iteration 4\nFor loop iteration 5\nWhile loop 
+iteration 1\nWhile loop iteration 2\nWhile loop iteration 3\nWhile loop 
+iteration 4\nWhile loop iteration 5\nUntil loop iteration 5\nUntil loop 
+iteration 4\nUntil loop iteration 3\nUntil loop iteration 2\nUntil loop 
+iteration 1\n```\n\nThe script demonstrates simple `for`, `while`, and `until` 
+loops with a brief `sleep` between iterations. If you need any further 
+modifications or additional scripts, just let me know!",
+        'thinking': "The user wants the output of the script run on remote host.
+The assistant provided the output. That is correct. Probably should confirm that
+it's executed. Maybe just present the output. Done."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31570493506,
+    'load_duration': 292744479,
+    'prompt_eval_count': 929,
+    'prompt_eval_duration': 257064371,
+    'eval_count': 174,
+    'eval_duration': 22255323616
+}
+16:15:45.667 [INFO    ]            uvicorn.access - 127.0.0.1:38424 - "POST /queue/join HTTP/1.1" 200
+16:15:45.722 [INFO    ]            uvicorn.access - 127.0.0.1:38426 - "GET /queue/data?session_hash=15c846d0-45c7-413b-874a-8179da1a02bc HTTP/1.1" 200
+16:16:07.175 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:16:26.176 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:16:26.176133629Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nFile `~/agent_test/test2.2.sh` has been removed from the remote host 
+**eraigra‑rpi** (username `raimondo`).",
+        'thinking': 'The user wants to remove file if exists. We already removed
+it. No additional output needed. Just confirm removal.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10426622665,
+    'load_duration': 289895669,
+    'prompt_eval_count': 1166,
+    'prompt_eval_duration': 140825621,
+    'eval_count': 34,
+    'eval_duration': 4247581581
+}
+16:16:26.292 [INFO    ]             uvicorn.error - Shutting down
+16:16:26.392 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:16:26.393 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:16:26.393 [INFO    ]             uvicorn.error - Finished server process [3590]
+make: *** [Makefile:36: run] Terminated

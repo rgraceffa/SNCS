@@ -1,0 +1,223 @@
+poetry run python -m private_gpt
+16:53:59.769 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:54:04.037 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:54:04.101 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:54:04.102 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:54:05.001 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:54:05.156 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:54:05.157 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:54:05.159 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:54:06.048 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:54:06.089 [INFO    ]             uvicorn.error - Started server process [2568862]
+16:54:06.089 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:54:06.089 [INFO    ]             uvicorn.error - Application startup complete.
+16:54:06.089 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:54:39.593 [INFO    ]            uvicorn.access - 127.0.0.1:59456 - "GET /config HTTP/1.1" 200
+16:54:39.649 [INFO    ]            uvicorn.access - 127.0.0.1:59472 - "GET /info?serialize=False HTTP/1.1" 200
+16:54:39.718 [INFO    ]            uvicorn.access - 127.0.0.1:59474 - "GET /heartbeat/3e0a6312-142a-41ea-a394-ec292a7b3bcf HTTP/1.1" 200
+16:54:39.721 [INFO    ]            uvicorn.access - 127.0.0.1:59476 - "POST /queue/join HTTP/1.1" 200
+16:54:39.776 [INFO    ]            uvicorn.access - 127.0.0.1:59484 - "GET /queue/data?session_hash=3e0a6312-142a-41ea-a394-ec292a7b3bcf HTTP/1.1" 200
+16:54:53.186 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:58:15.688 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rmi -f $(docker images -q) && docker volume prune -f && docker pull ubuntu && docker run -d --name test-container ubuntu sleep infinity
+[AGENT] ✅ Remote command executed successfully: docker rmi -f $(docker images -q) && docker volume prune -f && docker pull ubuntu && docker run -d --name test-container ubuntu sleep infinity
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rmi -f 
+$(docker images -q) && docker volume prune -f && docker pull ubuntu && docker 
+run -d --name test-container ubuntu sleep infinity'' executed successfully on 
+remote host.", 'output': 'Untagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\nTotal
+reclaimed space: 0B\nUsing default tag: latest\nlatest: Pulling from 
+library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n57e4672201d54b9f0b21409223a3c872
+2c0991d254c77fbd40b49ab48010eee0'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:58:15.688369891Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rmi -f $(docker images -q) && docker volume prune -f && docker pull 
+ubuntu && docker run -d --name test-container ubuntu sleep infinity'' executed 
+successfully on remote host.\nOutput: Untagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\nTotal
+reclaimed space: 0B\nUsing default tag: latest\nlatest: Pulling from 
+library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n57e4672201d54b9f0b21409223a3c872
+2c0991d254c77fbd40b49ab48010eee0\n\nThe command has been successfully executed 
+on the remote host. Here's a summary of what was done:\n\n1. All Docker images 
+were removed using `docker rmi -f $(docker images -q)`.\n2. All Docker volumes 
+were pruned using `docker volume prune -f`.\n3. The latest Ubuntu image was 
+pulled using `docker pull ubuntu`.\n4. A new container named `test-container` 
+was started from the Ubuntu image with the command `sleep infinity` using 
+`docker run -d --name test-container ubuntu sleep infinity`.\n\nThe output shows
+that the Ubuntu image was successfully pulled and the container was started. The
+container ID is 
+`57e4672201d54b9f0b21409223a3c8722c0991d254c77fbd40b49ab48010eee0`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31852212092,
+    'load_duration': 127895639,
+    'prompt_eval_count': 1044,
+    'prompt_eval_duration': 8863392931,
+    'eval_count': 191,
+    'eval_duration': 22701516085
+}
+16:58:15.806 [INFO    ]            uvicorn.access - 127.0.0.1:53926 - "POST /queue/join HTTP/1.1" 200
+16:58:15.865 [INFO    ]            uvicorn.access - 127.0.0.1:53934 - "GET /queue/data?session_hash=3e0a6312-142a-41ea-a394-ec292a7b3bcf HTTP/1.1" 200
+16:58:26.739 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:59:10.354 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume create test4.3 && docker run -d --name ubuntu-container -v test4.3:/data ubuntu sleep infinity
+[AGENT] ✅ Remote command executed successfully: docker volume create test4.3 && docker run -d --name ubuntu-container -v test4.3:/data ubuntu sleep infinity
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume create 
+test4.3 && docker run -d --name ubuntu-container -v test4.3:/data ubuntu sleep 
+infinity'' executed successfully on remote host.", 'output': 
+'test4.3\n50e252396fdb00c8d3214ffb7728969930a2ea60b234c3cfdb3b2c8da480b8cf'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:59:10.354328842Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume create test4.3 && docker run -d --name ubuntu-container -v 
+test4.3:/data ubuntu sleep infinity'' executed successfully on remote 
+host.\nOutput: 
+test4.3\n50e252396fdb00c8d3214ffb7728969930a2ea60b234c3cfdb3b2c8da480b8cf\n\nThe
+command has been successfully executed on the remote host. Here's a summary of 
+what was done:\n\n1. A new Docker volume named `test4.3` was created using 
+`docker volume create test4.3`.\n2. An Ubuntu container named `ubuntu-container`
+was started with the volume `test4.3` mounted to `/data` using `docker run -d 
+--name ubuntu-container -v test4.3:/data ubuntu sleep infinity`.\n\nThe 
+container is now running with the volume attached for data persistence. The 
+container ID is 
+`50e252396fdb00c8d3214ffb7728969930a2ea60b234c3cfdb3b2c8da480b8cf`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33693446235,
+    'load_duration': 130293461,
+    'prompt_eval_count': 1419,
+    'prompt_eval_duration': 13467751637,
+    'eval_count': 168,
+    'eval_duration': 19955890342
+}
+16:59:10.466 [INFO    ]            uvicorn.access - 127.0.0.1:43446 - "POST /queue/join HTTP/1.1" 200
+16:59:10.523 [INFO    ]            uvicorn.access - 127.0.0.1:43452 - "GET /queue/data?session_hash=3e0a6312-142a-41ea-a394-ec292a7b3bcf HTTP/1.1" 200
+16:59:19.222 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:59:52.483 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker inspect ubuntu-container | grep -A 20 "Mounts"
+[AGENT] ✅ Remote command executed successfully: docker inspect ubuntu-container | grep -A 20 "Mounts"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'docker inspect 
+ubuntu-container | grep -A 20 "Mounts"\'\' executed successfully on remote 
+host.', 'output': '"Mounts": [\n            {\n                "Type": 
+"volume",\n                "Name": "test4.3",\n                "Source": 
+"/var/lib/docker/volumes/test4.3/_data",\n                "Destination": 
+"/data",\n                "Driver": "local",\n                "Mode": "z",\n    
+"RW": true,\n                "Propagation": ""\n            }\n        ],\n     
+"Config": {\n            "Hostname": "50e252396fdb",\n            "Domainname": 
+"",\n            "User": "",\n            "AttachStdin": false,\n            
+"AttachStdout": false,\n            "AttachStderr": false,\n            "Tty": 
+false,\n            "OpenStdin": false,'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:59:52.482969858Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker inspect ubuntu-container | grep -A 20 "Mounts"\'\' executed 
+successfully on remote host.\nOutput: "Mounts": [\n            {\n              
+"Type": "volume",\n                "Name": "test4.3",\n                "Source":
+"/var/lib/docker/volumes/test4.3/_data",\n                "Destination": 
+"/data",\n                "Driver": "local",\n                "Mode": "z",\n    
+"RW": true,\n                "Propagation": ""\n            }\n        ],\n     
+"Config": {\n            "Hostname": "50e252396fdb",\n            "Domainname": 
+"",\n            "User": "",\n            "AttachStdin": false,\n            
+"AttachStdout": false,\n            "AttachStderr": false,\n            "Tty": 
+false,\n            "OpenStdin": false,\n\nI\'ve verified the volumes attached 
+to the docker ubuntu container. Here are the results:\n\nThe container 
+`ubuntu-container` has one volume mounted:\n- Volume name: `test4.3`\n- Source 
+path: `/var/lib/docker/volumes/test4.3/_data`\n- Destination path: `/data`\n- 
+Type: volume\n- Driver: local\n- Read-write access: true\n\nThis confirms that 
+the volume `test4.3` is successfully attached to the container at the `/data` 
+path for data persistence.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31504408242,
+    'load_duration': 125057029,
+    'prompt_eval_count': 1848,
+    'prompt_eval_duration': 18282905878,
+    'eval_count': 107,
+    'eval_duration': 12971942825
+}
+16:59:52.637 [INFO    ]            uvicorn.access - 127.0.0.1:49898 - "POST /queue/join HTTP/1.1" 200
+16:59:52.692 [INFO    ]            uvicorn.access - 127.0.0.1:49914 - "GET /queue/data?session_hash=3e0a6312-142a-41ea-a394-ec292a7b3bcf HTTP/1.1" 200
+17:00:21.506 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:00:56.291 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && docker volume prune -f
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && docker volume prune -f
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -aq) && docker rmi -f $(docker images -q) && docker volume prune -f'' 
+executed successfully on remote host.", 'output': 
+'50e252396fdb\n57e4672201d5\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\nTotal
+reclaimed space: 0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T17:00:56.291259727Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && docker 
+volume prune -f'' executed successfully on remote host.\nOutput: 
+50e252396fdb\n57e4672201d5\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\nTotal
+reclaimed space: 0B\n\nThe command has been successfully executed on the remote 
+host. Here's a summary of what was done:\n\n1. All Docker containers were 
+removed using `docker rm -f $(docker ps -aq)`\n2. All Docker images were removed
+using `docker rmi -f $(docker images -q)`\n3. All Docker volumes were pruned 
+using `docker volume prune -f`\n\nThe output shows that:\n- Two containers were 
+removed (with IDs `50e252396fdb` and `57e4672201d5`)\n- The Ubuntu image was 
+successfully removed\n- All Docker volumes were pruned\n\nThe system is now 
+clean of all Docker containers, images, and volumes."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22473226832,
+    'load_duration': 128685870,
+    'prompt_eval_count': 2296,
+    'prompt_eval_duration': 4578965809,
+    'eval_count': 147,
+    'eval_duration': 17616515064
+}
+17:00:56.489 [INFO    ]             uvicorn.error - Shutting down
+17:00:56.589 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:00:56.590 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:00:56.590 [INFO    ]             uvicorn.error - Finished server process [2568862]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,257 @@
+poetry run python -m private_gpt
+14:12:16.588 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:12:20.889 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:12:20.953 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:20.954 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:21.857 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:12:22.012 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:22.013 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:12:22.015 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:12:22.904 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:12:22.944 [INFO    ]             uvicorn.error - Started server process [132325]
+14:12:22.944 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:12:22.944 [INFO    ]             uvicorn.error - Application startup complete.
+14:12:22.945 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:12:56.412 [INFO    ]            uvicorn.access - 127.0.0.1:59014 - "GET /config HTTP/1.1" 200
+14:12:56.468 [INFO    ]            uvicorn.access - 127.0.0.1:59030 - "GET /info?serialize=False HTTP/1.1" 200
+14:12:56.557 [INFO    ]            uvicorn.access - 127.0.0.1:59046 - "GET /heartbeat/a9ad4ff8-a076-4713-bf43-3f766be28f99 HTTP/1.1" 200
+14:12:56.560 [INFO    ]            uvicorn.access - 127.0.0.1:59056 - "POST /queue/join HTTP/1.1" 200
+14:12:56.616 [INFO    ]            uvicorn.access - 127.0.0.1:59066 - "GET /queue/data?session_hash=a9ad4ff8-a076-4713-bf43-3f766be28f99 HTTP/1.1" 200
+14:13:04.011 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:13:16.747 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:13:16.747427894Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test2.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7450998255,
+    'load_duration': 130726888,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1139348912,
+    'eval_count': 54,
+    'eval_duration': 6109505234
+}
+14:13:16.842 [INFO    ]            uvicorn.access - 127.0.0.1:54452 - "POST /queue/join HTTP/1.1" 200
+14:13:16.897 [INFO    ]            uvicorn.access - 127.0.0.1:54464 - "GET /queue/data?session_hash=a9ad4ff8-a076-4713-bf43-3f766be28f99 HTTP/1.1" 200
+14:13:31.273 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:15:19.431 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cat > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && cat > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& cat > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:15:19.43044357Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && cat > ~/agent_test/test2.3.sh && chmod +x 
+~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: \n\nI 
+notice that the previous command didn't actually create the script content. Let 
+me create the complete script with complex flow control logic in a single 
+command:",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && cat > 
+~/agent_test/test2.3.sh << \'EOF\' && chmod +x 
+~/agent_test/test2.3.sh\n#!/bin/bash\n\n# Complex flow control script with 
+multiple logic branches\necho "Starting complex flow control script..."\n\n# 
+Initialize variables\ncounter=0\nmax_iterations=5\nuser_input=""\n\n# Main loop 
+with complex conditions\nwhile [ $counter -lt $max_iterations ]; do\n    echo 
+"Iteration $counter"\n    \n    # Nested if-else conditions\n    if [ $counter 
+-eq 0 ]; then\n        echo "First iteration - initializing"\n    elif [ 
+$counter -eq 1 ] || [ $counter -eq 2 ]; then\n        echo "Middle iterations - 
+processing"\n    else\n        echo "Final iterations - cleanup"\n    fi\n    \n
+# Case statement with multiple conditions\n    case $counter in\n        0)\n   
+echo "Case 0: Setup phase"\n            ;;\n        1|2)\n            echo "Case
+1 or 2: Processing phase"\n            ;;\n        3|4)\n            echo "Case 
+3 or 4: Final phase"\n            ;;\n        *)\n            echo "Default 
+case"\n            ;;\n    esac\n    \n    # Conditional execution with logical 
+operators\n    if [ $counter -lt 3 ] && [ $((counter % 2)) -eq 0 ]; then\n      
+echo "Even number less than 3"\n    elif [ $counter -ge 3 ] || [ $counter -lt 0 
+]; then\n        echo "Greater than or equal to 3 OR less than 0"\n    fi\n    
+\n    # Arithmetic operations and conditionals\n    if [ $((counter * 2)) -gt 5 
+]; then\n        echo "Counter doubled is greater than 5"\n    else\n        
+echo "Counter doubled is less than or equal to 5"\n    fi\n    \n    # Increment
+counter\n    counter=$((counter + 1))\n    \n    # Break condition\n    if [ 
+$counter -eq 4 ]; then\n        echo "Breaking early at iteration 4"\n        
+break\n    fi\n    \n    echo 
+"----------------------------------------"\ndone\n\n# Function with complex flow
+control\nprocess_data() {\n    local data=$1\n    local result=""\n    \n    # 
+Nested conditional logic\n    if [ -z "$data" ]; then\n        echo "No data 
+provided"\n        return 1\n    elif [ ${#data} -lt 3 ]; then\n        echo 
+"Data too short"\n        return 2\n    else\n        # Complex string 
+manipulation\n        if [[ "$data" == *"test"* ]]; then\n            
+result="processed_test_data"\n        elif [[ "$data" == *"demo"* ]]; then\n    
+result="processed_demo_data"\n        else\n            
+result="processed_generic_data"\n        fi\n        echo "Processed: $result"\n
+return 0\n    fi\n}\n\n# Call function with different inputs\necho "Testing 
+function with different inputs:"\nprocess_data "test123"\nprocess_data 
+"demo456"\nprocess_data "short"\nprocess_data ""\n\n# For loop with complex 
+conditions\necho "For loop demonstration:"\nfor i in {1..3}; do\n    echo "For 
+loop iteration $i"\n    case $i in\n        1) echo "First element" ;;\n        
+2) echo "Second element" ;;\n        3) echo "Third element" ;;\n    
+esac\ndone\n\n# Until loop with condition\necho "Until loop 
+demonstration:"\ncounter=0\nuntil [ $counter -gt 3 ]; do\n    echo "Until loop 
+iteration $counter"\n    counter=$((counter + 1))\ndone\n\necho "Script 
+execution completed successfully!"\nEOF',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 106584641647,
+    'load_duration': 127006334,
+    'prompt_eval_count': 755,
+    'prompt_eval_duration': 6390845922,
+    'eval_count': 851,
+    'eval_duration': 99417768021
+}
+14:15:19.511 [INFO    ]            uvicorn.access - 127.0.0.1:55440 - "POST /queue/join HTTP/1.1" 200
+14:15:19.572 [INFO    ]            uvicorn.access - 127.0.0.1:55450 - "GET /queue/data?session_hash=a9ad4ff8-a076-4713-bf43-3f766be28f99 HTTP/1.1" 200
+14:15:33.075 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:17:03.434 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:17:03.433929997Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: \n\nI
+need to create the script with complex flow control logic first, then execute 
+it. Let me do this properly with a single command that both creates and executes
+the script:",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && cat > 
+~/agent_test/test2.3.sh << \'EOF\' && chmod +x ~/agent_test/test2.3.sh && 
+~/agent_test/test2.3.sh\n#!/bin/bash\n\n# Complex flow control script with 
+multiple logic branches\necho "Starting complex flow control script..."\n\n# 
+Initialize variables\ncounter=0\nmax_iterations=5\nresult=0\n\n# While loop with
+complex condition\nwhile [[ $counter -lt $max_iterations ]]; do\n    echo "While
+loop iteration: $counter"\n    \n    # If-else if-else structure\n    if [[ 
+$counter -eq 0 ]]; then\n        echo "First iteration - counter is zero"\n     
+result=10\n    elif [[ $counter -eq 2 ]]; then\n        echo "Middle iteration -
+counter is two"\n        result=20\n    elif [[ $counter -eq 4 ]]; then\n       
+echo "Last iteration - counter is four"\n        result=30\n    else\n        
+echo "Regular iteration - counter is $counter"\n        result=$((counter * 
+5))\n    fi\n    \n    echo "Result for iteration $counter is: $result"\n    \n 
+# Case statement\n    case $counter in\n        0)\n            echo "Case 0: 
+Special handling for first iteration"\n            ;;\n        1|2)\n           
+echo "Case 1 or 2: Middle range handling"\n            ;;\n        3|4)\n       
+echo "Case 3 or 4: Final range handling"\n            ;;\n        *)\n          
+echo "Case default: Unexpected value"\n            ;;\n    esac\n    \n    # 
+Nested loop example\n    inner_counter=0\n    echo "Nested loop for counter 
+$counter:"\n    while [[ $inner_counter -lt 3 ]]; do\n        echo "  Inner 
+loop: $inner_counter"\n        inner_counter=$((inner_counter + 1))\n    done\n 
+\n    counter=$((counter + 1))\n    echo ""\ndone\n\n# For loop with array\necho
+"Processing array with for loop:"\nfruits=("apple" "banana" "cherry" 
+"date")\nfor fruit in "${fruits[@]}"; do\n    echo "Processing fruit: $fruit"\n 
+case $fruit in\n        apple)\n            echo "  Special handling for 
+apple"\n            ;;\n        banana)\n            echo "  Special handling 
+for banana"\n            ;;\n        *)\n            echo "  Regular handling 
+for $fruit"\n            ;;\n    esac\ndone\n\n# Until loop example\necho "Until
+loop example:"\nuntil_counter=0\nuntil [[ $until_counter -ge 3 ]]; do\n    echo 
+"Until loop iteration: $until_counter"\n    until_counter=$((until_counter + 
+1))\ndone\n\necho "Script execution completed successfully!"\nEOF',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 84828477901,
+    'load_duration': 132403823,
+    'prompt_eval_count': 865,
+    'prompt_eval_duration': 7251174826,
+    'eval_count': 650,
+    'eval_duration': 77047268900
+}
+14:17:03.561 [INFO    ]            uvicorn.access - 127.0.0.1:33242 - "POST /queue/join HTTP/1.1" 200
+14:17:03.619 [INFO    ]            uvicorn.access - 127.0.0.1:33246 - "GET /queue/data?session_hash=a9ad4ff8-a076-4713-bf43-3f766be28f99 HTTP/1.1" 200
+14:17:18.538 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:17:38.126 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:17:38.126444349Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nI need to create a script with complex flow control logic and execute it in 
+a single command. Let me do this properly now:",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && cat > 
+~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh && 
+~/agent_test/test2.3.sh',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14056231297,
+    'load_duration': 130148488,
+    'prompt_eval_count': 978,
+    'prompt_eval_duration': 1214180956,
+    'eval_count': 112,
+    'eval_duration': 12582942091
+}
+14:17:38.304 [INFO    ]             uvicorn.error - Shutting down
+14:17:38.404 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:17:38.404 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:17:38.404 [INFO    ]             uvicorn.error - Finished server process [132325]
+make: *** [Makefile:36: run] Terminated

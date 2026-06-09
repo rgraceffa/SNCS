@@ -1,0 +1,159 @@
+poetry run python -m private_gpt
+14:08:18.376 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:08:22.625 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:08:22.688 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:08:22.690 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:08:23.568 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:08:23.720 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:08:23.722 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:08:23.723 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:08:24.609 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:08:24.650 [INFO    ]             uvicorn.error - Started server process [34067]
+14:08:24.650 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:08:24.650 [INFO    ]             uvicorn.error - Application startup complete.
+14:08:24.650 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:08:58.202 [INFO    ]            uvicorn.access - 127.0.0.1:50222 - "GET /config HTTP/1.1" 200
+14:08:58.257 [INFO    ]            uvicorn.access - 127.0.0.1:50230 - "GET /info?serialize=False HTTP/1.1" 200
+14:08:58.325 [INFO    ]            uvicorn.access - 127.0.0.1:50244 - "GET /heartbeat/d00560c2-084b-4a29-a40a-c15a5631af9e HTTP/1.1" 200
+14:08:58.328 [INFO    ]            uvicorn.access - 127.0.0.1:50258 - "POST /queue/join HTTP/1.1" 200
+14:08:58.384 [INFO    ]            uvicorn.access - 127.0.0.1:50262 - "GET /queue/data?session_hash=d00560c2-084b-4a29-a40a-c15a5631af9e HTTP/1.1" 200
+14:09:50.054 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:10:11.431 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.txt && touch ~/agent_test/test4.3a.txt ~/agent_test/test4.3b.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.txt && touch ~/agent_test/test4.3a.txt ~/agent_test/test4.3b.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.txt && touch ~/agent_test/test4.3a.txt 
+~/agent_test/test4.3b.txt'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:10:11.431205849Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.txt && touch ~/agent_test/test4.3a.txt 
+~/agent_test/test4.3b.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command has been successfully executed on the remote host. Here's what 
+was done:\n\n1. Removed all `.txt` files in the `~/agent_test/` folder (if any 
+existed)\n2. Created two new empty files: `test4.3a.txt` and `test4.3b.txt` in 
+the `~/agent_test/` folder\n\nYou can verify this by running:\n```bash\nls -l 
+~/agent_test/\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15578228241,
+    'load_duration': 135704412,
+    'prompt_eval_count': 619,
+    'prompt_eval_duration': 4275369532,
+    'eval_count': 93,
+    'eval_duration': 11078706602
+}
+14:10:11.571 [INFO    ]            uvicorn.access - 127.0.0.1:49032 - "POST /queue/join HTTP/1.1" 200
+14:10:11.625 [INFO    ]            uvicorn.access - 127.0.0.1:49036 - "GET /queue/data?session_hash=d00560c2-084b-4a29-a40a-c15a5631af9e HTTP/1.1" 200
+14:10:21.688 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:10:36.875 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/ && for file in *test*; do mv "$file" "${file/test/done}"; done
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test/ && for file in *test*; do mv "$file" "${file/test/done}"; done
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'cd ~/agent_test/ &&
+for file in *test*; do mv "$file" "${file/test/done}"; done\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:10:36.875423085Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cd ~/agent_test/ && for file in *test*; do mv "$file" "${file/test/done}"; 
+done\'\' executed successfully on remote host.\nOutput: \n\nThe command has been
+successfully executed on the remote host. All files in the `~/agent_test/` 
+folder that contained \'test\' in their names have been renamed, replacing 
+\'test\' with \'done\'.\n\nFor example:\n- `test4.3a.txt` became 
+`done4.3a.txt`\n- `test4.3b.txt` became `done4.3b.txt`\n\nYou can verify the 
+renaming by running:\n```bash\nls -l ~/agent_test/\n```'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13581047292,
+    'load_duration': 128611946,
+    'prompt_eval_count': 836,
+    'prompt_eval_duration': 1496180342,
+    'eval_count': 101,
+    'eval_duration': 11838915559
+}
+14:10:37.007 [INFO    ]            uvicorn.access - 127.0.0.1:48258 - "POST /queue/join HTTP/1.1" 200
+14:10:37.062 [INFO    ]            uvicorn.access - 127.0.0.1:48264 - "GET /queue/data?session_hash=d00560c2-084b-4a29-a40a-c15a5631af9e HTTP/1.1" 200
+14:10:46.184 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:11:05.512 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/ | grep '\.txt' | grep 'done'
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/ | grep '\.txt' | grep 'done'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'ls -l ~/agent_test/
+| grep \'"\'"\'\\.txt\'"\'"\' | grep \'"\'"\'done\'"\'"\'\'\' executed 
+successfully on remote host.', 'output': '-rw-rw-r-- 1 raimondo raimondo   0 Dec
+24 16:09 done4.3a.txt\n-rw-rw-r-- 1 raimondo raimondo   0 Dec 24 16:09 
+done4.3b.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:11:05.512244652Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'ls -l ~/agent_test/ | grep \'"\'"\'\\.txt\'"\'"\' | grep 
+\'"\'"\'done\'"\'"\'\'\' executed successfully on remote host.\nOutput: 
+-rw-rw-r-- 1 raimondo raimondo   0 Dec 24 16:09 done4.3a.txt\n-rw-rw-r-- 1 
+raimondo raimondo   0 Dec 24 16:09 done4.3b.txt\n\nI\'ve checked the 
+~/agent_test/ folder and confirmed that there are 2 .txt files containing the 
+word \'done\' in their names:\n\n1. `done4.3a.txt`\n2. `done4.3b.txt`\n\nBoth 
+files are empty (0 bytes) and were created with read/write permissions for the 
+owner and group.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17703746042,
+    'load_duration': 131557905,
+    'prompt_eval_count': 1121,
+    'prompt_eval_duration': 9403372210,
+    'eval_count': 71,
+    'eval_duration': 8068669250
+}
+14:11:05.604 [INFO    ]            uvicorn.access - 127.0.0.1:35464 - "POST /queue/join HTTP/1.1" 200
+14:11:05.660 [INFO    ]            uvicorn.access - 127.0.0.1:35472 - "GET /queue/data?session_hash=d00560c2-084b-4a29-a40a-c15a5631af9e HTTP/1.1" 200
+14:11:23.236 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:11:36.869 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-24T14:11:36.869048929Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.txt'' executed successfully on remote host.\nOutput: \n\nThe 
+command has been successfully executed on the remote host. All .txt files in the
+~/agent_test/ folder have been removed.\n\nYou can verify this by 
+running:\n```bash\nls -l ~/agent_test/\n```\n\nThis should now show no .txt 
+files in the directory."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8301530324,
+    'load_duration': 134121729,
+    'prompt_eval_count': 1267,
+    'prompt_eval_duration': 1213052783,
+    'eval_count': 58,
+    'eval_duration': 6827430098
+}
+14:11:37.099 [INFO    ]             uvicorn.error - Shutting down
+14:11:37.199 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:11:37.199 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:11:37.199 [INFO    ]             uvicorn.error - Finished server process [34067]
+make: *** [Makefile:36: run] Terminated

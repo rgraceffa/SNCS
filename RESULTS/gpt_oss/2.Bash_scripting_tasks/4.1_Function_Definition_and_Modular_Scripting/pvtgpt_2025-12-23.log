@@ -1,0 +1,211 @@
+poetry run python -m private_gpt
+16:37:24.768 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:37:29.046 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:37:29.114 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:37:29.116 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:37:29.990 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:37:30.143 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:37:30.145 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:37:30.146 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:37:31.031 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:37:31.071 [INFO    ]             uvicorn.error - Started server process [4017]
+16:37:31.071 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:37:31.072 [INFO    ]             uvicorn.error - Application startup complete.
+16:37:31.072 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:38:04.600 [INFO    ]            uvicorn.access - 127.0.0.1:41288 - "GET /config HTTP/1.1" 200
+16:38:04.655 [INFO    ]            uvicorn.access - 127.0.0.1:41298 - "GET /info?serialize=False HTTP/1.1" 200
+16:38:04.721 [INFO    ]            uvicorn.access - 127.0.0.1:41308 - "GET /heartbeat/8bb5be21-471a-41c1-8c9a-e0175cc5dd4d HTTP/1.1" 200
+16:38:04.724 [INFO    ]            uvicorn.access - 127.0.0.1:41314 - "POST /queue/join HTTP/1.1" 200
+16:38:04.779 [INFO    ]            uvicorn.access - 127.0.0.1:41330 - "GET /queue/data?session_hash=8bb5be21-471a-41c1-8c9a-e0175cc5dd4d HTTP/1.1" 200
+16:38:22.389 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:38:54.548 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi
+[AGENT] ✅:{'status': 'success', 'message': "The command ''if [ -f 
+~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:38:54.548073163Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''if 
+[ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi'' executed 
+successfully on remote host.\nOutput: \n\n✅ File `~/agent_test/test4.1.sh` was 
+removed from host **eraigra-rpi** (if it existed). If you need any further 
+checks or actions, just let me know!",
+        'thinking': 'The user says: "in the remost host eraigra-rpi username 
+raimondo remove if exists ~/agent_test/test4.1.sh". The assistant already 
+executed a command to remove if exists. The assistant responded with success. 
+But we need to double-check that the command executed. The assistant used the 
+tool to execute remote command. It said success. That matches request. However, 
+maybe we need to confirm the file removed. But the instruction says just do it. 
+So we can confirm.\n\nBut the user might want a confirmation that it\'s removed.
+We should respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23642621321,
+    'load_duration': 284802995,
+    'prompt_eval_count': 520,
+    'prompt_eval_duration': 256429892,
+    'eval_count': 43,
+    'eval_duration': 5386563421
+}
+16:38:54.696 [INFO    ]            uvicorn.access - 127.0.0.1:59946 - "POST /queue/join HTTP/1.1" 200
+16:38:54.751 [INFO    ]            uvicorn.access - 127.0.0.1:59950 - "GET /queue/data?session_hash=8bb5be21-471a-41c1-8c9a-e0175cc5dd4d HTTP/1.1" 200
+16:41:25.923 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:41:51.133 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cat <<EOF > ~/agent_test/test4.1.sh
+#!/bin/bash
+# Example modular script with functions
+
+greet() {
+  echo "Hello, \$1!"
+}
+
+add() {
+  local a=\$1
+  local b=\$2
+  echo \$((a + b))
+}
+
+name=\${1:-"World"}
+
+greet \"\$name\"
+result=\$(add 3 5)
+echo "3 + 5 = \$result"
+EOF
+chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && cat <<EOF > ~/agent_test/test4.1.sh
+#!/bin/bash
+# Example modular script with functions
+
+greet() {
+  echo "Hello, \$1!"
+}
+
+add() {
+  local a=\$1
+  local b=\$2
+  echo \$((a + b))
+}
+
+name=\${1:-"World"}
+
+greet \"\$name\"
+result=\$(add 3 5)
+echo "3 + 5 = \$result"
+EOF
+chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && cat <<EOF > ~/agent_test/test4.1.sh\n#!/bin/bash\n# Example 
+modular script with functions\n\ngreet() {\n  echo "Hello, \\$1!"\n}\n\nadd() 
+{\n  local a=\\$1\n  local b=\\$2\n  echo \\$((a + 
+b))\n}\n\nname=\\${1:-"World"}\n\ngreet \\"\\$name\\"\nresult=\\$(add 3 5)\necho
+"3 + 5 = \\$result"\nEOF\nchmod +x ~/agent_test/test4.1.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:41:51.13337071Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && cat <<EOF > ~/agent_test/test4.1.sh\n#!/bin/bash\n#
+Example modular script with functions\n\ngreet() {\n  echo "Hello, 
+\\$1!"\n}\n\nadd() {\n  local a=\\$1\n  local b=\\$2\n  echo \\$((a + 
+b))\n}\n\nname=\\${1:-"World"}\n\ngreet \\"\\$name\\"\nresult=\\$(add 3 5)\necho
+"3 + 5 = \\$result"\nEOF\nchmod +x ~/agent_test/test4.1.sh\'\' executed 
+successfully on remote host.\nOutput: \n\n✅ Created and made executable 
+`~/agent_test/test4.1.sh` on host **eraigra-rpi**. The script defines two 
+functions (`greet` and `add`) and demonstrates their use. You can run it 
+with:\n\n```bash\n~/agent_test/test4.1.sh [your_name]\n```\n\nIf you need any 
+modifications or additional functions, just let me know!',
+        'thinking': "We successfully created a script and made it executable. 
+Let's just provide confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16621679342,
+    'load_duration': 303260944,
+    'prompt_eval_count': 709,
+    'prompt_eval_duration': 256507620,
+    'eval_count': 81,
+    'eval_duration': 10261389648
+}
+16:41:51.239 [INFO    ]            uvicorn.access - 127.0.0.1:47016 - "POST /queue/join HTTP/1.1" 200
+16:41:51.293 [INFO    ]            uvicorn.access - 127.0.0.1:47022 - "GET /queue/data?session_hash=8bb5be21-471a-41c1-8c9a-e0175cc5dd4d HTTP/1.1" 200
+16:42:05.966 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:42:26.136 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test4.1.sh'' executed successfully on remote host.", 'output': 
+'Hello, "World"!\n3 + 5 = 8'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:42:26.136002535Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test4.1.sh\'\' executed successfully on remote host.\nOutput: 
+Hello, "World"!\n3 + 5 = 8\n\n```\nHello, "World"!\n3 + 5 = 8\n```\n\nThe script
+ran successfully on **eraigra-rpi**. If you’d like to test it with a different 
+name, run:\n\n```bash\n~/agent_test/test4.1.sh Alice\n```\n\nLet me know if 
+there’s anything else you’d like to do!',
+        'thinking': 'We got output. Need to provide output to user. Probably 
+just reply with that output.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15145888118,
+    'load_duration': 298249979,
+    'prompt_eval_count': 886,
+    'prompt_eval_duration': 209951971,
+    'eval_count': 75,
+    'eval_duration': 9507517482
+}
+16:42:26.243 [INFO    ]            uvicorn.access - 127.0.0.1:39348 - "POST /queue/join HTTP/1.1" 200
+16:42:26.298 [INFO    ]            uvicorn.access - 127.0.0.1:39362 - "GET /queue/data?session_hash=8bb5be21-471a-41c1-8c9a-e0175cc5dd4d HTTP/1.1" 200
+16:42:43.856 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:43:02.932 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi
+[AGENT] ✅:{'status': 'success', 'message': "The command ''if [ -f 
+~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T16:43:02.931714124Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''if 
+[ -f ~/agent_test/test4.1.sh ]; then rm ~/agent_test/test4.1.sh; fi'' executed 
+successfully on remote host.\nOutput: \n\n✅ File `~/agent_test/test4.1.sh` was 
+removed from host **eraigra-rpi** (if it existed). Let me know if you need 
+anything else!",
+        'thinking': 'We have executed removal successfully. The user wants 
+removal. We should respond acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10503331049,
+    'load_duration': 292861199,
+    'prompt_eval_count': 1051,
+    'prompt_eval_duration': 257210619,
+    'eval_count': 38,
+    'eval_duration': 4757798477
+}
+16:43:03.078 [INFO    ]             uvicorn.error - Shutting down
+16:43:03.178 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:43:03.178 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:43:03.179 [INFO    ]             uvicorn.error - Finished server process [4017]
+make: *** [Makefile:36: run] Terminated

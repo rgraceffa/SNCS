@@ -1,0 +1,5 @@
+TASKNAME=Script to apply a basic configuration to a package.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present script ~/agent_test/test4.2.sh. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a script ~/agent_test/test4.2.sh to apply basic configuration through command line to git software package. Please give the execute permission to the created script ~/agent_test/test4.2.sh. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute the script ~/agent_test/test4.2.sh and provide the outcome of the script. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present script ~/agent_test/test4.2.sh. Don't split the commands and do all requested in a single command line.

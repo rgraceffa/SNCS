@@ -1,0 +1,171 @@
+poetry run python -m private_gpt
+08:28:25.630 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:28:29.912 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:28:29.976 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:28:29.978 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:28:30.860 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:28:31.014 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:28:31.016 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:28:31.017 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:28:31.901 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:28:31.942 [INFO    ]             uvicorn.error - Started server process [377545]
+08:28:31.942 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:28:31.942 [INFO    ]             uvicorn.error - Application startup complete.
+08:28:31.942 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:29:05.457 [INFO    ]            uvicorn.access - 127.0.0.1:35700 - "GET /config HTTP/1.1" 200
+08:29:05.513 [INFO    ]            uvicorn.access - 127.0.0.1:35704 - "GET /info?serialize=False HTTP/1.1" 200
+08:29:05.578 [INFO    ]            uvicorn.access - 127.0.0.1:35714 - "GET /heartbeat/8e79dab2-9a46-4323-bd8e-a06557029243 HTTP/1.1" 200
+08:29:05.581 [INFO    ]            uvicorn.access - 127.0.0.1:35712 - "POST /queue/join HTTP/1.1" 200
+08:29:05.636 [INFO    ]            uvicorn.access - 127.0.0.1:35722 - "GET /queue/data?session_hash=8e79dab2-9a46-4323-bd8e-a06557029243 HTTP/1.1" 200
+08:29:23.194 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:29:39.402 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test7.3.txt ~/agent_test/test7.3.log'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T08:29:39.402233871Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test7.3.txt 
+~/agent_test/test7.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to create the empty files `test7.3.txt` and `test7.3.log` in the
+`~/agent_test` directory on the remote host has been executed successfully. Let 
+me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10137033215,
+    'load_duration': 138086563,
+    'prompt_eval_count': 592,
+    'prompt_eval_duration': 4120462457,
+    'eval_count': 50,
+    'eval_duration': 5781164477
+}
+08:29:39.503 [INFO    ]            uvicorn.access - 127.0.0.1:53784 - "POST /queue/join HTTP/1.1" 200
+08:29:39.563 [INFO    ]            uvicorn.access - 127.0.0.1:53790 - "GET /queue/data?session_hash=8e79dab2-9a46-4323-bd8e-a06557029243 HTTP/1.1" 200
+08:29:59.559 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:30:19.473 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rsync -av --exclude='*.log' ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/ && rsync -av --exclude='*.log' ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder2/
+[AGENT] ✅ Remote command executed successfully: rsync -av --exclude='*.log' ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/ && rsync -av --exclude='*.log' ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder2/
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'rsync -av 
+--exclude=\'"\'"\'*.log\'"\'"\' ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder/ && rsync -av 
+--exclude=\'"\'"\'*.log\'"\'"\' ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2/\'\' executed successfully on
+remote host.', 'output': 'sending incremental file list\n./\ntest7.3.txt\n\nsent
+134 bytes  received 38 bytes  114.67 bytes/sec\ntotal size is 0  speedup is 
+0.00\nsending incremental file list\ntest7.3.txt\n\nsent 131 bytes  received 35 
+bytes  110.67 bytes/sec\ntotal size is 0  speedup is 0.00'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T08:30:19.473111674Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'rsync -av --exclude=\'"\'"\'*.log\'"\'"\' ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder/ && rsync -av 
+--exclude=\'"\'"\'*.log\'"\'"\' ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder2/\'\' executed successfully on
+remote host.\nOutput: sending incremental file list\n./\ntest7.3.txt\n\nsent 134
+bytes  received 38 bytes  114.67 bytes/sec\ntotal size is 0  speedup is 
+0.00\nsending incremental file list\ntest7.3.txt\n\nsent 131 bytes  received 35 
+bytes  110.67 bytes/sec\ntotal size is 0  speedup is 0.00\n\nThe synchronization
+of the `~/agent_test` folder from the remote host `eraigra-rpi` (username: 
+raimondo) to the target hosts `eraigra-X205TA` has been successfully completed. 
+The files `test7.3.txt` were synchronized to both `/home/raimondo/destfolder/` 
+and `/home/raimondo/destfolder2/`, excluding any `.log` files as requested. Let 
+me know if further assistance is needed!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15623985773,
+    'load_duration': 129618942,
+    'prompt_eval_count': 953,
+    'prompt_eval_duration': 3419136097,
+    'eval_count': 103,
+    'eval_duration': 11950954498
+}
+08:30:19.542 [INFO    ]            uvicorn.access - 127.0.0.1:43632 - "POST /queue/join HTTP/1.1" 200
+08:30:19.607 [INFO    ]            uvicorn.access - 127.0.0.1:43644 - "GET /queue/data?session_hash=8e79dab2-9a46-4323-bd8e-a06557029243 HTTP/1.1" 200
+08:30:44.313 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:31:06.491 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-x205ta test -f /home/raimondo/destfolder/test7.3.txt && echo "File exists in destfolder" || echo "File does not exist in destfolder"; test -f /home/raimondo/destfolder2/test7.3.txt && echo "File exists in destfolder2" || echo "File does not exist in destfolder2"
+[AGENT] ✅ Remote command executed successfully: test -f /home/raimondo/destfolder/test7.3.txt && echo "File exists in destfolder" || echo "File does not exist in destfolder"; test -f /home/raimondo/destfolder2/test7.3.txt && echo "File exists in destfolder2" || echo "File does not exist in destfolder2"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+/home/raimondo/destfolder/test7.3.txt && echo "File exists in destfolder" || 
+echo "File does not exist in destfolder"; test -f 
+/home/raimondo/destfolder2/test7.3.txt && echo "File exists in destfolder2" || 
+echo "File does not exist in destfolder2"\'\' executed successfully on remote 
+host.', 'output': 'File exists in destfolder\nFile exists in destfolder2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T08:31:06.491466932Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f /home/raimondo/destfolder/test7.3.txt && echo "File exists in 
+destfolder" || echo "File does not exist in destfolder"; test -f 
+/home/raimondo/destfolder2/test7.3.txt && echo "File exists in destfolder2" || 
+echo "File does not exist in destfolder2"\'\' executed successfully on remote 
+host.\nOutput: File exists in destfolder\nFile exists in destfolder2\n\nThe file
+`test7.3.txt` exists in both folders on the remote host `eraigra-x205ta`:\n\n1. 
+`/home/raimondo/destfolder/test7.3.txt`\n2. 
+`/home/raimondo/destfolder2/test7.3.txt`\n\nLet me know if further assistance is
+needed!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20287121925,
+    'load_duration': 129732472,
+    'prompt_eval_count': 1255,
+    'prompt_eval_duration': 11525750211,
+    'eval_count': 73,
+    'eval_duration': 8539074760
+}
+08:31:06.586 [INFO    ]            uvicorn.access - 127.0.0.1:46928 - "POST /queue/join HTTP/1.1" 200
+08:31:06.647 [INFO    ]            uvicorn.access - 127.0.0.1:46942 - "GET /queue/data?session_hash=8e79dab2-9a46-4323-bd8e-a06557029243 HTTP/1.1" 200
+08:31:15.921 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:31:41.727 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test7.3.txt ~/agent_test/test7.3.log'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T08:31:41.727147726Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test7.3.txt ~/agent_test/test7.3.log'' executed successfully on 
+remote host.\nOutput: \n\nThe files `test7.3.txt` and `test7.3.log` have been 
+successfully deleted from the `~/agent_test` folder on the remote host 
+`eraigra-rpi` (username: raimondo). Let me know if further assistance is 
+needed!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20487751236,
+    'load_duration': 128591780,
+    'prompt_eval_count': 1422,
+    'prompt_eval_duration': 13381429420,
+    'eval_count': 57,
+    'eval_duration': 6881410367
+}
+08:31:41.983 [INFO    ]             uvicorn.error - Shutting down
+08:31:42.083 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:31:42.083 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:31:42.083 [INFO    ]             uvicorn.error - Finished server process [377545]
+make: *** [Makefile:36: run] Terminated

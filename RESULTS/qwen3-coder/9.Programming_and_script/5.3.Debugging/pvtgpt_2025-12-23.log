@@ -1,0 +1,227 @@
+poetry run python -m private_gpt
+11:11:02.020 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:11:06.311 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:11:06.375 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:11:06.377 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:11:07.275 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:11:07.429 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:11:07.430 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:11:07.431 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:11:08.324 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:11:08.365 [INFO    ]             uvicorn.error - Started server process [3097853]
+11:11:08.365 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:11:08.365 [INFO    ]             uvicorn.error - Application startup complete.
+11:11:08.366 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:11:41.852 [INFO    ]            uvicorn.access - 127.0.0.1:40740 - "GET /config HTTP/1.1" 200
+11:11:41.908 [INFO    ]            uvicorn.access - 127.0.0.1:40752 - "GET /info?serialize=False HTTP/1.1" 200
+11:11:41.978 [INFO    ]            uvicorn.access - 127.0.0.1:40766 - "POST /queue/join HTTP/1.1" 200
+11:11:41.981 [INFO    ]            uvicorn.access - 127.0.0.1:40756 - "GET /heartbeat/a042a267-ed2e-4a0b-99e4-5e79ab510614 HTTP/1.1" 200
+11:11:42.035 [INFO    ]            uvicorn.access - 127.0.0.1:40778 - "GET /queue/data?session_hash=a042a267-ed2e-4a0b-99e4-5e79ab510614 HTTP/1.1" 200
+11:11:54.828 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:12:20.565 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp -r /home/raimondo/test5.3prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.3prj/test5.3.log
+[AGENT] ✅ Remote command executed successfully: cp -r /home/raimondo/test5.3prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.3prj/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp -r 
+/home/raimondo/test5.3prj /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.3prj/test5.3.log'' executed successfully on 
+remote host.", 'output': 'main.c:2:10: fatal error: curl/curl.h: No such file or
+directory\n    2 | #include <curl/curl.h>\n      |          
+^~~~~~~~~~~~~\ncompilation terminated.\nmake: *** [<builtin>: main.o] Error 1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:12:20.565213152Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cp 
+-r /home/raimondo/test5.3prj /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.3prj/test5.3.log'' executed successfully on 
+remote host.\nOutput: main.c:2:10: fatal error: curl/curl.h: No such file or 
+directory\n    2 | #include <curl/curl.h>\n      |          
+^~~~~~~~~~~~~\ncompilation terminated.\nmake: *** [<builtin>: main.o] Error 
+1\n\nThe command has been executed successfully on the remote host. Here's the 
+output showing the compilation error:\n\n```\nmain.c:2:10: fatal error: 
+curl/curl.h: No such file or directory\n    2 | #include <curl/curl.h>\n      | 
+^~~~~~~~~~~~~\ncompilation terminated.\nmake: *** [<builtin>: main.o] Error 
+1\n```\n\nThe error indicates that the required `curl/curl.h` header file is 
+missing, which is needed for the compilation. You'll need to install the libcurl
+development package to resolve this issue."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20687328896,
+    'load_duration': 124037541,
+    'prompt_eval_count': 735,
+    'prompt_eval_duration': 5867761194,
+    'eval_count': 122,
+    'eval_duration': 14568274271
+}
+11:12:20.677 [INFO    ]            uvicorn.access - 127.0.0.1:38646 - "POST /queue/join HTTP/1.1" 200
+11:12:20.733 [INFO    ]            uvicorn.access - 127.0.0.1:38654 - "GET /queue/data?session_hash=a042a267-ed2e-4a0b-99e4-5e79ab510614 HTTP/1.1" 200
+11:12:38.934 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:13:50.940 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cd /home/raimondo/agent_test/test5.3prj && make
+[AGENT] ✅ Remote command executed successfully: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cd /home/raimondo/agent_test/test5.3prj && make
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get update 
+&& sudo apt-get install -y libcurl4-openssl-dev && cd 
+/home/raimondo/agent_test/test5.3prj && make'' executed successfully on remote 
+host.", 'output': "Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1193 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nlibcurl4-openssl-dev is 
+already the newest version (7.81.0-1ubuntu1.21).\nThe following packages were 
+automatically installed and are no longer required:\n  libaacs0 libass9 
+libasyncns0 libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 
+libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 
+libcdio-cdda2 libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 
+libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 
+libgbm1 libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 
+liblapack3 liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded.\ncc -Wall   -c -o main.o main.c\ncc -Wall -o app 
+main.o -lcurl"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:13:50.940225637Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev && cd 
+/home/raimondo/agent_test/test5.3prj && make'' executed successfully on remote 
+host.\nOutput: Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1193 B/s)\nReading package lists...\nReading package lists...\nBuilding 
+dependency tree...\nReading state information...\nlibcurl4-openssl-dev is 
+already the newest version (7.81.0-1ubuntu1.21).\nThe following packages were 
+automatically installed and are no longer required:\n  libaacs0 libass9 
+libasyncns0 libavc1394-0 libavcodec58 libavdevice58\n  libavfilter7 
+libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0\n  libcaca0 
+libcdio-cdda2 libcdio-paranoia2 libcdio19 libchromaprint1\n  libcodec2-1.0 
+libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-cairo libflac8\n  libflite1 
+libgbm1 libgfortran5 libgme0 libgsm1 libiec61883-0\n  libjack-jackd2-0 
+liblapack3 liblilv-0-0 libmp3lame0 libmpg123-0 libmysofa1\n  libnorm1 libogg0 
+libopenal-data libopenal1 libopenmpt0 libopus0 libpgm-5.3-0\n  libpocketsphinx3 
+libpostproc55 libpulse0 librabbitmq4 libraw1394-11\n  librubberband2 
+libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3\n  libsndfile1 libsndio7.0 
+libsord-0-0 libsoxr0 libspeex1 libsphinxbase3\n  libsratom-0-0 libsrt1.4-gnutls 
+libswresample3 libswscale5 libtheora0\n  libtwolame0 libudfread0 libva-drm2 
+libva-x11-2 libva2 libvdpau1\n  libvidstab1.1 libvorbis0a libvorbisenc2 
+libvorbisfile3 libvpx7\n  libwayland-server0 libx264-163 libxvidcore4 libzimg2 
+libzmq5 libzvbi-common\n  libzvbi0 mesa-va-drivers mesa-vdpau-drivers 
+ocl-icd-libopencl1\n  pocketsphinx-en-us va-driver-all vdpau-driver-all\nUse 
+'sudo apt autoremove' to remove them.\n0 upgraded, 0 newly installed, 0 to 
+remove and 0 not upgraded.\ncc -Wall   -c -o main.o main.c\ncc -Wall -o app 
+main.o -lcurl\n\nThe command has been executed successfully on the remote host. 
+The output shows that:\n\n1. The system updated package lists\n2. The 
+`libcurl4-openssl-dev` package was already installed (no changes made)\n3. The 
+makefile was executed successfully\n4. The compilation completed with:\n   - `cc
+-Wall -c -o main.o main.c` (compilation step)\n   - `cc -Wall -o app main.o 
+-lcurl` (linking step)\n\nThe application has been successfully compiled and 
+linked with the curl library. The executable `app` should now be available in 
+the `/home/raimondo/agent_test/test5.3prj` directory."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28136045915,
+    'load_duration': 132540579,
+    'prompt_eval_count': 1806,
+    'prompt_eval_duration': 10298545345,
+    'eval_count': 143,
+    'eval_duration': 17564674799
+}
+11:13:51.025 [INFO    ]            uvicorn.access - 127.0.0.1:56164 - "POST /queue/join HTTP/1.1" 200
+11:13:51.094 [INFO    ]            uvicorn.access - 127.0.0.1:56172 - "GET /queue/data?session_hash=a042a267-ed2e-4a0b-99e4-5e79ab510614 HTTP/1.1" 200
+11:14:19.288 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:14:53.280 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd /home/raimondo/agent_test/test5.3prj && ./app
+[AGENT] ✅ Remote command executed successfully: cd /home/raimondo/agent_test/test5.3prj && ./app
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd 
+/home/raimondo/agent_test/test5.3prj && ./app'' executed successfully on remote 
+host.", 'output': 'libcurl initialized!'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:14:53.279761077Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+/home/raimondo/agent_test/test5.3prj && ./app'' executed successfully on remote 
+host.\nOutput: libcurl initialized!\n\nThe command has been executed 
+successfully on the remote host. The output shows that the application ran 
+successfully and initialized libcurl, displaying the message:\n\n```\nlibcurl 
+initialized!\n```\n\nThis indicates that the program started correctly and 
+established a connection with the libcurl library. The application appears to be
+functioning as expected."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28861524508,
+    'load_duration': 131263985,
+    'prompt_eval_count': 2061,
+    'prompt_eval_duration': 20572653712,
+    'eval_count': 63,
+    'eval_duration': 8038491224
+}
+11:14:53.399 [INFO    ]            uvicorn.access - 127.0.0.1:58116 - "POST /queue/join HTTP/1.1" 200
+11:14:53.460 [INFO    ]            uvicorn.access - 127.0.0.1:58132 - "GET /queue/data?session_hash=a042a267-ed2e-4a0b-99e4-5e79ab510614 HTTP/1.1" 200
+11:15:03.555 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:15:11.952 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf /home/raimondo/agent_test/test5.3prj
+[AGENT] ✅ Remote command executed successfully: rm -rf /home/raimondo/agent_test/test5.3prj
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+/home/raimondo/agent_test/test5.3prj'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:15:11.95236995Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf /home/raimondo/agent_test/test5.3prj'' executed successfully on remote 
+host.\nOutput: \n\nThe command has been executed successfully on the remote 
+host. The folder `/home/raimondo/agent_test/test5.3prj` has been removed 
+completely, including all its contents and subdirectories."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 6890204315,
+    'load_duration': 129655774,
+    'prompt_eval_count': 2234,
+    'prompt_eval_duration': 1576507207,
+    'eval_count': 43,
+    'eval_duration': 5078990296
+}
+11:15:12.205 [INFO    ]             uvicorn.error - Shutting down
+11:15:12.304 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:15:12.305 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:15:12.305 [INFO    ]             uvicorn.error - Finished server process [3097853]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,179 @@
+Loaded as API: http://127.0.0.1:8002/ ✔
+
+🚀 Starting 4-Stage Execution Pipeline for: /home/azureuser/agent_test/test/8.Software_management/3.2_Software_Version_Control/README
+
+
+[PRE-EXECUTION] ▶️ Executing: in the remote host eraigra-rpi username raimondo check that the package mypackage version installed is 1.0-2 using the package manager query command. Don't split the commands and do all requested in a single command line.
+
+[PRE-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''dpkg -s mypackage 2>/dev/null | grep -q '"'"'^Version: 1.0-2'"'"' && echo "mypackage version is 1.0-2" || echo "mypackage version mismatch"'' executed successfully on remote host.
+Output: mypackage version is 1.0-2
+
+The check was successful – the package **mypackage** is installed at version **1.0‑2** on host *eraigra-rpi* (user *raimondo*).
+
+[PRE-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+[COMMAND] ▶️ Executing: in the remote host eraigra-rpi username raimondo downgrade using sudo the installation of the package mypackage to 1.0-1 using the package manager query command. Don't split the commands and do all requested in a single command line.
+
+[COMMAND] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''sudo apt-get install -y --allow-downgrades mypackage=1.0-1 && dpkg -s mypackage | grep ^Version:'' executed successfully on remote host.
+Output: Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be DOWNGRADED:
+  mypackage
+0 upgraded, 0 newly installed, 1 downgraded, 0 to remove and 81 not upgraded.
+Need to get 0 B/704 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 file:/usr/local/mydebs ./ mypackage 1.0-1 [704 B]
+dpkg: warning: downgrading mypackage from 1.0-2 to 1.0-1
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 154649 files and directories currently installed.)
+Preparing to unpack ..././mypackage_1.0-1_arm64.deb ...
+Unpacking mypackage (1.0-1) over (1.0-2) ...
+Setting up mypackage (1.0-1) ...
+
+Running kernel seems to be up-to-date.
+
+Failed to check for processor microcode upgrades.
+
+Services to be restarted:
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart docker.service
+ systemctl restart getty@tty1.service
+ systemctl restart networkd-dispatcher.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+ systemctl restart user@1000.service
+ systemctl restart wpa_supplicant.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Version: 1.0-1
+
+The downgrade was carried out successfully.  
+The package **mypackage** is now at version **1.0‑1** on host *eraigra‑rpi* (user *raimondo*).
+
+[COMMAND] ✅ Success detected on attempt 1. Continuing...
+
+
+[VERIFY] ▶️ Executing: in the remote host eraigra-rpi username raimondo verify that package mypackage is version 1.0-1. Don't split the commands and do all requested in a single command line.
+
+[VERIFY] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''dpkg -s mypackage 2>/dev/null | grep '"'"'^Version: 1.0-1'"'"' && echo '"'"'mypackage version is 1.0-1'"'"' || echo '"'"'version mismatch'"'"''' executed successfully on remote host.
+Output: Version: 1.0-1
+mypackage version is 1.0-1
+
+Verified – **mypackage** is currently installed at version **1.0‑1** on host *eraigra‑rpi* (user *raimondo*).
+
+[VERIFY] ✅ Success detected on attempt 1. Continuing...
+
+
+[POST-EXECUTION] ▶️ Executing: in the remote host eraigra-rpi username raimondo upgrade using sudo the installation of the package mypackage to 1.0-2 using the package manager query command. Don't split the commands and do all requested in a single command line.
+
+[POST-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''sudo apt-get install -y mypackage=1.0-2 && dpkg -s mypackage | grep ^Version'' executed successfully on remote host.
+Output: Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  mypackage
+1 upgraded, 0 newly installed, 0 to remove and 81 not upgraded.
+Need to get 0 B/704 B of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 file:/usr/local/mydebs ./ mypackage 1.0-2 [704 B]
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 154649 files and directories currently installed.)
+Preparing to unpack .../mydebs/./mypackage_1.0-2.deb ...
+Unpacking mypackage (1.0-2) over (1.0-1) ...
+Setting up mypackage (1.0-2) ...
+
+Running kernel seems to be up-to-date.
+
+Failed to check for processor microcode upgrades.
+
+Services to be restarted:
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart docker.service
+ systemctl restart getty@tty1.service
+ systemctl restart networkd-dispatcher.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+ systemctl restart user@1000.service
+ systemctl restart wpa_supplicant.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Version: 1.0-2
+
+The upgrade was carried out successfully.  
+The package **mypackage** is now installed at version **1.0‑2** on host *eraigra‑rpi* (user *raimondo*).
+
+[POST-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+✅ All stages completed successfully!
+

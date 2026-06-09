@@ -1,0 +1,216 @@
+poetry run python -m private_gpt
+19:24:44.485 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+19:24:48.784 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+19:24:48.847 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:24:48.849 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:24:49.742 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+19:24:49.895 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:24:49.897 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:24:49.898 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+19:24:50.786 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+19:24:50.827 [INFO    ]             uvicorn.error - Started server process [169035]
+19:24:50.827 [INFO    ]             uvicorn.error - Waiting for application startup.
+19:24:50.827 [INFO    ]             uvicorn.error - Application startup complete.
+19:24:50.828 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+19:25:24.307 [INFO    ]            uvicorn.access - 127.0.0.1:54704 - "GET /config HTTP/1.1" 200
+19:25:24.363 [INFO    ]            uvicorn.access - 127.0.0.1:54718 - "GET /info?serialize=False HTTP/1.1" 200
+19:25:24.430 [INFO    ]            uvicorn.access - 127.0.0.1:54748 - "GET /heartbeat/1cde8a07-b053-4721-b1db-f521812e9043 HTTP/1.1" 200
+19:25:24.432 [INFO    ]            uvicorn.access - 127.0.0.1:54732 - "POST /queue/join HTTP/1.1" 200
+19:25:24.488 [INFO    ]            uvicorn.access - 127.0.0.1:54760 - "GET /queue/data?session_hash=1cde8a07-b053-4721-b1db-f521812e9043 HTTP/1.1" 200
+19:27:12.768 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:28:36.155 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && gcc -Wall -Wextra -c /home/raimondo/agent_test/wrongc.c
+[AGENT] ❌ Remote command failed: cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && gcc -Wall -Wextra -c /home/raimondo/agent_test/wrongc.c
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+/home/raimondo/agent_test/wrongc.c: In function ‘main’:
+/home/raimondo/agent_test/wrongc.c:5:33: error: ‘y’ undeclared (first use in this function)
+    5 |     printf("The value is %d\n", y);
+      |                                 ^
+/home/raimondo/agent_test/wrongc.c:5:33: note: each undeclared identifier is reported only once for each function it appears in
+/home/raimondo/agent_test/wrongc.c:4:9: warning: unused variable ‘x’ [-Wunused-variable]
+    4 |     int x = 5;
+      |         ^
+[AGENT] ✅:{'status': 'error', 'message': "The command ''cp 
+/home/raimondo/wrongc.c /home/raimondo/agent_test/ && gcc -Wall -Wextra -c 
+/home/raimondo/agent_test/wrongc.c'' failed on remote host.", 'output': 
+'Warning: Permanently added \'eraigra-rpi\' (ED25519) to the list of known 
+hosts.\n/home/raimondo/agent_test/wrongc.c: In function 
+‘main’:\n/home/raimondo/agent_test/wrongc.c:5:33: error: ‘y’ undeclared (first 
+use in this function)\n    5 |     printf("The value is %d\\n", y);\n      |    
+^\n/home/raimondo/agent_test/wrongc.c:5:33: note: each undeclared identifier is 
+reported only once for each function it appears 
+in\n/home/raimondo/agent_test/wrongc.c:4:9: warning: unused variable ‘x’ 
+[-Wunused-variable]\n    4 |     int x = 5;\n      |         ^'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:28:36.1547846Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command \'\'cp 
+/home/raimondo/wrongc.c /home/raimondo/agent_test/ && gcc -Wall -Wextra -c 
+/home/raimondo/agent_test/wrongc.c\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known 
+hosts.\n/home/raimondo/agent_test/wrongc.c: In function 
+‘main’:\n/home/raimondo/agent_test/wrongc.c:5:33: error: ‘y’ undeclared (first 
+use in this function)\n    5 |     printf("The value is %d\\n", y);\n      |    
+^\n/home/raimondo/agent_test/wrongc.c:5:33: note: each undeclared identifier is 
+reported only once for each function it appears 
+in\n/home/raimondo/agent_test/wrongc.c:4:9: warning: unused variable ‘x’ 
+[-Wunused-variable]\n    4 |     int x = 5;\n      |         ^\n\n**Copy and 
+inspection results on host `eraigra-rpi` (user `raimondo`):**\n\n```text\n# File
+copied successfully:\n/home/raimondo/wrongc.c → 
+/home/raimondo/agent_test/wrongc.c\n\n# Compile (bug inspection) 
+output:\n/home/raimondo/agent_test/wrongc.c: In function 
+‘main’:\n/home/raimondo/agent_test/wrongc.c:5:33: error: ‘y’ undeclared (first 
+use in this function)\n    5 |     printf("The value is %d\\\\n", y);\n      |  
+^\n\n/home/raimondo/agent_test/wrongc.c:5:33: note: each undeclared identifier 
+is reported only once for each function it appears 
+in\n/home/raimondo/agent_test/wrongc.c:4:9: warning: unused variable ‘x’ 
+[-Wunused-variable]\n    4 |     int x = 5;\n      |         
+^\n\n```\n\n**Summary of bugs found:**\n\n1. **Undeclared variable `y`** – used 
+in the `printf` statement.\n2. **Unused variable `x`** – declared but never 
+used, which triggers a warning.\n\nPlease fix these issues in `wrongc.c` and 
+recompile if needed.',
+        'thinking': 'We got the command attempted: cp and compile. But the user 
+requested: "in the remote host eraigra-rpi username raimondo copy the file 
+/home/raimondo/wrongc.c in the folder /home/raimondo/agent_test and inspect the 
+c code for bugs. Don\'t split the commands and do all requested in a single 
+command line."\n\nWe need to perform two actions: copy file to folder, and 
+inspect the C code for bugs. Inspecting code for bugs: could be running gcc 
+-Wall -Wextra to compile. The attempt did that. But the user didn\'t want 
+splitting the commands. The function call uses single command line: we passed 
+"cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && gcc -Wall -Wextra -c 
+/home/raimondo/agent_test/wrongc.c". That is one command. It gave compile error,
+but the user might want the output. The question: We should provide the compile 
+errors as the inspection. The system responded with compile errors. We can 
+present them. Also the copy should succeed. We should confirm copy succeeded? It
+succeeded. We should answer with the compile error.\n\nThus reply with the 
+compile errors.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 73865157603,
+    'load_duration': 293018398,
+    'prompt_eval_count': 891,
+    'prompt_eval_duration': 256915184,
+    'eval_count': 282,
+    'eval_duration': 36104164612
+}
+19:28:36.253 [INFO    ]            uvicorn.access - 127.0.0.1:41338 - "POST /queue/join HTTP/1.1" 200
+19:28:36.307 [INFO    ]            uvicorn.access - 127.0.0.1:41342 - "GET /queue/data?session_hash=1cde8a07-b053-4721-b1db-f521812e9043 HTTP/1.1" 200
+19:30:12.191 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:30:49.432 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#include <stdio.h>\nint main(){int x=5;int y=x*2;printf("The value is %d\\n", y);return 0;}' > /home/raimondo/agent_test/wrongc.c && gcc -Wall -Wextra -o /home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅ Remote command executed successfully: echo -e '#include <stdio.h>\nint main(){int x=5;int y=x*2;printf("The value is %d\\n", y);return 0;}' > /home/raimondo/agent_test/wrongc.c && gcc -Wall -Wextra -o /home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#include <stdio.h>\\nint main(){int x=5;int y=x*2;printf("The value is 
+%d\\\\n", y);return 0;}\'"\'"\' > /home/raimondo/agent_test/wrongc.c && gcc 
+-Wall -Wextra -o /home/raimondo/agent_test/wrongc 
+/home/raimondo/agent_test/wrongc.c\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:30:49.432070863Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#include <stdio.h>\\nint main(){int x=5;int 
+y=x*2;printf("The value is %d\\\\n", y);return 0;}\'"\'"\' > 
+/home/raimondo/agent_test/wrongc.c && gcc -Wall -Wextra -o 
+/home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c\'\' executed
+successfully on remote host.\nOutput: \n\n**Result on host `eraigra-rpi` (user 
+`raimondo`):**\n\n- **File `/home/raimondo/agent_test/wrongc.c` has been 
+updated** with the corrected source code.\n- **Compilation succeeded** and 
+produced the executable `/home/raimondo/agent_test/wrongc`.\n\n**Updated C 
+source (`wrongc.c`):**\n```c\n#include <stdio.h>\nint main(){\n    int x = 5;\n 
+int y = x * 2;\n    printf("The value is %d\\n", y);\n    return 
+0;\n}\n```\n\nYou can now run the program 
+with:\n```bash\n/home/raimondo/agent_test/wrongc\n```\nto see the output: `The 
+value is 10`.',
+        'thinking': 'We need to explain that the command succeeded, maybe show 
+output. Provide the corrected code.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27472186403,
+    'load_duration': 291757815,
+    'prompt_eval_count': 1129,
+    'prompt_eval_duration': 257316278,
+    'eval_count': 165,
+    'eval_duration': 21106236569
+}
+19:30:49.544 [INFO    ]            uvicorn.access - 127.0.0.1:33758 - "POST /queue/join HTTP/1.1" 200
+19:30:49.598 [INFO    ]            uvicorn.access - 127.0.0.1:33768 - "GET /queue/data?session_hash=1cde8a07-b053-4721-b1db-f521812e9043 HTTP/1.1" 200
+19:31:10.911 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:31:26.148 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi "/home/raimondo/agent_test/wrongc"
+[AGENT] ✅ Remote command executed successfully: "/home/raimondo/agent_test/wrongc"
+[AGENT] ✅:{'status': 'success', 'message': 'The command 
+\'\'"/home/raimondo/agent_test/wrongc"\'\' executed successfully on remote 
+host.', 'output': 'The value is 10'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:31:26.14849444Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'"/home/raimondo/agent_test/wrongc"\'\' executed successfully on remote 
+host.\nOutput: The value is 10\n\n**Execution result:**\n\n```\nThe value is 
+10\n```\n',
+        'thinking': 'We need to respond to the user\'s last request. The 
+assistant already executed the command, got output "The value is 10". We should 
+simply provide the outcome. No further action.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10146797571,
+    'load_duration': 299942845,
+    'prompt_eval_count': 1422,
+    'prompt_eval_duration': 257612723,
+    'eval_count': 16,
+    'eval_duration': 1932790323
+}
+19:31:26.248 [INFO    ]            uvicorn.access - 127.0.0.1:43374 - "POST /queue/join HTTP/1.1" 200
+19:31:26.303 [INFO    ]            uvicorn.access - 127.0.0.1:43386 - "GET /queue/data?session_hash=1cde8a07-b053-4721-b1db-f521812e9043 HTTP/1.1" 200
+19:31:46.388 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:32:07.690 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/wrongc*
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/wrongc*
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/wrongc*'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:32:07.69000077Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/wrongc*'' executed successfully on remote 
+host.\nOutput: \n\nAll files matching `/home/raimondo/agent_test/wrongc*` have 
+been removed from host `eraigra-rpi` (user `raimondo`). No remaining `wrongc` 
+files exist in that directory.",
+        'thinking': 'We need to provide the outcome. The assistant executed rm 
+-f. Probably we should respond summarizing.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12378431610,
+    'load_duration': 293015535,
+    'prompt_eval_count': 1525,
+    'prompt_eval_duration': 129858028,
+    'eval_count': 49,
+    'eval_duration': 6193068045
+}
+19:32:07.921 [INFO    ]             uvicorn.error - Shutting down
+19:32:08.021 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+19:32:08.021 [INFO    ]             uvicorn.error - Application shutdown complete.
+19:32:08.021 [INFO    ]             uvicorn.error - Finished server process [169035]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,174 @@
+poetry run python -m private_gpt
+18:04:46.586 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+18:04:50.891 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+18:04:50.955 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:04:50.956 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:04:51.853 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+18:04:52.006 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:04:52.008 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:04:52.009 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+18:04:52.899 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+18:04:52.940 [INFO    ]             uvicorn.error - Started server process [134522]
+18:04:52.940 [INFO    ]             uvicorn.error - Waiting for application startup.
+18:04:52.940 [INFO    ]             uvicorn.error - Application startup complete.
+18:04:52.941 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+18:05:26.417 [INFO    ]            uvicorn.access - 127.0.0.1:54792 - "GET /config HTTP/1.1" 200
+18:05:26.472 [INFO    ]            uvicorn.access - 127.0.0.1:54806 - "GET /info?serialize=False HTTP/1.1" 200
+18:05:26.537 [INFO    ]            uvicorn.access - 127.0.0.1:54822 - "GET /heartbeat/6bd28e82-9470-4d19-a915-ab7c714b98b8 HTTP/1.1" 200
+18:05:26.540 [INFO    ]            uvicorn.access - 127.0.0.1:54826 - "POST /queue/join HTTP/1.1" 200
+18:05:26.596 [INFO    ]            uvicorn.access - 127.0.0.1:54832 - "GET /queue/data?session_hash=6bd28e82-9470-4d19-a915-ab7c714b98b8 HTTP/1.1" 200
+18:05:43.089 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:06:06.805 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull alpine
+[AGENT] ✅ Remote command executed successfully: docker pull alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull alpine'' 
+executed successfully on remote host.", 'output': 'Using default tag: 
+latest\nlatest: Pulling from library/alpine\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Image is up to date for alpine:latest\ndocker.io/library/alpine:latest'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:06:06.805048779Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull alpine'' executed successfully on remote host.\nOutput: Using 
+default tag: latest\nlatest: Pulling from library/alpine\nDigest: 
+sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\nStatus:
+Image is up to date for alpine:latest\ndocker.io/library/alpine:latest\n\n✅ 
+Alpine image successfully pulled on **eraigra-rpi** as user **raimondo**. The 
+image `docker.io/library/alpine:latest` is now available locally.",
+        'thinking': 'User wants to pull alpine image on remote host eraigra-rpi 
+with username raimondo. We executed docker pull alpine. Probably need to use SSH
+to run command. We have to specify host, user, maybe port. We used the tool and 
+got success. So respond confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16262280504,
+    'load_duration': 310056430,
+    'prompt_eval_count': 510,
+    'prompt_eval_duration': 256326060,
+    'eval_count': 38,
+    'eval_duration': 4743282743
+}
+18:06:06.901 [INFO    ]            uvicorn.access - 127.0.0.1:43592 - "POST /queue/join HTTP/1.1" 200
+18:06:06.955 [INFO    ]            uvicorn.access - 127.0.0.1:43594 - "GET /queue/data?session_hash=6bd28e82-9470-4d19-a915-ab7c714b98b8 HTTP/1.1" 200
+18:06:26.375 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:06:45.138 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker tag alpine myregistry.com/alpine:latest
+[AGENT] ✅ Remote command executed successfully: docker tag alpine myregistry.com/alpine:latest
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker tag alpine 
+myregistry.com/alpine:latest'' executed successfully on remote host.", 'output':
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:06:45.138019638Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker tag alpine myregistry.com/alpine:latest'' executed successfully on 
+remote host.\nOutput: \n\n✅ Local image `alpine` has been tagged as 
+`myregistry.com/alpine:latest` on **eraigra-rpi** (user **raimondo**). You can 
+now push it to your registry with `docker push myregistry.com/alpine:latest`.",
+        'thinking': 'User wants to tag local image alpine for pushing to a 
+registry. We already ran docker tag. They want a single command line, which we 
+did: `docker tag alpine myregistry.com/alpine:latest`. That is correct. We can 
+respond confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17061476771,
+    'load_duration': 288025845,
+    'prompt_eval_count': 632,
+    'prompt_eval_duration': 256323051,
+    'eval_count': 57,
+    'eval_duration': 7177455924
+}
+18:06:45.210 [INFO    ]            uvicorn.access - 127.0.0.1:58108 - "POST /queue/join HTTP/1.1" 200
+18:06:45.265 [INFO    ]            uvicorn.access - 127.0.0.1:58110 - "GET /queue/data?session_hash=6bd28e82-9470-4d19-a915-ab7c714b98b8 HTTP/1.1" 200
+18:06:57.138 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:07:15.303 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker images | grep alpine
+[AGENT] ✅ Remote command executed successfully: docker images | grep alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker images | grep 
+alpine'' executed successfully on remote host.", 'output': 'alpine:latest       
+4d000244d2e6       5.47MB             0B        \nmyregistry.com/alpine:latest  
+4d000244d2e6       5.47MB             0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:07:15.303367127Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker images | grep alpine'' executed successfully on remote host.\nOutput: 
+alpine:latest                  4d000244d2e6       5.47MB             0B        
+\nmyregistry.com/alpine:latest   4d000244d2e6       5.47MB             0B\n\n✅ 
+The image `alpine:latest` is present locally and has been tagged as 
+`myregistry.com/alpine:latest` on **eraigra-rpi** (user **raimondo**). All good 
+to proceed with pushing to the registry.",
+        'thinking': "The user has verified that the image is tagged. There's no 
+further request. Provide confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12895303321,
+    'load_duration': 294313032,
+    'prompt_eval_count': 780,
+    'prompt_eval_duration': 257320057,
+    'eval_count': 53,
+    'eval_duration': 6679528470
+}
+18:07:15.406 [INFO    ]            uvicorn.access - 127.0.0.1:52662 - "POST /queue/join HTTP/1.1" 200
+18:07:15.461 [INFO    ]            uvicorn.access - 127.0.0.1:52674 - "GET /queue/data?session_hash=6bd28e82-9470-4d19-a915-ab7c714b98b8 HTTP/1.1" 200
+18:07:45.140 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:08:10.683 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rmi alpine
+[AGENT] ✅ Remote command executed successfully: docker rmi alpine
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rmi alpine'' 
+executed successfully on remote host.", 'output': 'Untagged: 
+alpine:latest\nUntagged: 
+alpine@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T18:08:10.682620229Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rmi alpine'' executed successfully on remote host.\nOutput: Untagged: 
+alpine:latest\nUntagged: 
+alpine@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62\n
+\n✅ The `alpine:latest` image has been removed from **eraigra-rpi** (user 
+**raimondo**). The tagged image `myregistry.com/alpine:latest` remains on the 
+host.",
+        'thinking': "We need to remove the alpine image. The assistant executed 
+docker rmi alpine. But the tagged image still exists? Actually docker rmi alpine
+removes the alpine image but the tagged image remains? It might have removed 
+only the alpine:latest? But there is also myregistry.com/alpine:latest. The 
+request was to remove the alpine image. We have successfully removed 
+alpine:latest. Should we also remove the tagged one? The user only asked to 
+remove the alpine image, not the tagged one. So it's fine. Provide 
+confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23851107772,
+    'load_duration': 300715906,
+    'prompt_eval_count': 1040,
+    'prompt_eval_duration': 256972618,
+    'eval_count': 46,
+    'eval_duration': 5786254291
+}
+18:08:10.912 [INFO    ]             uvicorn.error - Shutting down
+18:08:11.012 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+18:08:11.013 [INFO    ]             uvicorn.error - Application shutdown complete.
+18:08:11.013 [INFO    ]             uvicorn.error - Finished server process [134522]
+make: *** [Makefile:36: run] Terminated

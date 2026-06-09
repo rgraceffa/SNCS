@@ -1,0 +1,5 @@
+TASKNAME=Search files in a directory containing a keyword. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create the file ~/agent_test/mifile.txt containing the word "output" and remove the file ~/agent_test/test3.1.txt if present.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo search for files in the ~/agent_test folder containing the word "output". If you find at least one file contaning the word "output" create an empty file called ~/agent_test/test3.1.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test3.1.txt is created.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove the files ~/agent_test/mifile.txt and ~/agent_test/test3.1.txt if present.

@@ -1,0 +1,5 @@
+TASKNAME=Tag a local Docker image for pushing to a registry.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo pull an alpine image.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo tags the local image alpine for pushing to a registry. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify that local image alpine has been tagged.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove the alpine image.

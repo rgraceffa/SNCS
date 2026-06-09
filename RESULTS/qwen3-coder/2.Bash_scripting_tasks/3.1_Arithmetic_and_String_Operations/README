@@ -1,0 +1,5 @@
+TASKNAME=Perform arithmetic calculations and comparisons.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.1.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo please create an example script ~/agent_test/test3.1.sh that perform arithmetic calculations and comparisons. Please make it executables in the same command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo executes ~/agent_test/test3.1.sh script and give me the output
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.1.sh

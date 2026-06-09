@@ -1,0 +1,5 @@
+TASKNAME=Pass parameters and return values in functions.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo please create an example script /agent_test/test4.2.sh to use parameters and return values in functions. Please make it executables in the same command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo executes ~/agent_test/test4.2.sh script
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.sh

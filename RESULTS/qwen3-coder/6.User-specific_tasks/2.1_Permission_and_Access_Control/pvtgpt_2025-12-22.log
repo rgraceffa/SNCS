@@ -1,0 +1,157 @@
+poetry run python -m private_gpt
+13:54:34.548 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:54:38.820 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:54:38.884 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:54:38.885 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:54:39.787 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:54:39.941 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:54:39.942 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:54:39.943 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:54:40.835 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:54:40.876 [INFO    ]             uvicorn.error - Started server process [2261718]
+13:54:40.876 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:54:40.876 [INFO    ]             uvicorn.error - Application startup complete.
+13:54:40.876 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:55:14.374 [INFO    ]            uvicorn.access - 127.0.0.1:33826 - "GET /config HTTP/1.1" 200
+13:55:14.429 [INFO    ]            uvicorn.access - 127.0.0.1:33840 - "GET /info?serialize=False HTTP/1.1" 200
+13:55:14.533 [INFO    ]            uvicorn.access - 127.0.0.1:33844 - "GET /heartbeat/b32ddb33-2f1c-46fd-9966-041b34b29f91 HTTP/1.1" 200
+13:55:14.538 [INFO    ]            uvicorn.access - 127.0.0.1:33852 - "POST /queue/join HTTP/1.1" 200
+13:55:14.594 [INFO    ]            uvicorn.access - 127.0.0.1:33862 - "GET /queue/data?session_hash=b32ddb33-2f1c-46fd-9966-041b34b29f91 HTTP/1.1" 200
+13:55:25.511 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:55:38.151 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:55:38.150887622Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test2.1.txt` on the remote host
+`eraigra-rpi` as user `raimondo` was executed successfully. The file has been 
+removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7123380206,
+    'load_duration': 131564751,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 1165267334,
+    'eval_count': 49,
+    'eval_duration': 5755410003
+}
+13:55:38.263 [INFO    ]            uvicorn.access - 127.0.0.1:47264 - "POST /queue/join HTTP/1.1" 200
+13:55:38.319 [INFO    ]            uvicorn.access - 127.0.0.1:47272 - "GET /queue/data?session_hash=b32ddb33-2f1c-46fd-9966-041b34b29f91 HTTP/1.1" 200
+13:56:00.604 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:56:23.758 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -type f \( -perm 777 -o -perm 775 -o -perm 766 -o -perm 764 -o -perm 755 -o -perm 750 -o -perm 666 -o -perm 664 -o -perm 644 \) -exec ls -l {} \; > ~/agent_test/test2.1.txt
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -type f \( -perm 777 -o -perm 775 -o -perm 766 -o -perm 764 -o -perm 755 -o -perm 750 -o -perm 666 -o -perm 664 -o -perm 644 \) -exec ls -l {} \; > ~/agent_test/test2.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''find ~/agent_test 
+-type f \\( -perm 777 -o -perm 775 -o -perm 766 -o -perm 764 -o -perm 755 -o 
+-perm 750 -o -perm 666 -o -perm 664 -o -perm 644 \\) -exec ls -l {} \\; > 
+~/agent_test/test2.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:56:23.757772702Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''find ~/agent_test -type f \\( -perm 777 -o -perm 775 -o -perm 766 -o -perm 764
+-o -perm 755 -o -perm 750 -o -perm 666 -o -perm 664 -o -perm 644 \\) -exec ls -l
+{} \\; > ~/agent_test/test2.1.txt'' executed successfully on remote 
+host.\nOutput: \n\nThe command to find files with potentially vulnerable 
+permissions under the `~/agent_test` folder and log the results to 
+`~/agent_test/test2.1.txt` has been executed successfully on the remote host 
+`eraigra-rpi` as user `raimondo`. \n\nThe command searched for files with 
+permissions such as 777, 775, 766, 764, 755, 750, 666, 664, and 644, and logged 
+the details of these files into the specified output file."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21547557287,
+    'load_duration': 128015137,
+    'prompt_eval_count': 817,
+    'prompt_eval_duration': 6896149878,
+    'eval_count': 124,
+    'eval_duration': 14389067982
+}
+13:56:23.841 [INFO    ]            uvicorn.access - 127.0.0.1:56864 - "POST /queue/join HTTP/1.1" 200
+13:56:23.909 [INFO    ]            uvicorn.access - 127.0.0.1:56878 - "GET /queue/data?session_hash=b32ddb33-2f1c-46fd-9966-041b34b29f91 HTTP/1.1" 200
+13:56:42.718 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:57:11.141 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test2.1.txt ]; then echo "File exists"; cat ~/agent_test/test2.1.txt; else echo "File does not exist"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test2.1.txt ]; then echo "File exists"; cat ~/agent_test/test2.1.txt; else echo "File does not exist"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test2.1.txt ]; then echo "File exists"; cat 
+~/agent_test/test2.1.txt; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.', 'output': 'File exists\n-rw-rw-r-- 1 raimondo 
+raimondo 0 Dec 22 15:56 /home/raimondo/agent_test/test2.1.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:57:11.141409832Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test2.1.txt ]; then echo "File exists"; cat 
+~/agent_test/test2.1.txt; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.\nOutput: File exists\n-rw-rw-r-- 1 raimondo 
+raimondo 0 Dec 22 15:56 /home/raimondo/agent_test/test2.1.txt\n\nThe file 
+`~/agent_test/test2.1.txt` exists on the remote host `eraigra-rpi` as user 
+`raimondo`. \n\nThe content of the file is:\n```\n-rw-rw-r-- 1 raimondo raimondo
+0 Dec 22 15:56 /home/raimondo/agent_test/test2.1.txt\n```\n\nThis indicates that
+the file exists but is empty (0 bytes size), and has read/write permissions for 
+the owner and group, with read-only permissions for others.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23228778988,
+    'load_duration': 128674746,
+    'prompt_eval_count': 1114,
+    'prompt_eval_duration': 9323363278,
+    'eval_count': 117,
+    'eval_duration': 13657926732
+}
+13:57:11.283 [INFO    ]            uvicorn.access - 127.0.0.1:54378 - "POST /queue/join HTTP/1.1" 200
+13:57:11.338 [INFO    ]            uvicorn.access - 127.0.0.1:54394 - "GET /queue/data?session_hash=b32ddb33-2f1c-46fd-9966-041b34b29f91 HTTP/1.1" 200
+13:57:30.292 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:57:39.040 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:57:39.039092949Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test2.1.txt` on the remote host
+`eraigra-rpi` as user `raimondo` was executed successfully. The file has been 
+removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7166467768,
+    'load_duration': 130871252,
+    'prompt_eval_count': 1311,
+    'prompt_eval_duration': 1249760999,
+    'eval_count': 49,
+    'eval_duration': 5690708930
+}
+13:57:39.319 [INFO    ]             uvicorn.error - Shutting down
+13:57:39.420 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:57:39.420 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:57:39.420 [INFO    ]             uvicorn.error - Finished server process [2261718]
+make: *** [Makefile:36: run] Terminated

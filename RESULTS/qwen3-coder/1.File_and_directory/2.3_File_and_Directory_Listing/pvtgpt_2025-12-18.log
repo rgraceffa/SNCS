@@ -1,0 +1,217 @@
+poetry run python -m private_gpt
+12:28:17.337 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:28:21.648 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:28:21.712 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:28:21.714 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:28:22.612 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:28:22.765 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:28:22.766 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:28:22.767 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:28:23.658 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:28:23.699 [INFO    ]             uvicorn.error - Started server process [242868]
+12:28:23.699 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:28:23.699 [INFO    ]             uvicorn.error - Application startup complete.
+12:28:23.700 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:28:57.158 [INFO    ]            uvicorn.access - 127.0.0.1:33600 - "GET /config HTTP/1.1" 200
+12:28:57.213 [INFO    ]            uvicorn.access - 127.0.0.1:33602 - "GET /info?serialize=False HTTP/1.1" 200
+12:28:57.303 [INFO    ]            uvicorn.access - 127.0.0.1:33626 - "POST /queue/join HTTP/1.1" 200
+12:28:57.303 [INFO    ]            uvicorn.access - 127.0.0.1:33610 - "GET /heartbeat/a7421edd-ed84-46ec-a167-f02be53be5e8 HTTP/1.1" 200
+12:28:57.359 [INFO    ]            uvicorn.access - 127.0.0.1:33632 - "GET /queue/data?session_hash=a7421edd-ed84-46ec-a167-f02be53be5e8 HTTP/1.1" 200
+12:29:08.277 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:29:22.107 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T12:29:22.106486293Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.3.txt` was executed successfully on 
+the remote host, and the file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8337527867,
+    'load_duration': 134808998,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 3992290465,
+    'eval_count': 35,
+    'eval_duration': 4135584696
+}
+12:29:22.230 [INFO    ]            uvicorn.access - 127.0.0.1:45306 - "POST /queue/join HTTP/1.1" 200
+12:29:22.285 [INFO    ]            uvicorn.access - 127.0.0.1:45322 - "GET /queue/data?session_hash=a7421edd-ed84-46ec-a167-f02be53be5e8 HTTP/1.1" 200
+12:29:34.323 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:29:43.645 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -la ~ > ~/agent_test/test2.3.txt
+[AGENT] ✅ Remote command executed successfully: ls -la ~ > ~/agent_test/test2.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -la ~ > 
+~/agent_test/test2.3.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T12:29:43.644984268Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-la ~ > ~/agent_test/test2.3.txt'' executed successfully on remote 
+host.\nOutput: \n\nThe command `ls -la ~ > ~/agent_test/test2.3.txt` was 
+executed successfully on the remote host. It listed all files in the home 
+directory (including hidden ones) and saved the output to 
+`~/agent_test/test2.3.txt`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7794433320,
+    'load_duration': 134597812,
+    'prompt_eval_count': 716,
+    'prompt_eval_duration': 1195326029,
+    'eval_count': 54,
+    'eval_duration': 6383775664
+}
+12:29:43.760 [INFO    ]            uvicorn.access - 127.0.0.1:51412 - "POST /queue/join HTTP/1.1" 200
+12:29:43.815 [INFO    ]            uvicorn.access - 127.0.0.1:51416 - "GET /queue/data?session_hash=a7421edd-ed84-46ec-a167-f02be53be5e8 HTTP/1.1" 200
+12:29:51.663 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:32:24.387 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test2.3.txt
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test2.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test2.3.txt'' executed successfully on remote host.", 'output': 
+'total 164\ndrwxr-x--- 18 raimondo raimondo  4096 Dec 18 09:49 .\ndrwxr-xr-x  4 
+root     root      4096 Nov 12 13:25 ..\n-rw-------  1 raimondo raimondo 35990 
+Dec 17 18:33 .bash_history\n-rw-r--r--  1 raimondo raimondo   220 Jan  6  2022 
+.bash_logout\n-rw-r--r--  1 raimondo raimondo  4036 Sep 10 16:19 
+.bashrc\ndrwx------  3 raimondo raimondo  4096 Nov 29  2024 .cache\ndrwx------  
+3 raimondo raimondo  4096 Jul 17  2024 .config\ndrwx------  3 raimondo raimondo 
+4096 Oct 21 16:45 .docker\n-rw-rw-r--  1 raimondo raimondo   132 Dec  1 16:49 
+.gitconfig\ndrwx------  4 raimondo raimondo  4096 Nov 20 12:29 
+.gnupg\n-rw-------  1 raimondo raimondo    20 Dec 15 17:45 .lesshst\ndrwxrwxr-x 
+5 raimondo raimondo  4096 Dec 16 13:27 .local\ndrwxrwxr-x  3 raimondo raimondo  
+4096 Dec  3 13:39 .m2\ndrwxrwxr-x  4 raimondo raimondo  4096 Oct 11  2024 
+.npm\ndrwxrwxr-x  8 raimondo raimondo  4096 Oct 11  2024 .nvm\n-rw-r--r--  1 
+raimondo raimondo   807 Jan  6  2022 .profile\n-rw-rw-r--  1 raimondo raimondo  
+75 Oct 15 14:59 .selected_editor\ndrwx------  2 raimondo raimondo  4096 Nov 17 
+18:53 .ssh\n-rw-r--r--  1 raimondo raimondo     0 Jul 17  2024 
+.sudo_as_admin_successful\n-rw-------  1 raimondo raimondo 15535 Dec 18 09:49 
+.viminfo\n-r--------  1 raimondo raimondo  2459 May  9  2025 
+AZNEULX0001_key.pem\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec 18 14:29 
+agent_test\ndrwxrwxr-x  3 raimondo raimondo  4096 Dec 16 13:44 core\ndrwxrwxr-x 
+10 raimondo raimondo  4096 Aug  5 13:48 eraigra\n-rw-rw-r--  1 raimondo raimondo
+35 Nov 24 17:22 hello.py\ndrwxrwxr-x  2 raimondo raimondo  4096 Aug 20 16:42 
+honeypot\n-rw-rw-r--  1 raimondo raimondo   320 Oct 21 16:39 
+mydockerfile.cfg\ndrwx------  3 raimondo raimondo  4096 Nov 20 15:54 
+snap\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec  3 17:31 test5.2prj\ndrwxrwxr-x 
+2 raimondo raimondo  4096 Dec  8 16:57 test5.3prj\n-rw-rw-r--  1 raimondo 
+raimondo   102 Dec  3 16:03 wrongc.c'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T12:32:24.387162802Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test2.3.txt'' executed successfully on remote host.\nOutput: total 
+164\ndrwxr-x--- 18 raimondo raimondo  4096 Dec 18 09:49 .\ndrwxr-xr-x  4 root   
+root      4096 Nov 12 13:25 ..\n-rw-------  1 raimondo raimondo 35990 Dec 17 
+18:33 .bash_history\n-rw-r--r--  1 raimondo raimondo   220 Jan  6  2022 
+.bash_logout\n-rw-r--r--  1 raimondo raimondo  4036 Sep 10 16:19 
+.bashrc\ndrwx------  3 raimondo raimondo  4096 Nov 29  2024 .cache\ndrwx------  
+3 raimondo raimondo  4096 Jul 17  2024 .config\ndrwx------  3 raimondo raimondo 
+4096 Oct 21 16:45 .docker\n-rw-rw-r--  1 raimondo raimondo   132 Dec  1 16:49 
+.gitconfig\ndrwx------  4 raimondo raimondo  4096 Nov 20 12:29 
+.gnupg\n-rw-------  1 raimondo raimondo    20 Dec 15 17:45 .lesshst\ndrwxrwxr-x 
+5 raimondo raimondo  4096 Dec 16 13:27 .local\ndrwxrwxr-x  3 raimondo raimondo  
+4096 Dec  3 13:39 .m2\ndrwxrwxr-x  4 raimondo raimondo  4096 Oct 11  2024 
+.npm\ndrwxrwxr-x  8 raimondo raimondo  4096 Oct 11  2024 .nvm\n-rw-r--r--  1 
+raimondo raimondo   807 Jan  6  2022 .profile\n-rw-rw-r--  1 raimondo raimondo  
+75 Oct 15 14:59 .selected_editor\ndrwx------  2 raimondo raimondo  4096 Nov 17 
+18:53 .ssh\n-rw-r--r--  1 raimondo raimondo     0 Jul 17  2024 
+.sudo_as_admin_successful\n-rw-------  1 raimondo raimondo 15535 Dec 18 09:49 
+.viminfo\n-r--------  1 raimondo raimondo  2459 May  9  2025 
+AZNEULX0001_key.pem\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec 18 14:29 
+agent_test\ndrwxrwxr-x  3 raimondo raimondo  4096 Dec 16 13:44 core\ndrwxrwxr-x 
+10 raimondo raimondo  4096 Aug  5 13:48 eraigra\n-rw-rw-r--  1 raimondo raimondo
+35 Nov 24 17:22 hello.py\ndrwxrwxr-x  2 raimondo raimondo  4096 Aug 20 16:42 
+honeypot\n-rw-rw-r--  1 raimondo raimondo   320 Oct 21 16:39 
+mydockerfile.cfg\ndrwx------  3 raimondo raimondo  4096 Nov 20 15:54 
+snap\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec  3 17:31 test5.2prj\ndrwxrwxr-x 
+2 raimondo raimondo  4096 Dec  8 16:57 test5.3prj\n-rw-rw-r--  1 raimondo 
+raimondo   102 Dec  3 16:03 wrongc.c\n\nThe file `~/agent_test/test2.3.txt` was 
+successfully created and contains the following content:\n\n```\ntotal 
+164\ndrwxr-x--- 18 raimondo raimondo  4096 Dec 18 09:49 .\ndrwxr-xr-x  4 root   
+root      4096 Nov 12 13:25 ..\n-rw-------  1 raimondo raimondo 35990 Dec 17 
+18:33 .bash_history\n-rw-r--r--  1 raimondo raimondo   220 Jan  6  2022 
+.bash_logout\n-rw-r--r--  1 raimondo raimondo  4036 Sep 10 16:19 
+.bashrc\ndrwx------  3 raimondo raimondo  4096 Nov 29  2024 .cache\ndrwx------  
+3 raimondo raimondo  4096 Jul 17  2024 .config\ndrwx------  3 raimondo raimondo 
+4096 Oct 21 16:45 .docker\n-rw-rw-r--  1 raimondo raimondo   132 Dec  1 16:49 
+.gitconfig\ndrwx------  4 raimondo raimondo  4096 Nov 20 12:29 
+.gnupg\n-rw-------  1 raimondo raimondo    20 Dec 15 17:45 .lesshst\ndrwxrwxr-x 
+5 raimondo raimondo  4096 Dec 16 13:27 .local\ndrwxrwxr-x  3 raimondo raimondo  
+4096 Dec  3 13:39 .m2\ndrwxrwxr-x  4 raimondo raimondo  4096 Oct 11  2024 
+.npm\ndrwxrwxr-x  8 raimondo raimondo  4096 Oct 11  2024 .nvm\n-rw-r--r--  1 
+raimondo raimondo   807 Jan  6  2022 .profile\n-rw-rw-r--  1 raimondo raimondo  
+75 Oct 15 14:59 .selected_editor\ndrwx------  2 raimondo raimondo  4096 Nov 17 
+18:53 .ssh\n-rw-r--r--  1 raimondo raimondo     0 Jul 17  2024 
+.sudo_as_admin_successful\n-rw-------  1 raimondo raimondo 15535 Dec 18 09:49 
+.viminfo\n-r--------  1 raimondo raimondo  2459 May  9  2025 
+AZNEULX0001_key.pem\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec 18 14:29 
+agent_test\ndrwxrwxr-x  3 raimondo raimondo  4096 Dec 16 13:44 core\ndrwxrwxr-x 
+10 raimondo raimondo  4096 Aug  5 13:48 eraigra\n-rw-rw-r--  1 raimondo raimondo
+35 Nov 24 17:22 hello.py\ndrwxrwxr-x  2 raimondo raimondo  4096 Aug 20 16:42 
+honeypot\n-rw-rw-r--  1 raimondo raimondo   320 Oct 21 16:39 
+mydockerfile.cfg\ndrwx------  3 raimondo raimondo  4096 Nov 20 15:54 
+snap\ndrwxrwxr-x  2 raimondo raimondo  4096 Dec  3 17:31 test5.2prj\ndrwxrwxr-x 
+2 raimondo raimondo  4096 Dec  8 16:57 test5.3prj\n-rw-rw-r--  1 raimondo 
+raimondo   102 Dec  3 16:03 wrongc.c\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 151212806593,
+    'load_duration': 131752511,
+    'prompt_eval_count': 1918,
+    'prompt_eval_duration': 19066069924,
+    'eval_count': 1066,
+    'eval_duration': 131387326704
+}
+12:32:24.509 [INFO    ]            uvicorn.access - 127.0.0.1:57494 - "POST /queue/join HTTP/1.1" 200
+12:32:24.568 [INFO    ]            uvicorn.access - 127.0.0.1:57504 - "GET /queue/data?session_hash=a7421edd-ed84-46ec-a167-f02be53be5e8 HTTP/1.1" 200
+12:33:05.624 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:33:49.576 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T12:33:49.575567762Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.3.txt` was executed successfully on 
+the remote host, and the file has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 38698544898,
+    'load_duration': 131413466,
+    'prompt_eval_count': 3063,
+    'prompt_eval_duration': 33953083511,
+    'eval_count': 35,
+    'eval_duration': 4492196045
+}
+12:33:49.809 [INFO    ]             uvicorn.error - Shutting down
+12:33:49.908 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:33:49.908 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:33:49.908 [INFO    ]             uvicorn.error - Finished server process [242868]
+make: *** [Makefile:36: run] Terminated

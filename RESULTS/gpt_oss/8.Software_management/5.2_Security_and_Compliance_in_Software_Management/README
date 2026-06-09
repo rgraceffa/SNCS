@@ -1,0 +1,5 @@
+TASKNAME=Apply security patches to a specific software package using package manager commands.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo apply security patches to a apache package using package manager commands. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=
+TASKPOST_EXECUTION=

@@ -1,0 +1,64 @@
+Loaded as API: http://127.0.0.1:8002/ ✔
+
+🚀 Starting 4-Stage Execution Pipeline for: /home/azureuser/agent_test/test/3.Process_related_tasks/3.2_Service_Status_and_Management/README
+
+
+[PRE-EXECUTION] ▶️ Executing: in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log
+
+[PRE-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''rm -f ~/agent_test/test3.2.log'' executed successfully on remote host.
+Output: 
+
+The file `~/agent_test/test3.2.log` has been removed (if it existed).
+
+[PRE-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+[COMMAND] ▶️ Executing: in the remost host eraigra-rpi username raimondo find and log into the file ~/agent_test/test3.2.log the status of apache2 and restart only if not running using sudo. Don't split the commands and do all requested in a single command line.
+
+[COMMAND] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''sudo systemctl status apache2 >> ~/agent_test/test3.2.log 2>&1 && sudo systemctl is-active --quiet apache2 || (sudo systemctl restart apache2 >> ~/agent_test/test3.2.log 2>&1)'' executed successfully on remote host.
+Output: 
+
+Command executed successfully.  
+The Apache2 status was appended to `~/agent_test/test3.2.log`, and if it was not running, Apache2 was restarted with the restart output also logged to the same file.
+
+[COMMAND] ✅ Success detected on attempt 1. Continuing...
+
+
+[VERIFY] ▶️ Executing: in the remost host eraigra-rpi username raimondo check if exists ~/agent_test/test1.3.log and is not empty
+
+[VERIFY] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''[ -s ~/agent_test/test1.3.log ] && echo "exists and not empty" || echo "does not exist or empty"'' executed successfully on remote host.
+Output: does not exist or empty
+
+The file `~/agent_test/test1.3.log` **does not exist or is empty**.
+
+[VERIFY] ✅ Success detected on attempt 1. Continuing...
+
+
+[POST-EXECUTION] ▶️ Executing: in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log
+
+[POST-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''rm -f ~/agent_test/test3.2.log'' executed successfully on remote host.
+Output: 
+
+The file `~/agent_test/test3.2.log` has been removed (if it existed).
+
+[POST-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+✅ All stages completed successfully!
+

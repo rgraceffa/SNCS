@@ -1,0 +1,5 @@
+TASKNAME=Search files case-insensitive. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create the empty file ~/agent_test/AZNEULX0001_key.pem and remove the file ~/agent_test/test3.2.txt if present in the same command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo under ~/agent_test folder search all files *.pem case-insensitive, if you find one file create the empty file ~/agent_test/test3.2.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test3.2.txt is present.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the 2 files ~/agent_test/AZNEULX0001_key.pem and ~/agent_test/test3.2.txt

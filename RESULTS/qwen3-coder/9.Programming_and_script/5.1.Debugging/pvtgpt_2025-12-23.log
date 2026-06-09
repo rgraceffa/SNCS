@@ -1,0 +1,165 @@
+poetry run python -m private_gpt
+11:04:33.170 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:04:37.460 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:04:37.524 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:04:37.525 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:04:38.428 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:04:38.582 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:04:38.584 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:04:38.585 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:04:39.474 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:04:39.515 [INFO    ]             uvicorn.error - Started server process [3077329]
+11:04:39.515 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:04:39.515 [INFO    ]             uvicorn.error - Application startup complete.
+11:04:39.515 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:05:13.002 [INFO    ]            uvicorn.access - 127.0.0.1:35592 - "GET /config HTTP/1.1" 200
+11:05:13.058 [INFO    ]            uvicorn.access - 127.0.0.1:35606 - "GET /info?serialize=False HTTP/1.1" 200
+11:05:13.128 [INFO    ]            uvicorn.access - 127.0.0.1:35624 - "POST /queue/join HTTP/1.1" 200
+11:05:13.129 [INFO    ]            uvicorn.access - 127.0.0.1:35618 - "GET /heartbeat/cd7c2288-b1b0-497b-b643-e7c4eb7f83cb HTTP/1.1" 200
+11:05:13.185 [INFO    ]            uvicorn.access - 127.0.0.1:35632 - "GET /queue/data?session_hash=cd7c2288-b1b0-497b-b643-e7c4eb7f83cb HTTP/1.1" 200
+11:05:24.550 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:06:00.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅ Remote command executed successfully: cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cp 
+/home/raimondo/wrongc.c /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/wrongc.c'' executed successfully on remote host.", 
+'output': '#include <stdio.h>\n\nint main() {\n    int x = 5;\n    printf("The 
+value is %d\\n", y); \n    return 0;\n}'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:06:00.287110717Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cp /home/raimondo/wrongc.c /home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/wrongc.c\'\' executed successfully on remote 
+host.\nOutput: #include <stdio.h>\n\nint main() {\n    int x = 5;\n    
+printf("The value is %d\\n", y); \n    return 0;\n}\n\nThe file `wrongc.c` has 
+been copied to the `agent_test` directory and its contents are as 
+follows:\n\n```c\n#include <stdio.h>\n\nint main() {\n    int x = 5;\n    
+printf("The value is %d\\n", y); \n    return 0;\n}\n```\n\n### Bug 
+Identified:\nThere is a **variable `y` used without being declared**. In the 
+`printf` statement, `%d` expects an integer value, but `y` is not defined in the
+code. This will lead to a compilation error or undefined behavior.\n\n### 
+Fix:\nYou should either:\n1. Declare `y` before using it:\n   ```c\n   int y = 
+5; // or some other appropriate value\n   ```\n2. Or use `x` instead of `y` if 
+the intention was to print the value of `x`:\n   ```c\n   printf("The value is 
+%d\\n", x);\n   ```\n\nLet me know if you\'d like me to generate a corrected 
+version of the code.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30635268891,
+    'load_duration': 127818594,
+    'prompt_eval_count': 674,
+    'prompt_eval_duration': 4694463825,
+    'eval_count': 218,
+    'eval_duration': 25631052357
+}
+11:06:00.389 [INFO    ]            uvicorn.access - 127.0.0.1:46704 - "POST /queue/join HTTP/1.1" 200
+11:06:00.449 [INFO    ]            uvicorn.access - 127.0.0.1:46716 - "GET /queue/data?session_hash=cd7c2288-b1b0-497b-b643-e7c4eb7f83cb HTTP/1.1" 200
+11:06:18.072 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:06:36.495 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sed -i 's/printf("The value is %d\\n", y);/printf("The value is %d\\n", x);/' /home/raimondo/agent_test/wrongc.c && gcc -o /home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅ Remote command executed successfully: sed -i 's/printf("The value is %d\\n", y);/printf("The value is %d\\n", x);/' /home/raimondo/agent_test/wrongc.c && gcc -o /home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sed -i 
+\'"\'"\'s/printf("The value is %d\\\\n", y);/printf("The value is %d\\\\n", 
+x);/\'"\'"\' /home/raimondo/agent_test/wrongc.c && gcc -o 
+/home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c\'\' executed
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:06:36.494716446Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sed -i \'"\'"\'s/printf("The value is %d\\\\n", y);/printf("The value is 
+%d\\\\n", x);/\'"\'"\' /home/raimondo/agent_test/wrongc.c && gcc -o 
+/home/raimondo/agent_test/wrongc /home/raimondo/agent_test/wrongc.c\'\' executed
+successfully on remote host.\nOutput: \n\nThe C program 
+`/home/raimondo/agent_test/wrongc.c` has been successfully modified and 
+compiled. The incorrect reference to `y` has been replaced with `x`, and the 
+program has been compiled into an executable named `wrongc` in the same 
+directory.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15912732416,
+    'load_duration': 131334508,
+    'prompt_eval_count': 1074,
+    'prompt_eval_duration': 9157394503,
+    'eval_count': 58,
+    'eval_duration': 6534640230
+}
+11:06:36.661 [INFO    ]            uvicorn.access - 127.0.0.1:39788 - "POST /queue/join HTTP/1.1" 200
+11:06:36.715 [INFO    ]            uvicorn.access - 127.0.0.1:39804 - "GET /queue/data?session_hash=cd7c2288-b1b0-497b-b643-e7c4eb7f83cb HTTP/1.1" 200
+11:06:53.721 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:07:07.277 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi /home/raimondo/agent_test/wrongc
+[AGENT] ✅ Remote command executed successfully: /home/raimondo/agent_test/wrongc
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+'/home/raimondo/agent_test/wrongc' executed successfully on remote host.", 
+'output': 'The value is 5'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:07:07.276890624Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+'/home/raimondo/agent_test/wrongc' executed successfully on remote 
+host.\nOutput: The value is 5\n\nThe program `/home/raimondo/agent_test/wrongc` 
+has been executed successfully, and the output is:\n\n```\nThe value is 
+5\n```\n\nThis confirms that the program now correctly prints the value of `x`, 
+which was initialized to 5."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8527345418,
+    'load_duration': 133044151,
+    'prompt_eval_count': 1239,
+    'prompt_eval_duration': 1505176518,
+    'eval_count': 57,
+    'eval_duration': 6785869008
+}
+11:07:07.414 [INFO    ]            uvicorn.access - 127.0.0.1:39580 - "POST /queue/join HTTP/1.1" 200
+11:07:07.469 [INFO    ]            uvicorn.access - 127.0.0.1:39586 - "GET /queue/data?session_hash=cd7c2288-b1b0-497b-b643-e7c4eb7f83cb HTTP/1.1" 200
+11:07:17.075 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:07:23.301 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/wrongc*
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/wrongc*
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/wrongc*'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:07:23.300505904Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/wrongc*'' executed successfully on remote 
+host.\nOutput: \n\nThe files `/home/raimondo/agent_test/wrongc*` have been 
+successfully removed from the remote host."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 4728863025,
+    'load_duration': 128112738,
+    'prompt_eval_count': 1401,
+    'prompt_eval_duration': 1507654768,
+    'eval_count': 26,
+    'eval_duration': 3012997460
+}
+11:07:23.443 [INFO    ]             uvicorn.error - Shutting down
+11:07:23.544 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:07:23.544 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:07:23.544 [INFO    ]             uvicorn.error - Finished server process [3077329]
+make: *** [Makefile:36: run] Terminated

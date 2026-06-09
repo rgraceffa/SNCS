@@ -1,0 +1,180 @@
+poetry run python -m private_gpt
+13:38:39.356 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:38:43.674 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:38:43.738 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:38:43.740 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:38:44.643 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:38:44.798 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:38:44.800 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:38:44.801 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:38:45.695 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:38:45.736 [INFO    ]             uvicorn.error - Started server process [3160504]
+13:38:45.736 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:38:45.736 [INFO    ]             uvicorn.error - Application startup complete.
+13:38:45.736 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:39:19.186 [INFO    ]            uvicorn.access - 127.0.0.1:60522 - "GET /config HTTP/1.1" 200
+13:39:19.241 [INFO    ]            uvicorn.access - 127.0.0.1:60534 - "GET /info?serialize=False HTTP/1.1" 200
+13:39:19.313 [INFO    ]            uvicorn.access - 127.0.0.1:60564 - "POST /queue/join HTTP/1.1" 200
+13:39:19.314 [INFO    ]            uvicorn.access - 127.0.0.1:60550 - "GET /heartbeat/92c294b1-d7b2-4c71-9c15-75ad45844058 HTTP/1.1" 200
+13:39:19.370 [INFO    ]            uvicorn.access - 127.0.0.1:60566 - "GET /queue/data?session_hash=92c294b1-d7b2-4c71-9c15-75ad45844058 HTTP/1.1" 200
+13:39:39.702 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:39:55.522 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:39:55.522378317Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && cp /etc/X11/rgb.txt ~/agent_test/test8.3.txt'' 
+executed successfully on remote host.\nOutput: \n\nThe file `/etc/X11/rgb.txt` 
+has been successfully copied to `~/agent_test/test8.3.txt` on the remote host 
+`eraigra-rpi`.",
+        'thinking': 'We need to respond with the result or confirmation. The 
+command executed successfully. So output can be a confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10765453605,
+    'load_duration': 282457234,
+    'prompt_eval_count': 435,
+    'prompt_eval_duration': 256194089,
+    'eval_count': 37,
+    'eval_duration': 4612285605
+}
+13:39:55.619 [INFO    ]            uvicorn.access - 127.0.0.1:34788 - "POST /queue/join HTTP/1.1" 200
+13:39:55.675 [INFO    ]            uvicorn.access - 127.0.0.1:34792 - "GET /queue/data?session_hash=92c294b1-d7b2-4c71-9c15-75ad45844058 HTTP/1.1" 200
+13:40:37.840 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:41:03.906 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -maxdepth 1 -name '*.txt' -exec sh -c 'iconv -f ASCII -t UTF-8 "$0" > "${0}.conv"' {} \;
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -maxdepth 1 -name '*.txt' -exec sh -c 'iconv -f ASCII -t UTF-8 "$0" > "${0}.conv"' {} \;
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'find ~/agent_test 
+-maxdepth 1 -name \'"\'"\'*.txt\'"\'"\' -exec sh -c \'"\'"\'iconv -f ASCII -t 
+UTF-8 "$0" > "${0}.conv"\'"\'"\' {} \\;\'\' executed successfully on remote 
+host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:41:03.905873076Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'find ~/agent_test -maxdepth 1 -name \'"\'"\'*.txt\'"\'"\' -exec sh -c 
+\'"\'"\'iconv -f ASCII -t UTF-8 "$0" > "${0}.conv"\'"\'"\' {} \\;\'\' executed 
+successfully on remote host.\nOutput: \n\nAll ASCII‑text files in `~/agent_test`
+on the remote host `eraigra-rpi` have been converted to UTF‑8, and each 
+resulting file now has a `.conv` extension (e.g., `test8.3.txt.conv`).',
+        'thinking': 'The user requested: "convert all txt files from ascii to 
+utf-8 in the folder ~/agent_test in the remote host eraigra-rpi username 
+raimondo. To all converted files append the extension .conv. Don\'t split the 
+commands and do all requested in a single command line."\n\nWe executed find 
+with sh -c iconv -f ASCII -t UTF-8 "$0" > "${0}.conv" {} \\; . This will create 
+new file test8.3.txt.conv etc. This satisfies requirement. Good.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24557718694,
+    'load_duration': 289346420,
+    'prompt_eval_count': 716,
+    'prompt_eval_duration': 256559619,
+    'eval_count': 54,
+    'eval_duration': 6800359314
+}
+13:41:04.016 [INFO    ]            uvicorn.access - 127.0.0.1:52038 - "POST /queue/join HTTP/1.1" 200
+13:41:04.072 [INFO    ]            uvicorn.access - 127.0.0.1:52054 - "GET /queue/data?session_hash=92c294b1-d7b2-4c71-9c15-75ad45844058 HTTP/1.1" 200
+13:41:33.008 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:41:54.641 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sh -c 'test -f ~/agent_test/test8.3.txt.conv && file -bi ~/agent_test/test8.3.txt.conv | grep -q "utf-8" && echo "File exists and is UTF-8" || echo "Check failed"'
+[AGENT] ✅ Remote command executed successfully: sh -c 'test -f ~/agent_test/test8.3.txt.conv && file -bi ~/agent_test/test8.3.txt.conv | grep -q "utf-8" && echo "File exists and is UTF-8" || echo "Check failed"'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sh -c \'"\'"\'test 
+-f ~/agent_test/test8.3.txt.conv && file -bi ~/agent_test/test8.3.txt.conv | 
+grep -q "utf-8" && echo "File exists and is UTF-8" || echo "Check 
+failed"\'"\'"\'\'\' executed successfully on remote host.', 'output': 'Check 
+failed'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:41:54.6407646Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sh -c \'"\'"\'test -f ~/agent_test/test8.3.txt.conv && file -bi 
+~/agent_test/test8.3.txt.conv | grep -q "utf-8" && echo "File exists and is 
+UTF-8" || echo "Check failed"\'"\'"\'\'\' executed successfully on remote 
+host.\nOutput: Check failed\n\n',
+        'thinking': "The check failed. Likely the file does not exist or file 
+format not detected. We need to check existence and UTF-8. Maybe file is still 
+ASCII? Let's inspect file. We can use file command to see encoding. Let's run 
+file on the .conv file.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'file -i ~/agent_test/test8.3.txt.conv',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16299912343,
+    'load_duration': 288478788,
+    'prompt_eval_count': 808,
+    'prompt_eval_duration': 1831166944,
+    'eval_count': 109,
+    'eval_duration': 13885406717
+}
+13:41:54.791 [INFO    ]            uvicorn.access - 127.0.0.1:58616 - "POST /queue/join HTTP/1.1" 200
+13:41:54.846 [INFO    ]            uvicorn.access - 127.0.0.1:58624 - "GET /queue/data?session_hash=92c294b1-d7b2-4c71-9c15-75ad45844058 HTTP/1.1" 200
+13:42:12.284 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:42:28.623 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test8.3.txt ~/agent_test/test8.3.txt.conv
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test8.3.txt ~/agent_test/test8.3.txt.conv
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test8.3.txt ~/agent_test/test8.3.txt.conv'' executed successfully 
+on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:42:28.623580183Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test8.3.txt ~/agent_test/test8.3.txt.conv'' executed 
+successfully on remote host.\nOutput: \n\nBoth `test8.3.txt` and 
+`test8.3.txt.conv` have been removed from `~/agent_test` (if they existed). No 
+further action is needed.",
+        'thinking': 'We need to respond appropriately. The user requested to 
+remove files test8.3.txt and test8.3.txt.conv if exists in ~/agent_test folder. 
+The assistant executed rm -f which will delete if exist or not. We should inform
+the user.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14829763502,
+    'load_duration': 288525866,
+    'prompt_eval_count': 960,
+    'prompt_eval_duration': 158006423,
+    'eval_count': 38,
+    'eval_duration': 4757501656
+}
+13:42:28.727 [INFO    ]             uvicorn.error - Shutting down
+13:42:28.828 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:42:28.828 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:42:28.828 [INFO    ]             uvicorn.error - Finished server process [3160504]
+make: *** [Makefile:36: run] Terminated

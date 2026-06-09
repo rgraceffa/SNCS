@@ -1,0 +1,219 @@
+poetry run python -m private_gpt
+10:27:43.602 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:27:47.904 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:27:47.968 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:27:47.969 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:27:48.863 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:27:49.016 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:27:49.017 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:27:49.018 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:27:49.909 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:27:49.950 [INFO    ]             uvicorn.error - Started server process [157124]
+10:27:49.950 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:27:49.950 [INFO    ]             uvicorn.error - Application startup complete.
+10:27:49.951 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:28:23.431 [INFO    ]            uvicorn.access - 127.0.0.1:36820 - "GET /config HTTP/1.1" 200
+10:28:23.486 [INFO    ]            uvicorn.access - 127.0.0.1:36830 - "GET /info?serialize=False HTTP/1.1" 200
+10:28:23.557 [INFO    ]            uvicorn.access - 127.0.0.1:36832 - "POST /queue/join HTTP/1.1" 200
+10:28:23.557 [INFO    ]            uvicorn.access - 127.0.0.1:36838 - "GET /heartbeat/43d0b320-d5bc-484f-8322-01c6e0014e5f HTTP/1.1" 200
+10:28:23.612 [INFO    ]            uvicorn.access - 127.0.0.1:36854 - "GET /queue/data?session_hash=43d0b320-d5bc-484f-8322-01c6e0014e5f HTTP/1.1" 200
+10:28:41.092 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:29:14.562 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:29:14.561836878Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.3.sh'' executed successfully on remote host.\nOutput: 
+\n\n",
+        'thinking': 'The user wants: "in the remote host eraigra-rpi username 
+raimondo remove if exists script ~/agent_test/test2.3.sh. Don\'t split the 
+commands and do all requested in a single command line."\n\nWe must produce a 
+single command that removes the script if exists. They want "in the remote host 
+eraigra-rpi username raimondo remove if exists script ~/agent_test/test2.3.sh." 
+So we must send a command via SSH. The tool can run remote command. We have to 
+combine the removal logic: maybe rm -f is fine (if file not exists, no error). 
+They don\'t want split commands. So we will do: rm -f ~/agent_test/test2.3.sh. 
+Provide that. Let\'s use function.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'rm -f ~/agent_test/test2.3.sh',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28229311326,
+    'load_duration': 293221822,
+    'prompt_eval_count': 395,
+    'prompt_eval_duration': 1026472476,
+    'eval_count': 209,
+    'eval_duration': 26672223149
+}
+10:29:14.682 [INFO    ]            uvicorn.access - 127.0.0.1:49554 - "POST /queue/join HTTP/1.1" 200
+10:29:14.737 [INFO    ]            uvicorn.access - 127.0.0.1:49562 - "GET /queue/data?session_hash=43d0b320-d5bc-484f-8322-01c6e0014e5f HTTP/1.1" 200
+10:30:22.235 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:31:38.520 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#!/bin/bash\nsudo dpkg --audit' > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: echo -e '#!/bin/bash\nsudo dpkg --audit' > ~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#!/bin/bash\\nsudo dpkg --audit\'"\'"\' > ~/agent_test/test2.3.sh && 
+chmod +x ~/agent_test/test2.3.sh\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:31:38.519914645Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#!/bin/bash\\nsudo dpkg --audit\'"\'"\' > 
+~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nThe script has been created and made 
+executable.  \nIt simply runs `sudo dpkg --audit` to report any packages with 
+unresolved dependencies.  \nYou can run it 
+with:\n\n```bash\n~/agent_test/test2.3.sh\n```\n\nHappy troubleshooting!',
+        'thinking': 'The user wants a script that lists and reports packages 
+with unresolved dependencies, using sudo if needed, and give execute 
+permissions. They also want to do all requested in a single command line. The 
+assistant executed: `echo -e \'"#!/bin/bash\\nsudo dpkg --audit"\' > 
+~/agent_test/test2.3.sh && chmod +x ~/agent_test/test2.3.sh`. That script only 
+calls dpkg --audit, which lists packages with missing dependencies? dpkg --audit
+indeed lists broken packages. That might be okay. However maybe the script 
+should list packages with unresolved dependencies using `apt` or `apt-get`. But 
+dpkg --audit works. However the script might need to use sudo if necessary. The 
+script uses sudo dpkg. But if the script is run as non-root, sudo will prompt 
+for password unless configured. But maybe that\'s fine.\n\nWe need to ensure 
+that the script does all requested: remove if exists script, create new script 
+to list and report packages with unresolved dependencies, using sudo if needed, 
+give execute permissions, all in a single command line. The user previously 
+removed the script; we can ignore that. The user now wants to create script. 
+They want a single command line. The assistant provided a single command line 
+that uses echo > to create the script and chmod. That meets the 
+request.\n\nHowever, the assistant used `echo -e \'"#!/bin/bash\\nsudo dpkg 
+--audit"\' > ...`. That may produce quotes incorrectly. Let\'s check: The string
+is `\'echo -e \\\'"\'\\"\'#!/bin/bash\\\\nsudo dpkg --audit\\"\'"\'\\" > ...` 
+It\'s a bit messy but it probably executed. The script file content will 
+be:\n\n#!/bin/bash\nsudo dpkg --audit\n\nYes.\n\nBut we might need to provide 
+something like `apt-get -f`? The script might be fine.\n\nBut maybe they want a 
+script that reports unresolved dependencies: `sudo apt-get check` might output 
+list. Or `dpkg -l` with `grep -v ^ii`? But dpkg --audit is fine.\n\nThus the 
+assistant responded with success. But we should verify the script is correct: 
+The file content is exactly:\n\n#!/bin/bash\nsudo dpkg --audit\n\nYes. That 
+lists unresolved packages. Good.\n\nThus the assistant can finalize.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 71188689402,
+    'load_duration': 291174096,
+    'prompt_eval_count': 1015,
+    'prompt_eval_duration': 256932826,
+    'eval_count': 53,
+    'eval_duration': 6684391064
+}
+10:31:38.632 [INFO    ]            uvicorn.access - 127.0.0.1:48450 - "POST /queue/join HTTP/1.1" 200
+10:31:38.686 [INFO    ]            uvicorn.access - 127.0.0.1:48456 - "GET /queue/data?session_hash=43d0b320-d5bc-484f-8322-01c6e0014e5f HTTP/1.1" 200
+10:32:03.746 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:32:58.879 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f ~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: test -f ~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''test -f 
+~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:32:58.878746762Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''test -f ~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh'' executed 
+successfully on remote host.\nOutput: \n\nThe command was run successfully on 
+**eraigra‑rpi** as user **raimondo**:\n\n```bash\ntest -f 
+~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh\n```\n\nSince the script just
+executes `sudo dpkg --audit`, it will only produce output if there are packages 
+with unresolved dependencies. The empty result indicates that the system 
+currently has no such packages (or the output was not captured). If you want to 
+see the audit report, you can run the command again and capture its output, 
+e.g.:\n\n```bash\n~/agent_test/test2.3.sh > 
+~/agent_test/dep_audit.txt\n```\n\nFeel free to let me know if you’d like any 
+further checks or logs.",
+        'thinking': 'We need to answer user: "in the remote host eraigra-rpi 
+username raimondo execute if exists script ~/agent_test/test2.3.sh. Don\'t split
+the commands and do all requested in a single command line."\n\nThe tool 
+executed `test -f ~/agent_test/test2.3.sh && ~/agent_test/test2.3.sh`. The 
+output is empty, so nothing printed. The user might want the output. The system 
+executed but didn\'t show output. We should explain that the command executed 
+successfully, no output because script didn\'t produce anything. But script just
+runs `sudo dpkg --audit`, which would output list of packages with unresolved 
+dependencies. Maybe there were none. But we should inform. Also we might suggest
+capturing output. But user didn\'t ask for anything else.\n\nSo respond that 
+script executed, no output displayed because no unresolved packages, or maybe 
+output was suppressed. Could request to see output. But best to say script ran, 
+no output.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 48925719261,
+    'load_duration': 295484961,
+    'prompt_eval_count': 894,
+    'prompt_eval_duration': 256964841,
+    'eval_count': 156,
+    'eval_duration': 19917658654
+}
+10:32:58.997 [INFO    ]            uvicorn.access - 127.0.0.1:55604 - "POST /queue/join HTTP/1.1" 200
+10:32:59.051 [INFO    ]            uvicorn.access - 127.0.0.1:55616 - "GET /queue/data?session_hash=43d0b320-d5bc-484f-8322-01c6e0014e5f HTTP/1.1" 200
+10:33:25.644 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:33:41.802 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f ~/agent_test/test2.3.sh && rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅ Remote command executed successfully: test -f ~/agent_test/test2.3.sh && rm -f ~/agent_test/test2.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''test -f 
+~/agent_test/test2.3.sh && rm -f ~/agent_test/test2.3.sh'' executed successfully
+on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:33:41.80206736Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''test -f ~/agent_test/test2.3.sh && rm -f ~/agent_test/test2.3.sh'' executed 
+successfully on remote host.\nOutput: \n\nScript `~/agent_test/test2.3.sh` has 
+been removed (if it existed).",
+        'thinking': "The user wants to remove the script. The assistant 
+responded with the command test -f ... && rm -f. That removes if exists. It's 
+fine. There's no further instructions. The assistant can confirm."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11084778531,
+    'load_duration': 292110949,
+    'prompt_eval_count': 1002,
+    'prompt_eval_duration': 135026062,
+    'eval_count': 20,
+    'eval_duration': 2440445392
+}
+10:33:42.046 [INFO    ]             uvicorn.error - Shutting down
+10:33:42.146 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:33:42.146 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:33:42.146 [INFO    ]             uvicorn.error - Finished server process [157124]
+make: *** [Makefile:36: run] Terminated

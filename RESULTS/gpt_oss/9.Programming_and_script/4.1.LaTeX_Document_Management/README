@@ -1,0 +1,5 @@
+TASKNAME=Compile a LaTeX document and verify the creation of the PDF.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present all the files /home/raimondo/agent_test/text4.1.*. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a simple latex file for 'hello world' called /home/raimondo/agent_test/text4.1.latex then compile it and verify if the pdf /home/raimondo/agent_test/text4.1.pdf has been properly created. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file /home/raimondo/agent_test/text4.1.pdf has been properly created.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present all the files /home/raimondo/agent_test/text4.1.*

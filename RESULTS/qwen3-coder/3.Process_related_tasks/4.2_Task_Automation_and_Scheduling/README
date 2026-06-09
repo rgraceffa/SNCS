@@ -1,0 +1,5 @@
+TASKNAME=Check and list currently scheduled cron tasks.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo check and list currently scheduled cron tasks. Log all outcome in the file ~/agent_test/test4.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test4.2.log exists and provide us the content 
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.2.log

@@ -1,0 +1,222 @@
+poetry run python -m private_gpt
+08:59:05.756 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:59:10.038 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:59:10.102 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:59:10.103 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:59:10.998 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:59:11.151 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:59:11.152 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:59:11.153 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:59:12.042 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:59:12.083 [INFO    ]             uvicorn.error - Started server process [26026]
+08:59:12.083 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:59:12.083 [INFO    ]             uvicorn.error - Application startup complete.
+08:59:12.084 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:59:45.587 [INFO    ]            uvicorn.access - 127.0.0.1:60784 - "GET /config HTTP/1.1" 200
+08:59:45.641 [INFO    ]            uvicorn.access - 127.0.0.1:60794 - "GET /info?serialize=False HTTP/1.1" 200
+08:59:45.728 [INFO    ]            uvicorn.access - 127.0.0.1:60810 - "GET /heartbeat/73b5888e-5e00-49fc-bcf1-3482448c14f7 HTTP/1.1" 200
+08:59:45.731 [INFO    ]            uvicorn.access - 127.0.0.1:60824 - "POST /queue/join HTTP/1.1" 200
+08:59:45.786 [INFO    ]            uvicorn.access - 127.0.0.1:60838 - "GET /queue/data?session_hash=73b5888e-5e00-49fc-bcf1-3482448c14f7 HTTP/1.1" 200
+09:00:03.759 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:00:46.624 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:00:46.62404618Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test5.2.sh` has been removed on host **eraigra-rpi** 
+(user `raimondo`). If it didn't exist, nothing was changed.",
+        'thinking': 'The user wants to remove file if exists. The assistant 
+responded with rm -f command, but used ~ which expands local? We need to run 
+remote command. The tool usage: we need to call function execute_remote_command 
+with host etc. We must interpret that the host is "eraigra-rpi", username 
+"raimondo". We need to issue command to remove file if exists. Use rm -f 
+~/agent_test/test5.2.sh. So we must call function. The assistant already 
+returned the output, but maybe they should provide the function call. The 
+response includes a result but not correct format? Actually the tool returns 
+success. But we need to confirm. The user requested: "in the remost host 
+eraigra-rpi username raimondo remove if exists ~/agent_test/test5.2.sh". So we 
+should call function. The assistant already did. But they used rm -f. That will 
+remove if exists. That is fine. We should provide confirmation. Also might want 
+to check existence. But remove if exists is fine.\n\nThus we respond that the 
+file has been removed if it existed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37865590474,
+    'load_duration': 287185558,
+    'prompt_eval_count': 616,
+    'prompt_eval_duration': 256398123,
+    'eval_count': 41,
+    'eval_duration': 5129214477
+}
+09:00:46.719 [INFO    ]            uvicorn.access - 127.0.0.1:54542 - "POST /queue/join HTTP/1.1" 200
+09:00:46.773 [INFO    ]            uvicorn.access - 127.0.0.1:54546 - "GET /queue/data?session_hash=73b5888e-5e00-49fc-bcf1-3482448c14f7 HTTP/1.1" 200
+09:02:02.568 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:02:41.657 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash
+for i in {1..100}; do
+  ps -o vsz= -p $$
+  sleep 1
+done' > ~/agent_test/test5.2.sh && chmod +x ~/agent_test/test5.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash
+for i in {1..100}; do
+  ps -o vsz= -p $$
+  sleep 1
+done' > ~/agent_test/test5.2.sh && chmod +x ~/agent_test/test5.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\nfor i in {1..100}; do\n  ps -o vsz=
+-p $$\n  sleep 1\ndone\'"\'"\' > ~/agent_test/test5.2.sh && chmod +x 
+~/agent_test/test5.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:02:41.656650158Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\nfor i in {1..100}; 
+do\n  ps -o vsz= -p $$\n  sleep 1\ndone\'"\'"\' > ~/agent_test/test5.2.sh && 
+chmod +x ~/agent_test/test5.2.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe script has been created and made executable on 
+**eraigra‑rpi** (user 
+`raimondo`):\n\n```bash\n~/agent_test/test5.2.sh\n```\n\n```bash\n#!/bin/bash\nf
+or i in {1..100}; do\n  ps -o vsz= -p $$\n  sleep 1\ndone\n```\n\nIt captures 
+100 VSZ (virtual memory size) samples of the script process itself, one per 
+second.',
+        'thinking': "The assistant executed command: mkdir -p ~/agent_test && 
+echo -e ... > file && chmod +x. Good. The script monitors its own VSZ? Actually 
+script should monitor memory usage of what? Possibly script itself. The ps -o 
+vsz= -p $$ will print VSZ of the script process itself, which might be small. 
+But requirement is to monitor VSZ memory usage - maybe of the system or of a 
+target process? But we can assume script itself. It's fine. Ensure script has 
+100 samples at 1-second intervals. That is correct. They didn't split commands. 
+They used a single command line. It's good. Provide confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33880059370,
+    'load_duration': 292834595,
+    'prompt_eval_count': 746,
+    'prompt_eval_duration': 256804993,
+    'eval_count': 99,
+    'eval_duration': 12594576565
+}
+09:02:41.789 [INFO    ]            uvicorn.access - 127.0.0.1:43618 - "POST /queue/join HTTP/1.1" 200
+09:02:41.843 [INFO    ]            uvicorn.access - 127.0.0.1:43632 - "GET /queue/data?session_hash=73b5888e-5e00-49fc-bcf1-3482448c14f7 HTTP/1.1" 200
+09:02:58.658 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:06:03.948 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f ~/agent_test/test5.2.sh && echo "File exists. Running script:" && ~/agent_test/test5.2.sh
+[AGENT] ✅ Remote command executed successfully: test -f ~/agent_test/test5.2.sh && echo "File exists. Running script:" && ~/agent_test/test5.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+~/agent_test/test5.2.sh && echo "File exists. Running script:" && 
+~/agent_test/test5.2.sh\'\' executed successfully on remote host.', 'output': 
+'File exists. Running script:\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n 
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:06:03.947895464Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f ~/agent_test/test5.2.sh && echo "File exists. Running script:" && 
+~/agent_test/test5.2.sh\'\' executed successfully on remote host.\nOutput: File 
+exists. Running script:\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  5112\n  
+5112\n  5112\n  5112\n  5112\n\n**Result on host `eraigra-rpi` (user 
+`raimondo`):**\n\nThe script `~/agent_test/test5.2.sh` exists, was executed, and
+produced the following output – 100 lines, each showing the VSZ (virtual memory 
+size) of the script process in 
+kilobytes:\n\n```\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5
+112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n511
+2\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\
+n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5
+112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n511
+2\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\
+n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5
+112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n5112\n```\n\nAll 100 samples 
+showed a constant VSZ of **5112\u202fkB**, indicating the script’s memory usage 
+did not change during the one‑second sampling interval.',
+        'thinking': 'The assistant executed the command and printed the output, 
+but it\'s a huge list of 5112 repeated lines. However the output includes only 
+100 lines? Actually output shows many repeated lines, likely 100 lines. It ended
+with 5112 repeated. It printed 100 samples, all same. This is the outcome. The 
+user asked to "provide the outcome". We have the outcome. We can respond 
+summarizing: The file exists, script ran, output shows 100 lines each 5112. 
+Should we mention any issues? The script prints the VSZ for the script itself. 
+It remained constant. That\'s the outcome. We should answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 76132370328,
+    'load_duration': 295428603,
+    'prompt_eval_count': 1454,
+    'prompt_eval_duration': 202129699,
+    'eval_count': 402,
+    'eval_duration': 51728661918
+}
+09:06:04.066 [INFO    ]            uvicorn.access - 127.0.0.1:45516 - "POST /queue/join HTTP/1.1" 200
+09:06:04.121 [INFO    ]            uvicorn.access - 127.0.0.1:45524 - "GET /queue/data?session_hash=73b5888e-5e00-49fc-bcf1-3482448c14f7 HTTP/1.1" 200
+09:06:18.272 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:06:34.891 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:06:34.891514562Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.2.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test5.2.sh` has been removed on **eraigra‑rpi** (user
+`raimondo`). If it didn't exist, nothing was changed.",
+        'thinking': 'User wants to remove file if exists. We executed rm -f, 
+which succeeded. Should respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11295126170,
+    'load_duration': 283417833,
+    'prompt_eval_count': 1824,
+    'prompt_eval_duration': 216230402,
+    'eval_count': 41,
+    'eval_duration': 5183673416
+}
+09:06:35.028 [INFO    ]             uvicorn.error - Shutting down
+09:06:35.128 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:06:35.128 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:06:35.129 [INFO    ]             uvicorn.error - Finished server process [26026]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,5 @@
+TASKNAME=Compile a multifile C/C＋＋ program and verify successful compilation.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exist in the folder ~/agent_test the files hello.c, function.c and hello. Don't split the commands and do all requested in a single command line. 
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create ~/agent_test/hello.c that displays the string 'Hello world!' and a file function.c where you have to call the function that prompt the 'Hello world!'. The executables must be simply named hello and must have the execute permissions for the user. Don't split the commands and do all requested in a single command line. 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute the program ~/agent_test/hello.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exist in the folder ~/agent_test the files hello.c, function.c and hello. Don't split the commands and do all requested in a single command line. 

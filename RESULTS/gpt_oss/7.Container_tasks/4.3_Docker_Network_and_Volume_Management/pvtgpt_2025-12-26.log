@@ -1,0 +1,81 @@
+poetry run python -m private_gpt
+09:26:10.780 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:26:15.045 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:26:15.108 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:26:15.110 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:26:15.985 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:26:16.140 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:26:16.141 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:26:16.142 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:26:17.031 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:26:17.072 [INFO    ]             uvicorn.error - Started server process [21848]
+09:26:17.072 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:26:17.072 [INFO    ]             uvicorn.error - Application startup complete.
+09:26:17.072 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:26:50.606 [INFO    ]            uvicorn.access - 127.0.0.1:51658 - "GET /config HTTP/1.1" 200
+09:26:50.661 [INFO    ]            uvicorn.access - 127.0.0.1:51668 - "GET /info?serialize=False HTTP/1.1" 200
+09:26:50.725 [INFO    ]            uvicorn.access - 127.0.0.1:51684 - "GET /heartbeat/e9661972-ccbf-4194-bbe0-2c92c20f583d HTTP/1.1" 200
+09:26:50.728 [INFO    ]            uvicorn.access - 127.0.0.1:51696 - "POST /queue/join HTTP/1.1" 200
+09:26:50.785 [INFO    ]            uvicorn.access - 127.0.0.1:51702 - "GET /queue/data?session_hash=e9661972-ccbf-4194-bbe0-2c92c20f583d HTTP/1.1" 200
+09:28:03.342 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:28:43.708 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 500 Internal Server Error"
+Traceback (most recent call last):
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/queueing.py", line 536, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/blocks.py", line 1935, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/blocks.py", line 1532, in call_function
+    prediction = await utils.async_iteration(iterator)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/utils.py", line 671, in async_iteration
+    return await iterator.__anext__()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/utils.py", line 776, in asyncgen_wrapper
+    response = await iterator.__anext__()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/chat_interface.py", line 498, in api_fn
+    first_response = await async_iteration(generator)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/utils.py", line 671, in async_iteration
+    return await iterator.__anext__()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/utils.py", line 664, in __anext__
+    return await anyio.to_thread.run_sync(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2405, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 914, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/gradio/utils.py", line 647, in run_sync_iterator_async
+    return next(iterator)
+           ^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/private_gpt/ui/ui.py", line 295, in _chat
+    response = query_model(
+               ^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/private_gpt/ui/ui.py", line 176, in query_model
+    response = ollama.chat(
+               ^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/ollama/_client.py", line 236, in chat
+    return self._request_stream(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/ollama/_client.py", line 99, in _request_stream
+    return self._stream(*args, **kwargs) if stream else self._request(*args, **kwargs).json()
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/private-gpt/venv/lib/python3.11/site-packages/ollama/_client.py", line 75, in _request
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: error parsing tool call: raw='{"command":"docker rmi -f \$(docker images -q) 2>/dev/null || true && docker volume rm -f \$(docker volume ls -q) 2>/dev/null || true && docker pull ubuntu && docker run -d ubuntu","host":"eraigra-rpi","port":22,"user":"raimondo"}', err=invalid character '$' in string escape code
+09:28:43.992 [INFO    ]             uvicorn.error - Shutting down
+09:28:44.092 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:28:44.092 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:28:44.092 [INFO    ]             uvicorn.error - Finished server process [21848]
+make: *** [Makefile:36: run] Terminated

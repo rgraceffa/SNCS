@@ -1,0 +1,192 @@
+poetry run python -m private_gpt
+08:32:01.367 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:32:05.667 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:32:05.731 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:32:05.733 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:32:06.610 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:32:06.764 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:32:06.766 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:32:06.767 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:32:07.658 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:32:07.698 [INFO    ]             uvicorn.error - Started server process [2690442]
+08:32:07.698 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:32:07.699 [INFO    ]             uvicorn.error - Application startup complete.
+08:32:07.699 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:32:41.189 [INFO    ]            uvicorn.access - 127.0.0.1:46620 - "GET /config HTTP/1.1" 200
+08:32:41.243 [INFO    ]            uvicorn.access - 127.0.0.1:46622 - "GET /info?serialize=False HTTP/1.1" 200
+08:32:41.315 [INFO    ]            uvicorn.access - 127.0.0.1:46632 - "POST /queue/join HTTP/1.1" 200
+08:32:41.316 [INFO    ]            uvicorn.access - 127.0.0.1:46648 - "GET /heartbeat/69ecfc04-2c20-4327-b369-c9ea5a111511 HTTP/1.1" 200
+08:32:41.372 [INFO    ]            uvicorn.access - 127.0.0.1:46664 - "GET /queue/data?session_hash=69ecfc04-2c20-4327-b369-c9ea5a111511 HTTP/1.1" 200
+08:32:49.105 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:33:06.116 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:33:06.11627418Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test2.2.log` has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10980939625,
+    'load_duration': 127295080,
+    'prompt_eval_count': 572,
+    'prompt_eval_duration': 4017498442,
+    'eval_count': 59,
+    'eval_duration': 6762363732
+}
+08:33:06.212 [INFO    ]            uvicorn.access - 127.0.0.1:39894 - "POST /queue/join HTTP/1.1" 200
+08:33:06.269 [INFO    ]            uvicorn.access - 127.0.0.1:39904 - "GET /queue/data?session_hash=69ecfc04-2c20-4327-b369-c9ea5a111511 HTTP/1.1" 200
+08:33:21.944 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:34:36.848 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean && echo "Package update completed on $(date)" >> ~/agent_test/test2.2.log
+[AGENT] ✅ Remote command executed successfully: sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean && echo "Package update completed on $(date)" >> ~/agent_test/test2.2.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sudo apt update && 
+sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean && echo 
+"Package update completed on $(date)" >> ~/agent_test/test2.2.log\'\' executed 
+successfully on remote host.', 'output': 'Get:1 file:/usr/local/mydebs ./ 
+InRelease\nIgn:1 file:/usr/local/mydebs ./ InRelease\nGet:2 
+file:/usr/local/mydebs ./ Release\nIgn:2 file:/usr/local/mydebs ./ 
+Release\nGet:3 file:/usr/local/mydebs ./ Packages [424 B]\nHit:4 
+http://ports.ubuntu.com/ubuntu-ports jammy InRelease\nHit:5 
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:6 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nHit:8 
+https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1155 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\nCalculating upgrade...\n0 
+upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nReading package 
+lists...\nBuilding dependency tree...\nReading state information...\n0 upgraded,
+0 newly installed, 0 to remove and 0 not upgraded.\nReading package 
+lists...\nBuilding dependency tree...\nReading state information...'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:34:36.84827296Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt
+autoclean && echo "Package update completed on $(date)" >> 
+~/agent_test/test2.2.log\'\' executed successfully on remote host.\nOutput: 
+Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 file:/usr/local/mydebs ./ 
+InRelease\nGet:2 file:/usr/local/mydebs ./ Release\nIgn:2 file:/usr/local/mydebs
+./ Release\nGet:3 file:/usr/local/mydebs ./ Packages [424 B]\nHit:4 
+http://ports.ubuntu.com/ubuntu-ports jammy InRelease\nHit:5 
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:6 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nHit:8 
+https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1155 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\nCalculating upgrade...\n0 
+upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nReading package 
+lists...\nBuilding dependency tree...\nReading state information...\n0 upgraded,
+0 newly installed, 0 to remove and 0 not upgraded.\nReading package 
+lists...\nBuilding dependency tree...\nReading state information...\n\nThe 
+command to update all packages and log the activities has been executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The 
+command performed the following actions:\n\n1. Updated the package lists using 
+`sudo apt update`\n2. Upgraded all packages using `sudo apt upgrade -y`\n3. 
+Removed unused packages using `sudo apt autoremove -y`\n4. Cleaned the package 
+cache using `sudo apt autoclean`\n5. Logged the completion timestamp to 
+`~/agent_test/test2.2.log`\n\nThe output shows that the package lists were 
+fetched and the system was checked for upgrades, but no packages needed to be 
+upgraded or removed. The log file `~/agent_test/test2.2.log` now contains the 
+timestamp indicating the completion of the package update process.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28980512023,
+    'load_duration': 131768717,
+    'prompt_eval_count': 1083,
+    'prompt_eval_duration': 9102903349,
+    'eval_count': 166,
+    'eval_duration': 19591936493
+}
+08:34:36.966 [INFO    ]            uvicorn.access - 127.0.0.1:45448 - "POST /queue/join HTTP/1.1" 200
+08:34:37.022 [INFO    ]            uvicorn.access - 127.0.0.1:45454 - "GET /queue/data?session_hash=69ecfc04-2c20-4327-b369-c9ea5a111511 HTTP/1.1" 200
+08:35:00.042 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:35:30.068 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test2.2.log ]; then echo "File exists:"; cat ~/agent_test/test2.2.log; else echo "File does not exist"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test2.2.log ]; then echo "File exists:"; cat ~/agent_test/test2.2.log; else echo "File does not exist"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test2.2.log ]; then echo "File exists:"; cat 
+~/agent_test/test2.2.log; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.', 'output': 'File exists:\nPackage update completed
+on Tue Dec 23 10:34:07 EET 2025'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:35:30.067626424Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test2.2.log ]; then echo "File exists:"; cat 
+~/agent_test/test2.2.log; else echo "File does not exist"; fi\'\' executed 
+successfully on remote host.\nOutput: File exists:\nPackage update completed on 
+Tue Dec 23 10:34:07 EET 2025\n\nThe file `~/agent_test/test2.2.log` exists on 
+the remote host `eraigra-rpi` as the user `raimondo`. The content of the file 
+is:\n\n```\nPackage update completed on Tue Dec 23 10:34:07 EET 
+2025\n```\n\nThis confirms that the package update process was successfully 
+completed and logged at the specified timestamp.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23984486971,
+    'load_duration': 128993541,
+    'prompt_eval_count': 1408,
+    'prompt_eval_duration': 13222008962,
+    'eval_count': 87,
+    'eval_duration': 10502713286
+}
+08:35:30.172 [INFO    ]            uvicorn.access - 127.0.0.1:40932 - "POST /queue/join HTTP/1.1" 200
+08:35:30.231 [INFO    ]            uvicorn.access - 127.0.0.1:40942 - "GET /queue/data?session_hash=69ecfc04-2c20-4327-b369-c9ea5a111511 HTTP/1.1" 200
+08:35:51.388 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:36:01.228 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:36:01.228161673Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.2.log` was executed successfully on 
+the remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test2.2.log` has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8219116645,
+    'load_duration': 128087082,
+    'prompt_eval_count': 1576,
+    'prompt_eval_duration': 1293206193,
+    'eval_count': 58,
+    'eval_duration': 6694719176
+}
+08:36:01.453 [INFO    ]             uvicorn.error - Shutting down
+08:36:01.553 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:36:01.553 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:36:01.553 [INFO    ]             uvicorn.error - Finished server process [2690442]
+make: *** [Makefile:36: run] Terminated

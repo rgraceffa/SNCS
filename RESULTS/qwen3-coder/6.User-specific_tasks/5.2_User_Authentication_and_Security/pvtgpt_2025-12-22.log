@@ -1,0 +1,158 @@
+poetry run python -m private_gpt
+14:41:05.175 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:41:09.459 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:41:09.522 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:41:09.524 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:41:10.407 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:41:10.562 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:41:10.563 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:41:10.565 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:41:11.463 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:41:11.504 [INFO    ]             uvicorn.error - Started server process [2405402]
+14:41:11.504 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:41:11.504 [INFO    ]             uvicorn.error - Application startup complete.
+14:41:11.505 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:41:45.001 [INFO    ]            uvicorn.access - 127.0.0.1:46100 - "GET /config HTTP/1.1" 200
+14:41:45.056 [INFO    ]            uvicorn.access - 127.0.0.1:46114 - "GET /info?serialize=False HTTP/1.1" 200
+14:41:45.153 [INFO    ]            uvicorn.access - 127.0.0.1:46118 - "GET /heartbeat/d21233e3-8c89-4b25-a1af-5f80473cee1c HTTP/1.1" 200
+14:41:45.155 [INFO    ]            uvicorn.access - 127.0.0.1:46124 - "POST /queue/join HTTP/1.1" 200
+14:41:45.211 [INFO    ]            uvicorn.access - 127.0.0.1:46128 - "GET /queue/data?session_hash=d21233e3-8c89-4b25-a1af-5f80473cee1c HTTP/1.1" 200
+14:41:53.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:42:07.787 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test5.2.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:42:07.786529134Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log'' executed 
+successfully on remote host.\nOutput: \n\nThe command to create the directory 
+`~/agent_test` and the file `~/agent_test/test5.2.log` was executed successfully
+on the remote host. Let me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9285559402,
+    'load_duration': 128168736,
+    'prompt_eval_count': 577,
+    'prompt_eval_duration': 4066660861,
+    'eval_count': 43,
+    'eval_duration': 5023258296
+}
+14:42:07.888 [INFO    ]            uvicorn.access - 127.0.0.1:50882 - "POST /queue/join HTTP/1.1" 200
+14:42:07.944 [INFO    ]            uvicorn.access - 127.0.0.1:50890 - "GET /queue/data?session_hash=d21233e3-8c89-4b25-a1af-5f80473cee1c HTTP/1.1" 200
+14:42:24.701 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:42:38.466 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo chage -l root | grep -E 'Password expires|Account expires|Minimum number of days between password change|Maximum number of days between password change|Number of days of warning before password expires' > ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: sudo chage -l root | grep -E 'Password expires|Account expires|Minimum number of days between password change|Maximum number of days between password change|Number of days of warning before password expires' > ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sudo chage -l root 
+| grep -E \'"\'"\'Password expires|Account expires|Minimum number of days 
+between password change|Maximum number of days between password change|Number of
+days of warning before password expires\'"\'"\' > ~/agent_test/test5.2.log\'\' 
+executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:42:38.466087765Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sudo chage -l root | grep -E \'"\'"\'Password expires|Account 
+expires|Minimum number of days between password change|Maximum number of days 
+between password change|Number of days of warning before password 
+expires\'"\'"\' > ~/agent_test/test5.2.log\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command to check password aging information for the 
+`root` user and log it into `~/agent_test/test5.2.log` was executed successfully
+on the remote host. Let me know if you need further assistance!'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12110689093,
+    'load_duration': 126403621,
+    'prompt_eval_count': 776,
+    'prompt_eval_duration': 6680706724,
+    'eval_count': 45,
+    'eval_duration': 5225926677
+}
+14:42:38.593 [INFO    ]            uvicorn.access - 127.0.0.1:56312 - "POST /queue/join HTTP/1.1" 200
+14:42:38.648 [INFO    ]            uvicorn.access - 127.0.0.1:56318 - "GET /queue/data?session_hash=d21233e3-8c89-4b25-a1af-5f80473cee1c HTTP/1.1" 200
+14:42:46.585 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:43:01.990 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test5.2.log'' executed successfully on remote host.", 'output': 
+'Password expires\t\t\t\t\t: never\nAccount expires\t\t\t\t\t\t: never\nMinimum 
+number of days between password change\t\t: 0\nMaximum number of days between 
+password change\t\t: 99999\nNumber of days of warning before password expires\t:
+7'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:43:01.989930758Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test5.2.log'' executed successfully on remote host.\nOutput: 
+Password expires\t\t\t\t\t: never\nAccount expires\t\t\t\t\t\t: never\nMinimum 
+number of days between password change\t\t: 0\nMaximum number of days between 
+password change\t\t: 99999\nNumber of days of warning before password expires\t:
+7\n\nThe file `~/agent_test/test5.2.log` was successfully created and contains 
+the following password aging information for the `root` user:\n\n```\nPassword 
+expires                : never\nAccount expires                 : never\nMinimum
+number of days between password change  : 0\nMaximum number of days between 
+password change  : 99999\nNumber of days of warning before password expires : 
+7\n```\n\nLet me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13851968344,
+    'load_duration': 124499801,
+    'prompt_eval_count': 967,
+    'prompt_eval_duration': 2407430767,
+    'eval_count': 95,
+    'eval_duration': 11204339897
+}
+14:43:02.156 [INFO    ]            uvicorn.access - 127.0.0.1:54046 - "POST /queue/join HTTP/1.1" 200
+14:43:02.211 [INFO    ]            uvicorn.access - 127.0.0.1:54050 - "GET /queue/data?session_hash=d21233e3-8c89-4b25-a1af-5f80473cee1c HTTP/1.1" 200
+14:43:18.457 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:43:37.369 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T14:43:37.369159085Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test5.2.log` was executed 
+successfully on the remote host. Let me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13710436473,
+    'load_duration': 129071919,
+    'prompt_eval_count': 1143,
+    'prompt_eval_duration': 9598418843,
+    'eval_count': 34,
+    'eval_duration': 3892544522
+}
+14:43:37.562 [INFO    ]             uvicorn.error - Shutting down
+14:43:37.663 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:43:37.663 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:43:37.663 [INFO    ]             uvicorn.error - Finished server process [2405402]
+make: *** [Makefile:36: run] Terminated

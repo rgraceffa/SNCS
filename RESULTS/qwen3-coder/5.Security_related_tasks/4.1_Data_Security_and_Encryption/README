@@ -1,0 +1,5 @@
+TASKNAME=Script to encrypt specified directories using ‘gpg’ with given keys.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test4.1.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a script ~/agent_test/test4.1.sh to encrypt specified directories (provided as input) using ‘gpg’ with given key called eraigra. Make the script executables in the same command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo run the script ~/agent_test/test4.1.sh having as parameter the ~/agent_test/ folder and the key eraigra. Provide the outcome of the script. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test4.1.sh

@@ -1,0 +1,208 @@
+poetry run python -m private_gpt
+13:14:13.874 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:14:18.160 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:14:18.224 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:14:18.226 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:14:19.123 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:14:19.278 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:14:19.279 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:14:19.280 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:14:20.173 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:14:20.214 [INFO    ]             uvicorn.error - Started server process [3160006]
+13:14:20.214 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:14:20.214 [INFO    ]             uvicorn.error - Application startup complete.
+13:14:20.215 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:14:53.702 [INFO    ]            uvicorn.access - 127.0.0.1:50844 - "GET /config HTTP/1.1" 200
+13:14:53.757 [INFO    ]            uvicorn.access - 127.0.0.1:50854 - "GET /info?serialize=False HTTP/1.1" 200
+13:14:53.845 [INFO    ]            uvicorn.access - 127.0.0.1:50862 - "GET /heartbeat/ce74d301-3fb3-4a1d-b8e9-cf48dea58eed HTTP/1.1" 200
+13:14:53.848 [INFO    ]            uvicorn.access - 127.0.0.1:50876 - "POST /queue/join HTTP/1.1" 200
+13:14:53.904 [INFO    ]            uvicorn.access - 127.0.0.1:50890 - "GET /queue/data?session_hash=ce74d301-3fb3-4a1d-b8e9-cf48dea58eed HTTP/1.1" 200
+13:15:11.215 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:15:45.933 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test7.1
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test7.1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test7.1'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:15:45.933284343Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test7.1'' executed successfully on
+remote host.\nOutput: \n\n",
+        'thinking': 'We executed the command? The response indicates that the 
+command was executed successfully on remote host. The user asked to create an 
+empty file test7.1 under the folder ~/agent_test. The response indicates the 
+command was executed, but the command text is empty? Actually the output shows 
+the command \'mkdir -p ~/agent_test && touch ~/agent_test/test7.1\' executed 
+successfully. But the function\'s input may be wrong. We need to provide a 
+correct command. The function signature: execute_remote_command: command, host, 
+port, user. We need to call the function with correct parameters. The host: 
+eraigra-rpi, user: raimondo. We need to run "mkdir -p ~/agent_test && touch 
+~/agent_test/test7.1". Let\'s do that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && touch 
+~/agent_test/test7.1',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 29537128967,
+    'load_duration': 283184559,
+    'prompt_eval_count': 386,
+    'prompt_eval_duration': 1198136175,
+    'eval_count': 218,
+    'eval_duration': 27816124591
+}
+13:15:46.075 [INFO    ]            uvicorn.access - 127.0.0.1:60940 - "POST /queue/join HTTP/1.1" 200
+13:15:46.129 [INFO    ]            uvicorn.access - 127.0.0.1:60956 - "GET /queue/data?session_hash=ce74d301-3fb3-4a1d-b8e9-cf48dea58eed HTTP/1.1" 200
+13:16:12.621 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:17:19.038 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rsync -avz -e ssh ~/agent_test raimondo@eraigra-X205TA:/home/raimondo/destfolder
+[AGENT] ✅ Remote command executed successfully: rsync -avz -e ssh ~/agent_test raimondo@eraigra-X205TA:/home/raimondo/destfolder
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rsync -avz -e ssh 
+~/agent_test raimondo@eraigra-X205TA:/home/raimondo/destfolder'' executed 
+successfully on remote host.", 'output': 'sending incremental file 
+list\nagent_test/\nagent_test/test7.1\n\nsent 144 bytes  received 39 bytes  
+122.00 bytes/sec\ntotal size is 0  speedup is 0.00'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:17:19.038100229Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''rsync -avz -e ssh ~/agent_test 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder'' executed successfully on 
+remote host.\nOutput: sending incremental file 
+list\nagent_test/\nagent_test/test7.1\n\nsent 144 bytes  received 39 bytes  
+122.00 bytes/sec\ntotal size is 0  speedup is 0.00\n\nThe synchronization has 
+been performed in one single command from **eraigra‑rpi** (user *raimondo*) to 
+**eraigra‑X205TA**:\n\n```bash\nrsync -avz -e ssh ~/agent_test 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder\n```\n\nThe `~/agent_test` 
+directory (including the empty file `test7.1`) was copied to 
+`/home/raimondo/destfolder` on the target host. All requested operations were 
+completed in a single line, as specified.",
+        'thinking': 'The user wants to synchronize the remote folder 
+~/agent_test on eraigra-rpi to the target host eraigra-X205TA in 
+/home/raimondo/destfolder. They specifically want not to split commands and do 
+all in a single command line. They want to run the sync presumably from 
+eraigra-rpi to eraigra-X205TA. The assistant responded with a rsync command 
+executed on remote host eraigra-rpi: \'rsync -avz -e ssh ~/agent_test 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder\'. This is correct, but need 
+to verify if they want it on eraigra-rpi? The question: "please synchronize the 
+~/agent_test in the remote host eraigra-rpi username raimondo with the target 
+host eraigra-X205TA in the /home/raimondo/destfolder folder." It is ambiguous if
+they want to run from eraigra-rpi or from local. But we are the remote agent on 
+eraigra-rpi. So yes, the command executed from eraigra-rpi is correct. Should we
+ensure we used the correct syntax: "rsync -avz -e ssh" is okay. The path "~" 
+expands to user home. So it\'s fine.\n\nBut the question: "Don\'t split the 
+commands and do all requested in a single command line." So we need to ensure we
+didn\'t use multiple commands. The assistant used a single command. So it\'s 
+good.\n\nWe might mention that the rsync succeeded. Provide explanation. Maybe 
+ask if they\'d like to check? But they didn\'t ask. So just confirm.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 63429676887,
+    'load_duration': 283842670,
+    'prompt_eval_count': 908,
+    'prompt_eval_duration': 257214302,
+    'eval_count': 122,
+    'eval_duration': 15552632720
+}
+13:17:19.158 [INFO    ]            uvicorn.access - 127.0.0.1:38438 - "POST /queue/join HTTP/1.1" 200
+13:17:19.213 [INFO    ]            uvicorn.access - 127.0.0.1:38440 - "GET /queue/data?session_hash=ce74d301-3fb3-4a1d-b8e9-cf48dea58eed HTTP/1.1" 200
+13:17:38.437 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:18:17.607 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-x205TA test -f /home/raimondo/destfolder/test7.1 && echo "exists" || echo "missing"
+[AGENT] ✅ Remote command executed successfully: test -f /home/raimondo/destfolder/test7.1 && echo "exists" || echo "missing"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+/home/raimondo/destfolder/test7.1 && echo "exists" || echo "missing"\'\' 
+executed successfully on remote host.', 'output': 'missing'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:18:17.607345027Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f /home/raimondo/destfolder/test7.1 && echo "exists" || echo 
+"missing"\'\' executed successfully on remote host.\nOutput: missing\n\nThe file
+you synced was placed inside a sub‑directory called `agent_test`.  \nYour check 
+looked for it directly under `/home/raimondo/destfolder`, so it reported 
+“missing”.\n\n**Correct 
+location**\n\n```\n/home/raimondo/destfolder/agent_test/test7.1\n```\n\n**Check 
+that location (from eraigra‑x205ta, user\u202fraimondo):**\n\n```bash\ntest -f 
+/home/raimondo/destfolder/agent_test/test7.1 && echo "exists" || echo 
+"missing"\n```\n\nRunning this will confirm that the file is indeed present.',
+        'thinking': 'We need to explain that file missing. Possibly path wrong? 
+In earlier sync, source path was ~/agent_test on source host; rsync command used
+rsync -avz -e ssh ~/agent_test 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder. This copies the directory 
+agent_test as subfolder destfolder/agent_test. So file would be at 
+/home/raimondo/destfolder/agent_test/test7.1. The user asked to check 
+/home/raimondo/destfolder/test7.1. So we should explain that file is under 
+subfolder. Provide corrected check command.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37458923053,
+    'load_duration': 289663303,
+    'prompt_eval_count': 928,
+    'prompt_eval_duration': 257138061,
+    'eval_count': 132,
+    'eval_duration': 16841421047
+}
+13:18:17.743 [INFO    ]            uvicorn.access - 127.0.0.1:38270 - "POST /queue/join HTTP/1.1" 200
+13:18:17.798 [INFO    ]            uvicorn.access - 127.0.0.1:38278 - "GET /queue/data?session_hash=ce74d301-3fb3-4a1d-b8e9-cf48dea58eed HTTP/1.1" 200
+13:18:34.695 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:18:48.287 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm ~/agent_test/test7.1
+[AGENT] ✅ Remote command executed successfully: rm ~/agent_test/test7.1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm 
+~/agent_test/test7.1'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T13:18:48.286817116Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+~/agent_test/test7.1'' executed successfully on remote host.\nOutput: \n\nThe 
+file `test7.1` has been removed from `~/agent_test` on **eraigra‑rpi**.",
+        'thinking': 'We need to respond with a brief confirmation that file was 
+deleted.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8464859009,
+    'load_duration': 295534946,
+    'prompt_eval_count': 1016,
+    'prompt_eval_duration': 247582674,
+    'eval_count': 28,
+    'eval_duration': 3473728032
+}
+13:18:48.456 [INFO    ]             uvicorn.error - Shutting down
+13:18:48.556 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:18:48.556 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:18:48.556 [INFO    ]             uvicorn.error - Finished server process [3160006]
+make: *** [Makefile:36: run] Terminated

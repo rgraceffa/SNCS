@@ -1,0 +1,168 @@
+poetry run python -m private_gpt
+14:05:43.991 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:05:48.298 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:05:48.362 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:05:48.364 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:05:49.277 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:05:49.432 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:05:49.433 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:05:49.434 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:05:50.325 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:05:50.366 [INFO    ]             uvicorn.error - Started server process [109623]
+14:05:50.366 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:05:50.366 [INFO    ]             uvicorn.error - Application startup complete.
+14:05:50.366 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:06:23.819 [INFO    ]            uvicorn.access - 127.0.0.1:59830 - "GET /config HTTP/1.1" 200
+14:06:23.874 [INFO    ]            uvicorn.access - 127.0.0.1:59844 - "GET /info?serialize=False HTTP/1.1" 200
+14:06:23.946 [INFO    ]            uvicorn.access - 127.0.0.1:59854 - "POST /queue/join HTTP/1.1" 200
+14:06:23.946 [INFO    ]            uvicorn.access - 127.0.0.1:59866 - "GET /heartbeat/4c75f314-3cdb-4c35-9fb5-5bd9a736f1d4 HTTP/1.1" 200
+14:06:24.002 [INFO    ]            uvicorn.access - 127.0.0.1:59872 - "GET /queue/data?session_hash=4c75f314-3cdb-4c35-9fb5-5bd9a736f1d4 HTTP/1.1" 200
+14:06:31.330 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:06:44.247 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:06:44.247207629Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test2.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7624467158,
+    'load_duration': 131236295,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1140191516,
+    'eval_count': 54,
+    'eval_duration': 6281931743
+}
+14:06:44.415 [INFO    ]            uvicorn.access - 127.0.0.1:52154 - "POST /queue/join HTTP/1.1" 200
+14:06:44.469 [INFO    ]            uvicorn.access - 127.0.0.1:52168 - "GET /queue/data?session_hash=4c75f314-3cdb-4c35-9fb5-5bd9a736f1d4 HTTP/1.1" 200
+14:07:15.380 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:07:36.623 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "Enter a number (1-3): "\nread num\n\necho "Using if-else:"\nif [ $num -eq 1 ]; then\n  echo "One"\nelif [ $num -eq 2 ]; then\n  echo "Two"\nelif [ $num -eq 3 ]; then\n  echo "Three"\nelse\n  echo "Not between 1 and 3"\nfi\n\necho -e "\nUsing case statement:"\ncase $num in\n  1) echo "One" ;;\n  2) echo "Two" ;;\n  3) echo "Three" ;;\n  *) echo "Not between 1 and 3" ;;\nesac' > ~/agent_test/test2.1.sh && chmod +x ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\necho "Enter a number (1-3): "\nread num\n\necho "Using if-else:"\nif [ $num -eq 1 ]; then\n  echo "One"\nelif [ $num -eq 2 ]; then\n  echo "Two"\nelif [ $num -eq 3 ]; then\n  echo "Three"\nelse\n  echo "Not between 1 and 3"\nfi\n\necho -e "\nUsing case statement:"\ncase $num in\n  1) echo "One" ;;\n  2) echo "Two" ;;\n  3) echo "Three" ;;\n  *) echo "Not between 1 and 3" ;;\nesac' > ~/agent_test/test2.1.sh && chmod +x ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "Enter a number (1-3): 
+"\\nread num\\n\\necho "Using if-else:"\\nif [ $num -eq 1 ]; then\\n  echo 
+"One"\\nelif [ $num -eq 2 ]; then\\n  echo "Two"\\nelif [ $num -eq 3 ]; then\\n 
+echo "Three"\\nelse\\n  echo "Not between 1 and 3"\\nfi\\n\\necho -e "\\nUsing 
+case statement:"\\ncase $num in\\n  1) echo "One" ;;\\n  2) echo "Two" ;;\\n  3)
+echo "Three" ;;\\n  *) echo "Not between 1 and 3" ;;\\nesac\'"\'"\' > 
+~/agent_test/test2.1.sh && chmod +x ~/agent_test/test2.1.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:07:36.623292817Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\necho "Enter a 
+number (1-3): "\\nread num\\n\\necho "Using if-else:"\\nif [ $num -eq 1 ]; 
+then\\n  echo "One"\\nelif [ $num -eq 2 ]; then\\n  echo "Two"\\nelif [ $num -eq
+3 ]; then\\n  echo "Three"\\nelse\\n  echo "Not between 1 and 3"\\nfi\\n\\necho 
+-e "\\nUsing case statement:"\\ncase $num in\\n  1) echo "One" ;;\\n  2) echo 
+"Two" ;;\\n  3) echo "Three" ;;\\n  *) echo "Not between 1 and 3" 
+;;\\nesac\'"\'"\' > ~/agent_test/test2.1.sh && chmod +x 
+~/agent_test/test2.1.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host `eraigra-rpi` 
+as the user `raimondo`. I\'ve created the script `~/agent_test/test2.1.sh` with 
+both if-else and case statements for decision-making, and made it executable in 
+a single command.\n\nThe script does the following:\n1. Prompts the user to 
+enter a number between 1-3\n2. Uses if-else statements to check the number and 
+output the corresponding word\n3. Uses case statements to do the same\n4. 
+Handles invalid inputs for both structures\n\nYou can run the script 
+with:\n```bash\n~/agent_test/test2.1.sh\n```'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19626379588,
+    'load_duration': 126715002,
+    'prompt_eval_count': 952,
+    'prompt_eval_duration': 3554261110,
+    'eval_count': 140,
+    'eval_duration': 15816895887
+}
+14:07:36.720 [INFO    ]            uvicorn.access - 127.0.0.1:57366 - "POST /queue/join HTTP/1.1" 200
+14:07:36.780 [INFO    ]            uvicorn.access - 127.0.0.1:57382 - "GET /queue/data?session_hash=4c75f314-3cdb-4c35-9fb5-5bd9a736f1d4 HTTP/1.1" 200
+14:07:44.581 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:08:15.307 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test2.1.sh'' executed successfully on remote host.", 'output': 
+'Enter a number (1-3): \nUsing if-else:\nNot between 1 and 3\n\nUsing case 
+statement:\nNot between 1 and 3'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:08:15.307056122Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test2.1.sh\'\' executed successfully on remote host.\nOutput: 
+Enter a number (1-3): \nUsing if-else:\nNot between 1 and 3\n\nUsing case 
+statement:\nNot between 1 and 3\n\nThe script `~/agent_test/test2.1.sh` was 
+executed successfully on the remote host `eraigra-rpi` as the user `raimondo`. 
+\n\nThe output was:\n```\nEnter a number (1-3): \nUsing if-else:\nNot between 1 
+and 3\n\nUsing case statement:\nNot between 1 and 3\n```\n\nThe script prompted 
+for a number input between 1-3, but no input was provided in the execution, so 
+it defaulted to the "Not between 1 and 3" message for both the if-else and case 
+statements.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25382283012,
+    'load_duration': 128510038,
+    'prompt_eval_count': 1209,
+    'prompt_eval_duration': 10416852225,
+    'eval_count': 125,
+    'eval_duration': 14715466808
+}
+14:08:15.433 [INFO    ]            uvicorn.access - 127.0.0.1:53054 - "POST /queue/join HTTP/1.1" 200
+14:08:15.488 [INFO    ]            uvicorn.access - 127.0.0.1:53060 - "GET /queue/data?session_hash=4c75f314-3cdb-4c35-9fb5-5bd9a736f1d4 HTTP/1.1" 200
+14:08:35.403 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:08:56.954 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:08:56.953758505Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test2.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test2.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20014951230,
+    'load_duration': 127078054,
+    'prompt_eval_count': 1413,
+    'prompt_eval_duration': 13321712636,
+    'eval_count': 54,
+    'eval_duration': 6473638663
+}
+14:08:57.161 [INFO    ]             uvicorn.error - Shutting down
+14:08:57.261 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:08:57.261 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:08:57.261 [INFO    ]             uvicorn.error - Finished server process [109623]
+make: *** [Makefile:36: run] Terminated

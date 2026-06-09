@@ -1,0 +1,157 @@
+poetry run python -m private_gpt
+16:48:17.379 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:48:21.656 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:48:21.719 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:48:21.721 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:48:22.600 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:48:22.755 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:48:22.757 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:48:22.758 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:48:23.652 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:48:23.693 [INFO    ]             uvicorn.error - Started server process [2555301]
+16:48:23.693 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:48:23.693 [INFO    ]             uvicorn.error - Application startup complete.
+16:48:23.694 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:48:57.202 [INFO    ]            uvicorn.access - 127.0.0.1:38400 - "GET /config HTTP/1.1" 200
+16:48:57.257 [INFO    ]            uvicorn.access - 127.0.0.1:38416 - "GET /info?serialize=False HTTP/1.1" 200
+16:48:57.355 [INFO    ]            uvicorn.access - 127.0.0.1:38426 - "GET /heartbeat/b0384160-25f0-481a-8597-133966179c4d HTTP/1.1" 200
+16:48:57.358 [INFO    ]            uvicorn.access - 127.0.0.1:38434 - "POST /queue/join HTTP/1.1" 200
+16:48:57.414 [INFO    ]            uvicorn.access - 127.0.0.1:38446 - "GET /queue/data?session_hash=b0384160-25f0-481a-8597-133966179c4d HTTP/1.1" 200
+16:49:05.230 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:49:23.375 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅ Remote command executed successfully: docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume ls -q |
+xargs -r docker volume rm'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:49:23.374775824Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume ls -q | xargs -r docker volume rm'' executed successfully on 
+remote host.\nOutput: \n\nIt seems the command to remove all Docker volumes on 
+the remote host `eraigra-rpi` as user `raimondo` was executed successfully, but 
+there was no output. This typically means either:\n\n1. There were no Docker 
+volumes to remove.\n2. The command executed without errors, but the output was 
+empty.\n\nIf you'd like to verify that the volumes were removed, I can run a 
+check to list the volumes. Would you like me to do that?"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12766107202,
+    'load_duration': 128700671,
+    'prompt_eval_count': 567,
+    'prompt_eval_duration': 1159739620,
+    'eval_count': 97,
+    'eval_duration': 11383397289
+}
+16:49:23.511 [INFO    ]            uvicorn.access - 127.0.0.1:60284 - "POST /queue/join HTTP/1.1" 200
+16:49:23.567 [INFO    ]            uvicorn.access - 127.0.0.1:60290 - "GET /queue/data?session_hash=b0384160-25f0-481a-8597-133966179c4d HTTP/1.1" 200
+16:49:35.560 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:49:51.423 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume create test4.2
+[AGENT] ✅ Remote command executed successfully: docker volume create test4.2
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume create 
+test4.2'' executed successfully on remote host.", 'output': 'test4.2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:49:51.423301368Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume create test4.2'' executed successfully on remote host.\nOutput: 
+test4.2\n\nThe Docker volume `test4.2` has been successfully created on the 
+remote host `eraigra-rpi` as user `raimondo`. The output confirms the volume 
+name `test4.2` was returned, indicating successful creation. Let me know if you 
+need further assistance with this volume or anything else."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14144913289,
+    'load_duration': 126328593,
+    'prompt_eval_count': 762,
+    'prompt_eval_duration': 6411096240,
+    'eval_count': 66,
+    'eval_duration': 7524663883
+}
+16:49:51.559 [INFO    ]            uvicorn.access - 127.0.0.1:46342 - "POST /queue/join HTTP/1.1" 200
+16:49:51.615 [INFO    ]            uvicorn.access - 127.0.0.1:46348 - "GET /queue/data?session_hash=b0384160-25f0-481a-8597-133966179c4d HTTP/1.1" 200
+16:50:07.653 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:50:29.845 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls && echo "Checking for test4.2 volume..." && docker volume ls | grep test4.2
+[AGENT] ✅ Remote command executed successfully: docker volume ls && echo "Checking for test4.2 volume..." && docker volume ls | grep test4.2
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'docker volume ls &&
+echo "Checking for test4.2 volume..." && docker volume ls | grep test4.2\'\' 
+executed successfully on remote host.', 'output': 'DRIVER    VOLUME NAME\nlocal 
+test4.2\nChecking for test4.2 volume...\nlocal     test4.2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:50:29.844923658Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker volume ls && echo "Checking for test4.2 volume..." && docker volume 
+ls | grep test4.2\'\' executed successfully on remote host.\nOutput: DRIVER    
+VOLUME NAME\nlocal     test4.2\nChecking for test4.2 volume...\nlocal     
+test4.2\n\nThe Docker volume `test4.2` has been successfully created and 
+verified on the remote host `eraigra-rpi` as user `raimondo`. \n\nThe output 
+shows:\n1. A list of all Docker volumes, including `test4.2`.\n2. A confirmation
+message indicating the check for `test4.2` volume.\n\nThis confirms that the 
+volume `test4.2` exists and is ready for use. Let me know if you need further 
+assistance with this volume or anything else.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20338646859,
+    'load_duration': 130561366,
+    'prompt_eval_count': 972,
+    'prompt_eval_duration': 8012100247,
+    'eval_count': 105,
+    'eval_duration': 12077598046
+}
+16:50:29.937 [INFO    ]            uvicorn.access - 127.0.0.1:39238 - "POST /queue/join HTTP/1.1" 200
+16:50:29.998 [INFO    ]            uvicorn.access - 127.0.0.1:39246 - "GET /queue/data?session_hash=b0384160-25f0-481a-8597-133966179c4d HTTP/1.1" 200
+16:50:46.558 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:51:02.522 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅ Remote command executed successfully: docker volume ls -q | xargs -r docker volume rm
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker volume ls -q |
+xargs -r docker volume rm'' executed successfully on remote host.", 'output': 
+'test4.2'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:51:02.521696418Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker volume ls -q | xargs -r docker volume rm'' executed successfully on 
+remote host.\nOutput: test4.2\n\nThe command to remove all Docker volumes on the
+remote host `eraigra-rpi` as user `raimondo` was executed successfully. The 
+output `test4.2` indicates that the volume `test4.2` was removed. \n\nIf there 
+were other volumes present, they would have been removed as well. Let me know if
+you need further assistance."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10523139461,
+    'load_duration': 130708622,
+    'prompt_eval_count': 1174,
+    'prompt_eval_duration': 1523515308,
+    'eval_count': 76,
+    'eval_duration': 8766094143
+}
+16:51:02.703 [INFO    ]             uvicorn.error - Shutting down
+16:51:02.802 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:51:02.802 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:51:02.802 [INFO    ]             uvicorn.error - Finished server process [2555301]
+make: *** [Makefile:36: run] Terminated

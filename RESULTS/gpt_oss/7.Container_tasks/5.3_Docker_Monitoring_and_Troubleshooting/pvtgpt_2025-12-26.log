@@ -1,0 +1,311 @@
+poetry run python -m private_gpt
+10:22:04.926 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:22:09.203 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:22:09.267 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:22:09.269 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:22:10.172 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:22:10.327 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:22:10.329 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:22:10.330 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:22:11.223 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:22:11.264 [INFO    ]             uvicorn.error - Started server process [23396]
+10:22:11.264 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:22:11.264 [INFO    ]             uvicorn.error - Application startup complete.
+10:22:11.265 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:22:44.753 [INFO    ]            uvicorn.access - 127.0.0.1:34956 - "GET /config HTTP/1.1" 200
+10:22:44.808 [INFO    ]            uvicorn.access - 127.0.0.1:34968 - "GET /info?serialize=False HTTP/1.1" 200
+10:22:44.898 [INFO    ]            uvicorn.access - 127.0.0.1:34970 - "GET /heartbeat/7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:22:44.901 [INFO    ]            uvicorn.access - 127.0.0.1:34984 - "POST /queue/join HTTP/1.1" 200
+10:22:44.956 [INFO    ]            uvicorn.access - 127.0.0.1:35000 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:23:56.691 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:26:12.239 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f ubuntu_container 2>/dev/null && docker pull ubuntu && docker run -d --name ubuntu_container ubuntu && rm -f ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: docker rm -f ubuntu_container 2>/dev/null && docker pull ubuntu && docker run -d --name ubuntu_container ubuntu && rm -f ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f 
+ubuntu_container 2>/dev/null && docker pull ubuntu && docker run -d --name 
+ubuntu_container ubuntu && rm -f ~/agent_test/test5.3.log'' executed 
+successfully on remote host.", 'output': 'Using default tag: latest\nlatest: 
+Pulling from library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: 
+Verifying Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull 
+complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n3c61705a89f6acc586181beb2f3eb7ca
+91a6720f94fb2c9b2f8c091d5ab4f0d5'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:26:12.239057227Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f ubuntu_container 2>/dev/null && docker pull ubuntu && docker run 
+-d --name ubuntu_container ubuntu && rm -f ~/agent_test/test5.3.log'' executed 
+successfully on remote host.\nOutput: Using default tag: latest\nlatest: Pulling
+from library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n3c61705a89f6acc586181beb2f3eb7ca
+91a6720f94fb2c9b2f8c091d5ab4f0d5\n\nThe requested actions were performed 
+successfully on the remote host. The Ubuntu image was pulled, the container 
+started (removing any existing one), and the file `~/agent_test/test5.3.log` was
+deleted.",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo pulls an ubuntu image in the docker, start the container and remove if 
+exists also the file ~/agent_test/test5.3.log. Don\'t split the commands and do 
+all requested in a single command line."\n\nWe have executed a command. The 
+response is that the command executed successfully. That seems correct. We just 
+need to produce the final answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21424929838,
+    'load_duration': 301152287,
+    'prompt_eval_count': 695,
+    'prompt_eval_duration': 256501904,
+    'eval_count': 44,
+    'eval_duration': 5519067556
+}
+10:26:12.342 [INFO    ]            uvicorn.access - 127.0.0.1:34424 - "POST /queue/join HTTP/1.1" 200
+10:26:12.398 [INFO    ]            uvicorn.access - 127.0.0.1:34438 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:26:47.274 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:27:30.464 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker stats ubuntu --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log
+[AGENT] ❌ Remote command failed: docker stats ubuntu --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+Error response from daemon: No such container: ubuntu
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'docker stats ubuntu 
+--no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log\'\'
+failed on remote host.', 'output': "Warning: Permanently added 'eraigra-rpi' 
+(ED25519) to the list of known hosts.\nError response from daemon: No such 
+container: ubuntu"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:27:30.464259149Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'docker stats ubuntu --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > 
+~/agent_test/test5.3.log\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known hosts.\nError 
+response from daemon: No such container: ubuntu\n\n',
+        'thinking': 'We need to get stats of running container named ubuntu. But
+earlier we started container named ubuntu_container. The user requests "docker 
+container ubuntu". That container name is \'ubuntu\'? They might refer to 
+container id. We should use container id from docker ps. We can use docker stats
+ubuntu_container. But the user specifically said "docker container ubuntu". 
+Maybe container is named \'ubuntu\'? Let\'s check docker ps. But we can\'t run 
+interactive. We can attempt to use docker stats $(docker ps -q --filter 
+ancestor=ubuntu). But they\'d want CPU and memory usage. Use docker stats 
+--no-stream. We need to produce output to ~/agent_test/test5.3.log. Use single 
+command line: docker stats $(docker ps -q -f ancestor=ubuntu) --no-stream 
+--format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log. That will 
+output CPU% and memory usage. Use remote command. Let\'s propose that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': '',
+                    'arguments': {
+                        'command': 'docker stats $(docker ps -q -f 
+ancestor=ubuntu) --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > 
+~/agent_test/test5.3.log',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37948457338,
+    'load_duration': 293515231,
+    'prompt_eval_count': 805,
+    'prompt_eval_duration': 1859268774,
+    'eval_count': 277,
+    'eval_duration': 35495478664
+}
+10:27:35.556 [INFO    ]            uvicorn.access - 127.0.0.1:43568 - "POST /queue/join HTTP/1.1" 200
+10:27:35.611 [INFO    ]            uvicorn.access - 127.0.0.1:43570 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:28:42.442 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] ❌: agent not called
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:28:42.441982125Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: UNKNOWN\nMessage: Unable to parse 
+user input and detect the right agent\nOutput: No output detected\n\nSure! 
+Here’s a single command that fetches the CPU and memory usage of the running 
+container (named **`ubuntu_container`** as created earlier) and writes the 
+result to `~/agent_test/test5.3.log`:\n\n```bash\ndocker stats ubuntu_container 
+--no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > 
+~/agent_test/test5.3.log\n```\n\n**Explanation**  \n- `docker stats 
+ubuntu_container` – shows statistics for the container named `ubuntu_container`.
+\n- `--no-stream` – outputs the statistics once and exits.  \n- `--format 
+"{{.CPUPerc}} {{.MemUsage}}"` – limits the output to CPU percentage and memory 
+usage.  \n- `> ~/agent_test/test5.3.log` – redirects that single line of output 
+into the file `test5.3.log` inside `~/agent_test`.\n\nIf you actually started 
+the container with a different name (e.g., `ubuntu`), just replace 
+`ubuntu_container` with that name.',
+        'thinking': 'The user asks to check CPU and memory usage of a running 
+docker container ubuntu and put the content in a file. The container name is 
+"ubuntu" from earlier steps. They want a single command line that checks CPU and
+memory usage and writes to the file. We need to run docker stats with 
+--no-stream --format, redirect output. The earlier error: No such container: 
+ubuntu. That means container not running. Maybe container was started earlier as
+"ubuntu_container" not "ubuntu". In prior command we used docker run --name 
+ubuntu_container. So the container name is ubuntu_container. The user refers to 
+container named ubuntu, maybe they expect that container is called ubuntu. 
+Let\'s use docker stats ubuntu_container. However they said "docker container 
+ubuntu". Could be they intend image name. But docker stats requires container ID
+or name. We can get stats for container named ubuntu_container. If we want to 
+use the container name \'ubuntu\', we could rename container to \'ubuntu\' or 
+run new container named ubuntu. But they said "running docker container ubuntu".
+The earlier step we started container with name ubuntu_container. So maybe they 
+mis-specified. We can run `docker stats ubuntu_container --no-stream --format 
+"{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log`. That is a single 
+command line. Let\'s respond accordingly, with explanation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 66874556793,
+    'load_duration': 290968003,
+    'prompt_eval_count': 1151,
+    'prompt_eval_duration': 257285635,
+    'eval_count': 212,
+    'eval_duration': 27167637121
+}
+10:28:47.554 [INFO    ]            uvicorn.access - 127.0.0.1:36594 - "POST /queue/join HTTP/1.1" 200
+10:28:47.609 [INFO    ]            uvicorn.access - 127.0.0.1:36596 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:29:23.310 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:29:38.839 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker stats ubuntu_container --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: docker stats ubuntu_container --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'docker stats 
+ubuntu_container --no-stream --format "{{.CPUPerc}} {{.MemUsage}}" > 
+~/agent_test/test5.3.log\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:29:38.839306472Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker stats ubuntu_container --no-stream --format "{{.CPUPerc}} 
+{{.MemUsage}}" > ~/agent_test/test5.3.log\'\' executed successfully on remote 
+host.\nOutput: \n\nAll set! The CPU and memory usage of the running 
+`ubuntu_container` container have been captured and written to 
+`~/agent_test/test5.3.log` in a single command.',
+        'thinking': 'The last command succeeded. So respond that it was 
+written.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9967320891,
+    'load_duration': 286479547,
+    'prompt_eval_count': 1227,
+    'prompt_eval_duration': 160580694,
+    'eval_count': 38,
+    'eval_duration': 4758953358
+}
+10:29:38.931 [INFO    ]            uvicorn.access - 127.0.0.1:45280 - "POST /queue/join HTTP/1.1" 200
+10:29:38.985 [INFO    ]            uvicorn.access - 127.0.0.1:45290 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:30:00.381 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:30:29.101 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f ~/agent_test/test5.3.log && cat ~/agent_test/test5.3.log || echo 'file not found'
+[AGENT] ✅ Remote command executed successfully: test -f ~/agent_test/test5.3.log && cat ~/agent_test/test5.3.log || echo 'file not found'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+~/agent_test/test5.3.log && cat ~/agent_test/test5.3.log || echo \'"\'"\'file 
+not found\'"\'"\'\'\' executed successfully on remote host.', 'output': '0.00% 
+0B / 0B'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:30:29.100845963Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f ~/agent_test/test5.3.log && cat ~/agent_test/test5.3.log || echo 
+\'"\'"\'file not found\'"\'"\'\'\' executed successfully on remote 
+host.\nOutput: 0.00% 0B / 0B\n\n✅ The file `~/agent_test/test5.3.log` exists 
+and contains the requested CPU/memory statistics:\n\n```\n0.00% 0B / 
+0B\n```\n\nThis shows the container is currently idle with no memory usage.',
+        'thinking': 'The user asked: "in the remost host eraigra-rpi username 
+raimondo verify that file ~/agent_test/test5.3.log is created and provide the 
+content. Don\'t split the commands and do all requested in a single command 
+line."\n\nThe assistant executed a command: test -f ... && cat ... || echo "file
+not found". That returned "0.00% 0B / 0B". That looks like correct output. We 
+need to respond confirming the file is created and show content. Provide the 
+content. The content is "0.00% 0B / 0B". So reply accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27203144833,
+    'load_duration': 286023450,
+    'prompt_eval_count': 1519,
+    'prompt_eval_duration': 129778444,
+    'eval_count': 52,
+    'eval_duration': 6572065738
+}
+10:30:29.255 [INFO    ]            uvicorn.access - 127.0.0.1:35370 - "POST /queue/join HTTP/1.1" 200
+10:30:29.309 [INFO    ]            uvicorn.access - 127.0.0.1:35376 - "GET /queue/data?session_hash=7d3040d0-4829-4a21-bce7-02f2f176ed46 HTTP/1.1" 200
+10:31:27.430 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:31:51.786 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -aq) 2>/dev/null && docker rmi -f $(docker images -q) 2>/dev/null && rm -f ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -aq) 2>/dev/null && docker rmi -f $(docker images -q) 2>/dev/null && rm -f ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -aq) 2>/dev/null && docker rmi -f $(docker images -q) 2>/dev/null && rm -f 
+~/agent_test/test5.3.log'' executed successfully on remote host.", 'output': 
+'3c61705a89f6\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-26T10:31:51.785599677Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -aq) 2>/dev/null && docker rmi -f $(docker images -q)
+2>/dev/null && rm -f ~/agent_test/test5.3.log'' executed successfully on remote 
+host.\nOutput: 3c61705a89f6\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\n\nAll
+Docker containers and images have been removed, and the file 
+`~/agent_test/test5.3.log` has been deleted. No further action is needed.",
+        'thinking': 'The user wants to remove all Docker containers and images 
+if they exist and remove the file. The assistant already executed a command that
+removed all containers and images and removed the file. So presumably nothing 
+left. The assistant responded successfully. The next step: no further action 
+needed.\n\nBut we need to respond confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17230101971,
+    'load_duration': 286223105,
+    'prompt_eval_count': 1787,
+    'prompt_eval_duration': 129386437,
+    'eval_count': 33,
+    'eval_duration': 4144409483
+}
+10:31:51.940 [INFO    ]             uvicorn.error - Shutting down
+10:31:52.040 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:31:52.041 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:31:52.041 [INFO    ]             uvicorn.error - Finished server process [23396]
+make: *** [Makefile:36: run] Terminated

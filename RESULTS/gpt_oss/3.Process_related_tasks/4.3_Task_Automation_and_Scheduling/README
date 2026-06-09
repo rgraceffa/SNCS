@@ -1,0 +1,5 @@
+TASKNAME=Schedule a script to run every minute using crontab and log.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.3.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a ~/agent_test/test4.3.sh that print 'hello world!' and schedule to run every minute using crontab and log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the script ~/agent_test/test4.3.sh exists and it's scheduled in crontab
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.3.sh and remove it from the crontab

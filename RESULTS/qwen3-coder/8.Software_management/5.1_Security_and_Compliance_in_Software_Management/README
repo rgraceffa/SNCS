@@ -1,0 +1,5 @@
+TASKNAME=Check installed software against a list of known vulnerabilities.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo check installed apache software against a list of known vulnerabilities and report all in a file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.

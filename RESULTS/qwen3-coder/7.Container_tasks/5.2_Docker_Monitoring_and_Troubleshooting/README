@@ -1,0 +1,5 @@
+TASKNAME=Display the last 100 lines of a container’s logs.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo pull an ubuntu image in the docker, start the container and remove if exists also the file ~/agent_test/test5.2.log. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo display the last 100 lines of a container’s logs ubuntu and put the content in the file ~/agent_test/test5.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify that file ~/agent_test/test5.2.log is created and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove all docker images and all docker container if they exist and remove if exists also the file ~/agent_test/test5.2.log. Don't split the commands and do all requested in a single command line.

@@ -1,0 +1,192 @@
+poetry run python -m private_gpt
+09:53:06.330 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:53:10.613 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:53:10.676 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:53:10.678 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:53:11.579 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:53:11.733 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:53:11.734 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:53:11.736 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:53:12.630 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:53:12.670 [INFO    ]             uvicorn.error - Started server process [26951]
+09:53:12.671 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:53:12.671 [INFO    ]             uvicorn.error - Application startup complete.
+09:53:12.671 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:53:46.160 [INFO    ]            uvicorn.access - 127.0.0.1:43916 - "GET /config HTTP/1.1" 200
+09:53:46.215 [INFO    ]            uvicorn.access - 127.0.0.1:43920 - "GET /info?serialize=False HTTP/1.1" 200
+09:53:46.281 [INFO    ]            uvicorn.access - 127.0.0.1:43938 - "GET /heartbeat/4a064f57-897d-41b0-ad69-1420cae53c7e HTTP/1.1" 200
+09:53:46.283 [INFO    ]            uvicorn.access - 127.0.0.1:43922 - "POST /queue/join HTTP/1.1" 200
+09:53:46.338 [INFO    ]            uvicorn.access - 127.0.0.1:43940 - "GET /queue/data?session_hash=4a064f57-897d-41b0-ad69-1420cae53c7e HTTP/1.1" 200
+09:54:06.220 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:54:29.202 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:54:29.201619754Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.2.log` was removed (if it existed) on the 
+remote host `eraigra-rpi` using the user `raimondo`. No further action is 
+required.",
+        'thinking': 'We need to interpret: The user said: "in the remost host 
+eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log". The 
+assistant executed rm -f. The remote host may not be exactly that but the tool 
+ran command. The answer should confirm deletion. Provide explanation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17517600880,
+    'load_duration': 284419428,
+    'prompt_eval_count': 455,
+    'prompt_eval_duration': 255926079,
+    'eval_count': 45,
+    'eval_duration': 5633614123
+}
+09:54:29.298 [INFO    ]            uvicorn.access - 127.0.0.1:60926 - "POST /queue/join HTTP/1.1" 200
+09:54:29.353 [INFO    ]            uvicorn.access - 127.0.0.1:60934 - "GET /queue/data?session_hash=4a064f57-897d-41b0-ad69-1420cae53c7e HTTP/1.1" 200
+09:55:04.263 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:56:12.382 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi hostname -i > ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: hostname -i > ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''hostname -i > 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:56:12.379152204Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''hostname -i > ~/agent_test/test3.2.log'' executed successfully on remote 
+host.\nOutput: \n\n",
+        'thinking': 'We need to get DNS address of node (likely IP address of 
+DNS? Might mean DNS server address). The user says "get dns address of the 
+node". Could interpret as "retrieve DNS server address" or "retrieve IP address 
+of node" (the DNS address of the node?). Then log all in file. We need a single 
+command line. We used hostname -i, which returns IP address(es). Might also want
+to include DNS resolution info: maybe use `cat /etc/resolv.conf` or `nslookup`? 
+The user said "dns address of the node" could mean the IP addresses of the DNS 
+servers configured on node. That is usually /etc/resolv.conf content. We can 
+output that into file. So a single command: `cat /etc/resolv.conf > 
+~/agent_test/test3.2.log`. That gives DNS server addresses. Or maybe include 
+`hostname -I`? They might want to log both the node\'s IP address and the DNS 
+addresses. Single command: `echo "IP: $(hostname -I)" > 
+~/agent_test/test3.2.log; echo "DNS servers:" >> ~/agent_test/test3.2.log; cat 
+/etc/resolv.conf >> ~/agent_test/test3.2.log`. But that\'s multiple commands 
+separated by `;`. They said "Don\'t split the commands and do all requested in a
+single command line." Using `;` is still a single line but multiple commands. 
+But maybe they want a single pipeline? We can use `printf` to combine. E.g., 
+`printf "IP: $(hostname -I)\\nDNS servers:\\n" > ~/agent_test/test3.2.log; cat 
+/etc/resolv.conf >> ~/agent_test/test3.2.log`. That\'s still two commands. But 
+we could use `tee`? But instructions say no tee, only echo >. But we could do: 
+`printf "IP: $(hostname -I)\\nDNS servers:\\n$(cat /etc/resolv.conf)" > 
+~/agent_test/test3.2.log`. That is a single command line. That should work. 
+Let\'s use that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'printf "IP: $(hostname -I)\\nDNS 
+servers:\\n$(cat /etc/resolv.conf)" > ~/agent_test/test3.2.log',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 66549920515,
+    'load_duration': 293787343,
+    'prompt_eval_count': 528,
+    'prompt_eval_duration': 1002485058,
+    'eval_count': 506,
+    'eval_duration': 64809074387
+}
+09:56:12.490 [INFO    ]            uvicorn.access - 127.0.0.1:41108 - "POST /queue/join HTTP/1.1" 200
+09:56:12.544 [INFO    ]            uvicorn.access - 127.0.0.1:41118 - "GET /queue/data?session_hash=4a064f57-897d-41b0-ad69-1420cae53c7e HTTP/1.1" 200
+09:56:24.536 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:56:51.324 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': 
+'127.0.1.1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:56:51.323800833Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+127.0.1.1\n\nThe file `~/agent_test/test3.2.log` now contains the node’s IP 
+address:\n\n```\n127.0.1.1\n```\n\nLet me know if you’d like to add anything 
+else or run more checks.",
+        'thinking': 'The user wants to "check the content of the file 
+~/agent_test/test3.2.log". The assistant executed cat and got output 
+\'127.0.1.1\'. The user probably wants to see that content. We should output 
+that content. The last assistant returned no content, but the function returned 
+output. We need to reply with that content. The user might be satisfied. But we 
+might mention that the file contains the IP address. Provide that.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21418907791,
+    'load_duration': 296806137,
+    'prompt_eval_count': 711,
+    'prompt_eval_duration': 228499700,
+    'eval_count': 49,
+    'eval_duration': 6157391627
+}
+09:56:51.448 [INFO    ]            uvicorn.access - 127.0.0.1:42138 - "POST /queue/join HTTP/1.1" 200
+09:56:51.503 [INFO    ]            uvicorn.access - 127.0.0.1:42152 - "GET /queue/data?session_hash=4a064f57-897d-41b0-ad69-1420cae53c7e HTTP/1.1" 200
+09:57:07.617 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:57:25.102 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:57:25.101596398Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.2.log` has been removed (if it existed) on the 
+remote host `eraigra-rpi` as user `raimondo`.",
+        'thinking': 'User asked: "in the remost host eraigra-rpi username 
+raimondo remove if exists ~/agent_test/test3.2.log". The function executed rm -f
+~/agent_test/test3.2.log. The assistant should respond confirming removal. So 
+reply that file removed if existed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15921348437,
+    'load_duration': 290515545,
+    'prompt_eval_count': 805,
+    'prompt_eval_duration': 253294280,
+    'eval_count': 39,
+    'eval_duration': 4880686218
+}
+09:57:25.306 [INFO    ]             uvicorn.error - Shutting down
+09:57:25.406 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:57:25.406 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:57:25.406 [INFO    ]             uvicorn.error - Finished server process [26951]
+make: *** [Makefile:36: run] Terminated

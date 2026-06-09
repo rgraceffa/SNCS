@@ -1,0 +1,198 @@
+poetry run python -m private_gpt
+11:20:52.452 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:20:56.727 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:20:56.791 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:20:56.793 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:20:57.694 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:20:57.849 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:20:57.851 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:20:57.852 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:20:58.750 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:20:58.790 [INFO    ]             uvicorn.error - Started server process [1810579]
+11:20:58.790 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:20:58.791 [INFO    ]             uvicorn.error - Application startup complete.
+11:20:58.791 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:21:32.280 [INFO    ]            uvicorn.access - 127.0.0.1:34596 - "GET /config HTTP/1.1" 200
+11:21:32.335 [INFO    ]            uvicorn.access - 127.0.0.1:34604 - "GET /info?serialize=False HTTP/1.1" 200
+11:21:32.439 [INFO    ]            uvicorn.access - 127.0.0.1:34630 - "POST /queue/join HTTP/1.1" 200
+11:21:32.439 [INFO    ]            uvicorn.access - 127.0.0.1:34614 - "GET /heartbeat/94a65538-908a-4c3b-b99d-c93d5d0984e5 HTTP/1.1" 200
+11:21:32.495 [INFO    ]            uvicorn.access - 127.0.0.1:34642 - "GET /queue/data?session_hash=94a65538-908a-4c3b-b99d-c93d5d0984e5 HTTP/1.1" 200
+11:21:47.952 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:22:01.733 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:22:01.732936798Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test4.1.sh` has been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8098010267,
+    'load_duration': 130248231,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 1139657111,
+    'eval_count': 57,
+    'eval_duration': 6757474335
+}
+11:22:01.832 [INFO    ]            uvicorn.access - 127.0.0.1:59288 - "POST /queue/join HTTP/1.1" 200
+11:22:01.888 [INFO    ]            uvicorn.access - 127.0.0.1:59294 - "GET /queue/data?session_hash=94a65538-908a-4c3b-b99d-c93d5d0984e5 HTTP/1.1" 200
+11:22:34.031 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:22:57.231 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 directory1 [directory2 ...]"
+  exit 1
+fi
+
+for dir in "$@"; do
+  if [ ! -d "$dir" ]; then
+    echo "Error: $dir is not a directory"
+    continue
+  fi
+  echo "Encrypting $dir..."
+  tar -czf - "$dir" | gpg --symmetric --cipher-algo AES256 --digest-algo SHA256 --compress-algo 6 --batch --passphrase "eraigra" -o "${dir}.gpg"
+  echo "Encryption completed: ${dir}.gpg"
+done' > ~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 directory1 [directory2 ...]"
+  exit 1
+fi
+
+for dir in "$@"; do
+  if [ ! -d "$dir" ]; then
+    echo "Error: $dir is not a directory"
+    continue
+  fi
+  echo "Encrypting $dir..."
+  tar -czf - "$dir" | gpg --symmetric --cipher-algo AES256 --digest-algo SHA256 --compress-algo 6 --batch --passphrase "eraigra" -o "${dir}.gpg"
+  echo "Encryption completed: ${dir}.gpg"
+done' > ~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\nif [ $# -eq 0 ]; then\n  echo "Usage: 
+$0 directory1 "\n  exit 1\nfi\n\nfor dir in "$@"; do\n  if [ ! -d "$dir" ]; 
+then\n    echo "Error: $dir is not a directory"\n    continue\n  fi\n  echo 
+"Encrypting $dir..."\n  tar -czf - "$dir" | gpg --symmetric --cipher-algo AES256
+--digest-algo SHA256 --compress-algo 6 --batch --passphrase "eraigra" -o 
+"${dir}.gpg"\n  echo "Encryption completed: ${dir}.gpg"\ndone\'"\'"\' > 
+~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:22:57.231215094Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\nif [ $# -eq 0 ]; then\n  
+echo "Usage: $0 directory1 [directory2 ...]"\n  exit 1\nfi\n\nfor dir in "$@"; 
+do\n  if [ ! -d "$dir" ]; then\n    echo "Error: $dir is not a directory"\n    
+continue\n  fi\n  echo "Encrypting $dir..."\n  tar -czf - "$dir" | gpg 
+--symmetric --cipher-algo AES256 --digest-algo SHA256 --compress-algo 6 --batch 
+--passphrase "eraigra" -o "${dir}.gpg"\n  echo "Encryption completed: 
+${dir}.gpg"\ndone\'"\'"\' > ~/agent_test/test4.1.sh && chmod +x 
+~/agent_test/test4.1.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host `eraigra-rpi` 
+as the user `raimondo`. The script `~/agent_test/test4.1.sh` has been created 
+with the following functionality:\n\n1. It takes directory names as input 
+arguments.\n2. It checks if the provided arguments are valid directories.\n3. It
+compresses and encrypts each directory using `gpg` with the passphrase 
+"eraigra".\n4. It uses AES256 encryption with SHA256 digest and compression 
+level 6.\n5. The script is made executable.\n\nYou can now run the script with 
+directories as arguments like:\n```bash\n~/agent_test/test4.1.sh 
+/path/to/directory1 /path/to/directory2\n```'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21620807514,
+    'load_duration': 128180455,
+    'prompt_eval_count': 941,
+    'prompt_eval_duration': 3387056691,
+    'eval_count': 157,
+    'eval_duration': 17964496627
+}
+11:22:57.311 [INFO    ]            uvicorn.access - 127.0.0.1:33070 - "POST /queue/join HTTP/1.1" 200
+11:22:57.378 [INFO    ]            uvicorn.access - 127.0.0.1:33076 - "GET /queue/data?session_hash=94a65538-908a-4c3b-b99d-c93d5d0984e5 HTTP/1.1" 200
+11:23:14.099 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:23:36.575 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.1.sh ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test4.1.sh ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test4.1.sh ~/agent_test/'' executed successfully on remote 
+host.", 'output': 'Encrypting /home/raimondo/agent_test/...\nEncryption 
+completed: /home/raimondo/agent_test/.gpg'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:23:36.574660048Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test4.1.sh ~/agent_test/\'\' executed successfully on remote 
+host.\nOutput: Encrypting /home/raimondo/agent_test/...\nEncryption completed: 
+/home/raimondo/agent_test/.gpg\n\nThe script `~/agent_test/test4.1.sh` was 
+executed successfully on the remote host `eraigra-rpi` as the user `raimondo` 
+with the parameter `~/agent_test/`.\n\nThe output of the script execution 
+was:\n```\nEncrypting /home/raimondo/agent_test/...\nEncryption completed: 
+/home/raimondo/agent_test/.gpg\n```\n\nThis indicates that the script 
+successfully encrypted the `~/agent_test/` directory using the key "eraigra", 
+and created a file named `.gpg` (which is the encrypted version of the 
+directory).'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17222745039,
+    'load_duration': 129053759,
+    'prompt_eval_count': 1244,
+    'prompt_eval_duration': 1810869305,
+    'eval_count': 127,
+    'eval_duration': 15158168228
+}
+11:23:36.696 [INFO    ]            uvicorn.access - 127.0.0.1:34104 - "POST /queue/join HTTP/1.1" 200
+11:23:36.752 [INFO    ]            uvicorn.access - 127.0.0.1:34118 - "GET /queue/data?session_hash=94a65538-908a-4c3b-b99d-c93d5d0984e5 HTTP/1.1" 200
+11:23:45.712 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:24:07.966 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:24:07.965804029Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test4.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file 
+`~/agent_test/test4.1.sh` has been removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20603958748,
+    'load_duration': 127513646,
+    'prompt_eval_count': 1451,
+    'prompt_eval_duration': 13629881214,
+    'eval_count': 57,
+    'eval_duration': 6751195251
+}
+11:24:08.232 [INFO    ]             uvicorn.error - Shutting down
+11:24:08.333 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:24:08.333 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:24:08.333 [INFO    ]             uvicorn.error - Finished server process [1810579]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,301 @@
+poetry run python -m private_gpt
+11:24:49.904 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:24:54.192 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:24:54.255 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:24:54.257 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:24:55.152 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:24:55.305 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:24:55.306 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:24:55.307 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:24:56.196 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:24:56.237 [INFO    ]             uvicorn.error - Started server process [29480]
+11:24:56.237 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:24:56.237 [INFO    ]             uvicorn.error - Application startup complete.
+11:24:56.237 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:25:29.734 [INFO    ]            uvicorn.access - 127.0.0.1:47394 - "GET /config HTTP/1.1" 200
+11:25:29.789 [INFO    ]            uvicorn.access - 127.0.0.1:47402 - "GET /info?serialize=False HTTP/1.1" 200
+11:25:29.862 [INFO    ]            uvicorn.access - 127.0.0.1:47420 - "POST /queue/join HTTP/1.1" 200
+11:25:29.863 [INFO    ]            uvicorn.access - 127.0.0.1:47416 - "GET /heartbeat/df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:25:29.919 [INFO    ]            uvicorn.access - 127.0.0.1:47428 - "GET /queue/data?session_hash=df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:25:44.346 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:26:00.716 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.py'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:26:00.716206454Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.py'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test2.2.py` has been removed from the remote host.",
+        'thinking': 'The user asked to remove file ~/agent_test/test2.2.py on 
+remote host eraigra-rpi. The system executed rm -f. Probably need to confirm. We
+can respond that file removed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10974618240,
+    'load_duration': 286931947,
+    'prompt_eval_count': 432,
+    'prompt_eval_duration': 253526156,
+    'eval_count': 21,
+    'eval_duration': 2561963048
+}
+11:26:00.815 [INFO    ]            uvicorn.access - 127.0.0.1:55742 - "POST /queue/join HTTP/1.1" 200
+11:26:00.868 [INFO    ]            uvicorn.access - 127.0.0.1:55758 - "GET /queue/data?session_hash=df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:27:31.627 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:28:52.787 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c "mkdir -p ~/agent_test; echo -e 'import sys
+from scapy.all import rdpcap
+
+if len(sys.argv) != 2:
+    print("Usage: python test2.2.py <pcap_file>")
+    sys.exit(1)
+
+pcap_file = sys.argv[1]
+packets = rdpcap(pcap_file)
+print(f"Total packets: {len(packets)}")
+for i, pkt in enumerate(packets[:10]):
+    print(f"Packet {i+1}: {pkt.summary()}")
+' > ~/agent_test/test2.2.py"
+[AGENT] ❌ Remote command failed: bash -c "mkdir -p ~/agent_test; echo -e 'import sys
+from scapy.all import rdpcap
+
+if len(sys.argv) != 2:
+    print("Usage: python test2.2.py <pcap_file>")
+    sys.exit(1)
+
+pcap_file = sys.argv[1]
+packets = rdpcap(pcap_file)
+print(f"Total packets: {len(packets)}")
+for i, pkt in enumerate(packets[:10]):
+    print(f"Packet {i+1}: {pkt.summary()}")
+' > ~/agent_test/test2.2.py"
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+bash: -c: line 10: syntax error near unexpected token `('
+bash: -c: line 10: `print(f"Total packets: {len(packets)}")'
+[AGENT] ✅:{'status': 'error', 'message': 'The command \'\'bash -c "mkdir -p 
+~/agent_test; echo -e \'"\'"\'import sys\nfrom scapy.all import rdpcap\n\nif 
+len(sys.argv) != 2:\n    print("Usage: python test2.2.py <pcap_file>")\n    
+sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f"Total packets: {len(packets)}")\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f"Packet {i+1}: {pkt.summary()}")\n\'"\'"\' 
+> ~/agent_test/test2.2.py"\'\' failed on remote host.', 'output': 'Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known hosts.\nbash: 
+-c: line 10: syntax error near unexpected token `(\'\nbash: -c: line 10: 
+`print(f"Total packets: {len(packets)}")\''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:28:52.786831907Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+\'\'bash -c "mkdir -p ~/agent_test; echo -e \'"\'"\'import sys\nfrom scapy.all 
+import rdpcap\n\nif len(sys.argv) != 2:\n    print("Usage: python test2.2.py 
+<pcap_file>")\n    sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f"Total packets: {len(packets)}")\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f"Packet {i+1}: {pkt.summary()}")\n\'"\'"\' 
+> ~/agent_test/test2.2.py"\'\' failed on remote host.\nOutput: Warning: 
+Permanently added \'eraigra-rpi\' (ED25519) to the list of known hosts.\nbash: 
+-c: line 10: syntax error near unexpected token `(\'\nbash: -c: line 10: 
+`print(f"Total packets: {len(packets)}")\'\n\n',
+        'thinking': 'We need to send a single command line that creates the file
+with the content. The failure indicates quoting issues. Need to properly escape.
+We can use EOF or cat << \'EOF\'. Since single command line, we can use bash -c 
+with a cat <<\'EOF\' > file. Need to escape newlines. E.g.:\n\nbash -c "mkdir -p
+~/agent_test && cat <<\'EOF\' > ~/agent_test/test2.2.py\\nimport sys\\nfrom 
+scapy.all import rdpcap\\n\\nif len(sys.argv) != 2:\\n    print(\'Usage: python 
+test2.2.py <pcap_file>\')\\n    sys.exit(1)\\n\\npcap_file = 
+sys.argv[1]\\npackets = rdpcap(pcap_file)\\nprint(f\'Total packets: 
+{len(packets)}\')\\nfor i, pkt in enumerate(packets[:10]):\\n    print(f\'Packet
+{i+1}: {pkt.summary()}\')\\nEOF"\n\nEnsure quoting correct. Use single quotes 
+inside EOF to avoid variable interpolation. Also need to escape the closing EOF 
+within double quotes. We\'ll do: bash -c "mkdir -p ~/agent_test && cat <<\'EOF\'
+> ~/agent_test/test2.2.py\\nimport sys\\nfrom scapy.all import rdpcap\\n\\nif 
+len(sys.argv) != 2:\\n    print(\'Usage: python test2.2.py <pcap_file>\')\\n    
+sys.exit(1)\\n\\npcap_file = sys.argv[1]\\npackets = 
+rdpcap(pcap_file)\\nprint(f\'Total packets: {len(packets)}\')\\nfor i, pkt in 
+enumerate(packets[:10]):\\n    print(f\'Packet {i+1}: 
+{pkt.summary()}\')\\nEOF"\n\nThat should work.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': "mkdir -p ~/agent_test && cat <<'EOF' > 
+~/agent_test/test2.2.py\nimport sys\nfrom scapy.all import rdpcap\n\nif 
+len(sys.argv) != 2:\n    print('Usage: python test2.2.py <pcap_file>')\n    
+sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f'Total packets: {len(packets)}')\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f'Packet {i+1}: {pkt.summary()}')\nEOF\n",
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 76031820614,
+    'load_duration': 283224419,
+    'prompt_eval_count': 707,
+    'prompt_eval_duration': 2661782949,
+    'eval_count': 566,
+    'eval_duration': 72607554956
+}
+11:28:57.906 [INFO    ]            uvicorn.access - 127.0.0.1:51018 - "POST /queue/join HTTP/1.1" 200
+11:28:57.961 [INFO    ]            uvicorn.access - 127.0.0.1:51020 - "GET /queue/data?session_hash=df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:30:42.693 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:31:04.547 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e "import sys
+from scapy.all import rdpcap
+
+if len(sys.argv) != 2:
+    print(\"Usage: python test2.2.py <pcap_file>\")
+    sys.exit(1)
+
+pcap_file = sys.argv[1]
+packets = rdpcap(pcap_file)
+print(f\"Total packets: {len(packets)}\")
+for i, pkt in enumerate(packets[:10]):
+    print(f\"Packet {i+1}: {pkt.summary()}\")" > ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: echo -e "import sys
+from scapy.all import rdpcap
+
+if len(sys.argv) != 2:
+    print(\"Usage: python test2.2.py <pcap_file>\")
+    sys.exit(1)
+
+pcap_file = sys.argv[1]
+packets = rdpcap(pcap_file)
+print(f\"Total packets: {len(packets)}\")
+for i, pkt in enumerate(packets[:10]):
+    print(f\"Packet {i+1}: {pkt.summary()}\")" > ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e "import 
+sys\nfrom scapy.all import rdpcap\n\nif len(sys.argv) != 2:\n    print(\\"Usage:
+python test2.2.py <pcap_file>\\")\n    sys.exit(1)\n\npcap_file = 
+sys.argv[1]\npackets = rdpcap(pcap_file)\nprint(f\\"Total packets: 
+{len(packets)}\\")\nfor i, pkt in enumerate(packets[:10]):\n    print(f\\"Packet
+{i+1}: {pkt.summary()}\\")" > ~/agent_test/test2.2.py\'\' executed successfully 
+on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:31:04.547265941Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e "import sys\nfrom scapy.all import rdpcap\n\nif len(sys.argv) != 
+2:\n    print(\\"Usage: python test2.2.py <pcap_file>\\")\n    
+sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f\\"Total packets: {len(packets)}\\")\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f\\"Packet {i+1}: {pkt.summary()}\\")" > 
+~/agent_test/test2.2.py\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script has been created at `~/agent_test/test2.2.py`.  \nTo verify, you 
+can run:\n\n```bash\nls -l ~/agent_test/test2.2.py\n```\n\nIt should show the 
+newly created Python file. The script uses Scapy to read a pcap file and prints 
+the total number of packets as well as a summary of the first ten packets.',
+        'thinking': 'We need to respond confirming creation. Maybe check that 
+file exists. Provide command to list.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16630147729,
+    'load_duration': 284372746,
+    'prompt_eval_count': 950,
+    'prompt_eval_duration': 247158834,
+    'eval_count': 80,
+    'eval_duration': 10152020196
+}
+11:31:04.683 [INFO    ]            uvicorn.access - 127.0.0.1:33500 - "POST /queue/join HTTP/1.1" 200
+11:31:04.737 [INFO    ]            uvicorn.access - 127.0.0.1:33510 - "GET /queue/data?session_hash=df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:31:26.273 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:31:50.340 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c 'if [ -f ~/agent_test/test2.2.py ]; then cat ~/agent_test/test2.2.py; else echo "file not found"; fi'
+[AGENT] ✅ Remote command executed successfully: bash -c 'if [ -f ~/agent_test/test2.2.py ]; then cat ~/agent_test/test2.2.py; else echo "file not found"; fi'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'bash -c \'"\'"\'if 
+[ -f ~/agent_test/test2.2.py ]; then cat ~/agent_test/test2.2.py; else echo 
+"file not found"; fi\'"\'"\'\'\' executed successfully on remote host.', 
+'output': 'import sys\nfrom scapy.all import rdpcap\n\nif len(sys.argv) != 2:\n 
+print("Usage: python test2.2.py <pcap_file>")\n    sys.exit(1)\n\npcap_file = 
+sys.argv[1]\npackets = rdpcap(pcap_file)\nprint(f"Total packets: 
+{len(packets)}")\nfor i, pkt in enumerate(packets[:10]):\n    print(f"Packet 
+{i+1}: {pkt.summary()}")'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:31:50.34027864Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'bash -c \'"\'"\'if [ -f ~/agent_test/test2.2.py ]; then cat 
+~/agent_test/test2.2.py; else echo "file not found"; fi\'"\'"\'\'\' executed 
+successfully on remote host.\nOutput: import sys\nfrom scapy.all import 
+rdpcap\n\nif len(sys.argv) != 2:\n    print("Usage: python test2.2.py 
+<pcap_file>")\n    sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f"Total packets: {len(packets)}")\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f"Packet {i+1}: {pkt.summary()}")\n\nYes, 
+the file exists and its content is:\n\n```python\nimport sys\nfrom scapy.all 
+import rdpcap\n\nif len(sys.argv) != 2:\n    print("Usage: python test2.2.py 
+<pcap_file>")\n    sys.exit(1)\n\npcap_file = sys.argv[1]\npackets = 
+rdpcap(pcap_file)\nprint(f"Total packets: {len(packets)}")\nfor i, pkt in 
+enumerate(packets[:10]):\n    print(f"Packet {i+1}: {pkt.summary()}")\n```\n',
+        'thinking': 'We have confirmed the file exists and its content. The user
+just wanted to check and provide content. So answer accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22521516442,
+    'load_duration': 288225127,
+    'prompt_eval_count': 1284,
+    'prompt_eval_duration': 137574131,
+    'eval_count': 116,
+    'eval_duration': 14810676261
+}
+11:31:50.450 [INFO    ]            uvicorn.access - 127.0.0.1:58420 - "POST /queue/join HTTP/1.1" 200
+11:31:50.510 [INFO    ]            uvicorn.access - 127.0.0.1:58422 - "GET /queue/data?session_hash=df398910-eb90-4a2f-8ff7-a59b4359bb6a HTTP/1.1" 200
+11:32:01.340 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:32:14.504 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.py'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T11:32:14.504060222Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.py'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test2.2.py` has been deleted from the remote host.",
+        'thinking': 'User wants to remove file. Already executed. Confirm? Maybe
+ask.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7871058535,
+    'load_duration': 290798821,
+    'prompt_eval_count': 1469,
+    'prompt_eval_duration': 129732024,
+    'eval_count': 21,
+    'eval_duration': 2575881588
+}
+11:32:14.637 [INFO    ]             uvicorn.error - Shutting down
+11:32:14.738 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:32:14.738 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:32:14.738 [INFO    ]             uvicorn.error - Finished server process [29480]
+make: *** [Makefile:36: run] Terminated

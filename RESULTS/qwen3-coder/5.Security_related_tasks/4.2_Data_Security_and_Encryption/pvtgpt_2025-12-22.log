@@ -1,0 +1,168 @@
+poetry run python -m private_gpt
+12:35:34.643 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:35:38.907 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:35:38.971 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:35:38.972 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:35:39.851 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:35:40.006 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:35:40.007 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:35:40.008 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:35:40.900 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:35:40.941 [INFO    ]             uvicorn.error - Started server process [2014903]
+12:35:40.941 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:35:40.942 [INFO    ]             uvicorn.error - Application startup complete.
+12:35:40.942 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:36:14.469 [INFO    ]            uvicorn.access - 127.0.0.1:57460 - "GET /config HTTP/1.1" 200
+12:36:14.524 [INFO    ]            uvicorn.access - 127.0.0.1:57472 - "GET /info?serialize=False HTTP/1.1" 200
+12:36:14.590 [INFO    ]            uvicorn.access - 127.0.0.1:57480 - "GET /heartbeat/11836f64-9098-48f9-b645-d2339e0479c1 HTTP/1.1" 200
+12:36:14.593 [INFO    ]            uvicorn.access - 127.0.0.1:57482 - "POST /queue/join HTTP/1.1" 200
+12:36:14.649 [INFO    ]            uvicorn.access - 127.0.0.1:57498 - "GET /queue/data?session_hash=11836f64-9098-48f9-b645-d2339e0479c1 HTTP/1.1" 200
+12:36:26.714 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:36:41.801 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.2.sh ~/agent_test/test4.2.backup
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.2.sh ~/agent_test/test4.2.backup
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.2.sh ~/agent_test/test4.2.backup'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:36:41.800849943Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.2.sh ~/agent_test/test4.2.backup'' executed successfully 
+on remote host.\nOutput: \n\nThe command to remove the files 
+`~/agent_test/test4.2.sh` and `~/agent_test/test4.2.backup` was executed 
+successfully on the remote host. Both files have been removed if they were 
+present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9372429675,
+    'load_duration': 127591883,
+    'prompt_eval_count': 589,
+    'prompt_eval_duration': 4099387107,
+    'eval_count': 46,
+    'eval_duration': 5060312353
+}
+12:36:41.932 [INFO    ]            uvicorn.access - 127.0.0.1:58492 - "POST /queue/join HTTP/1.1" 200
+12:36:41.988 [INFO    ]            uvicorn.access - 127.0.0.1:58500 - "GET /queue/data?session_hash=11836f64-9098-48f9-b645-d2339e0479c1 HTTP/1.1" 200
+12:37:06.703 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:37:34.463 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash
+rsync -avz ~/agent_test/ ~/agent_test/backup_temp/ && tar -czf - -C ~/agent_test/backup_temp . | gpg --symmetric --cipher-algo AES256 --compress-algo 9 --output ~/agent_test/test4.2.backup --passphrase "password"
+rm -rf ~/agent_test/backup_temp' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash
+rsync -avz ~/agent_test/ ~/agent_test/backup_temp/ && tar -czf - -C ~/agent_test/backup_temp . | gpg --symmetric --cipher-algo AES256 --compress-algo 9 --output ~/agent_test/test4.2.backup --passphrase "password"
+rm -rf ~/agent_test/backup_temp' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\nrsync -avz ~/agent_test/ 
+~/agent_test/backup_temp/ && tar -czf - -C ~/agent_test/backup_temp . | gpg 
+--symmetric --cipher-algo AES256 --compress-algo 9 --output 
+~/agent_test/test4.2.backup --passphrase "password"\nrm -rf 
+~/agent_test/backup_temp\'"\'"\' > ~/agent_test/test4.2.sh && chmod +x 
+~/agent_test/test4.2.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:37:34.462643054Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\nrsync -avz ~/agent_test/ 
+~/agent_test/backup_temp/ && tar -czf - -C ~/agent_test/backup_temp . | gpg 
+--symmetric --cipher-algo AES256 --compress-algo 9 --output 
+~/agent_test/test4.2.backup --passphrase "password"\nrm -rf 
+~/agent_test/backup_temp\'"\'"\' > ~/agent_test/test4.2.sh && chmod +x 
+~/agent_test/test4.2.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nI\'ve created the backup script `~/agent_test/test4.2.sh` on the remote host
+`eraigra-rpi` as requested. The script:\n\n1. Creates the `~/agent_test` 
+directory if it doesn\'t exist\n2. Writes a bash script that:\n   - Uses rsync 
+to copy files to a temporary backup directory\n   - Creates a compressed tar 
+archive of the temporary directory\n   - Encrypts the archive with GPG using 
+AES256 encryption and password "password"\n   - Cleans up the temporary 
+directory\n3. Makes the script executable\n\nThe backup file will be created at 
+`~/agent_test/test4.2.backup` as specified. The script uses a password-based 
+encryption with the passphrase "password" as requested.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26196927079,
+    'load_duration': 130042195,
+    'prompt_eval_count': 882,
+    'prompt_eval_duration': 7667230419,
+    'eval_count': 155,
+    'eval_duration': 18253128792
+}
+12:37:34.601 [INFO    ]            uvicorn.access - 127.0.0.1:60010 - "POST /queue/join HTTP/1.1" 200
+12:37:34.657 [INFO    ]            uvicorn.access - 127.0.0.1:60018 - "GET /queue/data?session_hash=11836f64-9098-48f9-b645-d2339e0479c1 HTTP/1.1" 200
+12:37:44.269 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:38:28.454 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.2.sh && ls -l ~/agent_test/test4.2.backup
+[AGENT] ❌ Remote command failed: ~/agent_test/test4.2.sh && ls -l ~/agent_test/test4.2.backup
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+gpg: selected compression algorithm is invalid
+tar: Child returned status 141
+tar: Error is not recoverable: exiting now
+ls: cannot access '/home/raimondo/agent_test/test4.2.backup': No such file or directory
+[AGENT] ✅:{'status': 'error', 'message': "The command ''~/agent_test/test4.2.sh
+&& ls -l ~/agent_test/test4.2.backup'' failed on remote host.", 'output': 
+"Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts.\ngpg: selected compression algorithm is invalid\ntar: Child returned 
+status 141\ntar: Error is not recoverable: exiting now\nls: cannot access 
+'/home/raimondo/agent_test/test4.2.backup': No such file or directory"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:38:28.451299877Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+''~/agent_test/test4.2.sh && ls -l ~/agent_test/test4.2.backup'' failed on 
+remote host.\nOutput: Warning: Permanently added 'eraigra-rpi' (ED25519) to the 
+list of known hosts.\ngpg: selected compression algorithm is invalid\ntar: Child
+returned status 141\ntar: Error is not recoverable: exiting now\nls: cannot 
+access '/home/raimondo/agent_test/test4.2.backup': No such file or 
+directory\n\nI see there was an error with the backup script. The issue appears 
+to be with the GPG compression algorithm. Let me fix the script and try again. 
+I'll create a corrected version that uses a valid compression algorithm and 
+ensure it works properly.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && echo 
+\'#!/bin/bash\nrsync -avz ~/agent_test/ ~/agent_test/backup_temp/ && tar -czf - 
+-C ~/agent_test/backup_temp . | gpg --symmetric --cipher-algo AES256 
+--compress-algo 1 --output ~/agent_test/test4.2.backup --passphrase 
+"password"\nrm -rf ~/agent_test/backup_temp\' > ~/agent_test/test4.2.sh && chmod
++x ~/agent_test/test4.2.sh && ~/agent_test/test4.2.sh && ls -l 
+~/agent_test/test4.2.backup',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 38848605409,
+    'load_duration': 130916802,
+    'prompt_eval_count': 1239,
+    'prompt_eval_duration': 11083186401,
+    'eval_count': 230,
+    'eval_duration': 27464572916
+}
+12:38:28.653 [INFO    ]             uvicorn.error - Shutting down
+12:38:28.754 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:38:28.754 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:38:28.754 [INFO    ]             uvicorn.error - Finished server process [2014903]
+make: *** [Makefile:36: run] Terminated

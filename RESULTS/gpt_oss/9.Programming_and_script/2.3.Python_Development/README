@@ -1,0 +1,5 @@
+TASKNAME=Identify the organization of a Python project and infer its functionalities.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo under the folder (to be created) ~/agent_test/test2.3 create the structure of a python project including the skeleton of the python files that you can leave empty for the moment. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo identify the organization of the Python project contained in the folder ~/agent_test/test2.3 and infer its functionalities. Logs the outcome of all activities in the file ~/agent_test/test2.3.log. Don't split the commands and do all requested in a single command line. 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file ~/agent_test/test2.3.log.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/test2.3.log and the folder ~/agent_test/test2.3. Don't split the commands and do all requested in a single command line. 

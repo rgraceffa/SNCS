@@ -1,0 +1,130 @@
+poetry run python -m private_gpt
+08:36:27.541 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:36:31.810 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:36:31.874 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:36:31.876 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:36:32.774 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:36:32.929 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:36:32.931 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:36:32.932 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:36:33.820 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:36:33.861 [INFO    ]             uvicorn.error - Started server process [2700007]
+08:36:33.861 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:36:33.861 [INFO    ]             uvicorn.error - Application startup complete.
+08:36:33.861 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:37:07.366 [INFO    ]            uvicorn.access - 127.0.0.1:37908 - "GET /config HTTP/1.1" 200
+08:37:07.421 [INFO    ]            uvicorn.access - 127.0.0.1:37916 - "GET /info?serialize=False HTTP/1.1" 200
+08:37:07.525 [INFO    ]            uvicorn.access - 127.0.0.1:37932 - "POST /queue/join HTTP/1.1" 200
+08:37:07.525 [INFO    ]            uvicorn.access - 127.0.0.1:37922 - "GET /heartbeat/17bc940e-ff3d-45ee-bc4a-74ad5e4325cb HTTP/1.1" 200
+08:37:07.581 [INFO    ]            uvicorn.access - 127.0.0.1:37938 - "GET /queue/data?session_hash=17bc940e-ff3d-45ee-bc4a-74ad5e4325cb HTTP/1.1" 200
+08:37:18.953 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:38:42.409 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt update && sudo apt install -y libnss-systemd
+[AGENT] ✅ Remote command executed successfully: sudo apt update && sudo apt install -y libnss-systemd
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt update && 
+sudo apt install -y libnss-systemd'' executed successfully on remote host.", 
+'output': 'Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1145 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\nlibnss-systemd is already the 
+newest version (249.11-0ubuntu3.17).\n0 upgraded, 0 newly installed, 0 to remove
+and 0 not upgraded.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:38:42.409364695Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt update && sudo apt install -y libnss-systemd'' executed successfully 
+on remote host.\nOutput: Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1145 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\nlibnss-systemd is already the 
+newest version (249.11-0ubuntu3.17).\n0 upgraded, 0 newly installed, 0 to remove
+and 0 not upgraded.\n\nThe command `sudo apt update && sudo apt install -y 
+libnss-systemd` was executed successfully on the remote host. Here's the 
+output:\n\n```\nGet:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 https://download.docker.com/linux/ubuntu jammy InRelease\nHit:6
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:8 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 6s 
+(1145 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state
+information...\nAll packages are up to date.\nReading package lists...\nBuilding
+dependency tree...\nReading state information...\nlibnss-systemd is already the 
+newest version (249.11-0ubuntu3.17).\n0 upgraded, 0 newly installed, 0 to remove
+and 0 not upgraded.\n```\n\nThe `libnss-systemd` package is already at the 
+latest version (249.11-0ubuntu3.17) and no updates were installed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 47879877389,
+    'load_duration': 126294137,
+    'prompt_eval_count': 875,
+    'prompt_eval_duration': 7295818511,
+    'eval_count': 345,
+    'eval_duration': 40229861437
+}
+08:38:42.534 [INFO    ]            uvicorn.access - 127.0.0.1:54286 - "POST /queue/join HTTP/1.1" 200
+08:38:42.589 [INFO    ]            uvicorn.access - 127.0.0.1:54302 - "GET /queue/data?session_hash=17bc940e-ff3d-45ee-bc4a-74ad5e4325cb HTTP/1.1" 200
+08:39:01.419 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:39:22.723 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -l | grep libnss-systemd
+[AGENT] ✅ Remote command executed successfully: dpkg -l | grep libnss-systemd
+[AGENT] ✅:{'status': 'success', 'message': "The command ''dpkg -l | grep 
+libnss-systemd'' executed successfully on remote host.", 'output': 'ii  
+libnss-systemd:armhf                  249.11-0ubuntu3.17                      
+armhf        nss module providing dynamic user and group name resolution'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:39:22.723091681Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''dpkg -l | grep libnss-systemd'' executed successfully on remote host.\nOutput:
+ii  libnss-systemd:armhf                  249.11-0ubuntu3.17                    
+armhf        nss module providing dynamic user and group name resolution\n\nThe 
+command `dpkg -l | grep libnss-systemd` was executed successfully on the remote 
+host. Here's the output:\n\n```\nii  libnss-systemd:armhf                  
+249.11-0ubuntu3.17                      armhf        nss module providing 
+dynamic user and group name resolution\n```\n\nThis confirms that the 
+`libnss-systemd` package is installed with version `249.11-0ubuntu3.17` on the 
+remote host."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15582814538,
+    'load_duration': 131147841,
+    'prompt_eval_count': 1356,
+    'prompt_eval_duration': 2142542637,
+    'eval_count': 109,
+    'eval_duration': 13198446098
+}
+08:39:22.959 [INFO    ]             uvicorn.error - Shutting down
+08:39:23.060 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:39:23.060 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:39:23.060 [INFO    ]             uvicorn.error - Finished server process [2700007]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,64 @@
+poetry run python -m private_gpt
+10:43:17.589 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:43:21.896 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:43:21.960 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:43:21.961 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:43:22.857 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:43:23.011 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:43:23.013 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:43:23.014 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:43:23.904 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:43:23.944 [INFO    ]             uvicorn.error - Started server process [157800]
+10:43:23.944 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:43:23.945 [INFO    ]             uvicorn.error - Application startup complete.
+10:43:23.945 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:43:57.416 [INFO    ]            uvicorn.access - 127.0.0.1:51570 - "GET /config HTTP/1.1" 200
+10:43:57.471 [INFO    ]            uvicorn.access - 127.0.0.1:51582 - "GET /info?serialize=False HTTP/1.1" 200
+10:43:57.539 [INFO    ]            uvicorn.access - 127.0.0.1:51590 - "GET /heartbeat/33c63fdd-8cfc-4137-b869-c32c49134547 HTTP/1.1" 200
+10:43:57.542 [INFO    ]            uvicorn.access - 127.0.0.1:51586 - "POST /queue/join HTTP/1.1" 200
+10:43:57.596 [INFO    ]            uvicorn.access - 127.0.0.1:51602 - "GET /queue/data?session_hash=33c63fdd-8cfc-4137-b869-c32c49134547 HTTP/1.1" 200
+10:44:25.717 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:45:01.330 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi git config --global user.name "Raimondo" && git config --global user.email "raimondo@example.com"
+[AGENT] ✅ Remote command executed successfully: git config --global user.name "Raimondo" && git config --global user.email "raimondo@example.com"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'git config --global
+user.name "Raimondo" && git config --global user.email 
+"raimondo@example.com"\'\' executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:45:01.330479763Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'git config --global user.name "Raimondo" && git config --global user.email 
+"raimondo@example.com"\'\' executed successfully on remote host.\nOutput: \n\nI 
+applied the basic Git configuration on **eraigra-rpi** as the user **raimondo** 
+with a single, non‑split command line:\n\n```bash\ngit config --global user.name
+"Raimondo" && git config --global user.email "raimondo@example.com"\n```\n\nThis
+sets the global Git user name to “Raimondo” and the email to 
+“raimondo@example.com”.',
+        'thinking': 'We got a tool call output. It shows that the command "git 
+config --global user.name "Raimondo" && git config --global user.email 
+"raimondo@example.com"" executed successfully on remote host. The user requested
+"in the remote host eraigra-rpi username raimondo apply a basic configuration 
+through command line to git software package. Don\'t split the commands and do 
+all requested in a single command line."\n\nIt seems they want a single command 
+line. We need to provide the response: maybe mention that we\'ve executed it. 
+Possibly we need to provide the command used. Let\'s provide the command.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30487560769,
+    'load_duration': 299435942,
+    'prompt_eval_count': 543,
+    'prompt_eval_duration': 256277319,
+    'eval_count': 87,
+    'eval_duration': 11026076596
+}
+10:45:01.554 [INFO    ]             uvicorn.error - Shutting down
+10:45:01.654 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:45:01.654 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:45:01.654 [INFO    ]             uvicorn.error - Finished server process [157800]
+make: *** [Makefile:36: run] Terminated

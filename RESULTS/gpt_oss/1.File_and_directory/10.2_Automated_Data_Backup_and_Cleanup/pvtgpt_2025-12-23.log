@@ -1,0 +1,231 @@
+poetry run python -m private_gpt
+11:52:19.249 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:52:23.568 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:52:23.632 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:52:23.633 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:52:24.537 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:52:24.692 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:52:24.694 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:52:24.695 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:52:25.586 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:52:25.627 [INFO    ]             uvicorn.error - Started server process [3157885]
+11:52:25.627 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:52:25.627 [INFO    ]             uvicorn.error - Application startup complete.
+11:52:25.628 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:52:59.081 [INFO    ]            uvicorn.access - 127.0.0.1:53646 - "GET /config HTTP/1.1" 200
+11:52:59.137 [INFO    ]            uvicorn.access - 127.0.0.1:53654 - "GET /info?serialize=False HTTP/1.1" 200
+11:52:59.201 [INFO    ]            uvicorn.access - 127.0.0.1:53664 - "GET /heartbeat/68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:52:59.204 [INFO    ]            uvicorn.access - 127.0.0.1:53672 - "POST /queue/join HTTP/1.1" 200
+11:52:59.261 [INFO    ]            uvicorn.access - 127.0.0.1:53678 - "GET /queue/data?session_hash=68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:53:22.401 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:53:47.343 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test10.2.txt
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test10.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test10.2.txt'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T11:53:47.343353969Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test10.2.txt'' executed 
+successfully on remote host.\nOutput: \n\n✅ File `test10.2.txt` has been 
+created in `~/agent_test` on host **eraigra-rpi** (user **raimondo**). If you 
+need to add content or check the file, just let me know!",
+        'thinking': 'We need to create file test10.2.txt in ~/agent_test on 
+remote host eraigra-rpi as user raimondo. The tool executed command: "mkdir -p 
+~/agent_test && touch ~/agent_test/test10.2.txt". That seems correct. But we 
+need to verify that the command succeeded. It says success. So respond 
+confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19859009893,
+    'load_duration': 278862319,
+    'prompt_eval_count': 469,
+    'prompt_eval_duration': 255983125,
+    'eval_count': 52,
+    'eval_duration': 6530500261
+}
+11:53:47.426 [INFO    ]            uvicorn.access - 127.0.0.1:56382 - "POST /queue/join HTTP/1.1" 200
+11:53:47.482 [INFO    ]            uvicorn.access - 127.0.0.1:56386 - "GET /queue/data?session_hash=68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:55:49.688 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:56:59.729 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi tar czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp ~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/
+[AGENT] ❌ Remote command failed: tar czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp ~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+tar: .: file changed as we read it
+[AGENT] ✅:{'status': 'error', 'message': "The command ''tar czf 
+~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp 
+~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/'' failed 
+on remote host.", 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) 
+to the list of known hosts.\ntar: .: file changed as we read it"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T11:56:59.728737192Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command ''tar 
+czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp 
+~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/'' failed 
+on remote host.\nOutput: Warning: Permanently added 'eraigra-rpi' (ED25519) to 
+the list of known hosts.\ntar: .: file changed as we read it\n\n",
+        'thinking': "We need to run a single command line on eraigra-rpi. It 
+should create a backup gz of all files in ~/agent_test and then scp to 
+eraigra-x205ta:~/destfolder. The error: tar: .: file changed as we read it 
+because test10.2.txt might have been modified? Could use -C and . but maybe need
+to use -C with directory path. We can use tar -czf backup.gz -C ~/agent_test . 
+That should be fine. But error indicates file changed during reading. Possibly 
+due to the file being created by tar concurrently? Actually we are creating 
+backup of all files. That shouldn't modify files. But the command we sent: tar 
+czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp ... . But the file
+test10.2.backpup.gz was being created in same directory, tar might have included
+it? Actually the backup gz is being created, tar reads directory contents; but 
+test10.2.backpup.gz might not exist yet, but during tar creation, it might 
+include the newly created backup? But it was created at start of command; maybe 
+tar starts to read directory and sees the new file being created, causing file 
+changed error. So solution: create backup gz outside directory, e.g., in /tmp or
+home. Then scp. Alternatively, create backup gz in parent directory, exclude 
+that file. Simplest: tar -czf test10.2.backpup.gz -C ~/agent_test . Then scp to 
+destfolder. Use -C to change into dir and archive . so that backup gz outside 
+dir. So final command: tar -czf ~/test10.2.backpup.gz -C ~/agent_test . && scp 
+~/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/ . That is one 
+line.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'tar -czf ~/test10.2.backpup.gz -C 
+~/agent_test . && scp ~/test10.2.backpup.gz 
+raimondo@eraigra-x205ta:~/destfolder/',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 64855836814,
+    'load_duration': 303260361,
+    'prompt_eval_count': 638,
+    'prompt_eval_duration': 1969757816,
+    'eval_count': 485,
+    'eval_duration': 62162143058
+}
+11:57:04.843 [INFO    ]            uvicorn.access - 127.0.0.1:33868 - "POST /queue/join HTTP/1.1" 200
+11:57:04.899 [INFO    ]            uvicorn.access - 127.0.0.1:33874 - "GET /queue/data?session_hash=68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:58:06.915 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:58:31.905 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi tar czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp ~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/
+[AGENT] ✅ Remote command executed successfully: tar czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp ~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''tar czf 
+~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp 
+~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T11:58:31.905351669Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''tar
+czf ~/agent_test/test10.2.backpup.gz -C ~/agent_test . && scp 
+~/agent_test/test10.2.backpup.gz raimondo@eraigra-x205ta:~/destfolder/'' 
+executed successfully on remote host.\nOutput: \n\n✅ Done!  \n- Created 
+`test10.2.backpup.gz` containing all files from `~/agent_test`.  \n- Copied the 
+archive to `~/destfolder/` on **eraigra-x205ta**.  \n\nLet me know if you need 
+anything else!",
+        'thinking': 'The user wants to create backup gz file and then sync to 
+another host in a single command line. The assistant attempted to run "tar czf 
+... -C ... && scp ...". The system returned success. That seems correct. We 
+should reply acknowledging success.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18171683556,
+    'load_duration': 291764822,
+    'prompt_eval_count': 860,
+    'prompt_eval_duration': 256963734,
+    'eval_count': 59,
+    'eval_duration': 7451297579
+}
+11:58:32.019 [INFO    ]            uvicorn.access - 127.0.0.1:54528 - "POST /queue/join HTTP/1.1" 200
+11:58:32.075 [INFO    ]            uvicorn.access - 127.0.0.1:54544 - "GET /queue/data?session_hash=68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:59:04.871 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:59:15.958 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-x205ta if [ -f ~/destfolder/test10.2.backpup.gz ]; then echo "Exists"; else echo "Missing"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/destfolder/test10.2.backpup.gz ]; then echo "Exists"; else echo "Missing"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/destfolder/test10.2.backpup.gz ]; then echo "Exists"; else echo "Missing"; 
+fi\'\' executed successfully on remote host.', 'output': 'Exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T11:59:15.95816873Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/destfolder/test10.2.backpup.gz ]; then echo "Exists"; else echo 
+"Missing"; fi\'\' executed successfully on remote host.\nOutput: Exists\n\n✅ 
+The file **test10.2.backpup.gz** exists in `~/destfolder` on host 
+**eraigra-x205ta** (user **raimondo**).',
+        'thinking': 'We need to respond that file exists.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9348485598,
+    'load_duration': 301989899,
+    'prompt_eval_count': 994,
+    'prompt_eval_duration': 129768892,
+    'eval_count': 39,
+    'eval_duration': 4883319379
+}
+11:59:16.084 [INFO    ]            uvicorn.access - 127.0.0.1:55422 - "POST /queue/join HTTP/1.1" 200
+11:59:16.138 [INFO    ]            uvicorn.access - 127.0.0.1:55424 - "GET /queue/data?session_hash=68879ce9-d0ad-4a8f-99da-28e16e6e1aef HTTP/1.1" 200
+11:59:27.964 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:59:42.761 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test10.2.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test10.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test10.2.txt'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T11:59:42.760954023Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test10.2.txt'' executed successfully on remote host.\nOutput: 
+\n\n✅ File `test10.2.txt` has been removed from `~/agent_test` on 
+**eraigra-rpi** (user **raimondo**).",
+        'thinking': 'The user removed the test10.2.txt file. No further action.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9783622340,
+    'load_duration': 286685514,
+    'prompt_eval_count': 1122,
+    'prompt_eval_duration': 129584618,
+    'eval_count': 35,
+    'eval_duration': 4371962304
+}
+11:59:43.031 [INFO    ]             uvicorn.error - Shutting down
+11:59:43.132 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:59:43.132 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:59:43.132 [INFO    ]             uvicorn.error - Finished server process [3157885]
+make: *** [Makefile:36: run] Terminated

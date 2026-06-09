@@ -1,0 +1,5 @@
+TASKNAME=Check the last login date of a user account.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.2.txt
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo check the last login date of user pippo and logs all in file ~/agent_test/test1.2.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test1.2.txt is created and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.2.txt

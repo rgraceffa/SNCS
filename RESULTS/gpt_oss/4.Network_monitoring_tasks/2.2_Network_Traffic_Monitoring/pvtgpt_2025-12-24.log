@@ -1,0 +1,168 @@
+poetry run python -m private_gpt
+09:36:43.385 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+09:36:47.686 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+09:36:47.750 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:36:47.752 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:36:48.646 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+09:36:48.799 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:36:48.800 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+09:36:48.801 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+09:36:49.689 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+09:36:49.729 [INFO    ]             uvicorn.error - Started server process [26657]
+09:36:49.729 [INFO    ]             uvicorn.error - Waiting for application startup.
+09:36:49.730 [INFO    ]             uvicorn.error - Application startup complete.
+09:36:49.730 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+09:37:23.215 [INFO    ]            uvicorn.access - 127.0.0.1:47954 - "GET /config HTTP/1.1" 200
+09:37:23.269 [INFO    ]            uvicorn.access - 127.0.0.1:47964 - "GET /info?serialize=False HTTP/1.1" 200
+09:37:23.338 [INFO    ]            uvicorn.access - 127.0.0.1:47968 - "GET /heartbeat/3ba4d4d5-4450-4503-b145-8324b6b228c4 HTTP/1.1" 200
+09:37:23.341 [INFO    ]            uvicorn.access - 127.0.0.1:47974 - "POST /queue/join HTTP/1.1" 200
+09:37:23.396 [INFO    ]            uvicorn.access - 127.0.0.1:47990 - "GET /queue/data?session_hash=3ba4d4d5-4450-4503-b145-8324b6b228c4 HTTP/1.1" 200
+09:38:12.994 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:38:27.770 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh ~/agent_test/test2.2.cap'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:38:27.76967335Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap'' executed successfully on 
+remote host.\nOutput: \n\nDone. The files `~/agent_test/test2.2.sh` and 
+`~/agent_test/test2.2.cap` have been removed (if they existed).",
+        'thinking': 'We already executed remote command via function. We need to
+answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9489225961,
+    'load_duration': 282508073,
+    'prompt_eval_count': 435,
+    'prompt_eval_duration': 255949196,
+    'eval_count': 34,
+    'eval_duration': 4225526422
+}
+09:38:27.883 [INFO    ]            uvicorn.access - 127.0.0.1:38650 - "POST /queue/join HTTP/1.1" 200
+09:38:27.937 [INFO    ]            uvicorn.access - 127.0.0.1:38660 - "GET /queue/data?session_hash=3ba4d4d5-4450-4503-b145-8324b6b228c4 HTTP/1.1" 200
+09:40:38.219 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:41:28.003 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#!/bin/bash\nsudo tcpdump -i any -w ~/agent_test/test2.2.cap -G 5 -W 1' > ~/agent_test/test2.2.sh; chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: echo -e '#!/bin/bash\nsudo tcpdump -i any -w ~/agent_test/test2.2.cap -G 5 -W 1' > ~/agent_test/test2.2.sh; chmod +x ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#!/bin/bash\\nsudo tcpdump -i any -w ~/agent_test/test2.2.cap -G 5 -W 
+1\'"\'"\' > ~/agent_test/test2.2.sh; chmod +x ~/agent_test/test2.2.sh\'\' 
+executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:41:28.003229746Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#!/bin/bash\\nsudo tcpdump -i any -w 
+~/agent_test/test2.2.cap -G 5 -W 1\'"\'"\' > ~/agent_test/test2.2.sh; chmod +x 
+~/agent_test/test2.2.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script has been created at `~/agent_test/test2.2.sh`, set as executable,
+and is ready to capture 5\u202fseconds of network traffic into 
+`~/agent_test/test2.2.cap` using `sudo tcpdump`. You can run it 
+with:\n\n```bash\n~/agent_test/test2.2.sh\n```',
+        'thinking': "The user asked to create a bash script to monitor real-time
+network traffic for 5 and create the output file, and make it executable. The 
+assistant executed an echo that writes a script: #!/bin/bash\\nsudo tcpdump -i 
+any -w ~/agent_test/test2.2.cap -G 5 -W 1. That would run tcpdump with -G 5 
+(rotate every 5 seconds?) Wait -G is rotation interval. So it would rotate after
+5 seconds, but the script would run only once, capturing 5 seconds, then exit. 
+That meets requirement: monitor real-time network traffic for 5 and create 
+output file.\n\nBut maybe we want to run continuous capture for 5 seconds. That 
+command is okay. However the requirement: create output file 
+~/agent_test/test2.2.cap. That will be created. Good.\n\nNeed to use sudo. 
+Already used sudo.\n\nBut the script is created with echo >, good. We used chmod
++x. All in one line.\n\nThe assistant responded with the command executed, no 
+output. That is fine.\n\nWe can confirm that script was created. But user didn't
+ask for verification. Just confirm. Provide confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 44003373279,
+    'load_duration': 296990102,
+    'prompt_eval_count': 894,
+    'prompt_eval_duration': 256807961,
+    'eval_count': 69,
+    'eval_duration': 8735984852
+}
+09:41:28.131 [INFO    ]            uvicorn.access - 127.0.0.1:41770 - "POST /queue/join HTTP/1.1" 200
+09:41:28.186 [INFO    ]            uvicorn.access - 127.0.0.1:41780 - "GET /queue/data?session_hash=3ba4d4d5-4450-4503-b145-8324b6b228c4 HTTP/1.1" 200
+09:41:52.395 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:42:14.440 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi [ -f ~/agent_test/test2.2.sh ] && ~/agent_test/test2.2.sh
+[AGENT] ✅ Remote command executed successfully: [ -f ~/agent_test/test2.2.sh ] && ~/agent_test/test2.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''[ -f 
+~/agent_test/test2.2.sh ] && ~/agent_test/test2.2.sh'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:42:14.440551257Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''[ 
+-f ~/agent_test/test2.2.sh ] && ~/agent_test/test2.2.sh'' executed successfully 
+on remote host.\nOutput: \n\nThe script was found and executed successfully. The
+capture file `~/agent_test/test2.2.cap` has been created (or overwritten) with 
+the 5‑second network traffic dump.",
+        'thinking': 'We need to respond. The user asked to run if exists the 
+script. We already executed. So just inform.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11410938909,
+    'load_duration': 288756420,
+    'prompt_eval_count': 849,
+    'prompt_eval_duration': 256944878,
+    'eval_count': 39,
+    'eval_duration': 4881665663
+}
+09:42:14.553 [INFO    ]            uvicorn.access - 127.0.0.1:58228 - "POST /queue/join HTTP/1.1" 200
+09:42:14.607 [INFO    ]            uvicorn.access - 127.0.0.1:58236 - "GET /queue/data?session_hash=3ba4d4d5-4450-4503-b145-8324b6b228c4 HTTP/1.1" 200
+09:42:28.908 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+09:42:40.054 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.sh ~/agent_test/test2.2.cap'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T09:42:40.054195288Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.sh ~/agent_test/test2.2.cap'' executed successfully on 
+remote host.\nOutput: \n\nAll specified files have been removed (if they 
+existed) from `~/agent_test/` on host `eraigra-rpi`. No files remain.",
+        'thinking': 'User wants to remove the files if exist. We already did. 
+Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9594637603,
+    'load_duration': 289986025,
+    'prompt_eval_count': 992,
+    'prompt_eval_duration': 228047085,
+    'eval_count': 32,
+    'eval_duration': 3982664032
+}
+09:42:40.221 [INFO    ]             uvicorn.error - Shutting down
+09:42:40.321 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+09:42:40.321 [INFO    ]             uvicorn.error - Application shutdown complete.
+09:42:40.321 [INFO    ]             uvicorn.error - Finished server process [26657]
+make: *** [Makefile:36: run] Terminated

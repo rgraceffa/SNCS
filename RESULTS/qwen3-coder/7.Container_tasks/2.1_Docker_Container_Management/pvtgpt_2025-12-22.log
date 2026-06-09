@@ -1,0 +1,175 @@
+poetry run python -m private_gpt
+15:10:27.339 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:10:31.607 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:10:31.671 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:31.672 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:32.552 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:10:32.706 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:32.708 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:32.709 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:10:33.600 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:10:33.640 [INFO    ]             uvicorn.error - Started server process [2447096]
+15:10:33.640 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:10:33.641 [INFO    ]             uvicorn.error - Application startup complete.
+15:10:33.641 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:11:07.170 [INFO    ]            uvicorn.access - 127.0.0.1:36854 - "GET /config HTTP/1.1" 200
+15:11:07.225 [INFO    ]            uvicorn.access - 127.0.0.1:36856 - "GET /info?serialize=False HTTP/1.1" 200
+15:11:07.319 [INFO    ]            uvicorn.access - 127.0.0.1:36860 - "GET /heartbeat/50ad23be-070e-4743-926d-bb69e718e951 HTTP/1.1" 200
+15:11:07.324 [INFO    ]            uvicorn.access - 127.0.0.1:36872 - "POST /queue/join HTTP/1.1" 200
+15:11:07.380 [INFO    ]            uvicorn.access - 127.0.0.1:36880 - "GET /queue/data?session_hash=50ad23be-070e-4743-926d-bb69e718e951 HTTP/1.1" 200
+15:11:18.756 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:14:38.577 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull ubuntu && docker run -d --name ubuntu-container ubuntu sleep infinity
+[AGENT] ✅ Remote command executed successfully: docker pull ubuntu && docker run -d --name ubuntu-container ubuntu sleep infinity
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull ubuntu &&
+docker run -d --name ubuntu-container ubuntu sleep infinity'' executed 
+successfully on remote host.", 'output': 'Using default tag: latest\nlatest: 
+Pulling from library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: 
+Verifying Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull 
+complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\ndd408c776838a90d2dd7573d3a6552f2
+706e735bd1290fe3310c46bed8af362d'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:14:38.576681358Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull ubuntu && docker run -d --name ubuntu-container ubuntu sleep 
+infinity'' executed successfully on remote host.\nOutput: Using default tag: 
+latest\nlatest: Pulling from library/ubuntu\n6cdc0abf996c: Pulling fs 
+layer\n6cdc0abf996c: Verifying Checksum\n6cdc0abf996c: Download 
+complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\ndd408c776838a90d2dd7573d3a6552f2
+706e735bd1290fe3310c46bed8af362d\n\nThe command has been successfully executed 
+on the remote host. Here's what happened:\n\n1. The command `docker pull ubuntu 
+&& docker run -d --name ubuntu-container ubuntu sleep infinity` was run.\n2. It 
+first pulled the latest Ubuntu Docker image from the Docker Hub.\n3. Then it 
+started a new container named `ubuntu-container` based on that image.\n4. The 
+container is running in detached mode (`-d`) and is executing the `sleep 
+infinity` command, which keeps it running indefinitely.\n\nThe container ID 
+`dd408c776838a90d2dd7573d3a6552f2706e735bd1290fe3310c46bed8af362d` is now 
+running and will keep the Ubuntu image active as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28241954334,
+    'load_duration': 132524929,
+    'prompt_eval_count': 799,
+    'prompt_eval_duration': 6882318044,
+    'eval_count': 178,
+    'eval_duration': 21072278930
+}
+15:14:38.699 [INFO    ]            uvicorn.access - 127.0.0.1:39620 - "POST /queue/join HTTP/1.1" 200
+15:14:38.760 [INFO    ]            uvicorn.access - 127.0.0.1:39628 - "GET /queue/data?session_hash=50ad23be-070e-4743-926d-bb69e718e951 HTTP/1.1" 200
+15:14:46.456 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:15:24.415 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker stop $(docker ps -q)
+[AGENT] ✅ Remote command executed successfully: docker stop $(docker ps -q)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker stop $(docker 
+ps -q)'' executed successfully on remote host.", 'output': 'dd408c776838'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:15:24.41485548Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker stop $(docker ps -q)'' executed successfully on remote host.\nOutput: 
+dd408c776838\n\nThe command has been successfully executed on the remote host. 
+Here's what happened:\n\nThe command `docker stop $(docker ps -q)` was run, 
+which:\n1. Used `docker ps -q` to list all running container IDs\n2. Passed 
+those IDs to `docker stop` to stop them all\n\nThe container with ID 
+`dd408c776838` was stopped as requested. Since this was the only running 
+container, it's now stopped and no longer active."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13734607104,
+    'load_duration': 127305664,
+    'prompt_eval_count': 1076,
+    'prompt_eval_duration': 1542575645,
+    'eval_count': 103,
+    'eval_duration': 11936953701
+}
+15:15:24.501 [INFO    ]            uvicorn.access - 127.0.0.1:55088 - "POST /queue/join HTTP/1.1" 200
+15:15:24.561 [INFO    ]            uvicorn.access - 127.0.0.1:55096 - "GET /queue/data?session_hash=50ad23be-070e-4743-926d-bb69e718e951 HTTP/1.1" 200
+15:15:31.370 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:15:48.903 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker ps
+[AGENT] ✅ Remote command executed successfully: docker ps
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker ps'' executed 
+successfully on remote host.", 'output': 'CONTAINER ID   IMAGE     COMMAND   
+CREATED   STATUS    PORTS     NAMES'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:15:48.902786376Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker ps'' executed successfully on remote host.\nOutput: CONTAINER ID   
+IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n\nThe command has been 
+successfully executed on the remote host. Here's what happened:\n\nThe command 
+`docker ps` was run to verify all containers are stopped. The output 
+shows:\n\n```\nCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     
+NAMES\n```\n\nThis indicates that there are no running containers currently. The
+empty fields confirm that all containers have been stopped and there are no 
+active containers running on the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11986976333,
+    'load_duration': 126679591,
+    'prompt_eval_count': 1260,
+    'prompt_eval_duration': 1509439833,
+    'eval_count': 88,
+    'eval_duration': 10246172147
+}
+15:15:48.994 [INFO    ]            uvicorn.access - 127.0.0.1:60464 - "POST /queue/join HTTP/1.1" 200
+15:15:49.060 [INFO    ]            uvicorn.access - 127.0.0.1:60478 - "GET /queue/data?session_hash=50ad23be-070e-4743-926d-bb69e718e951 HTTP/1.1" 200
+15:16:08.296 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:16:45.445 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm $(docker ps -aq)
+[AGENT] ✅ Remote command executed successfully: docker rm $(docker ps -aq)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm $(docker ps
+-aq)'' executed successfully on remote host.", 'output': 
+'dd408c776838\nedad32921a0b'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T15:16:45.444802337Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm $(docker ps -aq)'' executed successfully on remote host.\nOutput: 
+dd408c776838\nedad32921a0b\n\nThe command has been successfully executed on the 
+remote host. Here's what happened:\n\nThe command `docker rm $(docker ps -aq)` 
+was run, which:\n1. Used `docker ps -aq` to list all container IDs (both running
+and stopped)\n2. Passed those IDs to `docker rm` to remove them all\n\nTwo 
+containers were removed:\n- `dd408c776838`\n- `edad32921a0b`\n\nAll Docker 
+containers have now been removed from the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27115336455,
+    'load_duration': 125217845,
+    'prompt_eval_count': 1441,
+    'prompt_eval_duration': 13577890876,
+    'eval_count': 110,
+    'eval_duration': 13286861277
+}
+15:16:45.614 [INFO    ]             uvicorn.error - Shutting down
+15:16:45.715 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:16:45.715 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:16:45.715 [INFO    ]             uvicorn.error - Finished server process [2447096]
+make: *** [Makefile:36: run] Terminated

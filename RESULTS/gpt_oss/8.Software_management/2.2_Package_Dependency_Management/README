@@ -1,0 +1,5 @@
+TASKNAME=Update all packages while checking for dependency issues using the package manager.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.log.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo update all packages while checking for dependency issues using the package manager. Logs all activities in the file ~/agent_test/test2.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify if the file ~/agent_test/test2.2.log exists and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.log.

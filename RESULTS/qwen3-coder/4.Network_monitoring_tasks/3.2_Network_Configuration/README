@@ -1,0 +1,5 @@
+TASKNAME=Get DNS address.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo get dns address of the node and log all in the file ~/agent_test/test3.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check the content of the file ~/agent_test/test3.2.log
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log

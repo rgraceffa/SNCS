@@ -1,0 +1,199 @@
+poetry run python -m private_gpt
+11:16:34.427 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:16:38.712 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:16:38.777 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:16:38.778 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:16:39.675 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:16:39.829 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:16:39.831 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:16:39.832 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:16:40.727 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:16:40.768 [INFO    ]             uvicorn.error - Started server process [3107732]
+11:16:40.768 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:16:40.768 [INFO    ]             uvicorn.error - Application startup complete.
+11:16:40.769 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:17:14.254 [INFO    ]            uvicorn.access - 127.0.0.1:59968 - "GET /config HTTP/1.1" 200
+11:17:14.309 [INFO    ]            uvicorn.access - 127.0.0.1:59980 - "GET /info?serialize=False HTTP/1.1" 200
+11:17:14.377 [INFO    ]            uvicorn.access - 127.0.0.1:59990 - "GET /heartbeat/dbd34526-0395-4b4f-a939-922abbf95dd0 HTTP/1.1" 200
+11:17:14.380 [INFO    ]            uvicorn.access - 127.0.0.1:59998 - "POST /queue/join HTTP/1.1" 200
+11:17:14.436 [INFO    ]            uvicorn.access - 127.0.0.1:60006 - "GET /queue/data?session_hash=dbd34526-0395-4b4f-a939-922abbf95dd0 HTTP/1.1" 200
+11:17:33.847 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:18:07.091 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo 'import paramiko; ssh = paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); ssh.connect(\"eraigra-rpi\", username=\"raimondo\"); stdin, stdout, stderr = ssh.exec_command(\"ls -l\"); print(stdout.read().decode()); ssh.close()' > ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo 'import paramiko; ssh = paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); ssh.connect(\"eraigra-rpi\", username=\"raimondo\"); stdin, stdout, stderr = ssh.exec_command(\"ls -l\"); print(stdout.read().decode()); ssh.close()' > ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'import paramiko; ssh = paramiko.SSHClient(); 
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); 
+ssh.connect(\\"eraigra-rpi\\", username=\\"raimondo\\"); stdin, stdout, stderr =
+ssh.exec_command(\\"ls -l\\"); print(stdout.read().decode()); 
+ssh.close()\'"\'"\' > ~/agent_test/test2.2.py\'\' executed successfully on 
+remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:18:07.090820758Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'import paramiko; ssh = 
+paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy());
+ssh.connect(\\"eraigra-rpi\\", username=\\"raimondo\\"); stdin, stdout, stderr =
+ssh.exec_command(\\"ls -l\\"); print(stdout.read().decode()); 
+ssh.close()\'"\'"\' > ~/agent_test/test2.2.py\'\' executed successfully on 
+remote host.\nOutput: \n\nThe command has been successfully executed on the 
+remote host. Here\'s what was done:\n\n1. Created the directory `~/agent_test` 
+if it didn\'t already exist\n2. Created the Python file 
+`~/agent_test/test2.2.py` with the following content:\n\n```python\nimport 
+paramiko; ssh = paramiko.SSHClient(); 
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); 
+ssh.connect("eraigra-rpi", username="raimondo"); stdin, stdout, stderr = 
+ssh.exec_command("ls -l"); print(stdout.read().decode()); 
+ssh.close()\n```\n\nThis script will:\n- Connect to the remote host 
+`eraigra-rpi` as user `raimondo`\n- Execute the `ls -l` command to list all 
+files in the current directory\n- Print the output of the command\n- Close the 
+SSH connection\n\nYou can run this script later with: `python3 
+~/agent_test/test2.2.py`'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28199554495,
+    'load_duration': 129887443,
+    'prompt_eval_count': 685,
+    'prompt_eval_duration': 4712919812,
+    'eval_count': 199,
+    'eval_duration': 23199525645
+}
+11:18:07.200 [INFO    ]            uvicorn.access - 127.0.0.1:35834 - "POST /queue/join HTTP/1.1" 200
+11:18:07.260 [INFO    ]            uvicorn.access - 127.0.0.1:35840 - "GET /queue/data?session_hash=dbd34526-0395-4b4f-a939-922abbf95dd0 HTTP/1.1" 200
+11:18:35.936 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:19:11.001 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo 'import paramiko; ssh = paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); ssh.connect("eraigra-rpi", username="raimondo"); stdin, stdout, stderr = ssh.exec_command("ls -l"); print(stdout.read().decode()); ssh.close()' > ~/agent_test/test2.2.py && python3 -m pyflakes ~/agent_test/test2.2.py > ~/agent_test/test2.2.log 2>&1 && echo "Code analysis completed. Check ~/agent_test/test2.2.log for results."
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo 'import paramiko; ssh = paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); ssh.connect("eraigra-rpi", username="raimondo"); stdin, stdout, stderr = ssh.exec_command("ls -l"); print(stdout.read().decode()); ssh.close()' > ~/agent_test/test2.2.py && python3 -m pyflakes ~/agent_test/test2.2.py > ~/agent_test/test2.2.log 2>&1 && echo "Code analysis completed. Check ~/agent_test/test2.2.log for results."
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'import paramiko; ssh = paramiko.SSHClient(); 
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()); 
+ssh.connect("eraigra-rpi", username="raimondo"); stdin, stdout, stderr = 
+ssh.exec_command("ls -l"); print(stdout.read().decode()); ssh.close()\'"\'"\' > 
+~/agent_test/test2.2.py && python3 -m pyflakes ~/agent_test/test2.2.py > 
+~/agent_test/test2.2.log 2>&1 && echo "Code analysis completed. Check 
+~/agent_test/test2.2.log for results."\'\' executed successfully on remote 
+host.', 'output': 'Code analysis completed. Check ~/agent_test/test2.2.log for 
+results.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:19:11.001192531Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'import paramiko; ssh = 
+paramiko.SSHClient(); ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy());
+ssh.connect("eraigra-rpi", username="raimondo"); stdin, stdout, stderr = 
+ssh.exec_command("ls -l"); print(stdout.read().decode()); ssh.close()\'"\'"\' > 
+~/agent_test/test2.2.py && python3 -m pyflakes ~/agent_test/test2.2.py > 
+~/agent_test/test2.2.log 2>&1 && echo "Code analysis completed. Check 
+~/agent_test/test2.2.log for results."\'\' executed successfully on remote 
+host.\nOutput: Code analysis completed. Check ~/agent_test/test2.2.log for 
+results.\n\nThe command has been successfully executed on the remote host. 
+Here\'s what was done:\n\n1. Created the directory `~/agent_test` if it didn\'t 
+already exist\n2. Created the Python file `~/agent_test/test2.2.py` with the 
+paramiko script\n3. Performed code analysis using `pyflakes` on the script\n4. 
+Saved the analysis results to `~/agent_test/test2.2.log`\n\nThe code analysis 
+has been completed. You can check the results in the log file 
+`~/agent_test/test2.2.log`. The output indicates that the analysis completed 
+successfully, but since the script is quite simple, there may not be any 
+specific issues reported. The script itself is a basic SSH connection and file 
+listing operation, which should not have any syntax errors or import 
+issues.\n\nIf you want to view the analysis results, you can run:\n```bash\ncat 
+~/agent_test/test2.2.log\n```'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 32865271618,
+    'load_duration': 131677623,
+    'prompt_eval_count': 1144,
+    'prompt_eval_duration': 9638762733,
+    'eval_count': 193,
+    'eval_duration': 22893602490
+}
+11:19:11.122 [INFO    ]            uvicorn.access - 127.0.0.1:55278 - "POST /queue/join HTTP/1.1" 200
+11:19:11.179 [INFO    ]            uvicorn.access - 127.0.0.1:55286 - "GET /queue/data?session_hash=dbd34526-0395-4b4f-a939-922abbf95dd0 HTTP/1.1" 200
+11:19:30.772 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:19:59.229 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test2.2.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test2.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test2.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:19:59.228563861Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test2.2.log'' executed successfully on remote host.\nOutput: \n\nI 
+apologize for the confusion. It seems the previous command didn't return the 
+expected output. Let me check the content of the file directly.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'cat ~/agent_test/test2.2.log',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23407884732,
+    'load_duration': 128090174,
+    'prompt_eval_count': 1416,
+    'prompt_eval_duration': 13242942423,
+    'eval_count': 85,
+    'eval_duration': 9933075569
+}
+11:19:59.354 [INFO    ]            uvicorn.access - 127.0.0.1:34334 - "POST /queue/join HTTP/1.1" 200
+11:19:59.410 [INFO    ]            uvicorn.access - 127.0.0.1:34348 - "GET /queue/data?session_hash=dbd34526-0395-4b4f-a939-922abbf95dd0 HTTP/1.1" 200
+11:20:21.308 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:20:45.118 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.log ~/agent_test/test2.2.py
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.log ~/agent_test/test2.2.py
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.log ~/agent_test/test2.2.py'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T11:20:45.117717633Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.log ~/agent_test/test2.2.py'' executed successfully on 
+remote host.\nOutput: \n\nThe command has been successfully executed on the 
+remote host. Both files have been removed:\n\n1. `~/agent_test/test2.2.log` - 
+removed if it existed\n2. `~/agent_test/test2.2.py` - removed if it 
+existed\n\nThe files are now deleted from the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22326123643,
+    'load_duration': 134053678,
+    'prompt_eval_count': 1557,
+    'prompt_eval_duration': 14499002106,
+    'eval_count': 63,
+    'eval_duration': 7587263303
+}
+11:20:45.303 [INFO    ]             uvicorn.error - Shutting down
+11:20:45.404 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:20:45.404 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:20:45.404 [INFO    ]             uvicorn.error - Finished server process [3107732]
+make: *** [Makefile:36: run] Terminated

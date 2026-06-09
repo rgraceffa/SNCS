@@ -1,0 +1,5 @@
+TASKNAME=List user accounts with administrative privileges.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.1.txt
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo list user accounts with administrative privileges and logs all in file ~/agent_test/test1.1.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test1.1.txt is created and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.1.txt

@@ -1,0 +1,196 @@
+poetry run python -m private_gpt
+10:50:42.467 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:50:46.754 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:50:46.817 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:50:46.819 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:50:47.729 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:50:47.883 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:50:47.885 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:50:47.886 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:50:48.775 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:50:48.815 [INFO    ]             uvicorn.error - Started server process [3030192]
+10:50:48.815 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:50:48.816 [INFO    ]             uvicorn.error - Application startup complete.
+10:50:48.816 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:51:22.295 [INFO    ]            uvicorn.access - 127.0.0.1:43542 - "GET /config HTTP/1.1" 200
+10:51:22.350 [INFO    ]            uvicorn.access - 127.0.0.1:43554 - "GET /info?serialize=False HTTP/1.1" 200
+10:51:22.419 [INFO    ]            uvicorn.access - 127.0.0.1:43564 - "GET /heartbeat/e94b8d43-3a04-48ca-94d1-5254a91f8128 HTTP/1.1" 200
+10:51:22.422 [INFO    ]            uvicorn.access - 127.0.0.1:43574 - "POST /queue/join HTTP/1.1" 200
+10:51:22.477 [INFO    ]            uvicorn.access - 127.0.0.1:43586 - "GET /queue/data?session_hash=e94b8d43-3a04-48ca-94d1-5254a91f8128 HTTP/1.1" 200
+10:51:31.302 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:51:47.723 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.1.*
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.1.*
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.1.*'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:51:47.722829938Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.1.*'' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f /home/raimondo/agent_test/text4.1.*` has 
+been successfully executed on the remote host, removing all files matching the 
+pattern `text4.1.*` in the directory `/home/raimondo/agent_test/`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11218786976,
+    'load_duration': 126315600,
+    'prompt_eval_count': 600,
+    'prompt_eval_duration': 4172752197,
+    'eval_count': 58,
+    'eval_duration': 6844725013
+}
+10:51:47.861 [INFO    ]            uvicorn.access - 127.0.0.1:51814 - "POST /queue/join HTTP/1.1" 200
+10:51:47.917 [INFO    ]            uvicorn.access - 127.0.0.1:51820 - "GET /queue/data?session_hash=e94b8d43-3a04-48ca-94d1-5254a91f8128 HTTP/1.1" 200
+10:52:10.678 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:52:41.293 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '\\documentclass{article}\n\\begin{document}\nHello World\n\\end{document}' > /home/raimondo/agent_test/text4.1.latex && pdflatex -halt-on-error -output-directory=/home/raimondo/agent_test/ /home/raimondo/agent_test/text4.1.latex && ls -l /home/raimondo/agent_test/text4.1.pdf
+[AGENT] ✅ Remote command executed successfully: echo -e '\\documentclass{article}\n\\begin{document}\nHello World\n\\end{document}' > /home/raimondo/agent_test/text4.1.latex && pdflatex -halt-on-error -output-directory=/home/raimondo/agent_test/ /home/raimondo/agent_test/text4.1.latex && ls -l /home/raimondo/agent_test/text4.1.pdf
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.1.latex && 
+pdflatex -halt-on-error -output-directory=/home/raimondo/agent_test/ 
+/home/raimondo/agent_test/text4.1.latex && ls -l 
+/home/raimondo/agent_test/text4.1.pdf\'\' executed successfully on remote 
+host.', 'output': 'This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 
+2022/dev/Debian) (preloaded format=pdflatex)\n restricted \\write18 
+enabled.\nentering extended 
+mode\n(/home/raimondo/agent_test/text4.1.latex\nLaTeX2e <2021-11-15> patch level
+1\nL3 programming layer 
+<2022-01-21>\n(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\nDocumen
+t Class: article 2021/10/04 v1.4n Standard LaTeX document 
+class\n(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))\n(/usr/share/t
+exlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\nNo file 
+text4.1.aux.\n[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]\n(/home/rai
+mondo/agent_test//text4.1.aux) 
+)</usr/share/texlive/texmf-dist/fonts/\ntype1/public/amsfonts/cm/cmr10.pfb>\nOut
+put written on /home/raimondo/agent_test//text4.1.pdf (1 page, 12384 
+bytes).\nTranscript written on 
+/home/raimondo/agent_test//text4.1.log.\n-rw-rw-r-- 1 raimondo raimondo 12384 
+Dec 23 12:52 /home/raimondo/agent_test/text4.1.pdf'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:52:41.292961976Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.1.latex && 
+pdflatex -halt-on-error -output-directory=/home/raimondo/agent_test/ 
+/home/raimondo/agent_test/text4.1.latex && ls -l 
+/home/raimondo/agent_test/text4.1.pdf\'\' executed successfully on remote 
+host.\nOutput: This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 
+2022/dev/Debian) (preloaded format=pdflatex)\n restricted \\write18 
+enabled.\nentering extended 
+mode\n(/home/raimondo/agent_test/text4.1.latex\nLaTeX2e <2021-11-15> patch level
+1\nL3 programming layer 
+<2022-01-21>\n(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\nDocumen
+t Class: article 2021/10/04 v1.4n Standard LaTeX document 
+class\n(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))\n(/usr/share/t
+exlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\nNo file 
+text4.1.aux.\n[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]\n(/home/rai
+mondo/agent_test//text4.1.aux) 
+)</usr/share/texlive/texmf-dist/fonts/\ntype1/public/amsfonts/cm/cmr10.pfb>\nOut
+put written on /home/raimondo/agent_test//text4.1.pdf (1 page, 12384 
+bytes).\nTranscript written on 
+/home/raimondo/agent_test//text4.1.log.\n-rw-rw-r-- 1 raimondo raimondo 12384 
+Dec 23 12:52 /home/raimondo/agent_test/text4.1.pdf\n\nThe LaTeX file 
+`text4.1.latex` was successfully created with the 
+content:\n\n```latex\n\\documentclass{article}\n\\begin{document}\nHello 
+World\n\\end{document}\n```\n\nThen, it was compiled using `pdflatex`, and the 
+resulting PDF file `/home/raimondo/agent_test/text4.1.pdf` was generated 
+successfully. The file has a size of 12384 bytes and was created on December 23,
+12:52.\n\nThe compilation process completed without errors, as indicated by the 
+output from `pdflatex` and the successful listing of the PDF file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28040654952,
+    'load_duration': 127423775,
+    'prompt_eval_count': 1279,
+    'prompt_eval_duration': 11815831722,
+    'eval_count': 134,
+    'eval_duration': 15965670999
+}
+10:52:41.380 [INFO    ]            uvicorn.access - 127.0.0.1:42386 - "POST /queue/join HTTP/1.1" 200
+10:52:41.440 [INFO    ]            uvicorn.access - 127.0.0.1:42392 - "GET /queue/data?session_hash=e94b8d43-3a04-48ca-94d1-5254a91f8128 HTTP/1.1" 200
+10:52:51.517 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:53:17.719 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l /home/raimondo/agent_test/text4.1.pdf
+[AGENT] ✅ Remote command executed successfully: ls -l /home/raimondo/agent_test/text4.1.pdf
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+/home/raimondo/agent_test/text4.1.pdf'' executed successfully on remote host.", 
+'output': '-rw-rw-r-- 1 raimondo raimondo 12384 Dec 23 12:52 
+/home/raimondo/agent_test/text4.1.pdf'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:53:17.719468969Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /home/raimondo/agent_test/text4.1.pdf'' executed successfully on remote 
+host.\nOutput: -rw-rw-r-- 1 raimondo raimondo 12384 Dec 23 12:52 
+/home/raimondo/agent_test/text4.1.pdf\n\nThe file 
+`/home/raimondo/agent_test/text4.1.pdf` has been properly created. Here are its 
+details:\n\n```\n-rw-rw-r-- 1 raimondo raimondo 12384 Dec 23 12:52 
+/home/raimondo/agent_test/text4.1.pdf\n```\n\n- **Permissions**: `-rw-rw-r--` 
+(readable and writable by owner and group, readable by others)\n- **Owner**: 
+`raimondo`\n- **Group**: `raimondo`\n- **Size**: 12384 bytes\n- **Last 
+Modified**: December 23, 12:52\n\nThe file exists and was successfully 
+generated."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21155858441,
+    'load_duration': 127987811,
+    'prompt_eval_count': 1553,
+    'prompt_eval_duration': 2277515954,
+    'eval_count': 157,
+    'eval_duration': 18603086088
+}
+10:53:17.863 [INFO    ]            uvicorn.access - 127.0.0.1:59490 - "POST /queue/join HTTP/1.1" 200
+10:53:17.922 [INFO    ]            uvicorn.access - 127.0.0.1:59498 - "GET /queue/data?session_hash=e94b8d43-3a04-48ca-94d1-5254a91f8128 HTTP/1.1" 200
+10:53:28.875 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:53:55.552 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.1.*
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.1.*
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.1.*'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:53:55.552458412Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.1.*'' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f /home/raimondo/agent_test/text4.1.*` has 
+been successfully executed on the remote host, removing all files matching the 
+pattern `text4.1.*` in the directory `/home/raimondo/agent_test/`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 25176395313,
+    'load_duration': 130475175,
+    'prompt_eval_count': 1803,
+    'prompt_eval_duration': 17953668733,
+    'eval_count': 58,
+    'eval_duration': 6990175485
+}
+10:53:55.765 [INFO    ]             uvicorn.error - Shutting down
+10:53:55.866 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:53:55.866 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:53:55.866 [INFO    ]             uvicorn.error - Finished server process [3030192]
+make: *** [Makefile:36: run] Terminated

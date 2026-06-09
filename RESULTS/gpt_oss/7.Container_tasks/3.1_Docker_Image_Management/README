@@ -1,0 +1,5 @@
+TASKNAME=List all Docker images currently available on the system.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.1.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo lists all docker images currently available on the system and logs all activities in the file ~/agent_test/test3.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test3.1.log is present and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.1.log.

@@ -1,0 +1,948 @@
+poetry run python -m private_gpt
+10:57:26.093 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:57:30.367 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:57:30.431 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:30.432 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:31.313 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:57:31.466 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:31.468 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:57:31.469 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:57:32.356 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:57:32.396 [INFO    ]             uvicorn.error - Started server process [158117]
+10:57:32.396 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:57:32.397 [INFO    ]             uvicorn.error - Application startup complete.
+10:57:32.397 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:58:05.921 [INFO    ]            uvicorn.access - 127.0.0.1:39652 - "GET /config HTTP/1.1" 200
+10:58:05.975 [INFO    ]            uvicorn.access - 127.0.0.1:39666 - "GET /info?serialize=False HTTP/1.1" 200
+10:58:06.038 [INFO    ]            uvicorn.access - 127.0.0.1:39682 - "GET /heartbeat/c943b2bd-4bc6-4e34-ad4a-e06beba0e9bf HTTP/1.1" 200
+10:58:06.040 [INFO    ]            uvicorn.access - 127.0.0.1:39688 - "POST /queue/join HTTP/1.1" 200
+10:58:06.097 [INFO    ]            uvicorn.access - 127.0.0.1:39692 - "GET /queue/data?session_hash=c943b2bd-4bc6-4e34-ad4a-e06beba0e9bf HTTP/1.1" 200
+10:58:29.879 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:58:51.107 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T10:58:51.106945405Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test5.3.log` was removed (if it existed).",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo remove if present the file ~/agent_test/test5.3.log. Don\'t split the 
+commands and do all requested in a single command line." We executed rm -f. The 
+tool responded success. Good. We need to confirm? The user just wants the 
+action. We should respond that it was removed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16130698283,
+    'load_duration': 290662953,
+    'prompt_eval_count': 484,
+    'prompt_eval_duration': 256024289,
+    'eval_count': 20,
+    'eval_duration': 2432725197
+}
+10:58:51.207 [INFO    ]            uvicorn.access - 127.0.0.1:47204 - "POST /queue/join HTTP/1.1" 200
+10:58:51.260 [INFO    ]            uvicorn.access - 127.0.0.1:47218 - "GET /queue/data?session_hash=c943b2bd-4bc6-4e34-ad4a-e06beba0e9bf HTTP/1.1" 200
+11:00:48.249 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:01:59.638 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e "Package | License | Source | Notes\n--- | --- | --- | ---" > ~/agent_test/test5.3.log && find / -type f -iname 'LICENSE' 2>/dev/null | while read -r f; do pkg=$(basename "$(dirname "$f")"); lic=$(grep -i -m1 -E 'MIT|Apache|GPL|BSD|LGPL|CC' "$f" | head -n1 | sed 's/[^a-zA-Z0-9]//g'); [ -z "$lic" ] && lic="Unknown"; echo "$pkg | $lic | $f |" ; done >> ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: echo -e "Package | License | Source | Notes\n--- | --- | --- | ---" > ~/agent_test/test5.3.log && find / -type f -iname 'LICENSE' 2>/dev/null | while read -r f; do pkg=$(basename "$(dirname "$f")"); lic=$(grep -i -m1 -E 'MIT|Apache|GPL|BSD|LGPL|CC' "$f" | head -n1 | sed 's/[^a-zA-Z0-9]//g'); [ -z "$lic" ] && lic="Unknown"; echo "$pkg | $lic | $f |" ; done >> ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e "Package | 
+License | Source | Notes\\n--- | --- | --- | ---" > ~/agent_test/test5.3.log && 
+find / -type f -iname \'"\'"\'LICENSE\'"\'"\' 2>/dev/null | while read -r f; do 
+pkg=$(basename "$(dirname "$f")"); lic=$(grep -i -m1 -E 
+\'"\'"\'MIT|Apache|GPL|BSD|LGPL|CC\'"\'"\' "$f" | head -n1 | sed 
+\'"\'"\'s/[^a-zA-Z0-9]//g\'"\'"\'); [ -z "$lic" ] && lic="Unknown"; echo "$pkg |
+$lic | $f |" ; done >> ~/agent_test/test5.3.log\'\' executed successfully on 
+remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T11:01:59.637514413Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e "Package | License | Source | Notes\\n--- | --- | --- | ---" > 
+~/agent_test/test5.3.log && find / -type f -iname \'"\'"\'LICENSE\'"\'"\' 
+2>/dev/null | while read -r f; do pkg=$(basename "$(dirname "$f")"); lic=$(grep 
+-i -m1 -E \'"\'"\'MIT|Apache|GPL|BSD|LGPL|CC\'"\'"\' "$f" | head -n1 | sed 
+\'"\'"\'s/[^a-zA-Z0-9]//g\'"\'"\'); [ -z "$lic" ] && lic="Unknown"; echo "$pkg |
+$lic | $f |" ; done >> ~/agent_test/test5.3.log\'\' executed successfully on 
+remote host.\nOutput: \n\nAll `LICENSE` files were found, summarized, and 
+written to `~/agent_test/test5.3.log`. The file now contains a table with the 
+columns **Package**, **License**, **Source**, and **Notes**.',
+        'thinking': 'The tool executed a command that writes to file and finds 
+license files. The command seems to have used echo to write header and find 
+files and append. Need to produce summary. Probably we just need to respond that
+done.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16059865414,
+    'load_duration': 303398265,
+    'prompt_eval_count': 751,
+    'prompt_eval_duration': 256454657,
+    'eval_count': 47,
+    'eval_duration': 5903958898
+}
+11:01:59.720 [INFO    ]            uvicorn.access - 127.0.0.1:38168 - "POST /queue/join HTTP/1.1" 200
+11:01:59.774 [INFO    ]            uvicorn.access - 127.0.0.1:38172 - "GET /queue/data?session_hash=c943b2bd-4bc6-4e34-ad4a-e06beba0e9bf HTTP/1.1" 200
+11:02:20.759 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:03:30.080 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test5.3.log'' executed successfully on remote host.", 'output': 
+'Package | License | Source | Notes\n--- | --- | --- | ---\nnpm | 
+Everyoneispermittedtocopyanddistributeverbatimcopies | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/LICENSE 
+|\ncli-columns | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cli-
+columns/license |\nstring-locale-compare | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/string-locale-compare/LICENSE |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/string-width/license |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/ansi-regex/license |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/strip-ansi/license |\nsafer-buffer | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/safe
+r-buffer/LICENSE |\nindent-string | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/inde
+nt-string/license |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-expression-parse/LICENSE |\naproba | Copyrightc2015RebeccaTurnermerebeccaorg | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/apro
+ba/LICENSE |\nlibnpmsearch | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmsearch/LICENSE |\nretry | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/retr
+y/License |\nhttp-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+-proxy-agent/LICENSE |\npromise-all-reject-late | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-all-reject-late/LICENSE |\nproggy | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prog
+gy/LICENSE |\nsocks | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sock
+s/LICENSE |\nabbrev | ThissoftwareisduallicensedundertheISCandMITlicenses | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/abbr
+ev/LICENSE |\nlibnpmversion | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmversion/LICENSE |\np-map | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/p-ma
+p/license |\ntext-table | ThissoftwareisreleasedundertheMITlicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/text
+-table/LICENSE |\nhttps-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+s-proxy-agent/LICENSE |\npromise-inflight | 
+Copyrightc2017RebeccaTurnermerebeccaorg | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-inflight/LICENSE |\ncmd-shim | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cmd-
+shim/LICENSE |\nnegotiator | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/nego
+tiator/LICENSE |\nip-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ip-r
+egex/license |\nsmart-buffer | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/smar
+t-buffer/LICENSE |\njson-stringify-nice | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/json
+-stringify-nice/LICENSE |\nminipass-sized | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-sized/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-sized/node_modules/minipass/LICENSE |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+ng-width/license |\ncolor-name | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/colo
+r-name/LICENSE |\nunique-filename | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/uniq
+ue-filename/LICENSE |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ansi
+-regex/license |\nchownr | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/chow
+nr/LICENSE |\nvalidate-npm-package-license | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-license/LICENSE |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-license/node_modules/spdx-expression-parse/LICENSE 
+|\nagent-base | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/agen
+t-base/LICENSE |\nnode-gyp | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/LICENSE |\nproc-log | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/node_modules/proc-log/LICENSE |\npackaging | 
+foundinLICENSEAPACHEorLICENSEBSDContributionstothissoftwareismade | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/gyp/pylib/packaging/LICENSE |\ngyp | 
+modificationarepermittedprovidedthatthefollowingconditionsare | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/gyp/LICENSE |\nnpm-package-arg | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+package-arg/LICENSE |\nsupports-color | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/supp
+orts-color/license |\njust-diff | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/just
+-diff/LICENSE |\ntuf | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/tuf/LICENSE |\nsign | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/sign/LICENSE |\nbundle | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/bundle/LICENSE |\nprotobuf-specs | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/protobuf-specs/LICENSE |\ncore | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/core/LICENSE |\nproc-log | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/proc
+-log/LICENSE |\nqrcode-terminal | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/qrco
+de-terminal/LICENSE |\ntar | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/minipass/LICENSE |\nfs-minipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/fs-minipass/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/fs-minipass/node_modules/minipass/LICENSE |\npath-key | MITLicense 
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/path
+-key/license |\nwalk-up-path | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/walk
+-up-path/LICENSE |\nnormalize-package-data | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/norm
+alize-package-data/LICENSE |\nlibnpmaccess | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmaccess/LICENSE |\nspdx-correct | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-correct/LICENSE |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-correct/node_modules/spdx-expression-parse/LICENSE |\nmute-stream | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mute
+-stream/LICENSE |\nstring-width-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+ng-width-cjs/license |\nsocks-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sock
+s-proxy-agent/LICENSE |\nminipass-flush | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-flush/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-flush/node_modules/minipass/LICENSE |\nmake-fetch-happen | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/make
+-fetch-happen/LICENSE |\nread-cmd-shim | Copyrightc2015RebeccaTurnermerebeccaorg
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+-cmd-shim/LICENSE |\nlibnpmexec | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmexec/LICENSE |\nlibnpmorg | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmorg/LICENSE |\nutil-deprecate | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/util
+-deprecate/LICENSE |\nini | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ini/
+LICENSE |\nexponential-backoff | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/expo
+nential-backoff/LICENSE |\nnpm-audit-report | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+audit-report/LICENSE |\nglob | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/glob
+/LICENSE |\nmetavuln-calculator | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/metavuln-calculator/LICENSE |\ncp | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/fs/lib/cp/LICENSE |\npackage-json | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/package-json/LICENSE |\nname-from-folder | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/name-from-folder/LICENSE |\nquery | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/query/LICENSE |\nconfig | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/config/LICENSE |\nredact | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/redact/LICENSE |\ngit | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/git/LICENSE |\npromise-spawn | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/promise-spawn/LICENSE |\nrun-script | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/run-script/LICENSE |\ninstalled-package-contents | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/installed-package-contents/LICENSE |\nminizlib | 
+todealintheSoftwarewithoutrestrictionincludingwithoutlimitation | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+zlib/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+zlib/node_modules/minipass/LICENSE |\ncidr-regex | 
+modificationarepermittedprovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cidr
+-regex/LICENSE |\nunique-slug | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/uniq
+ue-slug/LICENSE |\nansi-styles | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ansi
+-styles/license |\njust-diff-apply | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/just
+-diff-apply/LICENSE |\nnpm-bundled | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+bundled/LICENSE |\nwrap-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/license |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/string-width/license |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/ansi-regex/license |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/strip-ansi/license |\nforeground-child | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/fore
+ground-child/LICENSE |\ncolor-convert | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/colo
+r-convert/LICENSE |\nnpm-packlist | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+packlist/LICENSE |\nlibnpmpack | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmpack/LICENSE |\nencoding | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/enco
+ding/LICENSE |\nsemver | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/semv
+er/LICENSE |\npacote | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/paco
+te/LICENSE |\npromise-retry | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-retry/LICENSE |\nhttp-cache-semantics | 
+Redistributionanduseinsourceandbinaryformswithorwithoutmodificationarepermittedp
+rovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+-cache-semantics/LICENSE |\nnopt | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/nopt
+/LICENSE |\ntreeverse | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tree
+verse/LICENSE |\nlru-cache | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/lru-
+cache/LICENSE |\nminimatch | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+match/LICENSE |\nlibnpmdiff | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmdiff/LICENSE |\nlibnpmpublish | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmpublish/LICENSE |\nshebang-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sheb
+ang-regex/license |\nminipass-fetch | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-fetch/LICENSE |\nnpm-install-checks | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+install-checks/LICENSE |\nbinary-extensions | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/bina
+ry-extensions/license |\nis-lambda | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/is-l
+ambda/LICENSE |\nignore-walk | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/igno
+re-walk/LICENSE |\nbrace-expansion | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/brac
+e-expansion/LICENSE |\nsprintf-js | 
+modificationarepermittedprovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spri
+ntf-js/LICENSE |\npromzard | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+zard/LICENSE |\ncommon-ancestor-path | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/comm
+on-ancestor-path/LICENSE |\nnpm-user-validate | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+user-validate/LICENSE |\nci-info | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ci-i
+nfo/LICENSE |\nenv-paths | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/env-
+paths/license |\nlibnpmteam | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmteam/LICENSE |\nwhich | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/whic
+h/LICENSE |\nisexe | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/whic
+h/node_modules/isexe/LICENSE |\nhosted-git-info | Copyrightc2015RebeccaTurner | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/host
+ed-git-info/LICENSE |\ndiff | BSD3ClauseLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/diff
+/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass/LICENSE |\nsigstore | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sigs
+tore/LICENSE |\nstrip-ansi-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+p-ansi-cjs/license |\nparseargs | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@pkg
+js/parseargs/LICENSE |\ntuf-js | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tuf-
+js/LICENSE |\njsonparse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/json
+parse/LICENSE |\nclean-stack | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/clea
+n-stack/license |\npromise-call-limit | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-call-limit/LICENSE |\nmodels | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@tuf
+js/models/LICENSE |\ncanonical-json | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@tuf
+js/canonical-json/LICENSE |\narchy | ThissoftwareisreleasedundertheMITlicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/arch
+y/LICENSE |\nip-address | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ip-a
+ddress/LICENSE |\nread | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+/LICENSE |\nisexe | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/isex
+e/LICENSE |\ngraceful-fs | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/grac
+eful-fs/LICENSE |\nyallist | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/yall
+ist/LICENSE |\nminipass-collect | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-collect/LICENSE |\nwrap-ansi-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi-cjs/license |\nansi-styles | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi-cjs/node_modules/ansi-styles/license |\nchalk | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/chal
+k/license |\nbin-links | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/bin-
+links/LICENSE |\ndebug | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/debu
+g/LICENSE |\niconv-lite | withoutlimitationtherightstousecopymodifymergepublish 
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/icon
+v-lite/LICENSE |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+p-ansi/license |\nread-package-json-fast | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+-package-json-fast/LICENSE |\nfs-minipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/fs-m
+inipass/LICENSE |\ncross-spawn | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cros
+s-spawn/LICENSE |\nwhich | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cros
+s-spawn/node_modules/which/LICENSE |\naggregate-error | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/aggr
+egate-error/license |\nis-fullwidth-code-point | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/is-f
+ullwidth-code-point/license |\nminipass-pipeline | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-pipeline/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-pipeline/node_modules/minipass/LICENSE |\nnpm-normalize-package-bin | 
+Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+normalize-package-bin/LICENSE |\nshebang-command | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sheb
+ang-command/license |\njsbn | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/jsbn
+/LICENSE |\nlibnpmfund | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmfund/LICENSE |\nmkdirp | ThisprojectisfreesoftwarereleasedundertheMITlicense |
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mkdi
+rp/LICENSE |\nvalidate-npm-package-name | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-name/LICENSE |\nv22.6.0 | 
+dealintheSoftwarewithoutrestrictionincludingwithoutlimitationthe | 
+/home/raimondo/.nvm/versions/node/v22.6.0/LICENSE |\neraigra | MITLicense | 
+/home/raimondo/eraigra/LICENSE |\npyflakes-3.4.0.dist-info | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.local/lib/python3.10/site-packages/pyflakes-3.4.0.dist-info/LICE
+NSE |\nacorn | MITLicense | /home/raimondo/core/node_modules/acorn/LICENSE 
+|\nts-node | TheMITLicenseMIT | /home/raimondo/core/node_modules/ts-node/LICENSE
+|\nacorn-walk | MITLicense | /home/raimondo/core/node_modules/acorn-walk/LICENSE
+|\ntrace-mapping | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/trace-mapping/LICENSE 
+|\nresolve-uri | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/resolve-uri/LICENSE 
+|\nsourcemap-codec | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/sourcemap-codec/LICENSE |\nyn | 
+MITLicense | /home/raimondo/core/node_modules/yn/license |\nundici-types | 
+MITLicense | /home/raimondo/core/node_modules/undici-types/LICENSE |\ndiff | 
+SoftwareLicenseAgreementBSDLicense | 
+/home/raimondo/core/node_modules/diff/LICENSE |\nv8-compile-cache-lib | 
+TheMITLicenseMIT | /home/raimondo/core/node_modules/v8-compile-cache-lib/LICENSE
+|\nnode16 | MITLicense | 
+/home/raimondo/core/node_modules/@tsconfig/node16/LICENSE |\nnode14 | MITLicense
+| /home/raimondo/core/node_modules/@tsconfig/node14/LICENSE |\nnode12 | 
+MITLicense | /home/raimondo/core/node_modules/@tsconfig/node12/LICENSE |\nnode10
+| MITLicense | /home/raimondo/core/node_modules/@tsconfig/node10/LICENSE 
+|\ncreate-require | MITLicense | 
+/home/raimondo/core/node_modules/create-require/LICENSE |\nnode | MITLicense | 
+/home/raimondo/core/node_modules/@types/node/LICENSE |\nmake-error | Unknown | 
+/home/raimondo/core/node_modules/make-error/LICENSE |\ncp | TheMITLicense | 
+/usr/share/nodejs/@npmcli/fs/lib/cp/LICENSE |\nnode | MITLicense | 
+/usr/share/nodejs/@types/node/LICENSE |'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T11:03:30.079664358Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test5.3.log'' executed successfully on remote host.\nOutput: 
+Package | License | Source | Notes\n--- | --- | --- | ---\nnpm | 
+Everyoneispermittedtocopyanddistributeverbatimcopies | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/LICENSE 
+|\ncli-columns | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cli-
+columns/license |\nstring-locale-compare | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/string-locale-compare/LICENSE |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/string-width/license |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/ansi-regex/license |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@isa
+acs/cliui/node_modules/strip-ansi/license |\nsafer-buffer | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/safe
+r-buffer/LICENSE |\nindent-string | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/inde
+nt-string/license |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-expression-parse/LICENSE |\naproba | Copyrightc2015RebeccaTurnermerebeccaorg | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/apro
+ba/LICENSE |\nlibnpmsearch | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmsearch/LICENSE |\nretry | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/retr
+y/License |\nhttp-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+-proxy-agent/LICENSE |\npromise-all-reject-late | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-all-reject-late/LICENSE |\nproggy | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prog
+gy/LICENSE |\nsocks | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sock
+s/LICENSE |\nabbrev | ThissoftwareisduallicensedundertheISCandMITlicenses | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/abbr
+ev/LICENSE |\nlibnpmversion | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmversion/LICENSE |\np-map | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/p-ma
+p/license |\ntext-table | ThissoftwareisreleasedundertheMITlicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/text
+-table/LICENSE |\nhttps-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+s-proxy-agent/LICENSE |\npromise-inflight | 
+Copyrightc2017RebeccaTurnermerebeccaorg | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-inflight/LICENSE |\ncmd-shim | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cmd-
+shim/LICENSE |\nnegotiator | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/nego
+tiator/LICENSE |\nip-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ip-r
+egex/license |\nsmart-buffer | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/smar
+t-buffer/LICENSE |\njson-stringify-nice | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/json
+-stringify-nice/LICENSE |\nminipass-sized | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-sized/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-sized/node_modules/minipass/LICENSE |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+ng-width/license |\ncolor-name | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/colo
+r-name/LICENSE |\nunique-filename | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/uniq
+ue-filename/LICENSE |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ansi
+-regex/license |\nchownr | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/chow
+nr/LICENSE |\nvalidate-npm-package-license | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-license/LICENSE |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-license/node_modules/spdx-expression-parse/LICENSE 
+|\nagent-base | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/agen
+t-base/LICENSE |\nnode-gyp | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/LICENSE |\nproc-log | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/node_modules/proc-log/LICENSE |\npackaging | 
+foundinLICENSEAPACHEorLICENSEBSDContributionstothissoftwareismade | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/gyp/pylib/packaging/LICENSE |\ngyp | 
+modificationarepermittedprovidedthatthefollowingconditionsare | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/node
+-gyp/gyp/LICENSE |\nnpm-package-arg | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+package-arg/LICENSE |\nsupports-color | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/supp
+orts-color/license |\njust-diff | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/just
+-diff/LICENSE |\ntuf | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/tuf/LICENSE |\nsign | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/sign/LICENSE |\nbundle | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/bundle/LICENSE |\nprotobuf-specs | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/protobuf-specs/LICENSE |\ncore | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@sig
+store/core/LICENSE |\nproc-log | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/proc
+-log/LICENSE |\nqrcode-terminal | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/qrco
+de-terminal/LICENSE |\ntar | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/minipass/LICENSE |\nfs-minipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/fs-minipass/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tar/
+node_modules/fs-minipass/node_modules/minipass/LICENSE |\npath-key | MITLicense 
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/path
+-key/license |\nwalk-up-path | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/walk
+-up-path/LICENSE |\nnormalize-package-data | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/norm
+alize-package-data/LICENSE |\nlibnpmaccess | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmaccess/LICENSE |\nspdx-correct | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-correct/LICENSE |\nspdx-expression-parse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spdx
+-correct/node_modules/spdx-expression-parse/LICENSE |\nmute-stream | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mute
+-stream/LICENSE |\nstring-width-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+ng-width-cjs/license |\nsocks-proxy-agent | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sock
+s-proxy-agent/LICENSE |\nminipass-flush | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-flush/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-flush/node_modules/minipass/LICENSE |\nmake-fetch-happen | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/make
+-fetch-happen/LICENSE |\nread-cmd-shim | Copyrightc2015RebeccaTurnermerebeccaorg
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+-cmd-shim/LICENSE |\nlibnpmexec | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmexec/LICENSE |\nlibnpmorg | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmorg/LICENSE |\nutil-deprecate | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/util
+-deprecate/LICENSE |\nini | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ini/
+LICENSE |\nexponential-backoff | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/expo
+nential-backoff/LICENSE |\nnpm-audit-report | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+audit-report/LICENSE |\nglob | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/glob
+/LICENSE |\nmetavuln-calculator | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/metavuln-calculator/LICENSE |\ncp | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/fs/lib/cp/LICENSE |\npackage-json | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/package-json/LICENSE |\nname-from-folder | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/name-from-folder/LICENSE |\nquery | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/query/LICENSE |\nconfig | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/config/LICENSE |\nredact | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/redact/LICENSE |\ngit | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/git/LICENSE |\npromise-spawn | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/promise-spawn/LICENSE |\nrun-script | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/run-script/LICENSE |\ninstalled-package-contents | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@npm
+cli/installed-package-contents/LICENSE |\nminizlib | 
+todealintheSoftwarewithoutrestrictionincludingwithoutlimitation | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+zlib/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+zlib/node_modules/minipass/LICENSE |\ncidr-regex | 
+modificationarepermittedprovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cidr
+-regex/LICENSE |\nunique-slug | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/uniq
+ue-slug/LICENSE |\nansi-styles | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ansi
+-styles/license |\njust-diff-apply | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/just
+-diff-apply/LICENSE |\nnpm-bundled | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+bundled/LICENSE |\nwrap-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/license |\nstring-width | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/string-width/license |\nansi-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/ansi-regex/license |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi/node_modules/strip-ansi/license |\nforeground-child | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/fore
+ground-child/LICENSE |\ncolor-convert | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/colo
+r-convert/LICENSE |\nnpm-packlist | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+packlist/LICENSE |\nlibnpmpack | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmpack/LICENSE |\nencoding | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/enco
+ding/LICENSE |\nsemver | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/semv
+er/LICENSE |\npacote | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/paco
+te/LICENSE |\npromise-retry | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-retry/LICENSE |\nhttp-cache-semantics | 
+Redistributionanduseinsourceandbinaryformswithorwithoutmodificationarepermittedp
+rovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/http
+-cache-semantics/LICENSE |\nnopt | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/nopt
+/LICENSE |\ntreeverse | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tree
+verse/LICENSE |\nlru-cache | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/lru-
+cache/LICENSE |\nminimatch | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+match/LICENSE |\nlibnpmdiff | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmdiff/LICENSE |\nlibnpmpublish | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmpublish/LICENSE |\nshebang-regex | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sheb
+ang-regex/license |\nminipass-fetch | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-fetch/LICENSE |\nnpm-install-checks | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+install-checks/LICENSE |\nbinary-extensions | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/bina
+ry-extensions/license |\nis-lambda | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/is-l
+ambda/LICENSE |\nignore-walk | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/igno
+re-walk/LICENSE |\nbrace-expansion | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/brac
+e-expansion/LICENSE |\nsprintf-js | 
+modificationarepermittedprovidedthatthefollowingconditionsaremet | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/spri
+ntf-js/LICENSE |\npromzard | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+zard/LICENSE |\ncommon-ancestor-path | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/comm
+on-ancestor-path/LICENSE |\nnpm-user-validate | TheBSDLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+user-validate/LICENSE |\nci-info | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ci-i
+nfo/LICENSE |\nenv-paths | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/env-
+paths/license |\nlibnpmteam | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmteam/LICENSE |\nwhich | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/whic
+h/LICENSE |\nisexe | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/whic
+h/node_modules/isexe/LICENSE |\nhosted-git-info | Copyrightc2015RebeccaTurner | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/host
+ed-git-info/LICENSE |\ndiff | BSD3ClauseLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/diff
+/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass/LICENSE |\nsigstore | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sigs
+tore/LICENSE |\nstrip-ansi-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+p-ansi-cjs/license |\nparseargs | ApacheLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@pkg
+js/parseargs/LICENSE |\ntuf-js | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/tuf-
+js/LICENSE |\njsonparse | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/json
+parse/LICENSE |\nclean-stack | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/clea
+n-stack/license |\npromise-call-limit | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/prom
+ise-call-limit/LICENSE |\nmodels | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@tuf
+js/models/LICENSE |\ncanonical-json | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/@tuf
+js/canonical-json/LICENSE |\narchy | ThissoftwareisreleasedundertheMITlicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/arch
+y/LICENSE |\nip-address | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/ip-a
+ddress/LICENSE |\nread | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+/LICENSE |\nisexe | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/isex
+e/LICENSE |\ngraceful-fs | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/grac
+eful-fs/LICENSE |\nyallist | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/yall
+ist/LICENSE |\nminipass-collect | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-collect/LICENSE |\nwrap-ansi-cjs | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi-cjs/license |\nansi-styles | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/wrap
+-ansi-cjs/node_modules/ansi-styles/license |\nchalk | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/chal
+k/license |\nbin-links | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/bin-
+links/LICENSE |\ndebug | TheMITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/debu
+g/LICENSE |\niconv-lite | withoutlimitationtherightstousecopymodifymergepublish 
+| 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/icon
+v-lite/LICENSE |\nstrip-ansi | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/stri
+p-ansi/license |\nread-package-json-fast | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/read
+-package-json-fast/LICENSE |\nfs-minipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/fs-m
+inipass/LICENSE |\ncross-spawn | TheMITLicenseMIT | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cros
+s-spawn/LICENSE |\nwhich | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/cros
+s-spawn/node_modules/which/LICENSE |\naggregate-error | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/aggr
+egate-error/license |\nis-fullwidth-code-point | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/is-f
+ullwidth-code-point/license |\nminipass-pipeline | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-pipeline/LICENSE |\nminipass | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mini
+pass-pipeline/node_modules/minipass/LICENSE |\nnpm-normalize-package-bin | 
+Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/npm-
+normalize-package-bin/LICENSE |\nshebang-command | MITLicense | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/sheb
+ang-command/license |\njsbn | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/jsbn
+/LICENSE |\nlibnpmfund | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/libn
+pmfund/LICENSE |\nmkdirp | ThisprojectisfreesoftwarereleasedundertheMITlicense |
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/mkdi
+rp/LICENSE |\nvalidate-npm-package-name | Unknown | 
+/home/raimondo/.nvm/versions/node/v22.6.0/lib/node_modules/npm/node_modules/vali
+date-npm-package-name/LICENSE |\nv22.6.0 | 
+dealintheSoftwarewithoutrestrictionincludingwithoutlimitationthe | 
+/home/raimondo/.nvm/versions/node/v22.6.0/LICENSE |\neraigra | MITLicense | 
+/home/raimondo/eraigra/LICENSE |\npyflakes-3.4.0.dist-info | 
+withoutlimitationtherightstousecopymodifymergepublish | 
+/home/raimondo/.local/lib/python3.10/site-packages/pyflakes-3.4.0.dist-info/LICE
+NSE |\nacorn | MITLicense | /home/raimondo/core/node_modules/acorn/LICENSE 
+|\nts-node | TheMITLicenseMIT | /home/raimondo/core/node_modules/ts-node/LICENSE
+|\nacorn-walk | MITLicense | /home/raimondo/core/node_modules/acorn-walk/LICENSE
+|\ntrace-mapping | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/trace-mapping/LICENSE 
+|\nresolve-uri | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/resolve-uri/LICENSE 
+|\nsourcemap-codec | 
+intheSoftwarewithoutrestrictionincludingwithoutlimitationtherights | 
+/home/raimondo/core/node_modules/@jridgewell/sourcemap-codec/LICENSE |\nyn | 
+MITLicense | /home/raimondo/core/node_modules/yn/license |\nundici-types | 
+MITLicense | /home/raimondo/core/node_modules/undici-types/LICENSE |\ndiff | 
+SoftwareLicenseAgreementBSDLicense | 
+/home/raimondo/core/node_modules/diff/LICENSE |\nv8-compile-cache-lib | 
+TheMITLicenseMIT | /home/raimondo/core/node_modules/v8-compile-cache-lib/LICENSE
+|\nnode16 | MITLicense | 
+/home/raimondo/core/node_modules/@tsconfig/node16/LICENSE |\nnode14 | MITLicense
+| /home/raimondo/core/node_modules/@tsconfig/node14/LICENSE |\nnode12 | 
+MITLicense | /home/raimondo/core/node_modules/@tsconfig/node12/LICENSE |\nnode10
+| MITLicense | /home/raimondo/core/node_modules/@tsconfig/node10/LICENSE 
+|\ncreate-require | MITLicense | 
+/home/raimondo/core/node_modules/create-require/LICENSE |\nnode | MITLicense | 
+/home/raimondo/core/node_modules/@types/node/LICENSE |\nmake-error | Unknown | 
+/home/raimondo/core/node_modules/make-error/LICENSE |\ncp | TheMITLicense | 
+/usr/share/nodejs/@npmcli/fs/lib/cp/LICENSE |\nnode | MITLicense | 
+/usr/share/nodejs/@types/node/LICENSE |\n\nThe **`eraigra`** package (version 
+`0.0.0`) is distributed under the **MIT License**.  \nThis is stated in its 
+`LICENSE` file located at `/home/raimondo/eraigra/LICENSE`.",
+        'thinking': 'The user: "What is the license of this package? 
+eraigra@0.0.0" It likely refers to a Node.js package named "eraigra". The 
+license information likely needed: They want to know the license of that 
+package. The analysis: It\'s a Node.js environment, the output above shows many 
+license file entries. It lists "eraigra | MITLicense | 
+/home/raimondo/eraigra/LICENSE". So the license is MIT. So the answer: The 
+license of the package eraigra (version 0.0.0) is MIT. But I should also mention
+maybe that the license file indicates MIT license. So the answer: MIT license.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 63660386003,
+    'load_duration': 291076087,
+    'prompt_eval_count': 450,
+    'prompt_eval_duration': 3671763670,
+    'eval_count': 52,
+    'eval_duration': 6536700587
+}
+11:03:30.247 [INFO    ]            uvicorn.access - 127.0.0.1:60026 - "POST /queue/join HTTP/1.1" 200
+11:03:30.302 [INFO    ]            uvicorn.access - 127.0.0.1:60040 - "GET /queue/data?session_hash=c943b2bd-4bc6-4e34-ad4a-e06beba0e9bf HTTP/1.1" 200
+11:03:45.769 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:03:59.075 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.3.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.3.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.3.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T11:03:59.075068511Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.3.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file was removed (if it existed).",
+        'thinking': 'We need to output nothing. The command was executed. 
+Provide confirmation? The instructions: just do the command. Provide no extra. 
+Probably respond with confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8174077400,
+    'load_duration': 293202712,
+    'prompt_eval_count': 484,
+    'prompt_eval_duration': 256357588,
+    'eval_count': 10,
+    'eval_duration': 1153453825
+}
+11:03:59.264 [INFO    ]             uvicorn.error - Shutting down
+11:03:59.365 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:03:59.365 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:03:59.365 [INFO    ]             uvicorn.error - Finished server process [158117]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,190 @@
+poetry run python -m private_gpt
+12:37:25.765 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:37:30.059 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:37:30.123 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:37:30.124 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:37:31.027 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:37:31.182 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:37:31.183 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:37:31.184 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:37:32.078 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:37:32.119 [INFO    ]             uvicorn.error - Started server process [3158740]
+12:37:32.119 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:37:32.120 [INFO    ]             uvicorn.error - Application startup complete.
+12:37:32.120 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:38:05.591 [INFO    ]            uvicorn.access - 127.0.0.1:35784 - "GET /config HTTP/1.1" 200
+12:38:05.647 [INFO    ]            uvicorn.access - 127.0.0.1:35800 - "GET /info?serialize=False HTTP/1.1" 200
+12:38:05.714 [INFO    ]            uvicorn.access - 127.0.0.1:35806 - "GET /heartbeat/8620e085-f888-48f1-bc52-0cc91a16e8a3 HTTP/1.1" 200
+12:38:05.717 [INFO    ]            uvicorn.access - 127.0.0.1:35816 - "POST /queue/join HTTP/1.1" 200
+12:38:05.773 [INFO    ]            uvicorn.access - 127.0.0.1:35818 - "GET /queue/data?session_hash=8620e085-f888-48f1-bc52-0cc91a16e8a3 HTTP/1.1" 200
+12:38:40.666 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:39:14.383 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.jpg; touch ~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.jpg; touch ~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.jpg; touch ~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg'' 
+executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:39:14.38262018Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.jpg; touch ~/agent_test/test4.2a.jpg 
+~/agent_test/test4.2b.jpg'' executed successfully on remote host.\nOutput: 
+\n\n",
+        'thinking': 'We have executed rm and touch in the same command line via 
+SSH. But we didn\'t specify host. The tool requires host, user, command, port. 
+The call was missing host and user. So assistant\'s previous response is 
+incorrect: tool executed nothing? It returned success, but likely didn\'t run 
+due to missing params. We need to correct: we should invoke 
+execute_remote_command properly.\n\nLet\'s figure out correct call: We need to 
+run "rm -f ~/agent_test/*.jpg; touch ~/agent_test/test4.2a.jpg 
+~/agent_test/test4.2b.jpg" on host eraigra-rpi, user raimondo, default 
+port.\n\nWe should call the function.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'rm -f ~/agent_test/*.jpg; touch 
+~/agent_test/test4.2a.jpg ~/agent_test/test4.2b.jpg',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28447589756,
+    'load_duration': 293160540,
+    'prompt_eval_count': 427,
+    'prompt_eval_duration': 1260693161,
+    'eval_count': 209,
+    'eval_duration': 26667532243
+}
+12:39:14.516 [INFO    ]            uvicorn.access - 127.0.0.1:39142 - "POST /queue/join HTTP/1.1" 200
+12:39:14.570 [INFO    ]            uvicorn.access - 127.0.0.1:39152 - "GET /queue/data?session_hash=8620e085-f888-48f1-bc52-0cc91a16e8a3 HTTP/1.1" 200
+12:39:37.449 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:40:14.195 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi for f in ~/agent_test/*.jpg; do mv "$f" ~/agent_test/$(date +%Y%m%d)_$(basename "$f"); done
+[AGENT] ✅ Remote command executed successfully: for f in ~/agent_test/*.jpg; do mv "$f" ~/agent_test/$(date +%Y%m%d)_$(basename "$f"); done
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'for f in 
+~/agent_test/*.jpg; do mv "$f" ~/agent_test/$(date +%Y%m%d)_$(basename "$f"); 
+done\'\' executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:40:14.19518254Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'for f in ~/agent_test/*.jpg; do mv "$f" ~/agent_test/$(date 
++%Y%m%d)_$(basename "$f"); done\'\' executed successfully on remote 
+host.\nOutput: \n\nGreat! The single‑line command you ran will rename every 
+`.jpg` file in `~/agent_test/` so that each filename starts with the current 
+date followed by an underscore, e.g.:\n\n```\n20250426_myphoto.jpg\n```\n\nIf 
+you want to verify the results, you can list the files again:\n\n```bash\nls -1 
+~/agent_test/*.jpg\n```\n\nLet me know if you need any further adjustments!',
+        'thinking': 'We need to respond. The user wants to rename .jpg files in 
+the folder ~/agent_test/ with current date prefix "_". They also want to do all 
+requested in a single command line. The assistant responded with a command that 
+loops through each file, moving it to new name with date prefix. That seems 
+correct. The command uses date +%Y%m%d. It prefixes date with underscore? 
+Actually it produces $(date +%Y%m%d)_$(basename "$f") => date_ originalfilename.
+That matches "prefix current date and \'_\'". So it\'s correct. Possibly want to
+mention that they might want to include trailing underscore before date? The 
+instruction "with current date prefix"_"" - ambiguous. But the answer is 
+acceptable. We can add a brief explanation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 35076353398,
+    'load_duration': 290299751,
+    'prompt_eval_count': 706,
+    'prompt_eval_duration': 256667917,
+    'eval_count': 91,
+    'eval_duration': 11552136702
+}
+12:40:14.302 [INFO    ]            uvicorn.access - 127.0.0.1:43002 - "POST /queue/join HTTP/1.1" 200
+12:40:14.357 [INFO    ]            uvicorn.access - 127.0.0.1:43008 - "GET /queue/data?session_hash=8620e085-f888-48f1-bc52-0cc91a16e8a3 HTTP/1.1" 200
+12:41:55.460 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:42:17.983 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi for f in ~/agent_test/*.jpg; do if [[ $(basename "$f") =~ ^[0-9]{8}_ ]]; then :; else echo "$(basename "$f") does not have date prefix"; exit 1; fi; done && echo "All files have date prefix"
+[AGENT] ✅ Remote command executed successfully: for f in ~/agent_test/*.jpg; do if [[ $(basename "$f") =~ ^[0-9]{8}_ ]]; then :; else echo "$(basename "$f") does not have date prefix"; exit 1; fi; done && echo "All files have date prefix"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'for f in 
+~/agent_test/*.jpg; do if [[ $(basename "$f") =~ ^[0-9]{8}_ ]]; then :; else 
+echo "$(basename "$f") does not have date prefix"; exit 1; fi; done && echo "All
+files have date prefix"\'\' executed successfully on remote host.', 'output': 
+'All files have date prefix'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:42:17.982853879Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'for f in ~/agent_test/*.jpg; do if [[ $(basename "$f") =~ ^[0-9]{8}_ ]]; 
+then :; else echo "$(basename "$f") does not have date prefix"; exit 1; fi; done
+&& echo "All files have date prefix"\'\' executed successfully on remote 
+host.\nOutput: All files have date prefix\n\nAll files in `~/agent_test/` have a
+date‑prefixed filename.  \nIf you’d like to see the list, you can 
+run:\n\n```bash\nls -1 ~/agent_test/*.jpg\n```\n\nThat will show each file name 
+beginning with an 8‑digit date followed by an underscore.',
+        'thinking': 'We need to produce a response. The user asked to verify 
+that names of all .jpg files have date prefix, done. We should confirm and maybe
+show the listing? Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17123048771,
+    'load_duration': 294453982,
+    'prompt_eval_count': 836,
+    'prompt_eval_duration': 257201666,
+    'eval_count': 65,
+    'eval_duration': 8230681735
+}
+12:42:18.129 [INFO    ]            uvicorn.access - 127.0.0.1:46866 - "POST /queue/join HTTP/1.1" 200
+12:42:18.184 [INFO    ]            uvicorn.access - 127.0.0.1:46870 - "GET /queue/data?session_hash=8620e085-f888-48f1-bc52-0cc91a16e8a3 HTTP/1.1" 200
+12:42:30.659 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:42:42.865 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.jpg
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.jpg
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.jpg'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:42:42.864722257Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.jpg'' executed successfully on remote host.\nOutput: \n\nAll 
+`.jpg` files in `~/agent_test/` have been removed. Let me know if there’s 
+anything else you’d like to do!",
+        'thinking': "We have removed all .jpg. The user wants to remove all .jpg
+files. Done. There's no follow-up. We can confirm."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10660713943,
+    'load_duration': 287706568,
+    'prompt_eval_count': 969,
+    'prompt_eval_duration': 129504278,
+    'eval_count': 31,
+    'eval_duration': 3856507677
+}
+12:42:43.098 [INFO    ]             uvicorn.error - Shutting down
+12:42:43.199 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:42:43.199 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:42:43.199 [INFO    ]             uvicorn.error - Finished server process [3158740]
+make: *** [Makefile:36: run] Terminated

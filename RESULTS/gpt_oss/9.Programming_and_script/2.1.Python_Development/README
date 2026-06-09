@@ -1,0 +1,5 @@
+TASKNAME=Run a Python script and verify its successful execution.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/hello.py.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a python file called ~/agent_test/hello.py that display the string 'Hello world!'. Don't split the commands and do all requested in a single command line.   
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute the program ~/agent_test/hello.py.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exists the file ~/agent_test/hello.py.

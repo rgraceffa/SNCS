@@ -1,0 +1,161 @@
+poetry run python -m private_gpt
+07:56:42.364 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+07:56:46.623 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+07:56:46.687 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:56:46.689 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:56:47.563 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+07:56:47.718 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:56:47.719 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+07:56:47.720 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+07:56:48.606 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+07:56:48.646 [INFO    ]             uvicorn.error - Started server process [352960]
+07:56:48.646 [INFO    ]             uvicorn.error - Waiting for application startup.
+07:56:48.646 [INFO    ]             uvicorn.error - Application startup complete.
+07:56:48.647 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+07:57:22.192 [INFO    ]            uvicorn.access - 127.0.0.1:41614 - "GET /config HTTP/1.1" 200
+07:57:22.247 [INFO    ]            uvicorn.access - 127.0.0.1:41630 - "GET /info?serialize=False HTTP/1.1" 200
+07:57:22.319 [INFO    ]            uvicorn.access - 127.0.0.1:41640 - "POST /queue/join HTTP/1.1" 200
+07:57:22.319 [INFO    ]            uvicorn.access - 127.0.0.1:41652 - "GET /heartbeat/d5aa97c6-35a9-4702-b3fc-6eb752b65ecb HTTP/1.1" 200
+07:57:22.374 [INFO    ]            uvicorn.access - 127.0.0.1:41668 - "GET /queue/data?session_hash=d5aa97c6-35a9-4702-b3fc-6eb752b65ecb HTTP/1.1" 200
+07:57:30.198 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:57:45.069 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test7.1
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test7.1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test7.1'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T07:57:45.068622128Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test7.1'' executed successfully on
+remote host.\nOutput: \n\nThe command to create the empty file `test7.1` in the 
+`~/agent_test` directory on the remote host has been executed successfully. Let 
+me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8958678431,
+    'load_duration': 130099743,
+    'prompt_eval_count': 576,
+    'prompt_eval_duration': 4040688595,
+    'eval_count': 41,
+    'eval_duration': 4705002295
+}
+07:57:45.146 [INFO    ]            uvicorn.access - 127.0.0.1:50226 - "POST /queue/join HTTP/1.1" 200
+07:57:45.203 [INFO    ]            uvicorn.access - 127.0.0.1:50230 - "GET /queue/data?session_hash=d5aa97c6-35a9-4702-b3fc-6eb752b65ecb HTTP/1.1" 200
+07:57:59.284 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:58:29.132 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rsync -avz ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/
+[AGENT] ✅ Remote command executed successfully: rsync -avz ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rsync -avz 
+~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/'' executed 
+successfully on remote host.", 'output': 'sending incremental file 
+list\n./\ntest7.1\n\nsent 123 bytes  received 38 bytes  64.40 bytes/sec\ntotal 
+size is 0  speedup is 0.00'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T07:58:29.13203824Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''rsync -avz ~/agent_test/ raimondo@eraigra-X205TA:/home/raimondo/destfolder/'' 
+executed successfully on remote host.\nOutput: sending incremental file 
+list\n./\ntest7.1\n\nsent 123 bytes  received 38 bytes  64.40 bytes/sec\ntotal 
+size is 0  speedup is 0.00\n\nThe synchronization of the `~/agent_test` 
+directory from the remote host `eraigra-rpi` (username: raimondo) to the target 
+host `eraigra-X205TA` (destination folder: `/home/raimondo/destfolder`) has been
+completed successfully.\n\nHere's a summary of the process:\n- The command used 
+was: `rsync -avz ~/agent_test/ 
+raimondo@eraigra-X205TA:/home/raimondo/destfolder/`\n- It sent the incremental 
+file list, including the file `test7.1`.\n- The transfer speed was 64.40 
+bytes/sec.\n- The total size transferred was 0 bytes (as the file was 
+empty).\n\nLet me know if you need further assistance or additional operations."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26816054228,
+    'load_duration': 129081064,
+    'prompt_eval_count': 801,
+    'prompt_eval_duration': 7288808475,
+    'eval_count': 168,
+    'eval_duration': 19216845587
+}
+07:58:29.245 [INFO    ]            uvicorn.access - 127.0.0.1:38858 - "POST /queue/join HTTP/1.1" 200
+07:58:29.305 [INFO    ]            uvicorn.access - 127.0.0.1:38874 - "GET /queue/data?session_hash=d5aa97c6-35a9-4702-b3fc-6eb752b65ecb HTTP/1.1" 200
+07:58:45.576 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:59:06.033 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-X205TA ls -l /home/raimondo/destfolder/test7.1
+[AGENT] ✅ Remote command executed successfully: ls -l /home/raimondo/destfolder/test7.1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+/home/raimondo/destfolder/test7.1'' executed successfully on remote host.", 
+'output': '-rw-rw-r-- 1 raimondo raimondo 0 Dec 19 09:57 
+/home/raimondo/destfolder/test7.1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T07:59:06.033429748Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /home/raimondo/destfolder/test7.1'' executed successfully on remote 
+host.\nOutput: -rw-rw-r-- 1 raimondo raimondo 0 Dec 19 09:57 
+/home/raimondo/destfolder/test7.1\n\nI have verified that the file `test7.1` 
+exists in the folder `/home/raimondo/destfolder` on the remote host 
+`eraigra-x205ta` (username: raimondo).\n\nThe file details are as follows:\n- 
+**Permissions**: `-rw-rw-r--`\n- **Owner**: `raimondo`\n- **Group**: 
+`raimondo`\n- **Size**: 0 bytes\n- **Modification Time**: `Dec 19 09:57`\n\nThe 
+file was successfully synchronized from the remote host `eraigra-rpi` as 
+requested. Let me know if you need further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18503573657,
+    'load_duration': 130443115,
+    'prompt_eval_count': 1103,
+    'prompt_eval_duration': 2126256922,
+    'eval_count': 137,
+    'eval_duration': 16102860107
+}
+07:59:06.108 [INFO    ]            uvicorn.access - 127.0.0.1:52444 - "POST /queue/join HTTP/1.1" 200
+07:59:06.168 [INFO    ]            uvicorn.access - 127.0.0.1:52452 - "GET /queue/data?session_hash=d5aa97c6-35a9-4702-b3fc-6eb752b65ecb HTTP/1.1" 200
+07:59:14.076 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+07:59:26.473 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm ~/agent_test/test7.1
+[AGENT] ✅ Remote command executed successfully: rm ~/agent_test/test7.1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm 
+~/agent_test/test7.1'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-19T07:59:26.47345112Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+~/agent_test/test7.1'' executed successfully on remote host.\nOutput: \n\nThe 
+file `test7.1` has been successfully deleted from the folder `~/agent_test` on 
+the remote host `eraigra-rpi` (username: raimondo).\n\nLet me know if you need 
+any further assistance!"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7203880822,
+    'load_duration': 126670962,
+    'prompt_eval_count': 1316,
+    'prompt_eval_duration': 1222035663,
+    'eval_count': 49,
+    'eval_duration': 5752402513
+}
+07:59:26.663 [INFO    ]             uvicorn.error - Shutting down
+07:59:26.763 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+07:59:26.763 [INFO    ]             uvicorn.error - Application shutdown complete.
+07:59:26.763 [INFO    ]             uvicorn.error - Finished server process [352960]
+make: *** [Makefile:36: run] Terminated

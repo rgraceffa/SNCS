@@ -1,0 +1,214 @@
+poetry run python -m private_gpt
+15:31:26.193 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:31:30.474 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:31:30.537 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:31:30.539 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:31:31.437 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:31:31.590 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:31:31.591 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:31:31.593 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:31:32.483 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:31:32.524 [INFO    ]             uvicorn.error - Started server process [128082]
+15:31:32.524 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:31:32.524 [INFO    ]             uvicorn.error - Application startup complete.
+15:31:32.525 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:32:06.022 [INFO    ]            uvicorn.access - 127.0.0.1:41084 - "GET /config HTTP/1.1" 200
+15:32:06.076 [INFO    ]            uvicorn.access - 127.0.0.1:41096 - "GET /info?serialize=False HTTP/1.1" 200
+15:32:06.146 [INFO    ]            uvicorn.access - 127.0.0.1:41104 - "GET /heartbeat/deeff7a7-7f6e-4b91-b8ec-685c6f3afe64 HTTP/1.1" 200
+15:32:06.149 [INFO    ]            uvicorn.access - 127.0.0.1:41120 - "POST /queue/join HTTP/1.1" 200
+15:32:06.203 [INFO    ]            uvicorn.access - 127.0.0.1:41130 - "GET /queue/data?session_hash=deeff7a7-7f6e-4b91-b8ec-685c6f3afe64 HTTP/1.1" 200
+15:32:22.834 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:32:41.879 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test3.1.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test3.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test3.1.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T15:32:41.878632193Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test3.1.log'' executed 
+successfully on remote host.\nOutput: \n\n",
+        'thinking': "We need to confirm that the remote host is eraigra-rpi, 
+username raimondo. The tool didn't specify host, user, port. We must call 
+execute_remote_command.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && touch 
+~/agent_test/test3.1.log',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13694595009,
+    'load_duration': 299850899,
+    'prompt_eval_count': 387,
+    'prompt_eval_duration': 1168513910,
+    'eval_count': 95,
+    'eval_duration': 12053438058
+}
+15:32:42.004 [INFO    ]            uvicorn.access - 127.0.0.1:39608 - "POST /queue/join HTTP/1.1" 200
+15:32:42.058 [INFO    ]            uvicorn.access - 127.0.0.1:39616 - "GET /queue/data?session_hash=deeff7a7-7f6e-4b91-b8ec-685c6f3afe64 HTTP/1.1" 200
+15:34:49.373 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:35:57.829 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo "$(date) - Login summary:" >> ~/agent_test/test3.1.log; last -a | awk '{print $1}' | sort | uniq -c >> ~/agent_test/test3.1.log
+[AGENT] ✅ Remote command executed successfully: echo "$(date) - Login summary:" >> ~/agent_test/test3.1.log; last -a | awk '{print $1}' | sort | uniq -c >> ~/agent_test/test3.1.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo "$(date) - 
+Login summary:" >> ~/agent_test/test3.1.log; last -a | awk \'"\'"\'{print 
+$1}\'"\'"\' | sort | uniq -c >> ~/agent_test/test3.1.log\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T15:35:57.829429026Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo "$(date) - Login summary:" >> ~/agent_test/test3.1.log; last -a | awk 
+\'"\'"\'{print $1}\'"\'"\' | sort | uniq -c >> ~/agent_test/test3.1.log\'\' 
+executed successfully on remote host.\nOutput: \n\n',
+        'thinking': 'The user wants to generate statistics for login activities 
+and patterns of users and insert in the log ~/agent_test/test3.1.log. They 
+requested not to split commands, do all requested in a single command line. The 
+assistant responded with a command that splits commands using semicolons; they 
+did one line, but maybe they want a single line with no splits? But the 
+instruction says "Don\'t split the commands and do all requested in a single 
+command line." So the assistant should provide a single command that does all. 
+It can use semicolons inside a single command? They might mean no separate 
+commands? But using semicolons still splits but within the same line; but they 
+might mean a single command line (not multiple lines). They used a semicolon, 
+which might be acceptable. However, they might expect a single command that 
+includes everything: maybe using a subshell or something. But let\'s produce a 
+better answer: a single command that writes to the log. Could use `awk` or 
+`last`. But ensure it\'s a single command line, e.g.,\n\n```\necho "$(date) - 
+Login summary:" > ~/agent_test/test3.1.log && last -a | awk \'{print $1}\' | 
+sort | uniq -c >> ~/agent_test/test3.1.log\n```\n\nBut that uses && which 
+splits? But it\'s a single command line, but two commands separated by &&. The 
+user said "Don\'t split the commands and do all requested in a single command 
+line." It might accept using &&. But perhaps they want a single pipeline that 
+appends everything. We could use a subshell:\n\n```\n{ echo "$(date) - Login 
+summary:"; last -a | awk \'{print $1}\' | sort | uniq -c; } >> 
+~/agent_test/test3.1.log\n```\n\nThat uses braces and a single redirection at 
+end. That meets requirement. Let\'s use that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': '{ echo "$(date) - Login summary:"; last -a |
+awk \'{print $1}\' | sort | uniq -c; } >> ~/agent_test/test3.1.log',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 62517431254,
+    'load_duration': 301404932,
+    'prompt_eval_count': 530,
+    'prompt_eval_duration': 1667743423,
+    'eval_count': 469,
+    'eval_duration': 60149284270
+}
+15:35:57.931 [INFO    ]            uvicorn.access - 127.0.0.1:53830 - "POST /queue/join HTTP/1.1" 200
+15:35:57.985 [INFO    ]            uvicorn.access - 127.0.0.1:53844 - "GET /queue/data?session_hash=deeff7a7-7f6e-4b91-b8ec-685c6f3afe64 HTTP/1.1" 200
+15:36:19.687 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:36:49.176 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo 'file not found'; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo 'file not found'; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo 
+\'"\'"\'file not found\'"\'"\'; fi\'\' executed successfully on remote host.', 
+'output': 'Wed Dec 24 17:34:55 EET 2025 - Login summary:\n      1 \n      2 
+hlr_sim\n      1 pippo\n    684 raimondo\n     73 reboot\n      1 root\n      1 
+wtmp'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T15:36:49.175783483Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else 
+echo \'"\'"\'file not found\'"\'"\'; fi\'\' executed successfully on remote 
+host.\nOutput: Wed Dec 24 17:34:55 EET 2025 - Login summary:\n      1 \n      2 
+hlr_sim\n      1 pippo\n    684 raimondo\n     73 reboot\n      1 root\n      1 
+wtmp\n\nThe file **~/agent_test/test3.1.log** exists and its current content 
+is:\n\n```\nWed Dec 24 17:34:55 EET 2025 - Login summary:\n      1 \n      2 
+hlr_sim\n      1 pippo\n    684 raimondo\n     73 reboot\n      1 root\n      1 
+wtmp\n```\n\nIf you need any further analysis or modifications to this log, just
+let me know!',
+        'thinking': "The user asked to check if file exists and provide content.
+We responded with a single command: it prints content. It's okay. Possibly the 
+user wants to confirm file presence. Already done. Might need to mention 
+success. Provide content. We'll output the content. Probably fine."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24057042652,
+    'load_duration': 291293535,
+    'prompt_eval_count': 764,
+    'prompt_eval_duration': 256682088,
+    'eval_count': 100,
+    'eval_duration': 12733571201
+}
+15:36:49.307 [INFO    ]            uvicorn.access - 127.0.0.1:37956 - "POST /queue/join HTTP/1.1" 200
+15:36:49.361 [INFO    ]            uvicorn.access - 127.0.0.1:37960 - "GET /queue/data?session_hash=deeff7a7-7f6e-4b91-b8ec-685c6f3afe64 HTTP/1.1" 200
+15:37:06.638 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:37:20.959 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T15:37:20.958963202Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file **~/agent_test/test3.1.log** has been removed (if it existed). No 
+further action needed.",
+        'thinking': 'The user wants to "remove if not present the file 
+~/agent_test/test3.1.log". They might mean delete the file if it exists. We 
+executed rm -f which will remove if present. Good.\n\nNow we should respond 
+acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12728563057,
+    'load_duration': 292740636,
+    'prompt_eval_count': 938,
+    'prompt_eval_duration': 156382051,
+    'eval_count': 26,
+    'eval_duration': 3215777496
+}
+15:37:21.125 [INFO    ]             uvicorn.error - Shutting down
+15:37:21.225 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:37:21.225 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:37:21.225 [INFO    ]             uvicorn.error - Finished server process [128082]
+make: *** [Makefile:36: run] Terminated

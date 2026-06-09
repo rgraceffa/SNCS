@@ -1,0 +1,5 @@
+TASKNAME=Develop a script to monitor real-time network traffic.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exist files ~/agent_test/test2.2.sh and ~/agent_test/test2.2.cap. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a bash script ~/agent_test/test2.2.sh to monitor real-time network traffic for 5 and create the output file ~/agent_test/test2.2.cap, and make it executables. Use sudo in the command if needed and make it sure to perform the task in one command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo run if exists the script ~/agent_test/test2.2.sh. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exist files ~/agent_test/test2.2.sh and ~/agent_test/test2.2.cap. Don't split the commands and do all requested in a single command line.

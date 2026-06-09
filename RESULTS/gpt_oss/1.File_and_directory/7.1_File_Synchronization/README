@@ -1,0 +1,5 @@
+TASKNAME=Synchronize ‘‘source’’ to ‘‘dest’’ with rsync, mirroring source. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create the empty file test7.1 under the folder ~/agent_test
+TASKCOMMAND=please synchronize the ~/agent_test in the remote host eraigra-rpi username raimondo with the target host eraigra-X205TA in the /home/raimondo/destfolder folder.  Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-x205ta username raimondo check if the file test7.1 exist under the folder /home/raimondo/destfolder
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo delete the file test7.1 under the folder ~/agent_test

@@ -1,0 +1,186 @@
+poetry run python -m private_gpt
+19:32:08.468 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+19:32:12.757 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+19:32:12.820 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:32:12.822 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:32:13.706 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+19:32:13.860 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:32:13.861 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+19:32:13.862 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+19:32:14.759 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+19:32:14.800 [INFO    ]             uvicorn.error - Started server process [169164]
+19:32:14.800 [INFO    ]             uvicorn.error - Waiting for application startup.
+19:32:14.801 [INFO    ]             uvicorn.error - Application startup complete.
+19:32:14.801 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+19:32:48.300 [INFO    ]            uvicorn.access - 127.0.0.1:43396 - "GET /config HTTP/1.1" 200
+19:32:48.355 [INFO    ]            uvicorn.access - 127.0.0.1:43412 - "GET /info?serialize=False HTTP/1.1" 200
+19:32:48.420 [INFO    ]            uvicorn.access - 127.0.0.1:43422 - "GET /heartbeat/f9102025-f624-40d4-8ca9-2aa8fd8db54f HTTP/1.1" 200
+19:32:48.423 [INFO    ]            uvicorn.access - 127.0.0.1:43438 - "POST /queue/join HTTP/1.1" 200
+19:32:48.478 [INFO    ]            uvicorn.access - 127.0.0.1:43442 - "GET /queue/data?session_hash=f9102025-f624-40d4-8ca9-2aa8fd8db54f HTTP/1.1" 200
+19:33:51.519 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:34:13.855 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p /home/raimondo/agent_test && cp -r /home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.2prj/test5.2.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p /home/raimondo/agent_test && cp -r /home/raimondo/test5.2prj /home/raimondo/agent_test/ && cat /home/raimondo/agent_test/test5.2prj/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p 
+/home/raimondo/agent_test && cp -r /home/raimondo/test5.2prj 
+/home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.2prj/test5.2.log'' executed successfully on 
+remote host.", 'output': 'main.c: In function ‘main’:\nmain.c:5:28: error: ‘bad’
+undeclared (first use in this function)\n    5 |     printf("Value = %d\\n", 
+bad);\n      |                            ^~~\nmain.c:5:28: note: each 
+undeclared identifier is reported only once for each function it appears 
+in\nmain.c:4:9: warning: unused variable ‘value’ [-Wunused-variable]\n    4 |   
+int value = 10;\n      |         ^~~~~\nmake: *** [Makefile:10: main.o] Error 
+1'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:34:13.854943126Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p /home/raimondo/agent_test && cp -r /home/raimondo/test5.2prj 
+/home/raimondo/agent_test/ && cat 
+/home/raimondo/agent_test/test5.2prj/test5.2.log\'\' executed successfully on 
+remote host.\nOutput: main.c: In function ‘main’:\nmain.c:5:28: error: ‘bad’ 
+undeclared (first use in this function)\n    5 |     printf("Value = %d\\n", 
+bad);\n      |                            ^~~\nmain.c:5:28: note: each 
+undeclared identifier is reported only once for each function it appears 
+in\nmain.c:4:9: warning: unused variable ‘value’ [-Wunused-variable]\n    4 |   
+int value = 10;\n      |         ^~~~~\nmake: *** [Makefile:10: main.o] Error 
+1\n\n✅ Done.  \nThe folder `/home/raimondo/test5.2prj` was copied to 
+`/home/raimondo/agent_test/`, and the compilation error log is shown above.',
+        'thinking': 'The function call succeeded. It executed the command, 
+copied the folder, and displayed the log contents. No further action needed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13461309206,
+    'load_duration': 292975677,
+    'prompt_eval_count': 663,
+    'prompt_eval_duration': 256449445,
+    'eval_count': 43,
+    'eval_duration': 5388316381
+}
+19:34:13.994 [INFO    ]            uvicorn.access - 127.0.0.1:40920 - "POST /queue/join HTTP/1.1" 200
+19:34:14.048 [INFO    ]            uvicorn.access - 127.0.0.1:40922 - "GET /queue/data?session_hash=f9102025-f624-40d4-8ca9-2aa8fd8db54f HTTP/1.1" 200
+19:35:07.027 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:35:51.414 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sed -i 's/bad/value/g' /home/raimondo/agent_test/test5.2prj/main.c && cd /home/raimondo/agent_test/test5.2prj && make > test5.2.log 2>&1 && cat test5.2.log
+[AGENT] ✅ Remote command executed successfully: sed -i 's/bad/value/g' /home/raimondo/agent_test/test5.2prj/main.c && cd /home/raimondo/agent_test/test5.2prj && make > test5.2.log 2>&1 && cat test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sed -i 
+\'"\'"\'s/bad/value/g\'"\'"\' /home/raimondo/agent_test/test5.2prj/main.c && cd 
+/home/raimondo/agent_test/test5.2prj && make > test5.2.log 2>&1 && cat 
+test5.2.log\'\' executed successfully on remote host.', 'output': 'gcc -Wall -g 
+-c main.c\ngcc -Wall -g -o app main.o'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:35:51.413851056Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sed -i \'"\'"\'s/bad/value/g\'"\'"\' 
+/home/raimondo/agent_test/test5.2prj/main.c && cd 
+/home/raimondo/agent_test/test5.2prj && make > test5.2.log 2>&1 && cat 
+test5.2.log\'\' executed successfully on remote host.\nOutput: gcc -Wall -g -c 
+main.c\ngcc -Wall -g -o app main.o\n\n✅ The bug was fixed and the project was 
+rebuilt successfully.\n\n- The line that referred to the undeclared variable 
+`bad` was replaced with `value`.\n- The build was run in 
+`/home/raimondo/agent_test/test5.2prj`.\n- All compiler output was captured in 
+`test5.2.log`.\n\n**Build output (last few lines of the log)**\n\n```\ngcc -Wall
+-g -c main.c\ngcc -Wall -g -o app main.o\n```\n\nThe executable `app` is now 
+present in `/home/raimondo/agent_test/test5.2prj`.',
+        'thinking': 'We need to produce the final answer. The assistant already 
+executed the command to fix bug and run make, but we need to respond 
+appropriately. Should confirm success and perhaps display the output. We see 
+output of make: "gcc -Wall -g -c main.c gcc -Wall -g -o app main.o". Should also
+mention that log file is created. So answer: success, compile succeeded, app 
+created. Provide maybe echo of log file content. It\'s already in output. So 
+respond accordingly.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33655623441,
+    'load_duration': 290046284,
+    'prompt_eval_count': 993,
+    'prompt_eval_duration': 254147634,
+    'eval_count': 130,
+    'eval_duration': 16593353778
+}
+19:35:51.535 [INFO    ]            uvicorn.access - 127.0.0.1:36202 - "POST /queue/join HTTP/1.1" 200
+19:35:51.590 [INFO    ]            uvicorn.access - 127.0.0.1:36214 - "GET /queue/data?session_hash=f9102025-f624-40d4-8ca9-2aa8fd8db54f HTTP/1.1" 200
+19:36:08.486 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:36:32.780 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test/test5.2prj && ./app
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test/test5.2prj && ./app
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd 
+~/agent_test/test5.2prj && ./app'' executed successfully on remote host.", 
+'output': 'Value = 10'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:36:32.77993664Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~/agent_test/test5.2prj && ./app'' executed successfully on remote 
+host.\nOutput: Value = 10\n\n✅ Executed `~/agent_test/test5.2prj/app`.  
+\n**Outcome:**  \n```\nValue = 10\n```\n",
+        'thinking': 'We have a conversation where the user wants to run a file 
+and provide outcome. The assistant already responded with "Value = 10" which is 
+the output. The user wants "run the file ~/agent_test/test5.2prj/app and provide
+the outcome. Don\'t split the commands and do all requested in a single command 
+line." That has been done. So final answer should confirm that the output is 
+"Value = 10". Probably just echo that.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19049270421,
+    'load_duration': 297142273,
+    'prompt_eval_count': 1219,
+    'prompt_eval_duration': 204338871,
+    'eval_count': 30,
+    'eval_duration': 3731799096
+}
+19:36:32.897 [INFO    ]            uvicorn.access - 127.0.0.1:45244 - "POST /queue/join HTTP/1.1" 200
+19:36:32.951 [INFO    ]            uvicorn.access - 127.0.0.1:45260 - "GET /queue/data?session_hash=f9102025-f624-40d4-8ca9-2aa8fd8db54f HTTP/1.1" 200
+19:36:53.267 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:37:13.707 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf /home/raimondo/agent_test/test5.2prj/
+[AGENT] ✅ Remote command executed successfully: rm -rf /home/raimondo/agent_test/test5.2prj/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+/home/raimondo/agent_test/test5.2prj/'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:37:13.706675701Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf /home/raimondo/agent_test/test5.2prj/'' executed successfully on remote 
+host.\nOutput: \n\n✅ The folder `/home/raimondo/agent_test/test5.2prj` has been
+removed successfully.",
+        'thinking': 'We need to check if any further action required. The user 
+asked to remove the folder. We did that. No other instructions. So we respond 
+confirming removal.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11544062671,
+    'load_duration': 292874698,
+    'prompt_eval_count': 1297,
+    'prompt_eval_duration': 257627227,
+    'eval_count': 25,
+    'eval_duration': 3092581812
+}
+19:37:13.854 [INFO    ]             uvicorn.error - Shutting down
+19:37:13.955 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+19:37:13.955 [INFO    ]             uvicorn.error - Application shutdown complete.
+19:37:13.955 [INFO    ]             uvicorn.error - Finished server process [169164]
+make: *** [Makefile:36: run] Terminated

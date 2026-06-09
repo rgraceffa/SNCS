@@ -1,0 +1,190 @@
+poetry run python -m private_gpt
+15:57:20.115 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:57:24.376 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:57:24.440 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:57:24.441 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:57:25.320 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:57:25.474 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:57:25.476 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:57:25.477 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:57:26.368 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:57:26.409 [INFO    ]             uvicorn.error - Started server process [2520367]
+15:57:26.409 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:57:26.409 [INFO    ]             uvicorn.error - Application startup complete.
+15:57:26.409 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:57:59.946 [INFO    ]            uvicorn.access - 127.0.0.1:39632 - "GET /config HTTP/1.1" 200
+15:58:00.002 [INFO    ]            uvicorn.access - 127.0.0.1:39646 - "GET /info?serialize=False HTTP/1.1" 200
+15:58:00.077 [INFO    ]            uvicorn.access - 127.0.0.1:39664 - "POST /queue/join HTTP/1.1" 200
+15:58:00.077 [INFO    ]            uvicorn.access - 127.0.0.1:39660 - "GET /heartbeat/39858cef-60a6-4d68-b52b-8a1ddbef01d1 HTTP/1.1" 200
+15:58:00.132 [INFO    ]            uvicorn.access - 127.0.0.1:39680 - "GET /queue/data?session_hash=39858cef-60a6-4d68-b52b-8a1ddbef01d1 HTTP/1.1" 200
+15:58:09.817 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:01:07.402 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull ubuntu && docker run --name test_container -d ubuntu sleep infinity && rm -f ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: docker pull ubuntu && docker run --name test_container -d ubuntu sleep infinity && rm -f ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull ubuntu &&
+docker run --name test_container -d ubuntu sleep infinity && rm -f 
+~/agent_test/test5.2.log'' executed successfully on remote host.", 'output': 
+'Using default tag: latest\nlatest: Pulling from library/ubuntu\n6cdc0abf996c: 
+Pulling fs layer\n6cdc0abf996c: Verifying Checksum\n6cdc0abf996c: Download 
+complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n3fe15bf71e7d1bfc5c1b0feab217d358
+b8639aa13e8c0f622367c9f2bd5f68b8'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:01:07.402005798Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker pull ubuntu && docker run --name test_container -d ubuntu sleep 
+infinity && rm -f ~/agent_test/test5.2.log\'\' executed successfully on remote 
+host.\nOutput: Using default tag: latest\nlatest: Pulling from 
+library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\n3fe15bf71e7d1bfc5c1b0feab217d358
+b8639aa13e8c0f622367c9f2bd5f68b8\n\nThe command has been successfully executed 
+on the remote host. Here\'s what was done:\n\n1. Pulled the latest Ubuntu Docker
+image from the Docker Hub\n2. Started a new container named "test_container" 
+based on the Ubuntu image, running in detached mode with the command "sleep 
+infinity"\n3. Removed the file ~/agent_test/test5.2.log if it existed\n\nThe 
+Docker image was pulled successfully, the container is running, and the log file
+has been removed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18678811244,
+    'load_duration': 132473144,
+    'prompt_eval_count': 828,
+    'prompt_eval_duration': 6851530874,
+    'eval_count': 97,
+    'eval_duration': 11571412212
+}
+16:01:07.559 [INFO    ]            uvicorn.access - 127.0.0.1:42052 - "POST /queue/join HTTP/1.1" 200
+16:01:07.614 [INFO    ]            uvicorn.access - 127.0.0.1:42068 - "GET /queue/data?session_hash=39858cef-60a6-4d68-b52b-8a1ddbef01d1 HTTP/1.1" 200
+16:01:23.497 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:01:56.114 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker logs test_container | tail -100 > ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: docker logs test_container | tail -100 > ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker logs 
+test_container | tail -100 > ~/agent_test/test5.2.log'' executed successfully on
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:01:56.113996096Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker logs test_container | tail -100 > ~/agent_test/test5.2.log\'\' 
+executed successfully on remote host.\nOutput: \n\nThe command has been 
+successfully executed on the remote host. Here\'s what was done:\n\n1. Retrieved
+the logs from the Docker container named "test_container"\n2. Piped the logs 
+through `tail -100` to get only the last 100 lines\n3. Redirected the output to 
+the file ~/agent_test/test5.2.log\n\nThe last 100 lines of the container\'s logs
+have been saved to the specified log file.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20255673738,
+    'load_duration': 128335087,
+    'prompt_eval_count': 1045,
+    'prompt_eval_duration': 8902393320,
+    'eval_count': 96,
+    'eval_duration': 11131851212
+}
+16:01:56.251 [INFO    ]            uvicorn.access - 127.0.0.1:59936 - "POST /queue/join HTTP/1.1" 200
+16:01:56.306 [INFO    ]            uvicorn.access - 127.0.0.1:59952 - "GET /queue/data?session_hash=39858cef-60a6-4d68-b52b-8a1ddbef01d1 HTTP/1.1" 200
+16:02:14.712 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:02:39.050 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/test5.2.log && cat ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/test5.2.log && cat ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+~/agent_test/test5.2.log && cat ~/agent_test/test5.2.log'' executed successfully
+on remote host.", 'output': '-rw-rw-r-- 1 raimondo raimondo 0 Dec 22 18:01 
+/home/raimondo/agent_test/test5.2.log'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:02:39.049883749Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/test5.2.log && cat ~/agent_test/test5.2.log'' executed 
+successfully on remote host.\nOutput: -rw-rw-r-- 1 raimondo raimondo 0 Dec 22 
+18:01 /home/raimondo/agent_test/test5.2.log\n\nI've verified that the file 
+~/agent_test/test5.2.log was created successfully. Here's the information about 
+the file:\n\n```\n-rw-rw-r-- 1 raimondo raimondo 0 Dec 22 18:01 
+/home/raimondo/agent_test/test5.2.log\n```\n\nThe file exists with the correct 
+permissions and ownership, but it's currently empty (0 bytes). This indicates 
+that either:\n1. The container had no logs when we retrieved them, or\n2. There 
+was an issue with the log retrieval process\n\nThe file was created 
+successfully, but it contains no content."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18895065225,
+    'load_duration': 135600006,
+    'prompt_eval_count': 1291,
+    'prompt_eval_duration': 2245494152,
+    'eval_count': 134,
+    'eval_duration': 16389183458
+}
+16:02:39.133 [INFO    ]            uvicorn.access - 127.0.0.1:33094 - "POST /queue/join HTTP/1.1" 200
+16:02:39.194 [INFO    ]            uvicorn.access - 127.0.0.1:33100 - "GET /queue/data?session_hash=39858cef-60a6-4d68-b52b-8a1ddbef01d1 HTTP/1.1" 200
+16:02:51.409 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:03:26.281 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && rm -f ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && rm -f ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -aq) && docker rmi -f $(docker images -q) && rm -f ~/agent_test/test5.2.log''
+executed successfully on remote host.", 'output': '3fe15bf71e7d\nUntagged: 
+ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T16:03:26.281439614Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q) && rm -f 
+~/agent_test/test5.2.log'' executed successfully on remote host.\nOutput: 
+3fe15bf71e7d\nUntagged: ubuntu:latest\nUntagged: 
+ubuntu@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\n
+Deleted: 
+sha256:083fa74cc7272d533fc541b8f5407c9b12e9f0846eabb15e35f00de2541847cd\nDeleted
+: sha256:0d235b5a058a3172c717288695f037c17f8d9171a64db2c1b501539632cf0f54\n\nThe
+command has been successfully executed on the remote host. Here's what was 
+done:\n\n1. Removed all Docker containers (both running and stopped) using 
+`docker rm -f $(docker ps -aq)`\n2. Removed all Docker images using `docker rmi 
+-f $(docker images -q)`\n3. Removed the file ~/agent_test/test5.2.log if it 
+existed\n\nThe output shows that:\n- One container (with ID 3fe15bf71e7d) was 
+removed\n- The Ubuntu image was untagged and deleted\n- The log file was 
+removed\n\nAll Docker containers and images have been cleaned up, and the 
+specified log file has been removed from the system."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21250541260,
+    'load_duration': 131069267,
+    'prompt_eval_count': 1778,
+    'prompt_eval_duration': 4171346712,
+    'eval_count': 144,
+    'eval_duration': 16803248381
+}
+16:03:26.526 [INFO    ]             uvicorn.error - Shutting down
+16:03:26.626 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:03:26.627 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:03:26.627 [INFO    ]             uvicorn.error - Finished server process [2520367]
+make: *** [Makefile:36: run] Terminated

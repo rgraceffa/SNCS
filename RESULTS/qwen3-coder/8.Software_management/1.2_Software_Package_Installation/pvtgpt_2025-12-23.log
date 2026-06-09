@@ -1,0 +1,115 @@
+poetry run python -m private_gpt
+08:07:09.743 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:07:13.995 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:07:14.058 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:07:14.060 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:07:14.942 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:07:15.096 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:07:15.098 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:07:15.099 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:07:15.987 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:07:16.028 [INFO    ]             uvicorn.error - Started server process [2669986]
+08:07:16.028 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:07:16.028 [INFO    ]             uvicorn.error - Application startup complete.
+08:07:16.029 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:07:49.575 [INFO    ]            uvicorn.access - 127.0.0.1:38082 - "GET /config HTTP/1.1" 200
+08:07:49.631 [INFO    ]            uvicorn.access - 127.0.0.1:38088 - "GET /info?serialize=False HTTP/1.1" 200
+08:07:49.737 [INFO    ]            uvicorn.access - 127.0.0.1:38102 - "GET /heartbeat/4ccebf44-ae6a-4de8-a81b-62fe6a323b3f HTTP/1.1" 200
+08:07:49.740 [INFO    ]            uvicorn.access - 127.0.0.1:38112 - "POST /queue/join HTTP/1.1" 200
+08:07:49.796 [INFO    ]            uvicorn.access - 127.0.0.1:38114 - "GET /queue/data?session_hash=4ccebf44-ae6a-4de8-a81b-62fe6a323b3f HTTP/1.1" 200
+08:07:59.891 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:09:17.332 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt update && sudo apt install -y systemd-hwe-hwdb=249.11.6
+[AGENT] ✅ Remote command executed successfully: sudo apt update && sudo apt install -y systemd-hwe-hwdb=249.11.6
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt update && 
+sudo apt install -y systemd-hwe-hwdb=249.11.6'' executed successfully on remote 
+host.", 'output': "Get:1 file:/usr/local/mydebs ./ InRelease\nIgn:1 
+file:/usr/local/mydebs ./ InRelease\nGet:2 file:/usr/local/mydebs ./ 
+Release\nIgn:2 file:/usr/local/mydebs ./ Release\nGet:3 file:/usr/local/mydebs 
+./ Packages [424 B]\nHit:4 http://ports.ubuntu.com/ubuntu-ports jammy 
+InRelease\nHit:5 http://ports.ubuntu.com/ubuntu-ports jammy-updates 
+InRelease\nHit:6 http://ports.ubuntu.com/ubuntu-ports jammy-backports 
+InRelease\nHit:7 http://ports.ubuntu.com/ubuntu-ports jammy-security 
+InRelease\nHit:8 https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 32s 
+(203 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state 
+information...\n21 packages can be upgraded. Run 'apt list --upgradable' to see 
+them.\nReading package lists...\nBuilding dependency tree...\nReading state 
+information...\nsystemd-hwe-hwdb is already the newest version (249.11.6).\n0 
+upgraded, 0 newly installed, 0 to remove and 21 not upgraded."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:09:17.332098876Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt update && sudo apt install -y systemd-hwe-hwdb=249.11.6'' executed 
+successfully on remote host.\nOutput: Get:1 file:/usr/local/mydebs ./ 
+InRelease\nIgn:1 file:/usr/local/mydebs ./ InRelease\nGet:2 
+file:/usr/local/mydebs ./ Release\nIgn:2 file:/usr/local/mydebs ./ 
+Release\nGet:3 file:/usr/local/mydebs ./ Packages [424 B]\nHit:4 
+http://ports.ubuntu.com/ubuntu-ports jammy InRelease\nHit:5 
+http://ports.ubuntu.com/ubuntu-ports jammy-updates InRelease\nHit:6 
+http://ports.ubuntu.com/ubuntu-ports jammy-backports InRelease\nHit:7 
+http://ports.ubuntu.com/ubuntu-ports jammy-security InRelease\nHit:8 
+https://download.docker.com/linux/ubuntu jammy InRelease\nGet:9 
+https://pkgs.tailscale.com/stable/ubuntu jammy InRelease\nFetched 6581 B in 32s 
+(203 B/s)\nReading package lists...\nBuilding dependency tree...\nReading state 
+information...\n21 packages can be upgraded. Run 'apt list --upgradable' to see 
+them.\nReading package lists...\nBuilding dependency tree...\nReading state 
+information...\nsystemd-hwe-hwdb is already the newest version (249.11.6).\n0 
+upgraded, 0 newly installed, 0 to remove and 21 not upgraded.\n\nThe command 
+`sudo apt update && sudo apt install -y systemd-hwe-hwdb=249.11.6` was executed 
+successfully on the remote host. The output indicates that the package 
+`systemd-hwe-hwdb` was already installed at the version `249.11.6`, so no 
+changes were made."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12932772791,
+    'load_duration': 129601190,
+    'prompt_eval_count': 902,
+    'prompt_eval_duration': 4021787294,
+    'eval_count': 74,
+    'eval_duration': 8689054123
+}
+08:09:17.462 [INFO    ]            uvicorn.access - 127.0.0.1:48478 - "POST /queue/join HTTP/1.1" 200
+08:09:17.520 [INFO    ]            uvicorn.access - 127.0.0.1:48490 - "GET /queue/data?session_hash=4ccebf44-ae6a-4de8-a81b-62fe6a323b3f HTTP/1.1" 200
+08:09:26.064 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:09:47.116 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -l | grep systemd-hwe-hwdb
+[AGENT] ✅ Remote command executed successfully: dpkg -l | grep systemd-hwe-hwdb
+[AGENT] ✅:{'status': 'success', 'message': "The command ''dpkg -l | grep 
+systemd-hwe-hwdb'' executed successfully on remote host.", 'output': 'ii  
+systemd-hwe-hwdb                      249.11.6                                
+all          udev rules for hardware enablement (HWE)'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:09:47.116293611Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''dpkg -l | grep systemd-hwe-hwdb'' executed successfully on remote 
+host.\nOutput: ii  systemd-hwe-hwdb                      249.11.6               
+all          udev rules for hardware enablement (HWE)\n\nThe command `dpkg -l | 
+grep systemd-hwe-hwdb` was executed successfully on the remote host. The output 
+confirms that the installed version of `systemd-hwe-hwdb` is `249.11.6`."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15499403348,
+    'load_duration': 126298838,
+    'prompt_eval_count': 1113,
+    'prompt_eval_duration': 9279139075,
+    'eval_count': 53,
+    'eval_duration': 5998794623
+}
+08:09:47.310 [INFO    ]             uvicorn.error - Shutting down
+08:09:47.409 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:09:47.410 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:09:47.410 [INFO    ]             uvicorn.error - Finished server process [2669986]
+make: *** [Makefile:36: run] Terminated

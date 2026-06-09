@@ -1,0 +1,231 @@
+poetry run python -m private_gpt
+08:16:20.706 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:16:25.011 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:16:25.075 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:16:25.077 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:16:26.017 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:16:26.171 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:16:26.173 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:16:26.174 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:16:27.068 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:16:27.108 [INFO    ]             uvicorn.error - Started server process [24876]
+08:16:27.108 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:16:27.109 [INFO    ]             uvicorn.error - Application startup complete.
+08:16:27.109 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:17:00.534 [INFO    ]            uvicorn.access - 127.0.0.1:56012 - "GET /config HTTP/1.1" 200
+08:17:00.589 [INFO    ]            uvicorn.access - 127.0.0.1:56020 - "GET /info?serialize=False HTTP/1.1" 200
+08:17:00.676 [INFO    ]            uvicorn.access - 127.0.0.1:56032 - "GET /heartbeat/1066f52d-3f69-4055-8a3b-80f440350685 HTTP/1.1" 200
+08:17:00.679 [INFO    ]            uvicorn.access - 127.0.0.1:56034 - "POST /queue/join HTTP/1.1" 200
+08:17:00.735 [INFO    ]            uvicorn.access - 127.0.0.1:56050 - "GET /queue/data?session_hash=1066f52d-3f69-4055-8a3b-80f440350685 HTTP/1.1" 200
+08:17:18.189 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:17:37.798 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:17:37.797682201Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.1.log` was removed on host **eraigra-rpi** 
+(user `raimondo`). If it didn’t exist, nothing was done.",
+        'thinking': 'The user requested: "in the remost host eraigra-rpi 
+username raimondo remove if exists ~/agent_test/test3.1.log". We did that: ran 
+rm -f ... but maybe we need to confirm? Probably fine.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14538668057,
+    'load_duration': 292414851,
+    'prompt_eval_count': 439,
+    'prompt_eval_duration': 256168065,
+    'eval_count': 41,
+    'eval_duration': 5122020983
+}
+08:17:37.889 [INFO    ]            uvicorn.access - 127.0.0.1:39048 - "POST /queue/join HTTP/1.1" 200
+08:17:37.944 [INFO    ]            uvicorn.access - 127.0.0.1:39058 - "GET /queue/data?session_hash=1066f52d-3f69-4055-8a3b-80f440350685 HTTP/1.1" 200
+08:18:03.168 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:19:03.808 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi systemctl status apache2 > ~/agent_test/test3.1.log 2>&1
+[AGENT] ✅ Remote command executed successfully: systemctl status apache2 > ~/agent_test/test3.1.log 2>&1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''systemctl status 
+apache2 > ~/agent_test/test3.1.log 2>&1'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:19:03.808303514Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'systemctl status apache2 > ~/agent_test/test3.1.log 2>&1\'\' executed 
+successfully on remote host.\nOutput: \n\nSure! Here’s one single line that 
+checks whether Apache (the `apache2` service) is running and writes a clear 
+“Apache is running” or “Apache is not running” message into your log 
+file:\n\n```bash\nssh raimondo@eraigra-rpi \'systemctl is-active --quiet apache2
+&& echo "Apache is running" || echo "Apache is not running"\' > 
+~/agent_test/test3.1.log 2>&1\n```\n\n**What it does**\n\n1. **`systemctl 
+is-active --quiet apache2`** – Checks the active state of Apache without 
+printing anything to the console.  \n2. **`&& echo "Apache is running"`** – If 
+the check succeeds (exit code\u202f0), it writes a positive message.  \n3. **`||
+echo "Apache is not running"`** – If the check fails (non‑zero exit code), it 
+writes a negative message.  \n4. **`> ~/agent_test/test3.1.log 2>&1`** – 
+Redirects both standard output and standard error to 
+`~/agent_test/test3.1.log`.\n\nYou’ll get a clean log entry that tells you 
+whether Apache is up or down.',
+        'thinking': 'We need to check if Apache is running and log outcome to 
+file. The provided command used systemctl status apache2 > file. That logs 
+status. But maybe also include service check. Should log success/failure. Use 
+"systemctl is-active --quiet apache2 && echo \'Apache is running\' || echo 
+\'Apache is not running\'" but log to file. But they asked to check if apache is
+running and log all outcome. Single command line. So combine systemctl is-active
+and output. Use echo and redirection. Example: "systemctl is-active --quiet 
+apache2 && echo \'Apache is running\' || echo \'Apache is not running\'" > 
+~/agent_test/test3.1.log 2>&1. That logs both. The previous command logs status 
+page. They want all outcome in log. Might be okay. I\'ll provide corrected 
+command.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 57527655777,
+    'load_duration': 281800941,
+    'prompt_eval_count': 712,
+    'prompt_eval_duration': 256287213,
+    'eval_count': 249,
+    'eval_duration': 31843590349
+}
+08:19:03.911 [INFO    ]            uvicorn.access - 127.0.0.1:35876 - "POST /queue/join HTTP/1.1" 200
+08:19:03.966 [INFO    ]            uvicorn.access - 127.0.0.1:35892 - "GET /queue/data?session_hash=1066f52d-3f69-4055-8a3b-80f440350685 HTTP/1.1" 200
+08:19:31.563 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:20:50.277 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -e ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo "File does not exist"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -e ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo "File does not exist"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -e 
+~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else echo "File 
+does not exist"; fi\'\' executed successfully on remote host.', 'output': "● 
+apache2.service - The Apache HTTP Server\n     Loaded: loaded 
+(/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)\n     
+Active: active (running) since Tue 2025-12-23 09:52:44 EET; 24h ago\n       
+Docs: https://httpd.apache.org/docs/2.4/\n    Process: 10773 
+ExecReload=/usr/sbin/apachectl graceful (code=exited, status=0/SUCCESS)\n   Main
+PID: 770 (apache2)\n      Tasks: 55 (limit: 1972)\n     Memory: 6.0M\n        
+CPU: 13.147s\n     CGroup: /system.slice/apache2.service\n             ├─  770 
+/usr/sbin/apache2 -k start\n             ├─10807 /usr/sbin/apache2 -k start\n   
+└─10808 /usr/sbin/apache2 -k start\n\nDec 23 09:52:34 eraigra-rpi systemd[1]: 
+Starting The Apache HTTP Server...\nDec 23 09:52:44 eraigra-rpi apachectl[728]: 
+AH00558: apache2: Could not reliably determine the server's fully qualified 
+domain name, using 127.0.1.1. Set the 'ServerName' directive globally to 
+suppress this message\nDec 23 09:52:44 eraigra-rpi systemd[1]: Started The 
+Apache HTTP Server.\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloading The 
+Apache HTTP Server...\nDec 24 00:00:40 eraigra-rpi apachectl[10793]: AH00558: 
+apache2: Could not reliably determine the server's fully qualified domain name, 
+using 127.0.1.1. Set the 'ServerName' directive globally to suppress this 
+message\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloaded The Apache HTTP 
+Server."}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:20:50.277059187Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -e ~/agent_test/test3.1.log ]; then cat ~/agent_test/test3.1.log; else 
+echo "File does not exist"; fi\'\' executed successfully on remote 
+host.\nOutput: ● apache2.service - The Apache HTTP Server\n     Loaded: loaded 
+(/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)\n     
+Active: active (running) since Tue 2025-12-23 09:52:44 EET; 24h ago\n       
+Docs: https://httpd.apache.org/docs/2.4/\n    Process: 10773 
+ExecReload=/usr/sbin/apachectl graceful (code=exited, status=0/SUCCESS)\n   Main
+PID: 770 (apache2)\n      Tasks: 55 (limit: 1972)\n     Memory: 6.0M\n        
+CPU: 13.147s\n     CGroup: /system.slice/apache2.service\n             ├─  770 
+/usr/sbin/apache2 -k start\n             ├─10807 /usr/sbin/apache2 -k start\n   
+└─10808 /usr/sbin/apache2 -k start\n\nDec 23 09:52:34 eraigra-rpi systemd[1]: 
+Starting The Apache HTTP Server...\nDec 23 09:52:44 eraigra-rpi apachectl[728]: 
+AH00558: apache2: Could not reliably determine the server\'s fully qualified 
+domain name, using 127.0.1.1. Set the \'ServerName\' directive globally to 
+suppress this message\nDec 23 09:52:44 eraigra-rpi systemd[1]: Started The 
+Apache HTTP Server.\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloading The 
+Apache HTTP Server...\nDec 24 00:00:40 eraigra-rpi apachectl[10793]: AH00558: 
+apache2: Could not reliably determine the server\'s fully qualified domain name,
+using 127.0.1.1. Set the \'ServerName\' directive globally to suppress this 
+message\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloaded The Apache HTTP 
+Server.\n\nThe file **~/agent_test/test3.1.log** does exist.  \nHere’s its 
+current content:\n\n```\n● apache2.service - The Apache HTTP Server\n     
+Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: 
+enabled)\n     Active: active (running) since Tue 2025-12-23 09:52:44 EET; 24h 
+ago\n       Docs: https://httpd.apache.org/docs/2.4/\n    Process: 10773 
+ExecReload=/usr/sbin/apachectl graceful (code=exited, status=0/SUCCESS)\n   Main
+PID: 770 (apache2)\n      Tasks: 55 (limit: 1972)\n     Memory: 6.0M\n        
+CPU: 13.147s\n     CGroup: /system.slice/apache2.service\n             ├─  770 
+/usr/sbin/apache2 -k start\n             ├─10807 /usr/sbin/apache2 -k start\n   
+└─10808 /usr/sbin/apache2 -k start\n\nDec 23 09:52:34 eraigra-rpi systemd[1]: 
+Starting The Apache HTTP Server...\nDec 23 09:52:44 eraigra-rpi apachectl[728]: 
+AH00558: apache2: Could not reliably determine the server\'s fully qualified 
+domain name, using 127.0.1.1. Set the \'ServerName\' directive globally to 
+suppress this message\nDec 23 09:52:44 eraigra-rpi systemd[1]: Started The 
+Apache HTTP Server.\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloading The 
+Apache HTTP Server...\nDec 24 00:00:40 eraigra-rpi apachectl[10793]: AH00558: 
+apache2: Could not reliably determine the server\'s fully qualified domain name,
+using 127.0.1.1. Set the \'ServerName\' directive globally to suppress this 
+message\nDec 24 00:00:40 eraigra-rpi systemd[1]: Reloaded The Apache HTTP 
+Server.\n```\n\nLet me know if you need anything else!',
+        'thinking': 'The user wants to check if the file exists and provide its 
+content. The assistant already executed the command and returned the content. 
+The assistant should respond confirming the file exists and show the content. 
+The content is shown. But the user might expect a confirmation. The assistant 
+should respond concisely.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 73724542378,
+    'load_duration': 284013650,
+    'prompt_eval_count': 1392,
+    'prompt_eval_duration': 257512194,
+    'eval_count': 463,
+    'eval_duration': 59587228335
+}
+08:20:50.410 [INFO    ]            uvicorn.access - 127.0.0.1:48310 - "POST /queue/join HTTP/1.1" 200
+08:20:50.464 [INFO    ]            uvicorn.access - 127.0.0.1:48320 - "GET /queue/data?session_hash=1066f52d-3f69-4055-8a3b-80f440350685 HTTP/1.1" 200
+08:21:08.690 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:21:29.897 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:21:29.89715877Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test3.1.log` has been removed on **eraigra-rpi** 
+(user `raimondo`). If it didn't exist, nothing was left behind.",
+        'thinking': 'User: "in the remost host eraigra-rpi username raimondo 
+remove if exists ~/agent_test/test3.1.log". We already executed rm -f which 
+removes if exists. The function returns success, message indicates removal. So 
+we should respond confirming removal.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16018885902,
+    'load_duration': 284703000,
+    'prompt_eval_count': 1930,
+    'prompt_eval_duration': 259178594,
+    'eval_count': 41,
+    'eval_duration': 5184189808
+}
+08:21:30.074 [INFO    ]             uvicorn.error - Shutting down
+08:21:30.174 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:21:30.175 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:21:30.175 [INFO    ]             uvicorn.error - Finished server process [24876]
+make: *** [Makefile:36: run] Terminated

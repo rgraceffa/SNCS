@@ -1,0 +1,5 @@
+TASKNAME=Compile a Java program and verify the creation of the .class file.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the files ~/agent_test/test3_1.java and ~/agent_test/test3_1.class. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a java file ~/agent_test/test3_1.java that display the 'hello world!' string and then compile it as ~/agent_test/test3_1.class. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the java class ~/agent_test/test3_1.class has been created.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the files ~/agent_test/test3_1.java and ~/agent_test/test3_1.class. Don't split the commands and do all requested in a single command line.

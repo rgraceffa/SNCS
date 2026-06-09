@@ -1,0 +1,281 @@
+poetry run python -m private_gpt
+17:36:12.862 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:36:17.124 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:36:17.187 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:36:17.189 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:36:18.069 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:36:18.222 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:36:18.223 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:36:18.224 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:36:19.113 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:36:19.154 [INFO    ]             uvicorn.error - Started server process [131822]
+17:36:19.154 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:36:19.154 [INFO    ]             uvicorn.error - Application startup complete.
+17:36:19.155 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:36:52.690 [INFO    ]            uvicorn.access - 127.0.0.1:59512 - "GET /config HTTP/1.1" 200
+17:36:52.745 [INFO    ]            uvicorn.access - 127.0.0.1:59522 - "GET /info?serialize=False HTTP/1.1" 200
+17:36:52.814 [INFO    ]            uvicorn.access - 127.0.0.1:59530 - "POST /queue/join HTTP/1.1" 200
+17:36:52.815 [INFO    ]            uvicorn.access - 127.0.0.1:59540 - "GET /heartbeat/ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:36:52.871 [INFO    ]            uvicorn.access - 127.0.0.1:59550 - "GET /queue/data?session_hash=ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:37:08.841 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:40:31.406 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker pull ubuntu && docker run -d ubuntu
+[AGENT] ✅ Remote command executed successfully: docker pull ubuntu && docker run -d ubuntu
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker pull ubuntu &&
+docker run -d ubuntu'' executed successfully on remote host.", 'output': 'Using 
+default tag: latest\nlatest: Pulling from library/ubuntu\n6cdc0abf996c: Pulling 
+fs layer\n6cdc0abf996c: Verifying Checksum\n6cdc0abf996c: Download 
+complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\nd47529486dcef101958ce48f2c7af513
+d4cd7291882b696ba3db5fcc61932993'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:40:31.40561326Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker pull ubuntu && docker run -d ubuntu'' executed successfully on remote 
+host.\nOutput: Using default tag: latest\nlatest: Pulling from 
+library/ubuntu\n6cdc0abf996c: Pulling fs layer\n6cdc0abf996c: Verifying 
+Checksum\n6cdc0abf996c: Download complete\n6cdc0abf996c: Pull complete\nDigest: 
+sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54\nStatus:
+Downloaded newer image for 
+ubuntu:latest\ndocker.io/library/ubuntu:latest\nd47529486dcef101958ce48f2c7af513
+d4cd7291882b696ba3db5fcc61932993\n\n",
+        'thinking': 'The user: "in the remost host eraigra-rpi username raimondo
+pulls an ubuntu image and keep it started. Don\'t split the commands and do all 
+requested in a single command line."\n\nWe need to issue a remote SSH command 
+that pulls ubuntu image and runs container in detached mode. We already used a 
+function call. But they didn\'t specify the host. The earlier function used host
+unspecified. In the provided function call, host param was omitted. We need to 
+correct: host should be "eraigra-rpi" and user "raimondo". Provide one command 
+line: `docker pull ubuntu && docker run -d ubuntu`. That was done. But we need 
+to mention the remote host. The function call didn\'t specify host. Let\'s 
+provide correct function call.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker pull ubuntu && docker run -d ubuntu',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 29342176292,
+    'load_duration': 288216439,
+    'prompt_eval_count': 544,
+    'prompt_eval_duration': 2413659790,
+    'eval_count': 207,
+    'eval_duration': 26410147614
+}
+17:40:31.520 [INFO    ]            uvicorn.access - 127.0.0.1:48276 - "POST /queue/join HTTP/1.1" 200
+17:40:31.574 [INFO    ]            uvicorn.access - 127.0.0.1:48284 - "GET /queue/data?session_hash=ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:40:54.219 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:42:19.601 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker stop $(docker ps -q)
+[AGENT] ❌ Remote command failed: docker stop $(docker ps -q)
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+docker: 'docker stop' requires at least 1 argument
+
+Usage:  docker stop [OPTIONS] CONTAINER [CONTAINER...]
+
+See 'docker stop --help' for more information
+[AGENT] ✅:{'status': 'error', 'message': "The command ''docker stop $(docker ps
+-q)'' failed on remote host.", 'output': "Warning: Permanently added 
+'eraigra-rpi' (ED25519) to the list of known hosts.\ndocker: 'docker stop' 
+requires at least 1 argument\n\nUsage:  docker stop [OPTIONS] CONTAINER 
+[CONTAINER...]\n\nSee 'docker stop --help' for more information"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:42:19.600558214Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+''docker stop $(docker ps -q)'' failed on remote host.\nOutput: Warning: 
+Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.\ndocker: 
+'docker stop' requires at least 1 argument\n\nUsage:  docker stop [OPTIONS] 
+CONTAINER [CONTAINER...]\n\nSee 'docker stop --help' for more information\n\n",
+        'thinking': 'The user says: "in the remost host eraigra-rpi username 
+raimondo stops all docker containers using their id. Don\'t split the commands 
+and do all requested in a single command line."\n\nWe need to issue a command to
+remote host to stop all docker containers using their ID. They say "Don\'t split
+the commands and do all requested in a single command line." The attempt used 
+docker stop $(docker ps -q) but error: docker stop requires at least 1 argument.
+That indicates that docker ps -q returned nothing? But there might be no running
+containers. However we can still produce a command that does not error if there 
+are no containers. For example, docker stop $(docker ps -q) might error if there
+are no containers, but we can handle that by using a null command? Maybe use 
+docker stop $(docker ps -q) 2>/dev/null or something. But better: docker stop 
+$(docker ps -q) || true? Or docker stop $(docker ps -q) 2>/dev/null or docker 
+stop $(docker ps -q 2>/dev/null). But the user likely expects a single line 
+command that stops all running containers. We can use:\n\ndocker stop $(docker 
+ps -q) 2>/dev/null\n\nThis will return success even if no containers. That is 
+still one line. Use remote exec via SSH. Also use host: eraigra-rpi, user: 
+raimondo. We need to call function execute_remote_command with proper 
+parameters.\n\nWe also need to pass "command" param with that command string. 
+So:\n\ncommand: "docker stop $(docker ps -q) 2>/dev/null"\n\nBut note: The 
+function\'s signature: { command: any, host: any, port: any, user: any }. So we 
+need to pass host, user, maybe port omitted default 22. Provide host: 
+"eraigra-rpi", user: "raimondo". The command should be passed as a string. 
+Ensure quoting: The command string inside JSON must escape quotes correctly. 
+Probably use double quotes around the entire string, and inside the command we 
+can use single quotes or escape double quotes. We need to escape properly. 
+Let\'s construct the JSON.\n\nWe might do:\n\n{\n  "command": "docker stop 
+$(docker ps -q) 2>/dev/null",\n  "host": "eraigra-rpi",\n  "user": 
+"raimondo"\n}\n\nWe also can add port: 22 if needed. Use default.\n\nThus the 
+function call:\n\n{"command":"docker stop $(docker ps -q) 
+2>/dev/null","host":"eraigra-rpi","user":"raimondo"}\n\nLet\'s output that.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'docker stop $(docker ps -q) 2>/dev/null',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 79960884759,
+    'load_duration': 290532468,
+    'prompt_eval_count': 690,
+    'prompt_eval_duration': 1865635592,
+    'eval_count': 603,
+    'eval_duration': 77344045675
+}
+17:42:24.723 [INFO    ]            uvicorn.access - 127.0.0.1:52622 - "POST /queue/join HTTP/1.1" 200
+17:42:24.778 [INFO    ]            uvicorn.access - 127.0.0.1:52636 - "GET /queue/data?session_hash=ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:43:40.974 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:44:29.924 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker stop $(docker ps -q) || true
+[AGENT] ✅ Remote command executed successfully: docker stop $(docker ps -q) || true
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker stop $(docker 
+ps -q) || true'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:44:29.92411661Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker stop $(docker ps -q) || true'' executed successfully on remote 
+host.\nOutput: \n\nTo stop every running container on **eraigra‑rpi** as user 
+**raimondo** in a single shell command, run:\n\n```bash\ndocker stop $(docker ps
+-q) || true\n```\n\nThis command:\n\n1. `docker ps -q` lists all container IDs 
+that are currently running.\n2. `docker stop $(docker ps -q)` attempts to stop 
+each of those containers.\n3. `|| true` ensures the command exits successfully 
+even if there are no running containers (avoiding the “requires at least 1 
+argument” error).",
+        'thinking': 'We need to answer the user. The user wants a single command
+that stops all docker containers using their id on remote host eraigra-rpi, 
+username raimondo. They want not split commands; do all requested in a single 
+command line. So we need to output the command line that would do that. Possibly
+we should give the command they should run: e.g., `docker stop $(docker ps -q)`.
+They already did that but got error because no containers. They used `|| true`. 
+Now they might want the command. Provide the command, maybe with error handling.
+The instruction says "Don\'t split the commands and do all requested in a single
+command line." So we give a single line that stops all docker containers. We can
+also mention that we handle case of no containers by adding `|| true`. So 
+answer: `docker stop $(docker ps -q) || true`. Probably no other details. So I 
+will respond with the command.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 43067006892,
+    'load_duration': 293085979,
+    'prompt_eval_count': 976,
+    'prompt_eval_duration': 256955693,
+    'eval_count': 117,
+    'eval_duration': 14909622385
+}
+17:44:30.003 [INFO    ]            uvicorn.access - 127.0.0.1:41684 - "POST /queue/join HTTP/1.1" 200
+17:44:30.063 [INFO    ]            uvicorn.access - 127.0.0.1:41692 - "GET /queue/data?session_hash=ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:45:06.525 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:45:21.245 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker ps -q | grep -q . && echo "Containers still running" || echo "All containers stopped"
+[AGENT] ✅ Remote command executed successfully: docker ps -q | grep -q . && echo "Containers still running" || echo "All containers stopped"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'docker ps -q | grep
+-q . && echo "Containers still running" || echo "All containers stopped"\'\' 
+executed successfully on remote host.', 'output': 'All containers stopped'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:45:21.245458629Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'docker ps -q | grep -q . && echo "Containers still running" || echo "All 
+containers stopped"\'\' executed successfully on remote host.\nOutput: All 
+containers stopped\n\nAll containers on **eraigra‑rpi** are now stopped.',
+        'thinking': 'We need to respond. The user asked to verify all containers
+are stopped. The assistant executed a command that prints "All containers 
+stopped". We should respond confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9417902172,
+    'load_duration': 291254860,
+    'prompt_eval_count': 1021,
+    'prompt_eval_duration': 169836873,
+    'eval_count': 16,
+    'eval_duration': 1927766496
+}
+17:45:21.327 [INFO    ]            uvicorn.access - 127.0.0.1:60010 - "POST /queue/join HTTP/1.1" 200
+17:45:21.387 [INFO    ]            uvicorn.access - 127.0.0.1:60026 - "GET /queue/data?session_hash=ebd9af2f-3b8d-45b2-ad7d-d3ae6c945541 HTTP/1.1" 200
+17:45:48.697 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:46:02.572 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi docker rm -f $(docker ps -a -q)
+[AGENT] ✅ Remote command executed successfully: docker rm -f $(docker ps -a -q)
+[AGENT] ✅:{'status': 'success', 'message': "The command ''docker rm -f $(docker
+ps -a -q)'' executed successfully on remote host.", 'output': 'd47529486dce'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:46:02.571826378Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''docker rm -f $(docker ps -a -q)'' executed successfully on remote 
+host.\nOutput: d47529486dce\n\nAll Docker containers on **eraigra‑rpi** have 
+been removed.",
+        'thinking': 'User wants to remove all Docker containers on remote host. 
+The assistant already executed `docker rm -f $(docker ps -a -q)` and got output 
+`d47529486dce`. That seems like removal succeeded. Should respond 
+acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11968455379,
+    'load_duration': 294470159,
+    'prompt_eval_count': 1134,
+    'prompt_eval_duration': 129635137,
+    'eval_count': 17,
+    'eval_duration': 2057105376
+}
+17:46:02.673 [INFO    ]             uvicorn.error - Shutting down
+17:46:02.773 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:46:02.773 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:46:02.773 [INFO    ]             uvicorn.error - Finished server process [131822]
+make: *** [Makefile:36: run] Terminated

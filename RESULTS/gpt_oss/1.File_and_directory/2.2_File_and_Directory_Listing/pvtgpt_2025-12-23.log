@@ -1,0 +1,184 @@
+poetry run python -m private_gpt
+12:10:02.895 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:10:07.207 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:10:07.271 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:10:07.273 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:10:08.171 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:10:08.325 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:10:08.327 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:10:08.328 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:10:09.220 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:10:09.261 [INFO    ]             uvicorn.error - Started server process [3158215]
+12:10:09.261 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:10:09.261 [INFO    ]             uvicorn.error - Application startup complete.
+12:10:09.262 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:10:42.725 [INFO    ]            uvicorn.access - 127.0.0.1:57400 - "GET /config HTTP/1.1" 200
+12:10:42.780 [INFO    ]            uvicorn.access - 127.0.0.1:57408 - "GET /info?serialize=False HTTP/1.1" 200
+12:10:42.871 [INFO    ]            uvicorn.access - 127.0.0.1:57414 - "GET /heartbeat/fb0a7501-4a2e-44b7-9319-a921af696b2e HTTP/1.1" 200
+12:10:42.874 [INFO    ]            uvicorn.access - 127.0.0.1:57416 - "POST /queue/join HTTP/1.1" 200
+12:10:42.931 [INFO    ]            uvicorn.access - 127.0.0.1:57418 - "GET /queue/data?session_hash=fb0a7501-4a2e-44b7-9319-a921af696b2e HTTP/1.1" 200
+12:10:57.008 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:11:11.540 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:11:11.540381862Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.txt'' executed successfully on remote host.\nOutput: 
+\n\nFile `~/agent_test/test2.2.txt` has been removed (if it existed).",
+        'thinking': 'The user asked to remove the file if present. The assistant
+executed rm -f, which removes file if present. That suffices. We can respond 
+confirming.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9526496103,
+    'load_duration': 282975778,
+    'prompt_eval_count': 422,
+    'prompt_eval_duration': 256233951,
+    'eval_count': 20,
+    'eval_duration': 2434335572
+}
+12:11:11.670 [INFO    ]            uvicorn.access - 127.0.0.1:52668 - "POST /queue/join HTTP/1.1" 200
+12:11:11.725 [INFO    ]            uvicorn.access - 127.0.0.1:52678 - "GET /queue/data?session_hash=fb0a7501-4a2e-44b7-9319-a921af696b2e HTTP/1.1" 200
+12:11:31.512 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:11:49.726 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l /var > ~/agent_test/test2.2.txt
+[AGENT] ✅ Remote command executed successfully: ls -l /var > ~/agent_test/test2.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l /var > 
+~/agent_test/test2.2.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:11:49.726318466Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /var > ~/agent_test/test2.2.txt'' executed successfully on remote 
+host.\nOutput: \n\nThe command was executed successfully.  \nAll files in `/var`
+are now written to `~/agent_test/test2.2.txt`.",
+        'thinking': 'The user wants to list files in /var directory and put 
+content into ~/agent_test/test2.2.txt. They asked not to split commands and do 
+all requested in a single command line. That we already did: "ls -l /var > 
+~/agent_test/test2.2.txt". That seems fine. Should confirm that the remote host 
+responded. It succeeded. Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16720946508,
+    'load_duration': 286774396,
+    'prompt_eval_count': 594,
+    'prompt_eval_duration': 256566940,
+    'eval_count': 28,
+    'eval_duration': 3463937403
+}
+12:11:49.828 [INFO    ]            uvicorn.access - 127.0.0.1:42352 - "POST /queue/join HTTP/1.1" 200
+12:11:49.883 [INFO    ]            uvicorn.access - 127.0.0.1:42360 - "GET /queue/data?session_hash=fb0a7501-4a2e-44b7-9319-a921af696b2e HTTP/1.1" 200
+12:12:12.963 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:13:24.835 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test2.2.txt ]; then cat ~/agent_test/test2.2.txt; else echo 'File not found'; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test2.2.txt ]; then cat ~/agent_test/test2.2.txt; else echo 'File not found'; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test2.2.txt ]; then cat ~/agent_test/test2.2.txt; else echo 
+\'"\'"\'File not found\'"\'"\'; fi\'\' executed successfully on remote host.', 
+'output': 'total 48\ndrwxr-xr-x  2 root root   4096 Dec 19 00:00 
+backups\ndrwxr-xr-x 16 root root   4096 Dec  3 13:29 cache\ndrwxrwxrwt  2 root 
+root   4096 Feb 19  2024 crash\ndrwxr-xr-x 46 root root   4096 Dec  3 13:32 
+lib\ndrwxrwsr-x  2 root staff  4096 Apr 18  2022 local\nlrwxrwxrwx  1 root root 
+9 Feb 19  2024 lock -> /run/lock\ndrwxrwxr-x 11 root syslog 4096 Dec 23 09:52 
+log\ndrwxrwsr-x  2 root mail   4096 Feb 19  2024 mail\ndrwxr-xr-x  2 root root  
+4096 Feb 19  2024 opt\nlrwxrwxrwx  1 root root      4 Feb 19  2024 run -> 
+/run\ndrwxr-xr-x  5 root root   4096 Feb 19  2024 snap\ndrwxr-xr-x  4 root root 
+4096 Feb 19  2024 spool\ndrwxrwxrwt  7 root root   4096 Dec 23 13:12 
+tmp\ndrwxr-xr-x  3 root root   4096 Sep 20  2024 www'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:13:24.834617966Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test2.2.txt ]; then cat ~/agent_test/test2.2.txt; else 
+echo \'"\'"\'File not found\'"\'"\'; fi\'\' executed successfully on remote 
+host.\nOutput: total 48\ndrwxr-xr-x  2 root root   4096 Dec 19 00:00 
+backups\ndrwxr-xr-x 16 root root   4096 Dec  3 13:29 cache\ndrwxrwxrwt  2 root 
+root   4096 Feb 19  2024 crash\ndrwxr-xr-x 46 root root   4096 Dec  3 13:32 
+lib\ndrwxrwsr-x  2 root staff  4096 Apr 18  2022 local\nlrwxrwxrwx  1 root root 
+9 Feb 19  2024 lock -> /run/lock\ndrwxrwxr-x 11 root syslog 4096 Dec 23 09:52 
+log\ndrwxrwsr-x  2 root mail   4096 Feb 19  2024 mail\ndrwxr-xr-x  2 root root  
+4096 Feb 19  2024 opt\nlrwxrwxrwx  1 root root      4 Feb 19  2024 run -> 
+/run\ndrwxr-xr-x  5 root root   4096 Feb 19  2024 snap\ndrwxr-xr-x  4 root root 
+4096 Feb 19  2024 spool\ndrwxrwxrwt  7 root root   4096 Dec 23 13:12 
+tmp\ndrwxr-xr-x  3 root root   4096 Sep 20  2024 www\n\nThe file 
+**~/agent_test/test2.2.txt** exists and its contents are:\n\n```\ntotal 
+48\ndrwxr-xr-x  2 root root   4096 Dec 19 00:00 backups\ndrwxr-xr-x 16 root root
+4096 Dec  3 13:29 cache\ndrwxrwxrwt  2 root root   4096 Feb 19  2024 
+crash\ndrwxr-xr-x 46 root root   4096 Dec  3 13:32 lib\ndrwxrwsr-x  2 root staff
+4096 Apr 18  2022 local\nlrwxrwxrwx  1 root root      9 Feb 19  2024 lock -> 
+/run/lock\ndrwxrwxr-x 11 root syslog 4096 Dec 23 09:52 log\ndrwxrwsr-x  2 root 
+mail   4096 Feb 19  2024 mail\ndrwxr-xr-x  2 root root   4096 Feb 19  2024 
+opt\nlrwxrwxrwx  1 root root      4 Feb 19  2024 run -> /run\ndrwxr-xr-x  5 root
+root   4096 Feb 19  2024 snap\ndrwxr-xr-x  4 root root   4096 Feb 19  2024 
+spool\ndrwxrwxrwt  7 root root   4096 Dec 23 13:12 tmp\ndrwxr-xr-x  3 root root 
+4096 Sep 20  2024 www\n```\n',
+        'thinking': 'The user asks: "in the remote host eraigra-rpi username 
+raimondo check if the file ~/agent_test/test2.2.txt is created and return the 
+content of this file." The assistant executed a command to check file existence 
+and cat content. The response shows the file content. That satisfies 
+request.\n\nWe should respond confirming that file exists and show content. 
+Perhaps include path or confirmation. The assistant should not repeat command, 
+just respond.\n\nAlso ensure not to mention policies. Just provide confirmation 
+and content.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 66868606904,
+    'load_duration': 287849557,
+    'prompt_eval_count': 1111,
+    'prompt_eval_duration': 257279156,
+    'eval_count': 368,
+    'eval_duration': 47253160547
+}
+12:13:24.964 [INFO    ]            uvicorn.access - 127.0.0.1:35450 - "POST /queue/join HTTP/1.1" 200
+12:13:25.020 [INFO    ]            uvicorn.access - 127.0.0.1:35464 - "GET /queue/data?session_hash=fb0a7501-4a2e-44b7-9319-a921af696b2e HTTP/1.1" 200
+12:13:39.705 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:13:52.013 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test2.2.txt
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test2.2.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test2.2.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:13:52.012867411Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test2.2.txt'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test2.2.txt` has been removed (if it existed).",
+        'thinking': "The user removed file. There's no further request."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7135181595,
+    'load_duration': 290573466,
+    'prompt_eval_count': 1464,
+    'prompt_eval_duration': 129897808,
+    'eval_count': 21,
+    'eval_duration': 2576953105
+}
+12:13:52.162 [INFO    ]             uvicorn.error - Shutting down
+12:13:52.263 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:13:52.263 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:13:52.263 [INFO    ]             uvicorn.error - Finished server process [3158215]
+make: *** [Makefile:36: run] Terminated

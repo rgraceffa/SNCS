@@ -1,0 +1,5 @@
+TASKNAME=Check the status of Google.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.1.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo check the status of google and log the outcome into the file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check the content of the file ~/agent_test/test5.1.log
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.1.log

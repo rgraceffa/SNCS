@@ -1,0 +1,166 @@
+poetry run python -m private_gpt
+14:11:20.558 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:11:24.816 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:11:24.880 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:11:24.881 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:11:25.780 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:11:25.934 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:11:25.936 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:11:25.937 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:11:26.825 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:11:26.866 [INFO    ]             uvicorn.error - Started server process [203482]
+14:11:26.866 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:11:26.866 [INFO    ]             uvicorn.error - Application startup complete.
+14:11:26.866 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:12:00.381 [INFO    ]            uvicorn.access - 127.0.0.1:32938 - "GET /config HTTP/1.1" 200
+14:12:00.436 [INFO    ]            uvicorn.access - 127.0.0.1:32954 - "GET /info?serialize=False HTTP/1.1" 200
+14:12:00.502 [INFO    ]            uvicorn.access - 127.0.0.1:32962 - "GET /heartbeat/ac9c7cb6-a9a9-4cb5-b7d3-d8ff939da234 HTTP/1.1" 200
+14:12:00.505 [INFO    ]            uvicorn.access - 127.0.0.1:32976 - "POST /queue/join HTTP/1.1" 200
+14:12:00.559 [INFO    ]            uvicorn.access - 127.0.0.1:32978 - "GET /queue/data?session_hash=ac9c7cb6-a9a9-4cb5-b7d3-d8ff939da234 HTTP/1.1" 200
+14:12:08.809 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:12:27.069 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.log && touch ~/agent_test/test6.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.log && touch ~/agent_test/test6.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.log && touch ~/agent_test/test6.2.log'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:12:27.06869499Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.log && touch ~/agent_test/test6.2.log'' executed successfully 
+on remote host.\nOutput: \n\nThe command to remove all `.log` files in the 
+`~/agent_test` directory and create an empty file named `test6.2.log` has been 
+executed successfully on the remote host. \n\nHere's a summary of what was 
+done:\n1. Removed all `.log` files in the `~/agent_test` directory (if any were 
+present).\n2. Created an empty file named `test6.2.log` in the same 
+directory.\n\nLet me know if you need further assistance."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13087737308,
+    'load_duration': 129849191,
+    'prompt_eval_count': 598,
+    'prompt_eval_duration': 1396380889,
+    'eval_count': 100,
+    'eval_duration': 11467561253
+}
+14:12:27.168 [INFO    ]            uvicorn.access - 127.0.0.1:55474 - "POST /queue/join HTTP/1.1" 200
+14:12:27.228 [INFO    ]            uvicorn.access - 127.0.0.1:55476 - "GET /queue/data?session_hash=ac9c7cb6-a9a9-4cb5-b7d3-d8ff939da234 HTTP/1.1" 200
+14:12:43.982 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:13:08.678 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test && tar -czf test6.2_logs.tar.gz *.log && mkdir -p /tmp && tar -xzf test6.2_logs.tar.gz -C /tmp
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test && tar -czf test6.2_logs.tar.gz *.log && mkdir -p /tmp && tar -xzf test6.2_logs.tar.gz -C /tmp
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd ~/agent_test && 
+tar -czf test6.2_logs.tar.gz *.log && mkdir -p /tmp && tar -xzf 
+test6.2_logs.tar.gz -C /tmp'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:13:08.677482885Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~/agent_test && tar -czf test6.2_logs.tar.gz *.log && mkdir -p /tmp && tar -xzf 
+test6.2_logs.tar.gz -C /tmp'' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host. Here's what 
+was done in a single command line:\n\n1. Navigated to the `~/agent_test` 
+directory.\n2. Created a compressed tarball `test6.2_logs.tar.gz` containing all
+`.log` files in that directory.\n3. Created the `/tmp` directory if it didn't 
+exist.\n4. Extracted the contents of `test6.2_logs.tar.gz` into the `/tmp` 
+directory.\n\nThe `.log` files are now archived in 
+`~/agent_test/test6.2_logs.tar.gz` and extracted in `/tmp`. Let me know if 
+further assistance is needed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23045743418,
+    'load_duration': 127338000,
+    'prompt_eval_count': 843,
+    'prompt_eval_duration': 7027778074,
+    'eval_count': 136,
+    'eval_duration': 15753182499
+}
+14:13:08.807 [INFO    ]            uvicorn.access - 127.0.0.1:38998 - "POST /queue/join HTTP/1.1" 200
+14:13:08.868 [INFO    ]            uvicorn.access - 127.0.0.1:39010 - "GET /queue/data?session_hash=ac9c7cb6-a9a9-4cb5-b7d3-d8ff939da234 HTTP/1.1" 200
+14:13:33.399 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:13:57.813 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi test -f ~/agent_test/test6.2_logs.tar.gz && echo "test6.2_logs.tar.gz exists in ~/agent_test" || echo "test6.2_logs.tar.gz does not exist in ~/agent_test"; test -f /tmp/test6.2.log && echo "test6.2.log exists in /tmp" || echo "test6.2.log does not exist in /tmp"
+[AGENT] ✅ Remote command executed successfully: test -f ~/agent_test/test6.2_logs.tar.gz && echo "test6.2_logs.tar.gz exists in ~/agent_test" || echo "test6.2_logs.tar.gz does not exist in ~/agent_test"; test -f /tmp/test6.2.log && echo "test6.2.log exists in /tmp" || echo "test6.2.log does not exist in /tmp"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'test -f 
+~/agent_test/test6.2_logs.tar.gz && echo "test6.2_logs.tar.gz exists in 
+~/agent_test" || echo "test6.2_logs.tar.gz does not exist in ~/agent_test"; test
+-f /tmp/test6.2.log && echo "test6.2.log exists in /tmp" || echo "test6.2.log 
+does not exist in /tmp"\'\' executed successfully on remote host.', 'output': 
+'test6.2_logs.tar.gz exists in ~/agent_test\ntest6.2.log exists in /tmp'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:13:57.812722472Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'test -f ~/agent_test/test6.2_logs.tar.gz && echo "test6.2_logs.tar.gz exists
+in ~/agent_test" || echo "test6.2_logs.tar.gz does not exist in ~/agent_test"; 
+test -f /tmp/test6.2.log && echo "test6.2.log exists in /tmp" || echo 
+"test6.2.log does not exist in /tmp"\'\' executed successfully on remote 
+host.\nOutput: test6.2_logs.tar.gz exists in ~/agent_test\ntest6.2.log exists in
+/tmp\n\nThe check has been completed successfully on the remote host. Here are 
+the results:\n\n1. The file `test6.2_logs.tar.gz` **exists** in the 
+`~/agent_test` folder.\n2. The file `test6.2.log` **exists** in the `/tmp` 
+folder.\n\nBoth files are present as expected. Let me know if you need further 
+assistance.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19219450468,
+    'load_duration': 130449578,
+    'prompt_eval_count': 1194,
+    'prompt_eval_duration': 9886677011,
+    'eval_count': 79,
+    'eval_duration': 9110203018
+}
+14:13:57.922 [INFO    ]            uvicorn.access - 127.0.0.1:41770 - "POST /queue/join HTTP/1.1" 200
+14:13:57.982 [INFO    ]            uvicorn.access - 127.0.0.1:41776 - "GET /queue/data?session_hash=ac9c7cb6-a9a9-4cb5-b7d3-d8ff939da234 HTTP/1.1" 200
+14:14:18.691 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:14:28.632 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.log ~/agent_test/*.tar.gz /tmp/test6.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.log ~/agent_test/*.tar.gz /tmp/test6.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.log ~/agent_test/*.tar.gz /tmp/test6.2.log'' executed 
+successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:14:28.63180298Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.log ~/agent_test/*.tar.gz /tmp/test6.2.log'' executed 
+successfully on remote host.\nOutput: \n\nThe command has been executed 
+successfully on the remote host. It has removed all `.log` and `.tar.gz` files 
+from the `~/agent_test` folder, as well as the file `/tmp/test6.2.log`.\n\nLet 
+me know if further assistance is needed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8368412365,
+    'load_duration': 126894531,
+    'prompt_eval_count': 1394,
+    'prompt_eval_duration': 1569539445,
+    'eval_count': 56,
+    'eval_duration': 6577367961
+}
+14:14:28.806 [INFO    ]             uvicorn.error - Shutting down
+14:14:28.906 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:14:28.906 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:14:28.906 [INFO    ]             uvicorn.error - Finished server process [203482]
+make: *** [Makefile:36: run] Terminated

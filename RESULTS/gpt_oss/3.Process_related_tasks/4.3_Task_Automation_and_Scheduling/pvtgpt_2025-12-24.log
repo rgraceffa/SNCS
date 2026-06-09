@@ -1,0 +1,205 @@
+poetry run python -m private_gpt
+08:46:25.385 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:46:29.644 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:46:29.707 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:46:29.709 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:46:30.587 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:46:30.740 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:46:30.742 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:46:30.743 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:46:31.632 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:46:31.672 [INFO    ]             uvicorn.error - Started server process [25343]
+08:46:31.672 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:46:31.673 [INFO    ]             uvicorn.error - Application startup complete.
+08:46:31.673 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:47:05.217 [INFO    ]            uvicorn.access - 127.0.0.1:59302 - "GET /config HTTP/1.1" 200
+08:47:05.272 [INFO    ]            uvicorn.access - 127.0.0.1:59310 - "GET /info?serialize=False HTTP/1.1" 200
+08:47:05.342 [INFO    ]            uvicorn.access - 127.0.0.1:59326 - "GET /heartbeat/df04c340-4d58-41c8-b1fa-b028457657fc HTTP/1.1" 200
+08:47:05.345 [INFO    ]            uvicorn.access - 127.0.0.1:59324 - "POST /queue/join HTTP/1.1" 200
+08:47:05.400 [INFO    ]            uvicorn.access - 127.0.0.1:59336 - "GET /queue/data?session_hash=df04c340-4d58-41c8-b1fa-b028457657fc HTTP/1.1" 200
+08:47:18.428 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:47:48.394 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:47:48.393887716Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test4.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test4.3.sh` has been removed (if it existed).",
+        'thinking': 'We got response: "The command \'\'rm -f 
+~/agent_test/test4.3.sh\'\' executed successfully on remote host." It says we 
+executed rm -f. But question: "in the remost host eraigra-rpi username raimondo 
+remove if exists ~/agent_test/test4.3.sh". So the user wants to remove if exists
+file. We responded that it was executed. That is fine.\n\nBut maybe need to 
+confirm? The assistant should respond: "File removed." Or maybe say nothing. But
+we need to produce a response.\n\nGiven we executed remote command successfully.
+We should reply to user that it was removed. We can optionally provide output. 
+So I will say something like: "The file was removed successfully."'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24950949223,
+    'load_duration': 282658282,
+    'prompt_eval_count': 539,
+    'prompt_eval_duration': 256385720,
+    'eval_count': 21,
+    'eval_duration': 2563963322
+}
+08:47:48.508 [INFO    ]            uvicorn.access - 127.0.0.1:45168 - "POST /queue/join HTTP/1.1" 200
+08:47:48.563 [INFO    ]            uvicorn.access - 127.0.0.1:45182 - "GET /queue/data?session_hash=df04c340-4d58-41c8-b1fa-b028457657fc HTTP/1.1" 200
+08:48:38.488 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:50:25.521 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\necho hello world! >> ~/agent_test/hello.log' > ~/agent_test/test4.3.sh && chmod +x ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo "* * * * * ~/agent_test/test4.3.sh") | crontab -
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\necho hello world! >> ~/agent_test/hello.log' > ~/agent_test/test4.3.sh && chmod +x ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo "* * * * * ~/agent_test/test4.3.sh") | crontab -
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\necho hello world! >> 
+~/agent_test/hello.log\'"\'"\' > ~/agent_test/test4.3.sh && chmod +x 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo "* * * * * 
+~/agent_test/test4.3.sh") | crontab -\'\' executed successfully on remote 
+host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:50:25.520625049Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\necho hello world! >> 
+~/agent_test/hello.log\'"\'"\' > ~/agent_test/test4.3.sh && chmod +x 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo "* * * * * 
+~/agent_test/test4.3.sh") | crontab -\'\' executed successfully on remote 
+host.\nOutput: \n\nHere’s a single command line that does everything you asked 
+for on the remote host `eraigra-rpi` as user `raimondo`:\n\n```bash\nmkdir -p 
+~/agent_test \\\n&& echo -e \'#!/bin/bash\\n echo "hello world!" >> 
+~/agent_test/hello.log 2>&1\' > ~/agent_test/test4.3.sh \\\n&& chmod +x 
+~/agent_test/test4.3.sh \\\n&& (crontab -l 2>/dev/null; echo "* * * * * 
+~/agent_test/test4.3.sh") | crontab -\n```\n\n**What this does**\n\n1. **Create 
+the directory** `~/agent_test` if it doesn’t already exist.  \n2. **Write the 
+script** `test4.3.sh` that prints “hello world!” and appends it to 
+`~/agent_test/hello.log` (standard‑error is also redirected to the same log).  
+\n3. **Make the script executable**.  \n4. **Add a cron entry** that runs the 
+script every minute (`* * * * *`).  \n   - Existing crontab entries are 
+preserved (`crontab -l 2>/dev/null`);  \n   - The new line is appended and the 
+updated crontab is installed.\n\nAfter running this command, you should see a 
+growing `hello.log` file each minute containing the “hello world!” message.',
+        'thinking': 'We need to ensure the cron job prints to log. The script 
+prints "hello world!" but no output is directed to log file. Should write to 
+log. They echo hello world! >> ~/agent_test/hello.log. But cron will run script 
+and script will write. They need log? It writes to hello.log. Good.\n\nHowever 
+need to ensure script has shebang line. They used echo -e \'#!/bin/bash\\n echo 
+hello world! >> ~/agent_test/hello.log\'. Good.\n\nBut missing shebang? Yes they
+have \'#!/bin/bash\'. Good.\n\nThey also did chmod +x.\n\nCron job: "* * * * * 
+~/agent_test/test4.3.sh". That will run each minute. Good.\n\nBut maybe need 
+full path for script? They use ~/agent_test/test4.3.sh which might be resolved 
+relative to cron\'s environment. Cron may not expand ~. Better to use full 
+absolute path. But it\'s acceptable.\n\nAlso they used `crontab -l 2>/dev/null; 
+echo "* * * * * ~/agent_test/test4.3.sh") | crontab -`. That will add line, but 
+if crontab had lines maybe duplication. It\'s fine.\n\nWe can improve by adding 
+`crontab -l 2>/dev/null | { cat; echo "* * * * * ~/agent_test/test4.3.sh"; } | 
+crontab -` or using parentheses.\n\nBut it\'s okay.\n\nMaybe they need to create
+test4.3.sh with content:\n\n#!/bin/bash\necho hello world! >> 
+~/agent_test/hello.log\n\nThe command they used seems correct. They also need to
+ensure script logs output to file. That is done.\n\nMaybe we should also add `>>
+~/agent_test/hello.log 2>&1` to capture errors.\n\nLet\'s propose improved 
+command:\n\nmkdir -p ~/agent_test && echo -e \'#!/bin/bash\\n echo "hello 
+world!" >> ~/agent_test/hello.log 2>&1\' > ~/agent_test/test4.3.sh && chmod +x 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null; echo "* * * * * 
+~/agent_test/test4.3.sh") | crontab -\n\nWe can respond with that.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 101855824832,
+    'load_duration': 288213161,
+    'prompt_eval_count': 1068,
+    'prompt_eval_duration': 257269017,
+    'eval_count': 293,
+    'eval_duration': 37563720614
+}
+08:50:25.624 [INFO    ]            uvicorn.access - 127.0.0.1:51580 - "POST /queue/join HTTP/1.1" 200
+08:50:25.679 [INFO    ]            uvicorn.access - 127.0.0.1:51590 - "GET /queue/data?session_hash=df04c340-4d58-41c8-b1fa-b028457657fc HTTP/1.1" 200
+08:50:57.280 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:51:20.459 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test4.3.sh ]; then echo "File exists"; else echo "File does not exist"; fi; echo "Crontab entries:"; crontab -l 2>/dev/null | grep -i "test4.3.sh" || echo "No crontab entry found for test4.3.sh"
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test4.3.sh ]; then echo "File exists"; else echo "File does not exist"; fi; echo "Crontab entries:"; crontab -l 2>/dev/null | grep -i "test4.3.sh" || echo "No crontab entry found for test4.3.sh"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test4.3.sh ]; then echo "File exists"; else echo "File does not 
+exist"; fi; echo "Crontab entries:"; crontab -l 2>/dev/null | grep -i 
+"test4.3.sh" || echo "No crontab entry found for test4.3.sh"\'\' executed 
+successfully on remote host.', 'output': 'File exists\nCrontab entries:\n* * * *
+* ~/agent_test/test4.3.sh'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:51:20.45930457Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test4.3.sh ]; then echo "File exists"; else echo "File 
+does not exist"; fi; echo "Crontab entries:"; crontab -l 2>/dev/null | grep -i 
+"test4.3.sh" || echo "No crontab entry found for test4.3.sh"\'\' executed 
+successfully on remote host.\nOutput: File exists\nCrontab entries:\n* * * * * 
+~/agent_test/test4.3.sh\n\n✅ **Result**\n\n- **Script existence:** 
+`~/agent_test/test4.3.sh` **exists**.  \n- **Crontab entry:** There is a line 
+scheduled every minute that runs the script:  \n\n```\n* * * * * 
+~/agent_test/test4.3.sh\n```\n\nBoth the file and the cron job are present and 
+active.',
+        'thinking': 'We need to output something? Probably give confirmation. 
+The assistant executed the command, result: file exists, crontab entry present. 
+Should respond with confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17693563636,
+    'load_duration': 283237418,
+    'prompt_eval_count': 1100,
+    'prompt_eval_duration': 214767820,
+    'eval_count': 75,
+    'eval_duration': 9516755180
+}
+08:51:20.560 [INFO    ]            uvicorn.access - 127.0.0.1:58134 - "POST /queue/join HTTP/1.1" 200
+08:51:20.614 [INFO    ]            uvicorn.access - 127.0.0.1:58146 - "GET /queue/data?session_hash=df04c340-4d58-41c8-b1fa-b028457657fc HTTP/1.1" 200
+08:51:40.447 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:51:53.755 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v "test4.3.sh" | crontab -)
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v "test4.3.sh" | crontab -)
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'rm -f 
+~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v "test4.3.sh" | 
+crontab -)\'\' executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T08:51:53.755523271Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'rm -f ~/agent_test/test4.3.sh && (crontab -l 2>/dev/null | grep -v 
+"test4.3.sh" | crontab -)\'\' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test4.3.sh` and its corresponding cron entry have 
+both been removed successfully on the remote host `eraigra-rpi`.',
+        'thinking': 'User wants to remove script and crontab entry. Assistant 
+executed rm and updated crontab. Need to confirm removal? Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 11764808918,
+    'load_duration': 289436714,
+    'prompt_eval_count': 1288,
+    'prompt_eval_duration': 214298113,
+    'eval_count': 34,
+    'eval_duration': 4249419734
+}
+08:51:53.957 [INFO    ]             uvicorn.error - Shutting down
+08:51:54.058 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:51:54.058 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:51:54.058 [INFO    ]             uvicorn.error - Finished server process [25343]
+make: *** [Makefile:36: run] Terminated

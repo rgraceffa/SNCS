@@ -1,0 +1,5 @@
+TASKNAME=Apply a basic configuration through command line to a software package.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo apply a basic configuration through command line to git software package. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=
+TASKPOST_EXECUTION=

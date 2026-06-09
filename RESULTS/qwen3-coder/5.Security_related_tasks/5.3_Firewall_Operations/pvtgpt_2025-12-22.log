@@ -1,0 +1,273 @@
+poetry run python -m private_gpt
+12:53:18.512 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:53:22.824 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:53:22.888 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:53:22.890 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:53:23.786 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:53:23.941 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:53:23.942 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:53:23.943 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:53:24.831 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:53:24.872 [INFO    ]             uvicorn.error - Started server process [2041458]
+12:53:24.872 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:53:24.872 [INFO    ]             uvicorn.error - Application startup complete.
+12:53:24.873 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:53:58.331 [INFO    ]            uvicorn.access - 127.0.0.1:56160 - "GET /config HTTP/1.1" 200
+12:53:58.386 [INFO    ]            uvicorn.access - 127.0.0.1:56172 - "GET /info?serialize=False HTTP/1.1" 200
+12:53:58.496 [INFO    ]            uvicorn.access - 127.0.0.1:56178 - "POST /queue/join HTTP/1.1" 200
+12:53:58.497 [INFO    ]            uvicorn.access - 127.0.0.1:56180 - "GET /heartbeat/ae80ef2c-a206-4f4f-baf7-9da15b12c202 HTTP/1.1" 200
+12:53:58.553 [INFO    ]            uvicorn.access - 127.0.0.1:56184 - "GET /queue/data?session_hash=ae80ef2c-a206-4f4f-baf7-9da15b12c202 HTTP/1.1" 200
+12:54:08.545 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:55:34.530 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -L
+[AGENT] ✅ Remote command executed successfully: sudo iptables -L
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -L'' 
+executed successfully on remote host.", 'output': 'Chain INPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \nts-input
+all  --  anywhere             anywhere            \n\nChain FORWARD (policy 
+DROP)\ntarget     prot opt source               destination         
+\nDOCKER-USER  all  --  anywhere             anywhere            
+\nDOCKER-FORWARD  all  --  anywhere             anywhere            \nts-forward
+all  --  anywhere             anywhere            \n\nChain OUTPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \nDROP    
+tcp  --  anywhere             1.2.3.4              tcp dpt:http\n\nChain DOCKER 
+(1 references)\ntarget     prot opt source               destination         
+\nDROP       all  --  anywhere             anywhere            \n\nChain 
+DOCKER-BRIDGE (1 references)\ntarget     prot opt source               
+destination         \nDOCKER     all  --  anywhere             anywhere         
+\n\nChain DOCKER-CT (1 references)\ntarget     prot opt source               
+destination         \nACCEPT     all  --  anywhere             anywhere         
+ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 references)\ntarget     
+prot opt source               destination         \nDOCKER-CT  all  --  anywhere
+anywhere            \nDOCKER-INTERNAL  all  --  anywhere             anywhere   
+\nDOCKER-BRIDGE  all  --  anywhere             anywhere            \nACCEPT     
+all  --  anywhere             anywhere            \n\nChain DOCKER-INTERNAL (1 
+references)\ntarget     prot opt source               destination         
+\n\nChain DOCKER-USER (1 references)\ntarget     prot opt source               
+destination         \n\nChain ts-forward (1 references)\ntarget     prot opt 
+source               destination         \nMARK       all  --  anywhere         
+anywhere             MARK xset 0x40000/0xff0000\nACCEPT     all  --  anywhere   
+anywhere             mark match 0x40000/0xff0000\nDROP       all  --  
+100.64.0.0/10        anywhere            \nACCEPT     all  --  anywhere         
+anywhere            \n\nChain ts-input (1 references)\ntarget     prot opt 
+source               destination         \nACCEPT     all  --  
+eraigra-rpi.tail5c3582.ts.net  anywhere            \nRETURN     all  --  
+100.115.92.0/23      anywhere            \nDROP       all  --  100.64.0.0/10    
+anywhere            \nACCEPT     all  --  anywhere             anywhere         
+\nACCEPT     udp  --  anywhere             anywhere             udp dpt:41641'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:55:34.530383717Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -L'' executed successfully on remote host.\nOutput: Chain INPUT 
+(policy ACCEPT)\ntarget     prot opt source               destination         
+\nts-input   all  --  anywhere             anywhere            \n\nChain FORWARD
+(policy DROP)\ntarget     prot opt source               destination         
+\nDOCKER-USER  all  --  anywhere             anywhere            
+\nDOCKER-FORWARD  all  --  anywhere             anywhere            \nts-forward
+all  --  anywhere             anywhere            \n\nChain OUTPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \nDROP    
+tcp  --  anywhere             1.2.3.4              tcp dpt:http\n\nChain DOCKER 
+(1 references)\ntarget     prot opt source               destination         
+\nDROP       all  --  anywhere             anywhere            \n\nChain 
+DOCKER-BRIDGE (1 references)\ntarget     prot opt source               
+destination         \nDOCKER     all  --  anywhere             anywhere         
+\n\nChain DOCKER-CT (1 references)\ntarget     prot opt source               
+destination         \nACCEPT     all  --  anywhere             anywhere         
+ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 references)\ntarget     
+prot opt source               destination         \nDOCKER-CT  all  --  anywhere
+anywhere            \nDOCKER-INTERNAL  all  --  anywhere             anywhere   
+\nDOCKER-BRIDGE  all  --  anywhere             anywhere            \nACCEPT     
+all  --  anywhere             anywhere            \n\nChain DOCKER-INTERNAL (1 
+references)\ntarget     prot opt source               destination         
+\n\nChain DOCKER-USER (1 references)\ntarget     prot opt source               
+destination         \n\nChain ts-forward (1 references)\ntarget     prot opt 
+source               destination         \nMARK       all  --  anywhere         
+anywhere             MARK xset 0x40000/0xff0000\nACCEPT     all  --  anywhere   
+anywhere             mark match 0x40000/0xff0000\nDROP       all  --  
+100.64.0.0/10        anywhere            \nACCEPT     all  --  anywhere         
+anywhere            \n\nChain ts-input (1 references)\ntarget     prot opt 
+source               destination         \nACCEPT     all  --  
+eraigra-rpi.tail5c3582.ts.net  anywhere            \nRETURN     all  --  
+100.115.92.0/23      anywhere            \nDROP       all  --  100.64.0.0/10    
+anywhere            \nACCEPT     all  --  anywhere             anywhere         
+\nACCEPT     udp  --  anywhere             anywhere             udp 
+dpt:41641\n\nHere are the iptables rules implemented on the remote host 
+`eraigra-rpi` under the user `raimondo`:\n\n### Chain INPUT (policy 
+ACCEPT)\n```\ntarget     prot opt source               destination         
+\nts-input   all  --  anywhere             anywhere            \n```\n\n### 
+Chain FORWARD (policy DROP)\n```\ntarget         prot opt source               
+destination         \nDOCKER-USER    all  --  anywhere             anywhere     
+\nDOCKER-FORWARD all  --  anywhere             anywhere            \nts-forward 
+all  --  anywhere             anywhere            \n```\n\n### Chain OUTPUT 
+(policy ACCEPT)\n```\ntarget     prot opt source               destination      
+\nDROP       tcp  --  anywhere             1.2.3.4              tcp 
+dpt:http\n```\n\n### Chain DOCKER (1 references)\n```\ntarget     prot opt 
+source               destination         \nDROP       all  --  anywhere         
+anywhere            \n```\n\n### Chain DOCKER-BRIDGE (1 references)\n```\ntarget
+prot opt source               destination         \nDOCKER     all  --  anywhere
+anywhere            \n```\n\n### Chain DOCKER-CT (1 references)\n```\ntarget    
+prot opt source               destination         \nACCEPT     all  --  anywhere
+anywhere             ctstate RELATED,ESTABLISHED\n```\n\n### Chain 
+DOCKER-FORWARD (1 references)\n```\ntarget         prot opt source              
+destination         \nDOCKER-CT      all  --  anywhere             anywhere     
+\nDOCKER-INTERNAL all  --  anywhere             anywhere            
+\nDOCKER-BRIDGE  all  --  anywhere             anywhere            \nACCEPT     
+all  --  anywhere             anywhere            \n```\n\n### Chain 
+DOCKER-INTERNAL (1 references)\n```\ntarget     prot opt source               
+destination         \n```\n\n### Chain DOCKER-USER (1 references)\n```\ntarget  
+prot opt source               destination         \n```\n\n### Chain ts-forward 
+(1 references)\n```\ntarget     prot opt source               destination       
+\nMARK       all  --  anywhere             anywhere             MARK xset 
+0x40000/0xff0000\nACCEPT     all  --  anywhere             anywhere             
+mark match 0x40000/0xff0000\nDROP       all  --  100.64.0.0/10        anywhere  
+\nACCEPT     all  --  anywhere             anywhere            \n```\n\n### 
+Chain ts-input (1 references)\n```\ntarget     prot opt source               
+destination         \nACCEPT     all  --  eraigra-rpi.tail5c3582.ts.net  
+anywhere            \nRETURN     all  --  100.115.92.0/23      anywhere         
+\nDROP       all  --  100.64.0.0/10        anywhere            \nACCEPT     all 
+--  anywhere             anywhere            \nACCEPT     udp  --  anywhere     
+anywhere             udp dpt:41641\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 80131451025,
+    'load_duration': 131041792,
+    'prompt_eval_count': 1154,
+    'prompt_eval_duration': 7587053474,
+    'eval_count': 599,
+    'eval_duration': 72005413196
+}
+12:55:34.675 [INFO    ]            uvicorn.access - 127.0.0.1:50468 - "POST /queue/join HTTP/1.1" 200
+12:55:34.731 [INFO    ]            uvicorn.access - 127.0.0.1:50472 - "GET /queue/data?session_hash=ae80ef2c-a206-4f4f-baf7-9da15b12c202 HTTP/1.1" 200
+12:55:52.440 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:56:24.875 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -t filter -D OUTPUT -d 1.2.3.4 -p tcp --dport http -j DROP
+[AGENT] ✅ Remote command executed successfully: sudo iptables -t filter -D OUTPUT -d 1.2.3.4 -p tcp --dport http -j DROP
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -t 
+filter -D OUTPUT -d 1.2.3.4 -p tcp --dport http -j DROP'' executed successfully 
+on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:56:24.875291477Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -t filter -D OUTPUT -d 1.2.3.4 -p tcp --dport http -j DROP'' 
+executed successfully on remote host.\nOutput: \n\nThe iptables rule targeting 
+the host `1.2.3.4` with the DROP target has been successfully removed from the 
+OUTPUT chain. The command executed was:\n\n```bash\nsudo iptables -t filter -D 
+OUTPUT -d 1.2.3.4 -p tcp --dport http -j DROP\n```"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 27140509409,
+    'load_duration': 128209962,
+    'prompt_eval_count': 1888,
+    'prompt_eval_duration': 18767359292,
+    'eval_count': 69,
+    'eval_duration': 8145472569
+}
+12:56:25.017 [INFO    ]            uvicorn.access - 127.0.0.1:50892 - "POST /queue/join HTTP/1.1" 200
+12:56:25.072 [INFO    ]            uvicorn.access - 127.0.0.1:50904 - "GET /queue/data?session_hash=ae80ef2c-a206-4f4f-baf7-9da15b12c202 HTTP/1.1" 200
+12:56:33.214 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:57:08.324 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -L
+[AGENT] ✅ Remote command executed successfully: sudo iptables -L
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -L'' 
+executed successfully on remote host.", 'output': 'Chain INPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \nts-input
+all  --  anywhere             anywhere            \n\nChain FORWARD (policy 
+DROP)\ntarget     prot opt source               destination         
+\nDOCKER-USER  all  --  anywhere             anywhere            
+\nDOCKER-FORWARD  all  --  anywhere             anywhere            \nts-forward
+all  --  anywhere             anywhere            \n\nChain OUTPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \n\nChain 
+DOCKER (1 references)\ntarget     prot opt source               destination     
+\nDROP       all  --  anywhere             anywhere            \n\nChain 
+DOCKER-BRIDGE (1 references)\ntarget     prot opt source               
+destination         \nDOCKER     all  --  anywhere             anywhere         
+\n\nChain DOCKER-CT (1 references)\ntarget     prot opt source               
+destination         \nACCEPT     all  --  anywhere             anywhere         
+ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 references)\ntarget     
+prot opt source               destination         \nDOCKER-CT  all  --  anywhere
+anywhere            \nDOCKER-INTERNAL  all  --  anywhere             anywhere   
+\nDOCKER-BRIDGE  all  --  anywhere             anywhere            \nACCEPT     
+all  --  anywhere             anywhere            \n\nChain DOCKER-INTERNAL (1 
+references)\ntarget     prot opt source               destination         
+\n\nChain DOCKER-USER (1 references)\ntarget     prot opt source               
+destination         \n\nChain ts-forward (1 references)\ntarget     prot opt 
+source               destination         \nMARK       all  --  anywhere         
+anywhere             MARK xset 0x40000/0xff0000\nACCEPT     all  --  anywhere   
+anywhere             mark match 0x40000/0xff0000\nDROP       all  --  
+100.64.0.0/10        anywhere            \nACCEPT     all  --  anywhere         
+anywhere            \n\nChain ts-input (1 references)\ntarget     prot opt 
+source               destination         \nACCEPT     all  --  
+eraigra-rpi.tail5c3582.ts.net  anywhere            \nRETURN     all  --  
+100.115.92.0/23      anywhere            \nDROP       all  --  100.64.0.0/10    
+anywhere            \nACCEPT     all  --  anywhere             anywhere         
+\nACCEPT     udp  --  anywhere             anywhere             udp dpt:41641'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T12:57:08.323787998Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -L'' executed successfully on remote host.\nOutput: Chain INPUT 
+(policy ACCEPT)\ntarget     prot opt source               destination         
+\nts-input   all  --  anywhere             anywhere            \n\nChain FORWARD
+(policy DROP)\ntarget     prot opt source               destination         
+\nDOCKER-USER  all  --  anywhere             anywhere            
+\nDOCKER-FORWARD  all  --  anywhere             anywhere            \nts-forward
+all  --  anywhere             anywhere            \n\nChain OUTPUT (policy 
+ACCEPT)\ntarget     prot opt source               destination         \n\nChain 
+DOCKER (1 references)\ntarget     prot opt source               destination     
+\nDROP       all  --  anywhere             anywhere            \n\nChain 
+DOCKER-BRIDGE (1 references)\ntarget     prot opt source               
+destination         \nDOCKER     all  --  anywhere             anywhere         
+\n\nChain DOCKER-CT (1 references)\ntarget     prot opt source               
+destination         \nACCEPT     all  --  anywhere             anywhere         
+ctstate RELATED,ESTABLISHED\n\nChain DOCKER-FORWARD (1 references)\ntarget     
+prot opt source               destination         \nDOCKER-CT  all  --  anywhere
+anywhere            \nDOCKER-INTERNAL  all  --  anywhere             anywhere   
+\nDOCKER-BRIDGE  all  --  anywhere             anywhere            \nACCEPT     
+all  --  anywhere             anywhere            \n\nChain DOCKER-INTERNAL (1 
+references)\ntarget     prot opt source               destination         
+\n\nChain DOCKER-USER (1 references)\ntarget     prot opt source               
+destination         \n\nChain ts-forward (1 references)\ntarget     prot opt 
+source               destination         \nMARK       all  --  anywhere         
+anywhere             MARK xset 0x40000/0xff0000\nACCEPT     all  --  anywhere   
+anywhere             mark match 0x40000/0xff0000\nDROP       all  --  
+100.64.0.0/10        anywhere            \nACCEPT     all  --  anywhere         
+anywhere            \n\nChain ts-input (1 references)\ntarget     prot opt 
+source               destination         \nACCEPT     all  --  
+eraigra-rpi.tail5c3582.ts.net  anywhere            \nRETURN     all  --  
+100.115.92.0/23      anywhere            \nDROP       all  --  100.64.0.0/10    
+anywhere            \nACCEPT     all  --  anywhere             anywhere         
+\nACCEPT     udp  --  anywhere             anywhere             udp 
+dpt:41641\n\nThe iptables rules have been successfully checked, and there are no
+rules targeting the host `1.2.3.4` remaining in the configuration. The OUTPUT 
+chain is now empty, confirming the removal of the rule."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33437095174,
+    'load_duration': 129775882,
+    'prompt_eval_count': 2627,
+    'prompt_eval_duration': 27616711390,
+    'eval_count': 46,
+    'eval_duration': 5588296679
+}
+12:57:08.511 [INFO    ]             uvicorn.error - Shutting down
+12:57:08.611 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:57:08.611 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:57:08.611 [INFO    ]             uvicorn.error - Finished server process [2041458]
+make: *** [Makefile:36: run] Terminated

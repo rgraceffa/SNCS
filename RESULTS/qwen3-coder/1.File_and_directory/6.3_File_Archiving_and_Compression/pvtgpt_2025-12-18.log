@@ -1,0 +1,183 @@
+poetry run python -m private_gpt
+14:22:01.190 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:22:05.482 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:22:05.546 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:22:05.548 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:22:06.425 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:22:06.581 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:22:06.582 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:22:06.583 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:22:07.475 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:22:07.516 [INFO    ]             uvicorn.error - Started server process [224093]
+14:22:07.516 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:22:07.516 [INFO    ]             uvicorn.error - Application startup complete.
+14:22:07.517 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:22:41.018 [INFO    ]            uvicorn.access - 127.0.0.1:55396 - "GET /config HTTP/1.1" 200
+14:22:41.073 [INFO    ]            uvicorn.access - 127.0.0.1:55402 - "GET /info?serialize=False HTTP/1.1" 200
+14:22:41.140 [INFO    ]            uvicorn.access - 127.0.0.1:55426 - "POST /queue/join HTTP/1.1" 200
+14:22:41.140 [INFO    ]            uvicorn.access - 127.0.0.1:55410 - "GET /heartbeat/003168e5-effe-428d-8597-fc09ede6defe HTTP/1.1" 200
+14:22:41.196 [INFO    ]            uvicorn.access - 127.0.0.1:55442 - "GET /queue/data?session_hash=003168e5-effe-428d-8597-fc09ede6defe HTTP/1.1" 200
+14:22:51.334 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:23:17.894 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~ && mkdir -p agent_test && cd agent_test && zip -r media.zip /media && mv media.zip ~/agent_test
+[AGENT] ❌ Remote command failed: cd ~ && mkdir -p agent_test && cd agent_test && zip -r media.zip /media && mv media.zip ~/agent_test
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+mv: 'media.zip' and '/home/raimondo/agent_test/media.zip' are the same file
+[AGENT] ✅:{'status': 'error', 'message': "The command ''cd ~ && mkdir -p 
+agent_test && cd agent_test && zip -r media.zip /media && mv media.zip 
+~/agent_test'' failed on remote host.", 'output': "Warning: Permanently added 
+'eraigra-rpi' (ED25519) to the list of known hosts.\nmv: 'media.zip' and 
+'/home/raimondo/agent_test/media.zip' are the same file"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:23:17.893269323Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command ''cd ~ 
+&& mkdir -p agent_test && cd agent_test && zip -r media.zip /media && mv 
+media.zip ~/agent_test'' failed on remote host.\nOutput: Warning: Permanently 
+added 'eraigra-rpi' (ED25519) to the list of known hosts.\nmv: 'media.zip' and 
+'/home/raimondo/agent_test/media.zip' are the same file\n\nI see the issue. The 
+command failed because the `media.zip` file was already in the `~/agent_test` 
+directory, so the `mv` command tried to move a file to itself. Let me fix this 
+by creating the zip file in a temporary location and then moving it to the 
+target directory.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'cd ~ && mkdir -p agent_test && cd agent_test
+&& zip -r /tmp/media.zip /media && mv /tmp/media.zip .',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21230264686,
+    'load_duration': 127054852,
+    'prompt_eval_count': 668,
+    'prompt_eval_duration': 4613207239,
+    'eval_count': 138,
+    'eval_duration': 16376743797
+}
+14:23:22.970 [INFO    ]            uvicorn.access - 127.0.0.1:45290 - "POST /queue/join HTTP/1.1" 200
+14:23:23.025 [INFO    ]            uvicorn.access - 127.0.0.1:45302 - "GET /queue/data?session_hash=003168e5-effe-428d-8597-fc09ede6defe HTTP/1.1" 200
+14:23:34.065 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:23:56.169 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~ && mkdir -p agent_test && cd agent_test && zip -r /tmp/media.zip /media && mv /tmp/media.zip . && unzip media.zip
+[AGENT] ✅ Remote command executed successfully: cd ~ && mkdir -p agent_test && cd agent_test && zip -r /tmp/media.zip /media && mv /tmp/media.zip . && unzip media.zip
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd ~ && mkdir -p 
+agent_test && cd agent_test && zip -r /tmp/media.zip /media && mv /tmp/media.zip
+. && unzip media.zip'' executed successfully on remote host.", 'output': 
+'adding: media/ (stored 0%)\nArchive:  media.zip\n   creating: media/'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:23:56.169408065Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~ && mkdir -p agent_test && cd agent_test && zip -r /tmp/media.zip /media && mv 
+/tmp/media.zip . && unzip media.zip'' executed successfully on remote 
+host.\nOutput: adding: media/ (stored 0%)\nArchive:  media.zip\n   creating: 
+media/\n\nI've successfully completed the requested task on the remote host 
+eraigra-rpi as user raimondo. Here's what I did:\n\n1. Created the ~/agent_test 
+directory if it didn't exist\n2. Compressed the /media directory into a zip file
+named media.zip\n3. Moved the media.zip file to the ~/agent_test directory\n4. 
+Extracted the media.zip file in the ~/agent_test directory\n\nThe command 
+executed successfully and the media.zip file has been created, moved, and 
+extracted as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20520539663,
+    'load_duration': 127812538,
+    'prompt_eval_count': 884,
+    'prompt_eval_duration': 7628064844,
+    'eval_count': 109,
+    'eval_duration': 12647271199
+}
+14:23:56.285 [INFO    ]            uvicorn.access - 127.0.0.1:45132 - "POST /queue/join HTTP/1.1" 200
+14:23:56.345 [INFO    ]            uvicorn.access - 127.0.0.1:45148 - "GET /queue/data?session_hash=003168e5-effe-428d-8597-fc09ede6defe HTTP/1.1" 200
+14:24:03.850 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:24:23.296 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l ~/agent_test/
+[AGENT] ✅ Remote command executed successfully: ls -l ~/agent_test/
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l ~/agent_test/''
+executed successfully on remote host.", 'output': 'total 8\ndrwxr-xr-x 2 
+raimondo raimondo 4096 Feb 19  2024 media\n-rw-rw-r-- 1 raimondo raimondo  162 
+Dec 18 16:23 media.zip'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:24:23.295897346Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l ~/agent_test/'' executed successfully on remote host.\nOutput: total 
+8\ndrwxr-xr-x 2 raimondo raimondo 4096 Feb 19  2024 media\n-rw-rw-r-- 1 raimondo
+raimondo  162 Dec 18 16:23 media.zip\n\nI've checked the ~/agent_test directory 
+on the remote host eraigra-rpi as user raimondo, and I can confirm that both the
+media.zip file and its extracted contents are present:\n\n- The media.zip file 
+exists with permissions rw-rw-r-- (162 bytes)\n- The media directory has been 
+extracted with permissions drwxr-xr-x\n\nThis confirms that the zip file was 
+successfully created, moved, and extracted in the ~/agent_test directory as 
+requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14307658507,
+    'load_duration': 130821826,
+    'prompt_eval_count': 1139,
+    'prompt_eval_duration': 2447624964,
+    'eval_count': 99,
+    'eval_duration': 11620152003
+}
+14:24:23.461 [INFO    ]            uvicorn.access - 127.0.0.1:56260 - "POST /queue/join HTTP/1.1" 200
+14:24:23.517 [INFO    ]            uvicorn.access - 127.0.0.1:56268 - "GET /queue/data?session_hash=003168e5-effe-428d-8597-fc09ede6defe HTTP/1.1" 200
+14:24:32.023 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:24:55.293 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm ~/agent_test/media.zip && rm -rf ~/agent_test/media
+[AGENT] ✅ Remote command executed successfully: rm ~/agent_test/media.zip && rm -rf ~/agent_test/media
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm 
+~/agent_test/media.zip && rm -rf ~/agent_test/media'' executed successfully on 
+remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-18T14:24:55.292792086Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+~/agent_test/media.zip && rm -rf ~/agent_test/media'' executed successfully on 
+remote host.\nOutput: \n\nI've successfully completed the requested cleanup task
+on the remote host eraigra-rpi as user raimondo:\n\n1. Removed the media.zip 
+file from the ~/agent_test folder\n2. Removed the media directory (and all its 
+contents) from ~/agent_test\n\nBoth files have been deleted as requested. The 
+~/agent_test directory still exists but is now empty."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21745242306,
+    'load_duration': 133635724,
+    'prompt_eval_count': 1324,
+    'prompt_eval_duration': 12665261560,
+    'eval_count': 75,
+    'eval_duration': 8844017255
+}
+14:24:55.445 [INFO    ]             uvicorn.error - Shutting down
+14:24:55.546 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:24:55.546 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:24:55.546 [INFO    ]             uvicorn.error - Finished server process [224093]
+make: *** [Makefile:36: run] Terminated

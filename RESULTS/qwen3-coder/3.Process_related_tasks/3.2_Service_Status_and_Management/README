@@ -1,0 +1,5 @@
+TASKNAME=Find and log the status of apache; restart if not running.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo find and log into the file ~/agent_test/test3.2.log the status of apache2 and restart only if not running using sudo. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if exists ~/agent_test/test1.3.log and is not empty
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test3.2.log

@@ -1,0 +1,164 @@
+poetry run python -m private_gpt
+11:32:48.634 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+11:32:52.918 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+11:32:52.982 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:52.984 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:53.883 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+11:32:54.037 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:54.039 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+11:32:54.040 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+11:32:54.932 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+11:32:54.973 [INFO    ]             uvicorn.error - Started server process [1849791]
+11:32:54.974 [INFO    ]             uvicorn.error - Waiting for application startup.
+11:32:54.974 [INFO    ]             uvicorn.error - Application startup complete.
+11:32:54.974 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+11:33:28.458 [INFO    ]            uvicorn.access - 127.0.0.1:48906 - "GET /config HTTP/1.1" 200
+11:33:28.513 [INFO    ]            uvicorn.access - 127.0.0.1:48918 - "GET /info?serialize=False HTTP/1.1" 200
+11:33:28.598 [INFO    ]            uvicorn.access - 127.0.0.1:48922 - "POST /queue/join HTTP/1.1" 200
+11:33:28.598 [INFO    ]            uvicorn.access - 127.0.0.1:48930 - "GET /heartbeat/baf4a723-6cda-4ea9-a664-ee453e5573e8 HTTP/1.1" 200
+11:33:28.654 [INFO    ]            uvicorn.access - 127.0.0.1:48936 - "GET /queue/data?session_hash=baf4a723-6cda-4ea9-a664-ee453e5573e8 HTTP/1.1" 200
+11:33:39.755 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:33:55.176 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:33:55.176183802Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test5.1.log` was executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The file 
+has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9843812468,
+    'load_duration': 125518462,
+    'prompt_eval_count': 571,
+    'prompt_eval_duration': 4019089596,
+    'eval_count': 50,
+    'eval_duration': 5624111409
+}
+11:33:55.309 [INFO    ]            uvicorn.access - 127.0.0.1:58224 - "POST /queue/join HTTP/1.1" 200
+11:33:55.364 [INFO    ]            uvicorn.access - 127.0.0.1:58238 - "GET /queue/data?session_hash=baf4a723-6cda-4ea9-a664-ee453e5573e8 HTTP/1.1" 200
+11:34:06.225 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:34:18.601 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -L -n -v | grep -E '^(Chain|ACCEPT|DROP|REJECT)' > ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: sudo iptables -L -n -v | grep -E '^(Chain|ACCEPT|DROP|REJECT)' > ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'sudo iptables -L -n
+-v | grep -E \'"\'"\'^(Chain|ACCEPT|DROP|REJECT)\'"\'"\' > 
+~/agent_test/test5.1.log\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:34:18.600595293Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'sudo iptables -L -n -v | grep -E \'"\'"\'^(Chain|ACCEPT|DROP|REJECT)\'"\'"\'
+> ~/agent_test/test5.1.log\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command to read iptables network-related rules and log the output to 
+`~/agent_test/test5.1.log` has been executed successfully on the remote host 
+`eraigra-rpi` as the user `raimondo`. The output includes only the lines that 
+match the specified patterns (Chain, ACCEPT, DROP, REJECT) from the iptables 
+listing.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10704793560,
+    'load_duration': 131729500,
+    'prompt_eval_count': 759,
+    'prompt_eval_duration': 1774227086,
+    'eval_count': 75,
+    'eval_duration': 8680581075
+}
+11:34:18.699 [INFO    ]            uvicorn.access - 127.0.0.1:49270 - "POST /queue/join HTTP/1.1" 200
+11:34:18.760 [INFO    ]            uvicorn.access - 127.0.0.1:49278 - "GET /queue/data?session_hash=baf4a723-6cda-4ea9-a664-ee453e5573e8 HTTP/1.1" 200
+11:34:26.798 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:34:48.605 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': 
+'Chain INPUT (policy ACCEPT 0 packets, 0 bytes)\nChain FORWARD (policy DROP 0 
+packets, 0 bytes)\nChain OUTPUT (policy ACCEPT 0 packets, 0 bytes)\nChain DOCKER
+(1 references)\nChain DOCKER-BRIDGE (1 references)\nChain DOCKER-CT (1 
+references)\nChain DOCKER-FORWARD (1 references)\nChain DOCKER-INTERNAL (1 
+references)\nChain DOCKER-USER (1 references)\nChain ts-forward (1 
+references)\nChain ts-input (1 references)'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:34:48.604622676Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cat
+~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: Chain 
+INPUT (policy ACCEPT 0 packets, 0 bytes)\nChain FORWARD (policy DROP 0 packets, 
+0 bytes)\nChain OUTPUT (policy ACCEPT 0 packets, 0 bytes)\nChain DOCKER (1 
+references)\nChain DOCKER-BRIDGE (1 references)\nChain DOCKER-CT (1 
+references)\nChain DOCKER-FORWARD (1 references)\nChain DOCKER-INTERNAL (1 
+references)\nChain DOCKER-USER (1 references)\nChain ts-forward (1 
+references)\nChain ts-input (1 references)\n\nThe file 
+`~/agent_test/test5.1.log` has been created and contains the following iptables 
+rules:\n\n```\nChain INPUT (policy ACCEPT 0 packets, 0 bytes)\nChain FORWARD 
+(policy DROP 0 packets, 0 bytes)\nChain OUTPUT (policy ACCEPT 0 packets, 0 
+bytes)\nChain DOCKER (1 references)\nChain DOCKER-BRIDGE (1 references)\nChain 
+DOCKER-CT (1 references)\nChain DOCKER-FORWARD (1 references)\nChain 
+DOCKER-INTERNAL (1 references)\nChain DOCKER-USER (1 references)\nChain 
+ts-forward (1 references)\nChain ts-input (1 references)\n```\n\nThis output 
+shows the chain definitions and their policies from the iptables configuration."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20224339348,
+    'load_duration': 129381900,
+    'prompt_eval_count': 1050,
+    'prompt_eval_duration': 2631705938,
+    'eval_count': 150,
+    'eval_duration': 17321198798
+}
+11:34:48.711 [INFO    ]            uvicorn.access - 127.0.0.1:54256 - "POST /queue/join HTTP/1.1" 200
+11:34:48.770 [INFO    ]            uvicorn.access - 127.0.0.1:54264 - "GET /queue/data?session_hash=baf4a723-6cda-4ea9-a664-ee453e5573e8 HTTP/1.1" 200
+11:34:57.184 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:35:20.501 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T11:35:20.501018022Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command to remove the file `~/agent_test/test5.1.log` was executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. The file 
+has been removed if it was present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18084930773,
+    'load_duration': 129012064,
+    'prompt_eval_count': 1280,
+    'prompt_eval_duration': 11936465574,
+    'eval_count': 49,
+    'eval_duration': 5906824161
+}
+11:35:20.758 [INFO    ]             uvicorn.error - Shutting down
+11:35:20.857 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+11:35:20.857 [INFO    ]             uvicorn.error - Application shutdown complete.
+11:35:20.857 [INFO    ]             uvicorn.error - Finished server process [1849791]
+make: *** [Makefile:36: run] Terminated

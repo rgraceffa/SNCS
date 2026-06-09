@@ -1,0 +1,5 @@
+TASKNAME=Bash script to monitor VSZ memory usage; profile for 100 rounds at 1-second intervals.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.2.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a bash script ~/agent_test/test5.2.sh to monitor VSZ memory usage that take 100 samples at 1-second intervals. Make the script executables. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test5.2.sh exists, run it and provide the outcome
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.2.sh

@@ -1,0 +1,226 @@
+poetry run python -m private_gpt
+17:39:41.917 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:39:46.208 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:39:46.272 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:39:46.274 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:39:47.154 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:39:47.309 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:39:47.311 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:39:47.312 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:39:48.205 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:39:48.246 [INFO    ]             uvicorn.error - Started server process [280319]
+17:39:48.246 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:39:48.246 [INFO    ]             uvicorn.error - Application startup complete.
+17:39:48.246 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:40:21.736 [INFO    ]            uvicorn.access - 127.0.0.1:51468 - "GET /config HTTP/1.1" 200
+17:40:21.792 [INFO    ]            uvicorn.access - 127.0.0.1:51478 - "GET /info?serialize=False HTTP/1.1" 200
+17:40:21.863 [INFO    ]            uvicorn.access - 127.0.0.1:51488 - "GET /heartbeat/173fc59a-3c15-4230-a61f-14ad7b6a5567 HTTP/1.1" 200
+17:40:21.866 [INFO    ]            uvicorn.access - 127.0.0.1:51498 - "POST /queue/join HTTP/1.1" 200
+17:40:21.921 [INFO    ]            uvicorn.access - 127.0.0.1:51514 - "GET /queue/data?session_hash=173fc59a-3c15-4230-a61f-14ad7b6a5567 HTTP/1.1" 200
+17:40:37.664 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:40:51.137 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T17:40:51.137104534Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'rm -f ~/agent_test/test4.2.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f ~/agent_test/test4.2.sh` was executed 
+successfully on the remote host "eraigra-rpi" as user "raimondo". The file 
+`test4.2.sh` has been removed if it existed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7739052487,
+    'load_duration': 130297414,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1137123548,
+    'eval_count': 54,
+    'eval_duration': 6402054707
+}
+17:40:51.260 [INFO    ]            uvicorn.access - 127.0.0.1:37456 - "POST /queue/join HTTP/1.1" 200
+17:40:51.315 [INFO    ]            uvicorn.access - 127.0.0.1:37468 - "GET /queue/data?session_hash=173fc59a-3c15-4230-a61f-14ad7b6a5567 HTTP/1.1" 200
+17:41:19.374 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:41:39.189 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash
+
+# Function with parameters and return value
+function calculate() {
+    local a=$1
+    local b=$2
+    local result=$((a + b))
+    echo $result
+}
+
+# Function with parameter and return value
+function multiply() {
+    local x=$1
+    local y=$2
+    local product=$((x * y))
+    return $product
+}
+
+# Main script execution
+echo "Adding 5 and 3:"
+sum=$(calculate 5 3)
+echo "Result: $sum"
+
+echo "Multiplying 4 and 6:"
+multiply 4 6
+product=$?
+echo "Result: $product"
+
+echo "Script execution completed." ' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash
+
+# Function with parameters and return value
+function calculate() {
+    local a=$1
+    local b=$2
+    local result=$((a + b))
+    echo $result
+}
+
+# Function with parameter and return value
+function multiply() {
+    local x=$1
+    local y=$2
+    local product=$((x * y))
+    return $product
+}
+
+# Main script execution
+echo "Adding 5 and 3:"
+sum=$(calculate 5 3)
+echo "Result: $sum"
+
+echo "Multiplying 4 and 6:"
+multiply 4 6
+product=$?
+echo "Result: $product"
+
+echo "Script execution completed." ' > ~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\n\n# Function with parameters and 
+return value\nfunction calculate() {\n    local a=$1\n    local b=$2\n    local 
+result=$((a + b))\n    echo $result\n}\n\n# Function with parameter and return 
+value\nfunction multiply() {\n    local x=$1\n    local y=$2\n    local 
+product=$((x * y))\n    return $product\n}\n\n# Main script execution\necho 
+"Adding 5 and 3:"\nsum=$(calculate 5 3)\necho "Result: $sum"\n\necho 
+"Multiplying 4 and 6:"\nmultiply 4 6\nproduct=$?\necho "Result: 
+$product"\n\necho "Script execution completed." \'"\'"\' > 
+~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T17:41:39.188933682Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\n\n# Function with 
+parameters and return value\nfunction calculate() {\n    local a=$1\n    local 
+b=$2\n    local result=$((a + b))\n    echo $result\n}\n\n# Function with 
+parameter and return value\nfunction multiply() {\n    local x=$1\n    local 
+y=$2\n    local product=$((x * y))\n    return $product\n}\n\n# Main script 
+execution\necho "Adding 5 and 3:"\nsum=$(calculate 5 3)\necho "Result: 
+$sum"\n\necho "Multiplying 4 and 6:"\nmultiply 4 6\nproduct=$?\necho "Result: 
+$product"\n\necho "Script execution completed." \'"\'"\' > 
+~/agent_test/test4.2.sh && chmod +x ~/agent_test/test4.2.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nI\'ve created and made executable the 
+script `/agent_test/test4.2.sh` on the remote host "eraigra-rpi" as user 
+"raimondo". The script demonstrates:\n\n1. A function `calculate` that takes two
+parameters, adds them, and returns the result\n2. A function `multiply` that 
+takes two parameters, multiplies them, and returns the result using `return`\n3.
+Main script execution that calls both functions and displays results\n\nThe 
+script is now executable and ready to run. You can execute it with 
+`./agent_test/test4.2.sh`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18271660307,
+    'load_duration': 127882553,
+    'prompt_eval_count': 933,
+    'prompt_eval_duration': 3469101882,
+    'eval_count': 122,
+    'eval_duration': 14544651839
+}
+17:41:39.341 [INFO    ]            uvicorn.access - 127.0.0.1:39978 - "POST /queue/join HTTP/1.1" 200
+17:41:39.396 [INFO    ]            uvicorn.access - 127.0.0.1:39992 - "GET /queue/data?session_hash=173fc59a-3c15-4230-a61f-14ad7b6a5567 HTTP/1.1" 200
+17:41:55.268 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:42:25.236 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': 
+'Adding 5 and 3:\nResult: 8\nMultiplying 4 and 6:\nResult: 24\nScript execution 
+completed.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T17:42:25.235682922Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'~/agent_test/test4.2.sh\'\' executed successfully on remote host.\nOutput: 
+Adding 5 and 3:\nResult: 8\nMultiplying 4 and 6:\nResult: 24\nScript execution 
+completed.\n\nThe script `~/agent_test/test4.2.sh` has been executed 
+successfully on the remote host "eraigra-rpi" as user "raimondo". Here are the 
+results:\n\n```\nAdding 5 and 3:\nResult: 8\nMultiplying 4 and 6:\nResult: 
+24\nScript execution completed.\n```\n\nThe script demonstrated:\n1. A function 
+that adds two numbers (5 + 3 = 8)\n2. A function that multiplies two numbers (4 
+× 6 = 24)\n3. Proper handling of function parameters and return values'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24905421401,
+    'load_duration': 125413747,
+    'prompt_eval_count': 1162,
+    'prompt_eval_duration': 9770512508,
+    'eval_count': 124,
+    'eval_duration': 14882261192
+}
+17:42:25.380 [INFO    ]            uvicorn.access - 127.0.0.1:57798 - "POST /queue/join HTTP/1.1" 200
+17:42:25.436 [INFO    ]            uvicorn.access - 127.0.0.1:57808 - "GET /queue/data?session_hash=173fc59a-3c15-4230-a61f-14ad7b6a5567 HTTP/1.1" 200
+17:42:45.327 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:43:06.092 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test4.2.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test4.2.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T17:43:06.0915477Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'rm -f ~/agent_test/test4.2.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command `rm -f ~/agent_test/test4.2.sh` was executed 
+successfully on the remote host "eraigra-rpi" as user "raimondo". The file 
+`test4.2.sh` has been removed if it existed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 19236135584,
+    'load_duration': 126716049,
+    'prompt_eval_count': 1365,
+    'prompt_eval_duration': 12794206050,
+    'eval_count': 53,
+    'eval_duration': 6198335473
+}
+17:43:06.323 [INFO    ]             uvicorn.error - Shutting down
+17:43:06.423 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:43:06.423 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:43:06.423 [INFO    ]             uvicorn.error - Finished server process [280319]
+make: *** [Makefile:36: run] Terminated

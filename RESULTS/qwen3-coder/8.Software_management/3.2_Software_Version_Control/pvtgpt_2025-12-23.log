@@ -1,0 +1,282 @@
+poetry run python -m private_gpt
+08:39:23.549 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+08:39:27.814 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+08:39:27.878 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:39:27.880 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:39:28.755 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+08:39:28.908 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:39:28.910 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+08:39:28.911 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+08:39:29.801 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+08:39:29.841 [INFO    ]             uvicorn.error - Started server process [2708252]
+08:39:29.841 [INFO    ]             uvicorn.error - Waiting for application startup.
+08:39:29.841 [INFO    ]             uvicorn.error - Application startup complete.
+08:39:29.842 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+08:40:03.380 [INFO    ]            uvicorn.access - 127.0.0.1:58272 - "GET /config HTTP/1.1" 200
+08:40:03.436 [INFO    ]            uvicorn.access - 127.0.0.1:58278 - "GET /info?serialize=False HTTP/1.1" 200
+08:40:03.502 [INFO    ]            uvicorn.access - 127.0.0.1:58286 - "GET /heartbeat/bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:40:03.506 [INFO    ]            uvicorn.access - 127.0.0.1:58288 - "POST /queue/join HTTP/1.1" 200
+08:40:03.563 [INFO    ]            uvicorn.access - 127.0.0.1:58290 - "GET /queue/data?session_hash=bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:40:14.030 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:40:28.878 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -l | grep mypackage
+[AGENT] ✅ Remote command executed successfully: dpkg -l | grep mypackage
+[AGENT] ✅:{'status': 'success', 'message': "The command ''dpkg -l | grep 
+mypackage'' executed successfully on remote host.", 'output': 'ii  mypackage    
+1.0-1                                   all          My first Debian package'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:40:28.877865657Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''dpkg -l | grep mypackage'' executed successfully on remote host.\nOutput: ii  
+mypackage                             1.0-1                                   
+all          My first Debian package\n\nThe command `dpkg -l | grep mypackage` 
+was executed successfully on the remote host, and the output shows that the 
+installed version of `mypackage` is `1.0-1`, not `1.0-2` as requested. 
+Therefore, the package is not at the specified version."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 9296950155,
+    'load_duration': 128160345,
+    'prompt_eval_count': 611,
+    'prompt_eval_duration': 1462418341,
+    'eval_count': 65,
+    'eval_duration': 7629413009
+}
+08:40:29.002 [INFO    ]            uvicorn.access - 127.0.0.1:34814 - "POST /queue/join HTTP/1.1" 200
+08:40:29.058 [INFO    ]            uvicorn.access - 127.0.0.1:34824 - "GET /queue/data?session_hash=bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:40:43.829 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:41:03.159 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo dpkg -i --force-downgrade /var/cache/apt/archives/mypackage_1.0-1_all.deb
+[AGENT] ❌ Remote command failed: sudo dpkg -i --force-downgrade /var/cache/apt/archives/mypackage_1.0-1_all.deb
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+dpkg: error: cannot access archive '/var/cache/apt/archives/mypackage_1.0-1_all.deb': No such file or directory
+[AGENT] ✅:{'status': 'error', 'message': "The command ''sudo dpkg -i 
+--force-downgrade /var/cache/apt/archives/mypackage_1.0-1_all.deb'' failed on 
+remote host.", 'output': "Warning: Permanently added 'eraigra-rpi' (ED25519) to 
+the list of known hosts.\ndpkg: error: cannot access archive 
+'/var/cache/apt/archives/mypackage_1.0-1_all.deb': No such file or directory"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:41:03.159176141Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command ''sudo 
+dpkg -i --force-downgrade /var/cache/apt/archives/mypackage_1.0-1_all.deb'' 
+failed on remote host.\nOutput: Warning: Permanently added 'eraigra-rpi' 
+(ED25519) to the list of known hosts.\ndpkg: error: cannot access archive 
+'/var/cache/apt/archives/mypackage_1.0-1_all.deb': No such file or 
+directory\n\nThe command `sudo dpkg -i --force-downgrade 
+/var/cache/apt/archives/mypackage_1.0-1_all.deb` failed on the remote host 
+because the specified package file `mypackage_1.0-1_all.deb` does not exist in 
+the `/var/cache/apt/archives/` directory. You may need to download or locate the
+correct package file before attempting to downgrade."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17460683295,
+    'load_duration': 131102623,
+    'prompt_eval_count': 854,
+    'prompt_eval_duration': 7302413818,
+    'eval_count': 84,
+    'eval_duration': 9916651800
+}
+08:41:08.264 [INFO    ]            uvicorn.access - 127.0.0.1:42852 - "POST /queue/join HTTP/1.1" 200
+08:41:08.319 [INFO    ]            uvicorn.access - 127.0.0.1:42866 - "GET /queue/data?session_hash=bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:41:16.989 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:42:30.743 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get install --reinstall mypackage=1.0-1
+[AGENT] ✅ Remote command executed successfully: sudo apt-get install --reinstall mypackage=1.0-1
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get install 
+--reinstall mypackage=1.0-1'' executed successfully on remote host.", 'output': 
+'Reading package lists...\nBuilding dependency tree...\nReading state 
+information...\n0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 0 
+not upgraded.\nNeed to get 0 B/704 B of archives.\nAfter this operation, 0 B of 
+additional disk space will be used.\nGet:1 file:/usr/local/mydebs ./ mypackage 
+1.0-1 [704 B]\n(Reading database ... \n(Reading database ... 5%\n(Reading 
+database ... 10%\n(Reading database ... 15%\n(Reading database ... 20%\n(Reading
+database ... 25%\n(Reading database ... 30%\n(Reading database ... 35%\n(Reading
+database ... 40%\n(Reading database ... 45%\n(Reading database ... 50%\n(Reading
+database ... 55%\n(Reading database ... 60%\n(Reading database ... 65%\n(Reading
+database ... 70%\n(Reading database ... 75%\n(Reading database ... 80%\n(Reading
+database ... 85%\n(Reading database ... 90%\n(Reading database ... 95%\n(Reading
+database ... 100%\n(Reading database ... 155274 files and directories currently 
+installed.)\nPreparing to unpack ..././mypackage_1.0-1_arm64.deb ...\nUnpacking 
+mypackage (1.0-1) over (1.0-1) ...\nSetting up mypackage (1.0-1) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n systemctl restart multipathd.service\n 
+systemctl restart packagekit.service\n 
+/etc/needrestart/restart.d/systemd-manager\n\nService restarts being deferred:\n
+/etc/needrestart/restart.d/dbus.service\n systemctl restart 
+unattended-upgrades.service\n systemctl restart user@1000.service\n\nNo 
+containers need to be restarted.\n\nNo user sessions are running outdated 
+binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on 
+this host.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:42:30.743197806Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get install --reinstall mypackage=1.0-1'' executed successfully on 
+remote host.\nOutput: Reading package lists...\nBuilding dependency 
+tree...\nReading state information...\n0 upgraded, 0 newly installed, 1 
+reinstalled, 0 to remove and 0 not upgraded.\nNeed to get 0 B/704 B of 
+archives.\nAfter this operation, 0 B of additional disk space will be 
+used.\nGet:1 file:/usr/local/mydebs ./ mypackage 1.0-1 [704 B]\n(Reading 
+database ... \n(Reading database ... 5%\n(Reading database ... 10%\n(Reading 
+database ... 15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading
+database ... 30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading
+database ... 45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading
+database ... 60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading
+database ... 75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading
+database ... 90%\n(Reading database ... 95%\n(Reading database ... 
+100%\n(Reading database ... 155274 files and directories currently 
+installed.)\nPreparing to unpack ..././mypackage_1.0-1_arm64.deb ...\nUnpacking 
+mypackage (1.0-1) over (1.0-1) ...\nSetting up mypackage (1.0-1) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n systemctl restart multipathd.service\n 
+systemctl restart packagekit.service\n 
+/etc/needrestart/restart.d/systemd-manager\n\nService restarts being deferred:\n
+/etc/needrestart/restart.d/dbus.service\n systemctl restart 
+unattended-upgrades.service\n systemctl restart user@1000.service\n\nNo 
+containers need to be restarted.\n\nNo user sessions are running outdated 
+binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on 
+this host.\n\nThe command `sudo apt-get install --reinstall mypackage=1.0-1` was
+executed successfully on the remote host. The package `mypackage` has been 
+reinstalled at version `1.0-1`. The output indicates that the package was 
+unpacked and set up correctly, and there were no issues with the installation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 14750007952,
+    'load_duration': 133476683,
+    'prompt_eval_count': 1532,
+    'prompt_eval_duration': 6275217875,
+    'eval_count': 70,
+    'eval_duration': 8239010228
+}
+08:42:30.887 [INFO    ]            uvicorn.access - 127.0.0.1:39650 - "POST /queue/join HTTP/1.1" 200
+08:42:30.942 [INFO    ]            uvicorn.access - 127.0.0.1:39660 - "GET /queue/data?session_hash=bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:42:52.916 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:43:19.770 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi dpkg -l | grep mypackage
+[AGENT] ✅ Remote command executed successfully: dpkg -l | grep mypackage
+[AGENT] ✅:{'status': 'success', 'message': "The command ''dpkg -l | grep 
+mypackage'' executed successfully on remote host.", 'output': 'ii  mypackage    
+1.0-1                                   all          My first Debian package'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:43:19.769284053Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''dpkg -l | grep mypackage'' executed successfully on remote host.\nOutput: ii  
+mypackage                             1.0-1                                   
+all          My first Debian package\n\nThe command `dpkg -l | grep mypackage` 
+was executed successfully on the remote host, and the output confirms that the 
+installed version of `mypackage` is `1.0-1`, as requested."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21211666728,
+    'load_duration': 132825420,
+    'prompt_eval_count': 1713,
+    'prompt_eval_duration': 15924222690,
+    'eval_count': 45,
+    'eval_duration': 5050208789
+}
+08:43:19.913 [INFO    ]            uvicorn.access - 127.0.0.1:59304 - "POST /queue/join HTTP/1.1" 200
+08:43:19.979 [INFO    ]            uvicorn.access - 127.0.0.1:59316 - "GET /queue/data?session_hash=bffc77d8-4b45-45ca-ac65-ddb4ebfb7f9f HTTP/1.1" 200
+08:43:46.004 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+08:45:20.644 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo apt-get install --upgrade mypackage=1.0-2
+[AGENT] ✅ Remote command executed successfully: sudo apt-get install --upgrade mypackage=1.0-2
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo apt-get install 
+--upgrade mypackage=1.0-2'' executed successfully on remote host.", 'output': 
+'Reading package lists...\nBuilding dependency tree...\nReading state 
+information...\nThe following packages will be upgraded:\n  mypackage\n1 
+upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 0 
+B/704 B of archives.\nAfter this operation, 0 B of additional disk space will be
+used.\nGet:1 file:/usr/local/mydebs ./ mypackage 1.0-2 [704 B]\n(Reading 
+database ... \n(Reading database ... 5%\n(Reading database ... 10%\n(Reading 
+database ... 15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading
+database ... 30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading
+database ... 45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading
+database ... 60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading
+database ... 75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading
+database ... 90%\n(Reading database ... 95%\n(Reading database ... 
+100%\n(Reading database ... 155274 files and directories currently 
+installed.)\nPreparing to unpack .../mydebs/./mypackage_1.0-2.deb ...\nUnpacking
+mypackage (1.0-2) over (1.0-1) ...\nSetting up mypackage (1.0-2) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n systemctl restart multipathd.service\n 
+systemctl restart packagekit.service\n 
+/etc/needrestart/restart.d/systemd-manager\n\nService restarts being deferred:\n
+/etc/needrestart/restart.d/dbus.service\n systemctl restart 
+unattended-upgrades.service\n systemctl restart user@1000.service\n\nNo 
+containers need to be restarted.\n\nNo user sessions are running outdated 
+binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on 
+this host.'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T08:45:20.644422518Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo apt-get install --upgrade mypackage=1.0-2'' executed successfully on 
+remote host.\nOutput: Reading package lists...\nBuilding dependency 
+tree...\nReading state information...\nThe following packages will be 
+upgraded:\n  mypackage\n1 upgraded, 0 newly installed, 0 to remove and 0 not 
+upgraded.\nNeed to get 0 B/704 B of archives.\nAfter this operation, 0 B of 
+additional disk space will be used.\nGet:1 file:/usr/local/mydebs ./ mypackage 
+1.0-2 [704 B]\n(Reading database ... \n(Reading database ... 5%\n(Reading 
+database ... 10%\n(Reading database ... 15%\n(Reading database ... 20%\n(Reading
+database ... 25%\n(Reading database ... 30%\n(Reading database ... 35%\n(Reading
+database ... 40%\n(Reading database ... 45%\n(Reading database ... 50%\n(Reading
+database ... 55%\n(Reading database ... 60%\n(Reading database ... 65%\n(Reading
+database ... 70%\n(Reading database ... 75%\n(Reading database ... 80%\n(Reading
+database ... 85%\n(Reading database ... 90%\n(Reading database ... 95%\n(Reading
+database ... 100%\n(Reading database ... 155274 files and directories currently 
+installed.)\nPreparing to unpack .../mydebs/./mypackage_1.0-2.deb ...\nUnpacking
+mypackage (1.0-2) over (1.0-1) ...\nSetting up mypackage (1.0-2) ...\n\nRunning 
+kernel seems to be up-to-date.\n\nFailed to check for processor microcode 
+upgrades.\n\nServices to be restarted:\n systemctl restart multipathd.service\n 
+systemctl restart packagekit.service\n 
+/etc/needrestart/restart.d/systemd-manager\n\nService restarts being deferred:\n
+/etc/needrestart/restart.d/dbus.service\n systemctl restart 
+unattended-upgrades.service\n systemctl restart user@1000.service\n\nNo 
+containers need to be restarted.\n\nNo user sessions are running outdated 
+binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on 
+this host.\n\nThe command `sudo apt-get install --upgrade mypackage=1.0-2` was 
+executed successfully on the remote host. The package `mypackage` has been 
+upgraded to version `1.0-2`. The output shows that the package was unpacked and 
+set up correctly, and there were no issues with the upgrade process."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33240539911,
+    'load_duration': 134410218,
+    'prompt_eval_count': 2358,
+    'prompt_eval_duration': 24572494056,
+    'eval_count': 69,
+    'eval_duration': 8400521373
+}
+08:45:20.771 [INFO    ]             uvicorn.error - Shutting down
+08:45:20.870 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+08:45:20.871 [INFO    ]             uvicorn.error - Application shutdown complete.
+08:45:20.871 [INFO    ]             uvicorn.error - Finished server process [2708252]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,177 @@
+poetry run python -m private_gpt
+14:17:38.897 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:17:43.152 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:17:43.216 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:17:43.218 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:17:44.094 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:17:44.249 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:17:44.251 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:17:44.252 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:17:45.141 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:17:45.182 [INFO    ]             uvicorn.error - Started server process [159429]
+14:17:45.182 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:17:45.182 [INFO    ]             uvicorn.error - Application startup complete.
+14:17:45.183 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:18:18.723 [INFO    ]            uvicorn.access - 127.0.0.1:47670 - "GET /config HTTP/1.1" 200
+14:18:18.779 [INFO    ]            uvicorn.access - 127.0.0.1:47676 - "GET /info?serialize=False HTTP/1.1" 200
+14:18:18.845 [INFO    ]            uvicorn.access - 127.0.0.1:47690 - "GET /heartbeat/61f0d028-5719-49ae-b6b6-c3f79216925f HTTP/1.1" 200
+14:18:18.848 [INFO    ]            uvicorn.access - 127.0.0.1:47704 - "POST /queue/join HTTP/1.1" 200
+14:18:18.904 [INFO    ]            uvicorn.access - 127.0.0.1:47714 - "GET /queue/data?session_hash=61f0d028-5719-49ae-b6b6-c3f79216925f HTTP/1.1" 200
+14:18:26.336 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:18:39.399 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:18:39.398530887Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7651524061,
+    'load_duration': 126762965,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1140393836,
+    'eval_count': 54,
+    'eval_duration': 6308969873
+}
+14:18:39.565 [INFO    ]            uvicorn.access - 127.0.0.1:51476 - "POST /queue/join HTTP/1.1" 200
+14:18:39.620 [INFO    ]            uvicorn.access - 127.0.0.1:51484 - "GET /queue/data?session_hash=61f0d028-5719-49ae-b6b6-c3f79216925f HTTP/1.1" 200
+14:19:16.571 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:20:00.837 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\n# Arithmetic calculations and comparisons\nnum1=10\nnum2=20\n\n# Addition\nsum=$((num1 + num2))\necho "Sum: $sum"\n\n# Subtraction\nsub=$((num1 - num2))\necho "Subtraction: $sub"\n\n# Multiplication\nmul=$((num1 * num2))\necho "Multiplication: $mul"\n\n# Division\nif [ $num2 -ne 0 ]; then\n  div=$((num1 / num2))\n  echo "Division: $div"\nfi\n\n# Comparisons\nif [ $num1 -lt $num2 ]; then\n  echo "$num1 is less than $num2"\nfi\n\nif [ $num1 -eq $num2 ]; then\n  echo "$num1 is equal to $num2"\nfi\n\nif [ $num1 -gt $num2 ]; then\n  echo "$num1 is greater than $num2"\nfi' > ~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n\n# Arithmetic calculations and comparisons\nnum1=10\nnum2=20\n\n# Addition\nsum=$((num1 + num2))\necho "Sum: $sum"\n\n# Subtraction\nsub=$((num1 - num2))\necho "Subtraction: $sub"\n\n# Multiplication\nmul=$((num1 * num2))\necho "Multiplication: $mul"\n\n# Division\nif [ $num2 -ne 0 ]; then\n  div=$((num1 / num2))\n  echo "Division: $div"\nfi\n\n# Comparisons\nif [ $num1 -lt $num2 ]; then\n  echo "$num1 is less than $num2"\nfi\n\nif [ $num1 -eq $num2 ]; then\n  echo "$num1 is equal to $num2"\nfi\n\nif [ $num1 -gt $num2 ]; then\n  echo "$num1 is greater than $num2"\nfi' > ~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\n# Arithmetic calculations and 
+comparisons\\nnum1=10\\nnum2=20\\n\\n# Addition\\nsum=$((num1 + num2))\\necho 
+"Sum: $sum"\\n\\n# Subtraction\\nsub=$((num1 - num2))\\necho "Subtraction: 
+$sub"\\n\\n# Multiplication\\nmul=$((num1 * num2))\\necho "Multiplication: 
+$mul"\\n\\n# Division\\nif [ $num2 -ne 0 ]; then\\n  div=$((num1 / num2))\\n  
+echo "Division: $div"\\nfi\\n\\n# Comparisons\\nif [ $num1 -lt $num2 ]; then\\n 
+echo "$num1 is less than $num2"\\nfi\\n\\nif [ $num1 -eq $num2 ]; then\\n  echo 
+"$num1 is equal to $num2"\\nfi\\n\\nif [ $num1 -gt $num2 ]; then\\n  echo "$num1
+is greater than $num2"\\nfi\'"\'"\' > ~/agent_test/test3.1.sh && chmod +x 
+~/agent_test/test3.1.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:20:00.836485956Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n\\n# Arithmetic 
+calculations and comparisons\\nnum1=10\\nnum2=20\\n\\n# Addition\\nsum=$((num1 +
+num2))\\necho "Sum: $sum"\\n\\n# Subtraction\\nsub=$((num1 - num2))\\necho 
+"Subtraction: $sub"\\n\\n# Multiplication\\nmul=$((num1 * num2))\\necho 
+"Multiplication: $mul"\\n\\n# Division\\nif [ $num2 -ne 0 ]; then\\n  
+div=$((num1 / num2))\\n  echo "Division: $div"\\nfi\\n\\n# Comparisons\\nif [ 
+$num1 -lt $num2 ]; then\\n  echo "$num1 is less than $num2"\\nfi\\n\\nif [ $num1
+-eq $num2 ]; then\\n  echo "$num1 is equal to $num2"\\nfi\\n\\nif [ $num1 -gt 
+$num2 ]; then\\n  echo "$num1 is greater than $num2"\\nfi\'"\'"\' > 
+~/agent_test/test3.1.sh && chmod +x ~/agent_test/test3.1.sh\'\' executed 
+successfully on remote host.\nOutput: \n\nThe command has been executed 
+successfully on the remote host `eraigra-rpi` as the user `raimondo`. \n\nI have
+created the script `~/agent_test/test3.1.sh` with the following 
+content:\n\n```bash\n#!/bin/bash\n\n# Arithmetic calculations and 
+comparisons\nnum1=10\nnum2=20\n\n# Addition\nsum=$((num1 + num2))\necho "Sum: 
+$sum"\n\n# Subtraction\nsub=$((num1 - num2))\necho "Subtraction: $sub"\n\n# 
+Multiplication\nmul=$((num1 * num2))\necho "Multiplication: $mul"\n\n# 
+Division\nif [ $num2 -ne 0 ]; then\n  div=$((num1 / num2))\n  echo "Division: 
+$div"\nfi\n\n# Comparisons\nif [ $num1 -lt $num2 ]; then\n  echo "$num1 is less 
+than $num2"\nfi\n\nif [ $num1 -eq $num2 ]; then\n  echo "$num1 is equal to 
+$num2"\nfi\n\nif [ $num1 -gt $num2 ]; then\n  echo "$num1 is greater than 
+$num2"\nfi\n```\n\nThe script has been made executable with `chmod +x 
+~/agent_test/test3.1.sh`. You can now run it using `~/agent_test/test3.1.sh`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 42683530864,
+    'load_duration': 129412687,
+    'prompt_eval_count': 1021,
+    'prompt_eval_duration': 8686201664,
+    'eval_count': 287,
+    'eval_duration': 33657060102
+}
+14:20:00.936 [INFO    ]            uvicorn.access - 127.0.0.1:53894 - "POST /queue/join HTTP/1.1" 200
+14:20:00.993 [INFO    ]            uvicorn.access - 127.0.0.1:53902 - "GET /queue/data?session_hash=61f0d028-5719-49ae-b6b6-c3f79216925f HTTP/1.1" 200
+14:20:20.571 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:20:47.603 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': 
+'Sum: 30\nSubtraction: -10\nMultiplication: 200\nDivision: 0\n10 is less than 
+20'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:20:47.603348118Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: Sum: 
+30\nSubtraction: -10\nMultiplication: 200\nDivision: 0\n10 is less than 
+20\n\nThe script `~/agent_test/test3.1.sh` has been executed successfully. Here 
+is the output:\n\n```\nSum: 30\nSubtraction: -10\nMultiplication: 200\nDivision:
+0\n10 is less than 20\n```\n\nThe script performed the following operations:\n- 
+Added 10 and 20 to get 30\n- Subtracted 20 from 10 to get -10\n- Multiplied 10 
+and 20 to get 200\n- Divided 10 by 20 to get 0 (integer division)\n- Compared 10
+and 20, confirming that 10 is less than 20"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21273411757,
+    'load_duration': 130587312,
+    'prompt_eval_count': 1423,
+    'prompt_eval_duration': 1923746572,
+    'eval_count': 156,
+    'eval_duration': 19083471599
+}
+14:20:47.738 [INFO    ]            uvicorn.access - 127.0.0.1:40182 - "POST /queue/join HTTP/1.1" 200
+14:20:47.796 [INFO    ]            uvicorn.access - 127.0.0.1:40190 - "GET /queue/data?session_hash=61f0d028-5719-49ae-b6b6-c3f79216925f HTTP/1.1" 200
+14:20:57.651 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:21:07.072 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:21:07.07221215Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7758211326,
+    'load_duration': 129337825,
+    'prompt_eval_count': 1658,
+    'prompt_eval_duration': 1281201987,
+    'eval_count': 54,
+    'eval_duration': 6242040234
+}
+14:21:07.212 [INFO    ]             uvicorn.error - Shutting down
+14:21:07.312 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:21:07.313 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:21:07.313 [INFO    ]             uvicorn.error - Finished server process [159429]
+make: *** [Makefile:36: run] Terminated

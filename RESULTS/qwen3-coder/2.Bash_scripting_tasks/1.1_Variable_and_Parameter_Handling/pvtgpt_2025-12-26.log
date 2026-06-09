@@ -1,0 +1,217 @@
+poetry run python -m private_gpt
+13:55:47.343 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:55:51.613 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:55:51.677 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:55:51.679 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:55:52.555 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:55:52.710 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:55:52.711 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:55:52.712 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:55:53.601 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:55:53.642 [INFO    ]             uvicorn.error - Started server process [72634]
+13:55:53.642 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:55:53.643 [INFO    ]             uvicorn.error - Application startup complete.
+13:55:53.643 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:56:27.169 [INFO    ]            uvicorn.access - 127.0.0.1:36844 - "GET /config HTTP/1.1" 200
+13:56:27.225 [INFO    ]            uvicorn.access - 127.0.0.1:36858 - "GET /info?serialize=False HTTP/1.1" 200
+13:56:27.294 [INFO    ]            uvicorn.access - 127.0.0.1:36866 - "GET /heartbeat/3a9134ee-34a6-4057-8d12-2eaf6ae21fbb HTTP/1.1" 200
+13:56:27.297 [INFO    ]            uvicorn.access - 127.0.0.1:36868 - "POST /queue/join HTTP/1.1" 200
+13:56:27.352 [INFO    ]            uvicorn.access - 127.0.0.1:36878 - "GET /queue/data?session_hash=3a9134ee-34a6-4057-8d12-2eaf6ae21fbb HTTP/1.1" 200
+13:56:38.292 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:56:52.447 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T13:56:52.446979905Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 8043066090,
+    'load_duration': 128301840,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 1191938121,
+    'eval_count': 54,
+    'eval_duration': 6641970636
+}
+13:56:52.549 [INFO    ]            uvicorn.access - 127.0.0.1:35722 - "POST /queue/join HTTP/1.1" 200
+13:56:52.605 [INFO    ]            uvicorn.access - 127.0.0.1:35730 - "GET /queue/data?session_hash=3a9134ee-34a6-4057-8d12-2eaf6ae21fbb HTTP/1.1" 200
+13:58:00.767 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:58:30.441 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo '#!/bin/bash\n\n# Advanced variable assignments and manipulations\n\n# Array assignment\nmy_array=(apple banana cherry)\n\n# Associative array\ndeclare -A colors\ncolors[red]="#FF0000"\ncolors[green]="#00FF00"\ncolors[blue]="#0000FF"\n\n# Variable with command substitution\nhostname=$(hostname)\n\n# Variable with process substitution\nfile_content=$(cat /etc/passwd | head -n 3)\n\n# Variable with arithmetic expansion\nx=10\ny=20\nsum=$((x + y))\n\n# Variable with parameter expansion\nname="raimondo"\nname_upper=${name^^}\nname_lower=${name,,}\n\n# Variable with pattern substitution\npath="/home/raimondo/documents/file.txt"\nfilename=${path##*/}\n\n# Variable with substring extraction\nstring="Hello, World!"\nsubstring=${string:7:5}\n\n# Variable with conditional assignment\nvar1="value1"\nvar2=${var1:-"default_value"}\n\n# Variable with default value assignment\nvar3=${var4:-"default_value"}\n\n# Variable with length calculation\nlength=${#string}\n\n# Variable with word splitting\nIFS=\",\" read -r field1 field2 field3 <<< "one,two,three"\n\n# Variable with word replacement\nsentence="The quick brown fox"\nreplaced_sentence=${sentence//quick/slow}\n\n# Print results\necho "Hostname: $hostname"\necho "File content (first 3 lines): $file_content"\necho "Sum of x and y: $sum"\necho "Name in uppercase: $name_upper"\necho "Name in lowercase: $name_lower"\necho "Filename: $filename"\necho "Substring: $substring"\necho "Var2 (from var1): $var2"\necho "Var3 (default value): $var3"\necho "Length of string: $length"\necho "Field1: $field1, Field2: $field2, Field3: $field3"\necho "Replaced sentence: $replaced_sentence"\n' > ~/agent_test/test1.1.sh && chmod +x ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo '#!/bin/bash\n\n# Advanced variable assignments and manipulations\n\n# Array assignment\nmy_array=(apple banana cherry)\n\n# Associative array\ndeclare -A colors\ncolors[red]="#FF0000"\ncolors[green]="#00FF00"\ncolors[blue]="#0000FF"\n\n# Variable with command substitution\nhostname=$(hostname)\n\n# Variable with process substitution\nfile_content=$(cat /etc/passwd | head -n 3)\n\n# Variable with arithmetic expansion\nx=10\ny=20\nsum=$((x + y))\n\n# Variable with parameter expansion\nname="raimondo"\nname_upper=${name^^}\nname_lower=${name,,}\n\n# Variable with pattern substitution\npath="/home/raimondo/documents/file.txt"\nfilename=${path##*/}\n\n# Variable with substring extraction\nstring="Hello, World!"\nsubstring=${string:7:5}\n\n# Variable with conditional assignment\nvar1="value1"\nvar2=${var1:-"default_value"}\n\n# Variable with default value assignment\nvar3=${var4:-"default_value"}\n\n# Variable with length calculation\nlength=${#string}\n\n# Variable with word splitting\nIFS=\",\" read -r field1 field2 field3 <<< "one,two,three"\n\n# Variable with word replacement\nsentence="The quick brown fox"\nreplaced_sentence=${sentence//quick/slow}\n\n# Print results\necho "Hostname: $hostname"\necho "File content (first 3 lines): $file_content"\necho "Sum of x and y: $sum"\necho "Name in uppercase: $name_upper"\necho "Name in lowercase: $name_lower"\necho "Filename: $filename"\necho "Substring: $substring"\necho "Var2 (from var1): $var2"\necho "Var3 (default value): $var3"\necho "Length of string: $length"\necho "Field1: $field1, Field2: $field2, Field3: $field3"\necho "Replaced sentence: $replaced_sentence"\n' > ~/agent_test/test1.1.sh && chmod +x ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo \'"\'"\'#!/bin/bash\\n\\n# Advanced variable assignments 
+and manipulations\\n\\n# Array assignment\\nmy_array=(apple banana 
+cherry)\\n\\n# Associative array\\ndeclare -A 
+colors\\ncolors="#FF0000"\\ncolors="#00FF00"\\ncolors="#0000FF"\\n\\n# Variable 
+with command substitution\\nhostname=$(hostname)\\n\\n# Variable with process 
+substitution\\nfile_content=$(cat /etc/passwd | head -n 3)\\n\\n# Variable with 
+arithmetic expansion\\nx=10\\ny=20\\nsum=$((x + y))\\n\\n# Variable with 
+parameter 
+expansion\\nname="raimondo"\\nname_upper=${name^^}\\nname_lower=${name,,}\\n\\n#
+Variable with pattern 
+substitution\\npath="/home/raimondo/documents/file.txt"\\nfilename=${path##*/}\\
+n\\n# Variable with substring extraction\\nstring="Hello, 
+World!"\\nsubstring=${string:7:5}\\n\\n# Variable with conditional 
+assignment\\nvar1="value1"\\nvar2=${var1:-"default_value"}\\n\\n# Variable with 
+default value assignment\\nvar3=${var4:-"default_value"}\\n\\n# Variable with 
+length calculation\\nlength=${#string}\\n\\n# Variable with word 
+splitting\\nIFS=\\",\\" read -r field1 field2 field3 <<< "one,two,three"\\n\\n# 
+Variable with word replacement\\nsentence="The quick brown 
+fox"\\nreplaced_sentence=${sentence//quick/slow}\\n\\n# Print results\\necho 
+"Hostname: $hostname"\\necho "File content (first 3 lines): 
+$file_content"\\necho "Sum of x and y: $sum"\\necho "Name in uppercase: 
+$name_upper"\\necho "Name in lowercase: $name_lower"\\necho "Filename: 
+$filename"\\necho "Substring: $substring"\\necho "Var2 (from var1): 
+$var2"\\necho "Var3 (default value): $var3"\\necho "Length of string: 
+$length"\\necho "Field1: $field1, Field2: $field2, Field3: $field3"\\necho 
+"Replaced sentence: $replaced_sentence"\\n\'"\'"\' > ~/agent_test/test1.1.sh && 
+chmod +x ~/agent_test/test1.1.sh\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T13:58:30.440473262Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo \'"\'"\'#!/bin/bash\\n\\n# Advanced variable 
+assignments and manipulations\\n\\n# Array assignment\\nmy_array=(apple banana 
+cherry)\\n\\n# Associative array\\ndeclare -A 
+colors\\ncolors[red]="#FF0000"\\ncolors[green]="#00FF00"\\ncolors[blue]="#0000FF
+"\\n\\n# Variable with command substitution\\nhostname=$(hostname)\\n\\n# 
+Variable with process substitution\\nfile_content=$(cat /etc/passwd | head -n 
+3)\\n\\n# Variable with arithmetic expansion\\nx=10\\ny=20\\nsum=$((x + 
+y))\\n\\n# Variable with parameter 
+expansion\\nname="raimondo"\\nname_upper=${name^^}\\nname_lower=${name,,}\\n\\n#
+Variable with pattern 
+substitution\\npath="/home/raimondo/documents/file.txt"\\nfilename=${path##*/}\\
+n\\n# Variable with substring extraction\\nstring="Hello, 
+World!"\\nsubstring=${string:7:5}\\n\\n# Variable with conditional 
+assignment\\nvar1="value1"\\nvar2=${var1:-"default_value"}\\n\\n# Variable with 
+default value assignment\\nvar3=${var4:-"default_value"}\\n\\n# Variable with 
+length calculation\\nlength=${#string}\\n\\n# Variable with word 
+splitting\\nIFS=\\",\\" read -r field1 field2 field3 <<< "one,two,three"\\n\\n# 
+Variable with word replacement\\nsentence="The quick brown 
+fox"\\nreplaced_sentence=${sentence//quick/slow}\\n\\n# Print results\\necho 
+"Hostname: $hostname"\\necho "File content (first 3 lines): 
+$file_content"\\necho "Sum of x and y: $sum"\\necho "Name in uppercase: 
+$name_upper"\\necho "Name in lowercase: $name_lower"\\necho "Filename: 
+$filename"\\necho "Substring: $substring"\\necho "Var2 (from var1): 
+$var2"\\necho "Var3 (default value): $var3"\\necho "Length of string: 
+$length"\\necho "Field1: $field1, Field2: $field2, Field3: $field3"\\necho 
+"Replaced sentence: $replaced_sentence"\\n\'"\'"\' > ~/agent_test/test1.1.sh && 
+chmod +x ~/agent_test/test1.1.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nThe command to create and make executable the script 
+`~/agent_test/test1.1.sh` has been executed successfully on the remote host 
+`eraigra-rpi` as the user `raimondo`. The script includes advanced variable 
+assignments and manipulations as requested.\n\nThe script contains the following
+features:\n- Array and associative array assignments\n- Command and process 
+substitution\n- Arithmetic expansion\n- Parameter expansion (uppercase/lowercase
+conversion)\n- Pattern substitution and substring extraction\n- Conditional and 
+default value assignments\n- Length calculation\n- Word splitting and 
+replacement\n\nYou can now run the script with `bash ~/agent_test/test1.1.sh`.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 24044535532,
+    'load_duration': 128707447,
+    'prompt_eval_count': 1303,
+    'prompt_eval_duration': 7822268115,
+    'eval_count': 131,
+    'eval_duration': 15972046413
+}
+13:58:30.565 [INFO    ]            uvicorn.access - 127.0.0.1:50390 - "POST /queue/join HTTP/1.1" 200
+13:58:30.626 [INFO    ]            uvicorn.access - 127.0.0.1:50396 - "GET /queue/data?session_hash=3a9134ee-34a6-4057-8d12-2eaf6ae21fbb HTTP/1.1" 200
+13:58:38.713 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:59:13.617 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: bash ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''bash 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T13:59:13.616592709Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''bash ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe script `~/agent_test/test1.1.sh` has been executed successfully on the 
+remote host `eraigra-rpi` as the user `raimondo`, but there was no output 
+provided in the execution result. This could mean that the script ran without 
+errors but didn't produce any output, or there might have been an issue with the
+script execution.\n\nLet's try to run the script again and capture its output. 
+I'll execute the script with a command that will display the output directly.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'bash ~/agent_test/test1.1.sh',
+                        'host': 'eraigra-rpi',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 33311725481,
+    'load_duration': 128320659,
+    'prompt_eval_count': 1514,
+    'prompt_eval_duration': 14138473376,
+    'eval_count': 159,
+    'eval_duration': 18896318787
+}
+13:59:13.718 [INFO    ]            uvicorn.access - 127.0.0.1:47086 - "POST /queue/join HTTP/1.1" 200
+13:59:13.778 [INFO    ]            uvicorn.access - 127.0.0.1:47098 - "GET /queue/data?session_hash=3a9134ee-34a6-4057-8d12-2eaf6ae21fbb HTTP/1.1" 200
+13:59:36.346 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:00:04.205 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.1.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:00:04.204566298Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.1.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.1.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.1.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22555523731,
+    'load_duration': 132615149,
+    'prompt_eval_count': 1695,
+    'prompt_eval_duration': 15737476514,
+    'eval_count': 54,
+    'eval_duration': 6565932917
+}
+14:00:04.353 [INFO    ]             uvicorn.error - Shutting down
+14:00:04.454 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:00:04.454 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:00:04.454 [INFO    ]             uvicorn.error - Finished server process [72634]
+make: *** [Makefile:36: run] Terminated

@@ -1,0 +1,157 @@
+Loaded as API: http://127.0.0.1:8002/ ✔
+
+🚀 Starting 4-Stage Execution Pipeline for: /home/azureuser/agent_test/test/3.Process_related_tasks/2.3_User_Process_Management/README
+
+
+[PRE-EXECUTION] ▶️ Executing: in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.3.log
+
+[PRE-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''rm -f ~/agent_test/test2.3.log'' executed successfully on remote host.
+Output: 
+
+File `~/agent_test/test2.3.log` has been removed on `eraigra-rpi` if it existed.
+
+[PRE-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+[COMMAND] ▶️ Executing: in the remost host eraigra-rpi username raimondo identify and kill the user process with the highest CPU usage and logs all actions in the file ~/agent_test/test2.3.log. Don't split the commands and do all requested in a single command line.
+
+[COMMAND] Attempt 1 Result:
+Agent Outcome
+
+Status: UNKNOWN
+Message: Unable to parse user input and detect the right agent
+Output: No output detected
+
+Here is a single‑line command that you can run on **eraigra‑rpi** as user `raimondo` to:
+
+1. Find the user’s process with the highest CPU usage.  
+2. Log the action (PID, CPU, user).  
+3. Kill that process.  
+
+```bash
+ps -eo pid,%cpu,user | awk '$3=="raimondo"{print $1" "$2" "$3}' | sort -k2nr | head -n1 | \
+while read pid cpu user; do \
+    echo "Killing $user PID $pid CPU $cpu" >> ~/agent_test/test2.3.log; \
+    kill -9 $pid >> ~/agent_test/test2.3.log 2>&1; \
+done
+```
+
+**Explanation**
+
+- `ps -eo pid,%cpu,user` lists all processes with their PID, CPU %, and owning user.  
+- `awk '$3=="raimondo"{print $1" "$2" "$3}'` filters only processes owned by `raimondo`.  
+- `sort -k2nr` sorts the list by the CPU column in descending order.  
+- `head -n1` selects the single line with the highest CPU usage.  
+- The `while … read …` loop extracts `pid`, `cpu`, and `user`.  
+- The first `echo` writes the kill action to `~/agent_test/test2.3.log`.  
+- `kill -9 $pid` force‑kills the process and appends the command’s output (including any error messages) to the same log file.
+
+Run this command directly on the remote host; it will perform all required steps in one go and record everything in `~/agent_test/test2.3.log`.
+
+[COMMAND] 🔁 Retry 1/5 failed. Retrying in 5s...
+
+[COMMAND] Attempt 2 Result:
+Agent Outcome
+
+Status: UNKNOWN
+Message: Unable to parse user input and detect the right agent
+Output: No output detected
+
+Here is one single‑line shell command you can run on **eraigra‑rpi** as user **raimondo**.  
+It:
+
+1. Finds the process belonging to the current user with the highest CPU usage.  
+2. Logs the action (PID, CPU % and user) to `~/agent_test/test2.3.log`.  
+3. Kills that process.  
+
+```bash
+ps -u $(whoami) -o pid,%cpu --sort=-%cpu | head -n2 | tail -n1 | \
+xargs -I{} sh -c 'echo "Killing $(whoami) PID {} CPU $(ps -p {} -o %cpu=)" >> ~/agent_test/test2.3.log; kill -9 {} >> ~/agent_test/test2.3.log 2>&1'
+```
+
+**How it works**
+
+| Step | Command fragment | Purpose |
+|------|------------------|---------|
+| 1 | `ps -u $(whoami) -o pid,%cpu --sort=-%cpu` | List all processes owned by the current user, sorted by CPU usage (descending). |
+| 2 | `head -n2 | tail -n1` | Skip the header line, then pick the first real process entry (the one with highest CPU). |
+| 3 | `xargs -I{} sh -c '…'` | Pass the PID (`{}`) to a small shell snippet. |
+| 4 | `echo … >> ~/agent_test/test2.3.log` | Append a descriptive log line. |
+| 5 | `kill -9 {} >> ~/agent_test/test2.3.log 2>&1` | Force‑kill the process and append any output/error to the same log file. |
+
+Just paste the line above into the terminal on the remote host, and it will do everything in one shot.
+
+[COMMAND] 🔁 Retry 2/5 failed. Retrying in 5s...
+
+[COMMAND] Attempt 3 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''ps -u $(whoami) -o pid,%cpu --sort=-%cpu | awk '"'"'NR==2{print $1}'"'"' | while read pid; do echo "Killing $(whoami) PID $pid CPU $(ps -p $pid -o %cpu=)" >> ~/agent_test/test2.3.log; kill -9 $pid >> ~/agent_test/test2.3.log 2>&1; done'' executed successfully on remote host.
+Output: 
+
+Here’s one‑liner you can paste directly into the terminal on **eraigra‑rpi** as user **raimondo**.  
+It finds the user’s process that is using the most CPU, logs the action, and kills it—all in a single command line.
+
+```bash
+ps -u $(whoami) -o pid,%cpu --sort=-%cpu | head -n2 | tail -n1 | \
+xargs -I{} sh -c 'echo "Killing $(whoami) PID {} CPU $(ps -p {} -o %cpu=)" >> ~/agent_test/test2.3.log; kill -9 {} >> ~/agent_test/test2.3.log 2>&1'
+```
+
+**What it does**
+
+1. `ps -u $(whoami) -o pid,%cpu --sort=-%cpu`  
+   lists all of your processes, sorted by CPU usage (highest first).  
+2. `head -n2 | tail -n1`  
+   removes the header line and keeps the first real process (the one with the highest CPU).  
+3. `xargs -I{} sh -c '…'`  
+   passes that PID (`{}`) to a small shell snippet.  
+4. Inside the snippet:  
+   * `echo … >> ~/agent_test/test2.3.log` – logs the action.  
+   * `kill -9 {} >> ~/agent_test/test2.3.log 2>&1` – force‑kills the process and appends any output/error to the same log file.  
+
+Just copy and paste the line, and you’re all set.
+
+[COMMAND] ✅ Success detected on attempt 3. Continuing...
+
+
+[VERIFY] ▶️ Executing: in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test2.3.log exists and provide us the content
+
+[VERIFY] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''[ -f ~/agent_test/test2.3.log ] && cat ~/agent_test/test2.3.log || echo "File not found"'' executed successfully on remote host.
+Output: Killing raimondo PID 15123 CPU  1.4
+
+The log file **~/agent_test/test2.3.log** exists and contains:
+
+```
+Killing raimondo PID 15123 CPU  1.4
+```
+
+This is the single line that was written when the highest‑CPU process (PID 15123) was identified and killed.
+
+[VERIFY] ✅ Success detected on attempt 1. Continuing...
+
+
+[POST-EXECUTION] ▶️ Executing: in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.3.log
+
+[POST-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''rm -f ~/agent_test/test2.3.log'' executed successfully on remote host.
+Output: 
+
+File `~/agent_test/test2.3.log` has been removed on `eraigra‑rpi` if it existed.
+
+[POST-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+✅ All stages completed successfully!
+

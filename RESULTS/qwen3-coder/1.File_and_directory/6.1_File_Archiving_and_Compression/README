@@ -1,0 +1,5 @@
+TASKNAME=Create a zip file with all .txt files in current directory and extract it later. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files if present and create an empty file called test6.1.txt in the folder ~/agent_test in the same command line
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a zip file name test6.1.zip containing all .txt files contained in the folder ~/agent_test and after that extract it under /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the test6.1.zip exists in the folder ~/agent_test and check if the file test6.1.txt under the /tmp folder
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files in the folder ~/agent_test and the file /tmp/test6.1.txt in the same command line

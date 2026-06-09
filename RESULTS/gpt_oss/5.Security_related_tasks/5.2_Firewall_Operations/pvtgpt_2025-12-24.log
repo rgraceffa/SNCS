@@ -1,0 +1,105 @@
+poetry run python -m private_gpt
+12:18:20.821 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:18:25.092 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:18:25.155 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:18:25.157 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:18:26.033 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:18:26.187 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:18:26.189 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:18:26.190 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:18:27.078 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:18:27.118 [INFO    ]             uvicorn.error - Started server process [30781]
+12:18:27.118 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:18:27.118 [INFO    ]             uvicorn.error - Application startup complete.
+12:18:27.119 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:19:00.649 [INFO    ]            uvicorn.access - 127.0.0.1:58062 - "GET /config HTTP/1.1" 200
+12:19:00.704 [INFO    ]            uvicorn.access - 127.0.0.1:58072 - "GET /info?serialize=False HTTP/1.1" 200
+12:19:00.771 [INFO    ]            uvicorn.access - 127.0.0.1:58082 - "GET /heartbeat/0f51138b-9974-4778-a3f0-2346ade0d99f HTTP/1.1" 200
+12:19:00.774 [INFO    ]            uvicorn.access - 127.0.0.1:58088 - "POST /queue/join HTTP/1.1" 200
+12:19:00.829 [INFO    ]            uvicorn.access - 127.0.0.1:58090 - "GET /queue/data?session_hash=0f51138b-9974-4778-a3f0-2346ade0d99f HTTP/1.1" 200
+12:19:41.671 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:20:18.974 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP && sudo iptables -A INPUT -p tcp -s 1.2.3.4 --sport 80 -j DROP
+[AGENT] ✅ Remote command executed successfully: sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP && sudo iptables -A INPUT -p tcp -s 1.2.3.4 --sport 80 -j DROP
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -A 
+OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP && sudo iptables -A INPUT -p tcp -s 
+1.2.3.4 --sport 80 -j DROP'' executed successfully on remote host.", 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T12:20:18.974267178Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -A OUTPUT -p tcp -d 1.2.3.4 --dport 80 -j DROP && sudo iptables 
+-A INPUT -p tcp -s 1.2.3.4 --sport 80 -j DROP'' executed successfully on remote 
+host.\nOutput: \n\n✅ Successfully added the iptables rules on **eraigra‑rpi** 
+(user\u202f`raimondo`) to block HTTP traffic to/from the host `1.2.3.4`. No 
+further action needed.",
+        'thinking': "The user wants to add network traffic rules to iptables 
+using sudo to disable http traffic versus host 1.2.3.4, using a single command 
+line, on remote host eraigra-rpi with username raimondo. The system executed a 
+command that added two rules: DROP OUTPUT to 1.2.3.4 port 80 and DROP INPUT from
+1.2.3.4 port 80. That seems to match the requirement: disable HTTP traffic to 
+that host. The user didn't mention the remote host IP, but we have to use SSH. 
+We used the tool to run the command. It succeeded. So we can just report 
+success. We should also confirm that the command was executed on the remote 
+host. The tool response says success, executed on remote host. So we can 
+confirm."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 31167429255,
+    'load_duration': 282391558,
+    'prompt_eval_count': 627,
+    'prompt_eval_duration': 256470331,
+    'eval_count': 47,
+    'eval_duration': 5902249321
+}
+12:20:19.085 [INFO    ]            uvicorn.access - 127.0.0.1:56248 - "POST /queue/join HTTP/1.1" 200
+12:20:19.139 [INFO    ]            uvicorn.access - 127.0.0.1:56254 - "GET /queue/data?session_hash=0f51138b-9974-4778-a3f0-2346ade0d99f HTTP/1.1" 200
+12:20:48.416 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:21:16.246 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi sudo iptables -L -v -n | grep 1.2.3.4
+[AGENT] ✅ Remote command executed successfully: sudo iptables -L -v -n | grep 1.2.3.4
+[AGENT] ✅:{'status': 'success', 'message': "The command ''sudo iptables -L -v 
+-n | grep 1.2.3.4'' executed successfully on remote host.", 'output': '0     0 
+DROP       tcp  --  *      *       1.2.3.4              0.0.0.0/0            tcp
+spt:80\n    0     0 DROP       tcp  --  *      *       0.0.0.0/0            
+1.2.3.4              tcp dpt:80'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T12:21:16.245880143Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''sudo iptables -L -v -n | grep 1.2.3.4'' executed successfully on remote 
+host.\nOutput: 0     0 DROP       tcp  --  *      *       1.2.3.4              
+0.0.0.0/0            tcp spt:80\n    0     0 DROP       tcp  --  *      *       
+0.0.0.0/0            1.2.3.4              tcp dpt:80\n\n✅ The check shows the 
+rules are in place:\n\n```\n0     0 DROP       tcp  --  *      *       1.2.3.4  
+0.0.0.0/0            tcp spt:80\n    0     0 DROP       tcp  --  *      *       
+0.0.0.0/0            1.2.3.4              tcp dpt:80\n```\n\nSo the HTTP traffic
+to/from 1.2.3.4 is successfully blocked.",
+        'thinking': 'We have executed a single command to check iptables. The 
+output shows the rules are present. The user just wanted to verify. Provide 
+confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 22538877394,
+    'load_duration': 285464629,
+    'prompt_eval_count': 730,
+    'prompt_eval_duration': 256545066,
+    'eval_count': 115,
+    'eval_duration': 14645583902
+}
+12:21:16.439 [INFO    ]             uvicorn.error - Shutting down
+12:21:16.539 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:21:16.540 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:21:16.540 [INFO    ]             uvicorn.error - Finished server process [30781]
+make: *** [Makefile:36: run] Terminated

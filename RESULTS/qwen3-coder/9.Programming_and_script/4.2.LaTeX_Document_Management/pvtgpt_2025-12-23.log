@@ -1,0 +1,193 @@
+poetry run python -m private_gpt
+10:53:56.358 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+10:54:00.646 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+10:54:00.709 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:54:00.711 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:54:01.617 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+10:54:01.772 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:54:01.773 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+10:54:01.774 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+10:54:02.664 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+10:54:02.704 [INFO    ]             uvicorn.error - Started server process [3041309]
+10:54:02.705 [INFO    ]             uvicorn.error - Waiting for application startup.
+10:54:02.705 [INFO    ]             uvicorn.error - Application startup complete.
+10:54:02.705 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+10:54:36.187 [INFO    ]            uvicorn.access - 127.0.0.1:51588 - "GET /config HTTP/1.1" 200
+10:54:36.243 [INFO    ]            uvicorn.access - 127.0.0.1:51600 - "GET /info?serialize=False HTTP/1.1" 200
+10:54:36.303 [INFO    ]            uvicorn.access - 127.0.0.1:51610 - "GET /heartbeat/8aa2e46d-2dc0-402c-9a82-6645080e9067 HTTP/1.1" 200
+10:54:36.306 [INFO    ]            uvicorn.access - 127.0.0.1:51614 - "POST /queue/join HTTP/1.1" 200
+10:54:36.362 [INFO    ]            uvicorn.access - 127.0.0.1:51626 - "GET /queue/data?session_hash=8aa2e46d-2dc0-402c-9a82-6645080e9067 HTTP/1.1" 200
+10:54:51.548 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:55:12.535 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* /home/raimondo/agent_test/Makefile
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* /home/raimondo/agent_test/Makefile
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* 
+/home/raimondo/agent_test/Makefile'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:55:12.535118152Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* 
+/home/raimondo/agent_test/Makefile'' executed successfully on remote 
+host.\nOutput: \n\nThe command to remove the specified files has been executed 
+successfully on the remote host. Here's a summary of the action taken:\n\n- 
+Removed:\n  - `/home/raimondo/agent_test/text4.2a.*`\n  - 
+`/home/raimondo/agent_test/text4.2b.*`\n  - 
+`/home/raimondo/agent_test/Makefile`\n\nAll files matching the provided patterns
+have been deleted if they were present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15865942501,
+    'load_duration': 128497428,
+    'prompt_eval_count': 657,
+    'prompt_eval_duration': 4580922246,
+    'eval_count': 94,
+    'eval_duration': 11007462237
+}
+10:55:12.674 [INFO    ]            uvicorn.access - 127.0.0.1:34720 - "POST /queue/join HTTP/1.1" 200
+10:55:12.729 [INFO    ]            uvicorn.access - 127.0.0.1:34730 - "GET /queue/data?session_hash=8aa2e46d-2dc0-402c-9a82-6645080e9067 HTTP/1.1" 200
+10:55:49.672 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:56:21.995 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p /home/raimondo/agent_test && echo -e '\\documentclass{article}\n\\begin{document}\nHello World!\n\\end{document}' > /home/raimondo/agent_test/text4.2a.latex && echo -e '\\documentclass{article}\n\\begin{document}\nHello World!\n\\end{document}' > /home/raimondo/agent_test/text4.2b.latex && echo -e 'all: text4.2a.pdf text4.2b.pdf\n\ntext4.2a.pdf: text4.2a.latex\n\tpdflatex text4.2a.latex\n\ntext4.2b.pdf: text4.2b.latex\n\tpdflatex text4.2b.latex\n\nclean:\n\trm -f *.aux *.log *.pdf' > /home/raimondo/agent_test/Makefile
+[AGENT] ✅ Remote command executed successfully: mkdir -p /home/raimondo/agent_test && echo -e '\\documentclass{article}\n\\begin{document}\nHello World!\n\\end{document}' > /home/raimondo/agent_test/text4.2a.latex && echo -e '\\documentclass{article}\n\\begin{document}\nHello World!\n\\end{document}' > /home/raimondo/agent_test/text4.2b.latex && echo -e 'all: text4.2a.pdf text4.2b.pdf\n\ntext4.2a.pdf: text4.2a.latex\n\tpdflatex text4.2a.latex\n\ntext4.2b.pdf: text4.2b.latex\n\tpdflatex text4.2b.latex\n\nclean:\n\trm -f *.aux *.log *.pdf' > /home/raimondo/agent_test/Makefile
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+/home/raimondo/agent_test && echo -e 
+\'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World!\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.2a.latex &&
+echo -e \'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World!\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.2b.latex &&
+echo -e \'"\'"\'all: text4.2a.pdf text4.2b.pdf\\n\\ntext4.2a.pdf: 
+text4.2a.latex\\n\\tpdflatex text4.2a.latex\\n\\ntext4.2b.pdf: 
+text4.2b.latex\\n\\tpdflatex text4.2b.latex\\n\\nclean:\\n\\trm -f *.aux *.log 
+*.pdf\'"\'"\' > /home/raimondo/agent_test/Makefile\'\' executed successfully on 
+remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:56:21.994679721Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p /home/raimondo/agent_test && echo -e 
+\'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World!\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.2a.latex &&
+echo -e \'"\'"\'\\\\documentclass{article}\\n\\\\begin{document}\\nHello 
+World!\\n\\\\end{document}\'"\'"\' > /home/raimondo/agent_test/text4.2b.latex &&
+echo -e \'"\'"\'all: text4.2a.pdf text4.2b.pdf\\n\\ntext4.2a.pdf: 
+text4.2a.latex\\n\\tpdflatex text4.2a.latex\\n\\ntext4.2b.pdf: 
+text4.2b.latex\\n\\tpdflatex text4.2b.latex\\n\\nclean:\\n\\trm -f *.aux *.log 
+*.pdf\'"\'"\' > /home/raimondo/agent_test/Makefile\'\' executed successfully on 
+remote host.\nOutput: \n\nThe command to create the LaTeX files and Makefile has
+been executed successfully on the remote host. Here\'s a summary of the actions 
+taken:\n\n1. Created the directory `/home/raimondo/agent_test` if it didn\'t 
+already exist.\n2. Created two LaTeX files:\n   - 
+`/home/raimondo/agent_test/text4.2a.latex`\n   - 
+`/home/raimondo/agent_test/text4.2b.latex`\n   \n   Both files contain a simple 
+"Hello World!" LaTeX document.\n\n3. Created a Makefile at 
+`/home/raimondo/agent_test/Makefile` that:\n   - Compiles both LaTeX files into 
+PDFs\n   - Includes a clean target to remove auxiliary files\n\nYou can now use 
+`make` in the `/home/raimondo/agent_test` directory to compile the documents.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30780593775,
+    'load_duration': 124158025,
+    'prompt_eval_count': 1124,
+    'prompt_eval_duration': 9457379779,
+    'eval_count': 179,
+    'eval_duration': 21011499313
+}
+10:56:22.094 [INFO    ]            uvicorn.access - 127.0.0.1:60158 - "POST /queue/join HTTP/1.1" 200
+10:56:22.153 [INFO    ]            uvicorn.access - 127.0.0.1:60166 - "GET /queue/data?session_hash=8aa2e46d-2dc0-402c-9a82-6645080e9067 HTTP/1.1" 200
+10:56:33.267 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:57:12.611 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -l /home/raimondo/agent_test/Makefile && cat /home/raimondo/agent_test/Makefile
+[AGENT] ✅ Remote command executed successfully: ls -l /home/raimondo/agent_test/Makefile && cat /home/raimondo/agent_test/Makefile
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -l 
+/home/raimondo/agent_test/Makefile && cat /home/raimondo/agent_test/Makefile'' 
+executed successfully on remote host.", 'output': '-rw-rw-r-- 1 raimondo 
+raimondo 174 Dec 23 12:55 /home/raimondo/agent_test/Makefile\nall: text4.2a.pdf 
+text4.2b.pdf\n\ntext4.2a.pdf: text4.2a.latex\n\tpdflatex 
+text4.2a.latex\n\ntext4.2b.pdf: text4.2b.latex\n\tpdflatex 
+text4.2b.latex\n\nclean:\n\trm -f *.aux *.log *.pdf'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:57:12.610789744Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-l /home/raimondo/agent_test/Makefile && cat 
+/home/raimondo/agent_test/Makefile'' executed successfully on remote 
+host.\nOutput: -rw-rw-r-- 1 raimondo raimondo 174 Dec 23 12:55 
+/home/raimondo/agent_test/Makefile\nall: text4.2a.pdf 
+text4.2b.pdf\n\ntext4.2a.pdf: text4.2a.latex\n\tpdflatex 
+text4.2a.latex\n\ntext4.2b.pdf: text4.2b.latex\n\tpdflatex 
+text4.2b.latex\n\nclean:\n\trm -f *.aux *.log *.pdf\n\nI've checked the Makefile
+in the specified directory and found it exists with the following 
+content:\n\n```\nall: text4.2a.pdf text4.2b.pdf\n\ntext4.2a.pdf: 
+text4.2a.latex\n\tpdflatex text4.2a.latex\n\ntext4.2b.pdf: 
+text4.2b.latex\n\tpdflatex text4.2b.latex\n\nclean:\n\trm -f *.aux *.log 
+*.pdf\n```\n\nThe Makefile is properly configured to:\n- Compile both LaTeX 
+documents (text4.2a.latex and text4.2b.latex) into PDFs\n- Include a clean 
+target that removes auxiliary files (*.aux, *.log, *.pdf)"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 34265758255,
+    'load_duration': 130368786,
+    'prompt_eval_count': 1562,
+    'prompt_eval_duration': 14651805989,
+    'eval_count': 157,
+    'eval_duration': 19334183212
+}
+10:57:12.736 [INFO    ]            uvicorn.access - 127.0.0.1:45620 - "POST /queue/join HTTP/1.1" 200
+10:57:12.791 [INFO    ]            uvicorn.access - 127.0.0.1:45622 - "GET /queue/data?session_hash=8aa2e46d-2dc0-402c-9a82-6645080e9067 HTTP/1.1" 200
+10:57:26.598 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+10:57:58.545 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* /home/raimondo/agent_test/Makefile
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* /home/raimondo/agent_test/Makefile
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* 
+/home/raimondo/agent_test/Makefile'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-23T10:57:58.545036199Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/text4.2a.* /home/raimondo/agent_test/text4.2b.* 
+/home/raimondo/agent_test/Makefile'' executed successfully on remote 
+host.\nOutput: \n\nThe command to remove the specified files has been executed 
+successfully on the remote host. Here's a summary of the action taken:\n\n- 
+Removed:\n  - `/home/raimondo/agent_test/text4.2a.*`\n  - 
+`/home/raimondo/agent_test/text4.2b.*`\n  - 
+`/home/raimondo/agent_test/Makefile`\n\nAll files matching the provided patterns
+have been deleted if they were present."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 30417863327,
+    'load_duration': 131026783,
+    'prompt_eval_count': 1885,
+    'prompt_eval_duration': 18770095876,
+    'eval_count': 94,
+    'eval_duration': 11396196270
+}
+10:57:58.789 [INFO    ]             uvicorn.error - Shutting down
+10:57:58.890 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+10:57:58.890 [INFO    ]             uvicorn.error - Application shutdown complete.
+10:57:58.890 [INFO    ]             uvicorn.error - Finished server process [3041309]
+make: *** [Makefile:36: run] Terminated

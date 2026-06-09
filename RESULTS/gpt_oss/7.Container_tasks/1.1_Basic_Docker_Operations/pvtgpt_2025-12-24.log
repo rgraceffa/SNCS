@@ -1,0 +1,171 @@
+poetry run python -m private_gpt
+17:24:06.999 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+17:24:11.276 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+17:24:11.340 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:24:11.342 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:24:12.240 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+17:24:12.393 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:24:12.394 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+17:24:12.395 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+17:24:13.283 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+17:24:13.324 [INFO    ]             uvicorn.error - Started server process [131563]
+17:24:13.324 [INFO    ]             uvicorn.error - Waiting for application startup.
+17:24:13.324 [INFO    ]             uvicorn.error - Application startup complete.
+17:24:13.325 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+17:24:46.824 [INFO    ]            uvicorn.access - 127.0.0.1:48816 - "GET /config HTTP/1.1" 200
+17:24:46.878 [INFO    ]            uvicorn.access - 127.0.0.1:48820 - "GET /info?serialize=False HTTP/1.1" 200
+17:24:46.943 [INFO    ]            uvicorn.access - 127.0.0.1:48838 - "GET /heartbeat/6129ff9c-e089-4437-9616-ae15a1aedcad HTTP/1.1" 200
+17:24:46.946 [INFO    ]            uvicorn.access - 127.0.0.1:48834 - "POST /queue/join HTTP/1.1" 200
+17:24:47.002 [INFO    ]            uvicorn.access - 127.0.0.1:48842 - "GET /queue/data?session_hash=6129ff9c-e089-4437-9616-ae15a1aedcad HTTP/1.1" 200
+17:25:16.249 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:25:34.786 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && touch ~/agent_test/test1.1.log
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && touch ~/agent_test/test1.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p ~/agent_test
+&& touch ~/agent_test/test1.1.log'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:25:34.786067811Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test && touch ~/agent_test/test1.1.log'' executed 
+successfully on remote host.\nOutput: \n\nDone. The file 
+`~/agent_test/test1.1.log` has been created on the remote host.",
+        'thinking': "We need to check. The user asked to create file if not 
+present. We did 'mkdir -p' then touch. That creates file. Should we verify? The 
+assistant's message says command executed successfully. That is fine. We can 
+respond with a short confirmation."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12900330408,
+    'load_duration': 296494048,
+    'prompt_eval_count': 450,
+    'prompt_eval_duration': 256425838,
+    'eval_count': 23,
+    'eval_duration': 2819410085
+}
+17:25:34.919 [INFO    ]            uvicorn.access - 127.0.0.1:50118 - "POST /queue/join HTTP/1.1" 200
+17:25:34.973 [INFO    ]            uvicorn.access - 127.0.0.1:50130 - "GET /queue/data?session_hash=6129ff9c-e089-4437-9616-ae15a1aedcad HTTP/1.1" 200
+17:26:34.985 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:27:06.492 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo "$(date '+%Y-%m-%d %H:%M:%S') Running docker ps" >> ~/agent_test/test1.1.log; docker ps >> ~/agent_test/test1.1.log
+[AGENT] ✅ Remote command executed successfully: echo "$(date '+%Y-%m-%d %H:%M:%S') Running docker ps" >> ~/agent_test/test1.1.log; docker ps >> ~/agent_test/test1.1.log
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo "$(date 
+\'"\'"\'+%Y-%m-%d %H:%M:%S\'"\'"\') Running docker ps" >> 
+~/agent_test/test1.1.log; docker ps >> ~/agent_test/test1.1.log\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:27:06.492165751Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo "$(date \'"\'"\'+%Y-%m-%d %H:%M:%S\'"\'"\') Running docker ps" >> 
+~/agent_test/test1.1.log; docker ps >> ~/agent_test/test1.1.log\'\' executed 
+successfully on remote host.\nOutput: \n\nAll requested actions have been 
+performed.  \nThe timestamped heading **“Running docker ps”** was appended to 
+`~/agent_test/test1.1.log`, followed by the current list of running Docker 
+containers, which was also written to the same log file.',
+        'thinking': 'We need to check that this executed correctly. The tool 
+returned success. The command is: echo "$(date \'+%Y-%m-%d %H:%M:%S\') Running 
+docker ps" >> ~/agent_test/test1.1.log; docker ps >> ~/agent_test/test1.1.log. 
+Good. Probably we should provide confirmation and maybe print output? The 
+question: "logs all activities in the file ..." We have appended. We should 
+perhaps mention that docker ps executed and output appended. But we didn\'t show
+the actual output. But they only asked to log all activities. So we can 
+confirm.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26055594966,
+    'load_duration': 299232355,
+    'prompt_eval_count': 689,
+    'prompt_eval_duration': 256741521,
+    'eval_count': 53,
+    'eval_duration': 6673293118
+}
+17:27:06.650 [INFO    ]            uvicorn.access - 127.0.0.1:49994 - "POST /queue/join HTTP/1.1" 200
+17:27:06.706 [INFO    ]            uvicorn.access - 127.0.0.1:50008 - "GET /queue/data?session_hash=6129ff9c-e089-4437-9616-ae15a1aedcad HTTP/1.1" 200
+17:27:27.495 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:27:41.687 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test1.1.log ]; then cat ~/agent_test/test1.1.log; else echo "File not found"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test1.1.log ]; then cat ~/agent_test/test1.1.log; else echo "File not found"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test1.1.log ]; then cat ~/agent_test/test1.1.log; else echo "File 
+not found"; fi\'\' executed successfully on remote host.', 'output': '2025-12-24
+19:26:40 Running docker ps\nCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS 
+PORTS     NAMES'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:27:41.686576573Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test1.1.log ]; then cat ~/agent_test/test1.1.log; else 
+echo "File not found"; fi\'\' executed successfully on remote host.\nOutput: 
+2025-12-24 19:26:40 Running docker ps\nCONTAINER ID   IMAGE     COMMAND   
+CREATED   STATUS    PORTS     NAMES\n\n**File exists** – 
+`~/agent_test/test1.1.log` is present and its contents are:  \n\n```\n2025-12-24
+19:26:40 Running docker ps\nCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS 
+PORTS     NAMES\n```',
+        'thinking': 'We need to respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 12671775956,
+    'load_duration': 296942984,
+    'prompt_eval_count': 765,
+    'prompt_eval_duration': 256977288,
+    'eval_count': 61,
+    'eval_duration': 7715025186
+}
+17:27:41.804 [INFO    ]            uvicorn.access - 127.0.0.1:48092 - "POST /queue/join HTTP/1.1" 200
+17:27:41.859 [INFO    ]            uvicorn.access - 127.0.0.1:48096 - "GET /queue/data?session_hash=6129ff9c-e089-4437-9616-ae15a1aedcad HTTP/1.1" 200
+17:28:06.022 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:28:32.844 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.1.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.1.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.1.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T17:28:32.843912966Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.1.log'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.1.log` was executed on the remote 
+host.  \nThe file has been removed if it existed, and if it was not present the 
+command completed silently without error.",
+        'thinking': 'User: "in the remote host eraigra-rpi username raimondo 
+remove if not present the file ~/agent_test/test1.1.log". This seems 
+contradictory: "remove if not present"? Should delete if present, but phrase "if
+not present" maybe a typo. We previously removed file; we can confirm deletion. 
+So we should try to delete file if exists. The command executed rm -f which 
+silently deletes if exists. So now file is gone. Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 21687658997,
+    'load_duration': 291176046,
+    'prompt_eval_count': 999,
+    'prompt_eval_duration': 129595287,
+    'eval_count': 46,
+    'eval_duration': 5789044366
+}
+17:28:33.039 [INFO    ]             uvicorn.error - Shutting down
+17:28:33.139 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+17:28:33.140 [INFO    ]             uvicorn.error - Application shutdown complete.
+17:28:33.140 [INFO    ]             uvicorn.error - Finished server process [131563]
+make: *** [Makefile:36: run] Terminated

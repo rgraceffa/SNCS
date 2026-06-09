@@ -1,0 +1,217 @@
+poetry run python -m private_gpt
+14:02:42.746 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:02:47.014 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:02:47.077 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:02:47.079 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:02:47.976 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:02:48.131 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:02:48.133 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:02:48.135 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:02:49.029 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:02:49.070 [INFO    ]             uvicorn.error - Started server process [98361]
+14:02:49.070 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:02:49.070 [INFO    ]             uvicorn.error - Application startup complete.
+14:02:49.071 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:03:22.574 [INFO    ]            uvicorn.access - 127.0.0.1:35586 - "GET /config HTTP/1.1" 200
+14:03:22.629 [INFO    ]            uvicorn.access - 127.0.0.1:35592 - "GET /info?serialize=False HTTP/1.1" 200
+14:03:22.722 [INFO    ]            uvicorn.access - 127.0.0.1:35600 - "GET /heartbeat/4fc17027-a6ee-4a28-94fc-0f7babe69805 HTTP/1.1" 200
+14:03:22.726 [INFO    ]            uvicorn.access - 127.0.0.1:35602 - "POST /queue/join HTTP/1.1" 200
+14:03:22.782 [INFO    ]            uvicorn.access - 127.0.0.1:35606 - "GET /queue/data?session_hash=4fc17027-a6ee-4a28-94fc-0f7babe69805 HTTP/1.1" 200
+14:03:33.538 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:03:49.020 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:03:49.019918955Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10377662234,
+    'load_duration': 126405613,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 4002674161,
+    'eval_count': 54,
+    'eval_duration': 6151309275
+}
+14:03:49.116 [INFO    ]            uvicorn.access - 127.0.0.1:57116 - "POST /queue/join HTTP/1.1" 200
+14:03:49.170 [INFO    ]            uvicorn.access - 127.0.0.1:57128 - "GET /queue/data?session_hash=4fc17027-a6ee-4a28-94fc-0f7babe69805 HTTP/1.1" 200
+14:04:25.885 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:04:46.355 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && chmod 755 ~/agent_test && echo '#!/bin/bash
+
+# Script to demonstrate getopts argument parsing
+
+while getopts "a:b:c:d:" opt; do
+  case $opt in
+    a) arg_a="$OPTARG" ;;
+    b) arg_b="$OPTARG" ;;
+    c) arg_c="$OPTARG" ;;
+    d) arg_d="$OPTARG" ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;
+    :) echo "Option -$OPTARG requires an argument." >&2; exit 1 ;;
+  esac
+done
+
+echo "Option -a was provided with value: $arg_a"
+echo "Option -b was provided with value: $arg_b"
+echo "Option -c was provided with value: $arg_c"
+echo "Option -d was provided with value: $arg_d"
+
+# Print all remaining arguments
+echo "Remaining arguments: $@"
+' > ~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && chmod 755 ~/agent_test && echo '#!/bin/bash
+
+# Script to demonstrate getopts argument parsing
+
+while getopts "a:b:c:d:" opt; do
+  case $opt in
+    a) arg_a="$OPTARG" ;;
+    b) arg_b="$OPTARG" ;;
+    c) arg_c="$OPTARG" ;;
+    d) arg_d="$OPTARG" ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;
+    :) echo "Option -$OPTARG requires an argument." >&2; exit 1 ;;
+  esac
+done
+
+echo "Option -a was provided with value: $arg_a"
+echo "Option -b was provided with value: $arg_b"
+echo "Option -c was provided with value: $arg_c"
+echo "Option -d was provided with value: $arg_d"
+
+# Print all remaining arguments
+echo "Remaining arguments: $@"
+' > ~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && chmod 755 ~/agent_test && echo \'"\'"\'#!/bin/bash\n\n# Script 
+to demonstrate getopts argument parsing\n\nwhile getopts "a🅱c:d:" opt; do\n  
+case $opt in\n    a) arg_a="$OPTARG" ;;\n    b) arg_b="$OPTARG" ;;\n    c) 
+arg_c="$OPTARG" ;;\n    d) arg_d="$OPTARG" ;;\n    \\?) echo "Invalid option: 
+-$OPTARG" >&2; exit 1 ;;\n    :) echo "Option -$OPTARG requires an argument." 
+>&2; exit 1 ;;\n  esac\ndone\n\necho "Option -a was provided with value: 
+$arg_a"\necho "Option -b was provided with value: $arg_b"\necho "Option -c was 
+provided with value: $arg_c"\necho "Option -d was provided with value: 
+$arg_d"\n\n# Print all remaining arguments\necho "Remaining arguments: 
+$@"\n\'"\'"\' > ~/agent_test/test1.3.sh && chmod +x ~/agent_test/test1.3.sh\'\' 
+executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:04:46.354488445Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && chmod 755 ~/agent_test && echo 
+\'"\'"\'#!/bin/bash\n\n# Script to demonstrate getopts argument parsing\n\nwhile
+getopts "a:b:c:d:" opt; do\n  case $opt in\n    a) arg_a="$OPTARG" ;;\n    b) 
+arg_b="$OPTARG" ;;\n    c) arg_c="$OPTARG" ;;\n    d) arg_d="$OPTARG" ;;\n    
+\\?) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;\n    :) echo "Option 
+-$OPTARG requires an argument." >&2; exit 1 ;;\n  esac\ndone\n\necho "Option -a 
+was provided with value: $arg_a"\necho "Option -b was provided with value: 
+$arg_b"\necho "Option -c was provided with value: $arg_c"\necho "Option -d was 
+provided with value: $arg_d"\n\n# Print all remaining arguments\necho "Remaining
+arguments: $@"\n\'"\'"\' > ~/agent_test/test1.3.sh && chmod +x 
+~/agent_test/test1.3.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe bash script `~/agent_test/test1.3.sh` has been created and made 
+executable on the remote host `eraigra-rpi` as the user `raimondo`. The script 
+demonstrates how to parse command-line arguments using `getopts` and includes 
+options `-a`, `-b`, `-c`, and `-d`. You can now run this script with various 
+options to see how argument parsing works.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18892555572,
+    'load_duration': 130702536,
+    'prompt_eval_count': 983,
+    'prompt_eval_duration': 8767646483,
+    'eval_count': 85,
+    'eval_duration': 9903877402
+}
+14:04:46.476 [INFO    ]            uvicorn.access - 127.0.0.1:59820 - "POST /queue/join HTTP/1.1" 200
+14:04:46.531 [INFO    ]            uvicorn.access - 127.0.0.1:59824 - "GET /queue/data?session_hash=4fc17027-a6ee-4a28-94fc-0f7babe69805 HTTP/1.1" 200
+14:05:02.423 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:05:24.443 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command 
+''~/agent_test/test1.3.sh'' executed successfully on remote host.", 'output': 
+'Option -a was provided with value: \nOption -b was provided with value: 
+\nOption -c was provided with value: \nOption -d was provided with value: 
+\nRemaining arguments:'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:05:24.442775973Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''~/agent_test/test1.3.sh'' executed successfully on remote host.\nOutput: 
+Option -a was provided with value: \nOption -b was provided with value: \nOption
+-c was provided with value: \nOption -d was provided with value: \nRemaining 
+arguments:\n\nThe script `~/agent_test/test1.3.sh` was executed successfully. 
+Since no arguments were provided to the script, all options show empty values. 
+Here's the output:\n\n```\nOption -a was provided with value: \nOption -b was 
+provided with value: \nOption -c was provided with value: \nOption -d was 
+provided with value: \nRemaining arguments:\n```\n\nTo see the script in action 
+with arguments, you can run it like this:\n`~/agent_test/test1.3.sh -a value_a 
+-b value_b -c value_c -d value_d`"
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 16768351107,
+    'load_duration': 129621504,
+    'prompt_eval_count': 1191,
+    'prompt_eval_duration': 2058967852,
+    'eval_count': 122,
+    'eval_duration': 14458554182
+}
+14:05:24.594 [INFO    ]            uvicorn.access - 127.0.0.1:44466 - "POST /queue/join HTTP/1.1" 200
+14:05:24.656 [INFO    ]            uvicorn.access - 127.0.0.1:44470 - "GET /queue/data?session_hash=4fc17027-a6ee-4a28-94fc-0f7babe69805 HTTP/1.1" 200
+14:05:33.697 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:05:43.211 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test1.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test1.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:05:43.211114799Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test1.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test1.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test1.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7959562663,
+    'load_duration': 128319050,
+    'prompt_eval_count': 1392,
+    'prompt_eval_duration': 1276543495,
+    'eval_count': 54,
+    'eval_duration': 6428153233
+}
+14:05:43.388 [INFO    ]             uvicorn.error - Shutting down
+14:05:43.487 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:05:43.487 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:05:43.487 [INFO    ]             uvicorn.error - Finished server process [98361]
+make: *** [Makefile:36: run] Terminated

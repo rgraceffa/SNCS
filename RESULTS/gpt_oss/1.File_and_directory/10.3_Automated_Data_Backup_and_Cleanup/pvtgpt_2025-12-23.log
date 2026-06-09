@@ -1,0 +1,317 @@
+poetry run python -m private_gpt
+15:10:34.161 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+15:10:38.470 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+15:10:38.534 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:38.536 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:39.437 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+15:10:39.591 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:39.593 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+15:10:39.594 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+15:10:40.486 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+15:10:40.528 [INFO    ]             uvicorn.error - Started server process [3163796]
+15:10:40.528 [INFO    ]             uvicorn.error - Waiting for application startup.
+15:10:40.528 [INFO    ]             uvicorn.error - Application startup complete.
+15:10:40.529 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+15:11:13.983 [INFO    ]            uvicorn.access - 127.0.0.1:50596 - "GET /config HTTP/1.1" 200
+15:11:14.039 [INFO    ]            uvicorn.access - 127.0.0.1:50612 - "GET /info?serialize=False HTTP/1.1" 200
+15:11:14.112 [INFO    ]            uvicorn.access - 127.0.0.1:50628 - "POST /queue/join HTTP/1.1" 200
+15:11:14.112 [INFO    ]            uvicorn.access - 127.0.0.1:50644 - "GET /heartbeat/eb3f152d-b66a-4a78-b342-3a4d361276c0 HTTP/1.1" 200
+15:11:14.168 [INFO    ]            uvicorn.access - 127.0.0.1:50654 - "GET /queue/data?session_hash=eb3f152d-b66a-4a78-b342-3a4d361276c0 HTTP/1.1" 200
+15:11:42.770 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:12:50.476 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo "ERROR" >> ~/agent_test/test10.3a.txt && touch ~/agent_test/test10.3b.txt
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo "ERROR" >> ~/agent_test/test10.3a.txt && touch ~/agent_test/test10.3b.txt
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo "ERROR" >> ~/agent_test/test10.3a.txt && touch 
+~/agent_test/test10.3b.txt\'\' executed successfully on remote host.', 'output':
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T15:12:50.47604766Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo "ERROR" >> ~/agent_test/test10.3a.txt && touch
+~/agent_test/test10.3b.txt\'\' executed successfully on remote host.\nOutput: 
+\n\nThe files have been created and the word **ERROR** has been appended to 
+`test10.3a.txt`:\n\n```\n~/agent_test/\n├── test10.3a.txt   # contains: 
+ERROR\n└── test10.3b.txt   # empty\n```\n\nAll operations were performed on the 
+remote host `eraigra-rpi` as user `raimondo`.',
+        'thinking': 'The user asked to create file test10.3a.txt into 
+~/agent_test and append word "ERROR". Also create empty file test10.3b.txt. They
+also want to do in the same command line. The assistant responded with a 
+command: `mkdir -p ~/agent_test && echo "ERROR" >> ~/agent_test/test10.3a.txt &&
+touch ~/agent_test/test10.3b.txt` executed successfully. That seems correct. But
+maybe need to specify remote host. The user said remote host eraigra-rpi 
+username raimondo. The assistant\'s command didn\'t mention remote host. But the
+tool\'s command was executed: It executed the command on the remote host. The 
+response says \'executed successfully on remote host\'. The command itself 
+includes `mkdir -p` etc. That is correct. The assistant didn\'t mention the host
+name in response, but it executed it. That might be okay. But we might need to 
+confirm that the file was created. We can check. But the user didn\'t ask to 
+confirm. The response seems fine. But the assistant used a single command, as 
+requested. However, we might want to also mention that the command was executed 
+and that files exist. But it\'s okay. Maybe we can provide output or a 
+confirmation. But the tool responded with \'success\', no output. So we can 
+respond: "Done" or "Files created". Also we might want to ensure the path is 
+correct relative to the user\'s home. The `~` should work. We should also 
+mention that test10.3b.txt is empty.\n\nGiven the instruction: "Please do so to 
+create files. Assistant is designed to assist ...". The user didn\'t ask for 
+additional verification. So the answer should just confirm that the command was 
+executed. Perhaps also show the file listing. But not necessary.\n\nWe\'ll 
+provide a concise response.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 62439940648,
+    'load_duration': 288827339,
+    'prompt_eval_count': 816,
+    'prompt_eval_duration': 257123476,
+    'eval_count': 82,
+    'eval_duration': 10420288932
+}
+15:12:50.599 [INFO    ]            uvicorn.access - 127.0.0.1:50068 - "POST /queue/join HTTP/1.1" 200
+15:12:50.654 [INFO    ]            uvicorn.access - 127.0.0.1:50076 - "GET /queue/data?session_hash=eb3f152d-b66a-4a78-b342-3a4d361276c0 HTTP/1.1" 200
+15:15:18.077 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:18:28.683 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi printf '#!/bin/bash
+find ~/agent_test -type f -name "*.txt" -exec grep -q "ERROR" {} \; -exec rm {} \;' > ~/agent_test/test10.3.sh && chmod +x ~/agent_test/test10.3.sh
+[AGENT] ✅ Remote command executed successfully: printf '#!/bin/bash
+find ~/agent_test -type f -name "*.txt" -exec grep -q "ERROR" {} \; -exec rm {} \;' > ~/agent_test/test10.3.sh && chmod +x ~/agent_test/test10.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'printf 
+\'"\'"\'#!/bin/bash\nfind ~/agent_test -type f -name "*.txt" -exec grep -q 
+"ERROR" {} \\; -exec rm {} \\;\'"\'"\' > ~/agent_test/test10.3.sh && chmod +x 
+~/agent_test/test10.3.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T15:18:28.682491975Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'printf \'"\'"\'#!/bin/bash\nfind ~/agent_test -type f -name "*.txt" -exec 
+grep -q "ERROR" {} \\; -exec rm {} \\;\'"\'"\' > ~/agent_test/test10.3.sh && 
+chmod +x ~/agent_test/test10.3.sh\'\' executed successfully on remote 
+host.\nOutput: \n\nHere’s a single‑line command that creates the requested 
+script with the proper she‑bang, removes only the *.txt files that contain 
+“ERROR”, and sets execute permission:\n\n```bash\nprintf \'#!/bin/bash\\nfind 
+~/agent_test -maxdepth 1 -type f -name "*.txt" -exec grep -q "ERROR" {} \\; 
+-exec rm {} \\;\' > ~/agent_test/test10.3.sh && chmod +x 
+~/agent_test/test10.3.sh\n```\n\n**Explanation**\n\n1. `printf ...` writes the 
+script contents exactly as shown.  \n   * `#!/bin/bash` – the she‑bang.  \n   * 
+`find ~/agent_test -maxdepth 1 -type f -name "*.txt"` – locate text files in 
+*agent_test* (no sub‑directories).  \n   * `-exec grep -q "ERROR" {} \\;` – test
+each file for the word “ERROR”.  \n   * `-exec rm {} \\;` – delete the file only
+if the previous `grep` succeeded (i.e., the file contains “ERROR”).  \n2. `> 
+~/agent_test/test10.3.sh` creates/overwrites the script file.  \n3. `chmod +x 
+...` makes the script executable.\n\nRun the above on `eraigra-rpi` as user 
+`raimondo`, and the file `test10.3.sh` will be ready to use.',
+        'thinking': 'We need to review the request and the executed command: 
+They asked to create a bash script named test10.3.sh that removes all .txt files
+in the ~/agent_test folder that contain the keyword "ERROR". Ensure that 
+test10.3.sh has execute permissions. Do all in a single command line. The 
+assistant executed:\n\n```\nprintf \'"#!/bin/bash\\nfind ~/agent_test -type f 
+-name "*.txt" -exec grep -q "ERROR" {} \\\\; -exec rm {} \\\\;"\' > 
+~/agent_test/test10.3.sh && chmod +x ~/agent_test/test10.3.sh\n```\n\nBut they 
+had double quotes messing. They used printf with a string inside. They used 
+double quotes incorrectly: printf \'"\'? Let\'s examine the string: `printf 
+\'"\'"#!/bin/bash\\nfind ~/agent_test -type f -name "*.txt" -exec grep -q 
+"ERROR" {} \\; -exec rm {} \\;\'` The code shows nested quotes: printf 
+\'"\'"#!/bin/bash ... This might not produce correct file content. Also the 
+script logic: They use find ... -exec grep -q "ERROR" {} \\; -exec rm {} \\; 
+This is okay but we need to ensure that the -exec grep returns exit status of 0 
+for matches; this will execute rm for those that contain ERROR. But we also need
+to restrict to files in the same folder only, not subdirectories. The find 
+command with -maxdepth 1 maybe needed. But they didn\'t specify. They said "in 
+the ~/agent_test folder" meaning maybe just that folder, not subfolders. So we 
+should use -maxdepth 1. But the command didn\'t include that. Also the script 
+should be able to be executed; they did chmod +x.\n\nAlso there might be quoting
+issues: The script content has double quotes inside. Using printf may treat them
+as format specifiers. Using echo might be safer: `echo -e "#!/bin/bash\\nfind 
+...` but they used printf. The quoting: `printf \'"\'"#!/bin/bash\\n...\'` That 
+string starts with a single quote then a double quote then a single quote? This 
+looks like they attempted to escape quotes for shell. But we need to confirm the
+actual command executed. It appears they executed:\n\n```\nprintf 
+\'"#!/bin/bash\\nfind ~/agent_test -type f -name "*.txt" -exec grep -q "ERROR" 
+{} \\\\; -exec rm {} \\\\;"\' > ~/agent_test/test10.3.sh && chmod +x 
+~/agent_test/test10.3.sh\n```\n\nSo the string passed to printf is 
+`"#/bin/bash\\nfind ~/agent_test -type f -name "*.txt" -exec grep -q "ERROR" {} 
+\\; -exec rm {} \\;"`. But there\'s an unmatched double quote at the start: 
+`"#/bin/bash...`. So the string is not properly quoted. However the outer single
+quotes are around the entire string. The first character inside is a double 
+quote, then `#!/bin/bash` etc. So the string to printf is `"#/bin/bash\\nfind 
+...` But they intended to write `#!/bin/bash` at the start, not `"#/bin/bash`. 
+So the script will start with `"#!/bin/bash` (including the double quote) 
+causing syntax errors. Also the script ends with `;"` which will include a 
+trailing double quote before the newline? So the script content will be 
+wrong.\n\nThus we need to correct the command. Provide a single command line 
+that creates the script file with correct content and sets execute 
+permission.\n\nWe can do:\n\n```\nprintf \'#!/bin/bash\\nfind ~/agent_test 
+-maxdepth 1 -type f -name "*.txt" -exec grep -q "ERROR" {} \\; -exec rm {} \\;\'
+> ~/agent_test/test10.3.sh && chmod +x ~/agent_test/test10.3.sh\n```\n\nWe need 
+to escape the backslashes for \\; inside the string. In bash, we can just do 
+`printf \'#!/bin/bash\\nfind ~/agent_test -maxdepth 1 -type f -name "*.txt" 
+-exec grep -q "ERROR" {} \\; -exec rm {} \\;\' > ~/agent_test/test10.3.sh`. But 
+the single quotes around the printf string will treat \\; as just backslash 
+semicolon? Wait: In single quotes, backslashes are literal except when used to 
+escape single quote. So the string `\\;` will be output literally as `\\;`. 
+That\'s what we want because we need to include the backslash for find\'s -exec 
+delimiter. So we can use single quotes. We need to ensure no quoting 
+issues.\n\nThus we propose to run:\n\n```\nprintf \'#!/bin/bash\\nfind 
+~/agent_test -maxdepth 1 -type f -name "*.txt" -exec grep -q "ERROR" {} \\; 
+-exec rm {} \\;\' > ~/agent_test/test10.3.sh && chmod +x 
+~/agent_test/test10.3.sh\n```\n\nThis should create the script correctly. Let\'s
+produce that as answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 185406949184,
+    'load_duration': 306044606,
+    'prompt_eval_count': 1756,
+    'prompt_eval_duration': 7719345921,
+    'eval_count': 299,
+    'eval_duration': 38623226924
+}
+15:18:28.818 [INFO    ]            uvicorn.access - 127.0.0.1:49038 - "POST /queue/join HTTP/1.1" 200
+15:18:28.873 [INFO    ]            uvicorn.access - 127.0.0.1:49046 - "GET /queue/data?session_hash=eb3f152d-b66a-4a78-b342-3a4d361276c0 HTTP/1.1" 200
+15:19:37.813 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:22:32.415 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -lc "bash ~/agent_test/test10.3.sh && if [ \"$(ls -1 ~/agent_test | wc -l)\" -eq 1 ] && [ \"$(ls -1 ~/agent_test)\" = \"test10.3b.txt\" ]; then echo 'Only test10.3b.txt present'; else echo 'Other files present'; fi"
+[AGENT] ✅ Remote command executed successfully: bash -lc "bash ~/agent_test/test10.3.sh && if [ \"$(ls -1 ~/agent_test | wc -l)\" -eq 1 ] && [ \"$(ls -1 ~/agent_test)\" = \"test10.3b.txt\" ]; then echo 'Only test10.3b.txt present'; else echo 'Other files present'; fi"
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'bash -lc "bash 
+~/agent_test/test10.3.sh && if [ \\"$(ls -1 ~/agent_test | wc -l)\\" -eq 1 ] && 
+[ \\"$(ls -1 ~/agent_test)\\" = \\"test10.3b.txt\\" ]; then echo \'"\'"\'Only 
+test10.3b.txt present\'"\'"\'; else echo \'"\'"\'Other files present\'"\'"\'; 
+fi"\'\' executed successfully on remote host.', 'output': 'Other files present'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T15:22:32.414710457Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'bash -lc "bash ~/agent_test/test10.3.sh && if [ \\"$(ls -1 ~/agent_test | wc
+-l)\\" -eq 1 ] && [ \\"$(ls -1 ~/agent_test)\\" = \\"test10.3b.txt\\" ]; then 
+echo \'"\'"\'Only test10.3b.txt present\'"\'"\'; else echo \'"\'"\'Other files 
+present\'"\'"\'; fi"\'\' executed successfully on remote host.\nOutput: Other 
+files present\n\nHere’s a **single‑line** command that\n\n1. rewrites 
+`test10.3.sh` with a correct “delete if contains\u202fERROR” logic,\n2. gives it
+execute permission,\n3. runs the script,\n4. and verifies that *only* 
+`test10.3b.txt` remains in `~/agent_test`.\n\n```bash\nprintf 
+\'#!/bin/bash\\nfor f in ~/agent_test/*.txt; do\\n  if grep -q "ERROR" "$f"; 
+then rm "$f"; fi\\ndone\\n\' > ~/agent_test/test10.3.sh && chmod +x 
+~/agent_test/test10.3.sh && bash ~/agent_test/test10.3.sh && [ "$(ls -1 
+~/agent_test | wc -l)" -eq 1 ] && [ "$(ls -1 ~/agent_test)" = "test10.3b.txt" ] 
+&& echo "Only test10.3b.txt present" || echo "Other files present"\n```\n\nRun 
+this on `eraigra-rpi` as user `raimondo`. If everything works, you’ll 
+see:\n\n```\nOnly test10.3b.txt present\n```\n\nIf “Other files present” is 
+printed, it means something unexpected stayed in the directory.',
+        'thinking': 'We need to ensure script executed, then verify only 
+test10.3b.txt remains. The script might have removed test10.3a.txt which 
+contained ERROR. But output shows "Other files present". Let\'s debug. Maybe 
+test10.3a.txt still exists because it didn\'t contain ERROR? But we appended 
+"ERROR" earlier. Maybe path issue: script runs with find ~/agent_test -type f 
+-name "*.txt" -exec grep -q "ERROR" {} \\; -exec rm {} \\;. In find, -exec grep 
+-q "ERROR" {} \\; will always run; but if grep finds, it returns success, and 
+then next -exec rm will execute only if previous succeeded? Actually find\'s 
+-exec chain: each -exec executes separately; they don\'t depend on each other. 
+Need -exec grep -q ... {} \\; -exec rm {} \\; will run rm regardless of grep 
+result. That\'s wrong. Need to use -exec grep -q "ERROR" {} \\; -a -exec rm {} 
+\\;. But find has -exec with \';\' not support -a. Alternatively use -exec sh -c
+\'grep -q ERROR "$1" && rm "$1"\' _ {} \\;. But simpler: use -exec grep -l 
+"ERROR" {} \\; -exec rm {} \\; won\'t work. Need find with -exec grep -q "ERROR"
+{} \\; -exec rm {} \\; but that always removes. So the script removed both .txt 
+files. But the output says other files present, meaning some files remained. 
+Let\'s inspect folder after script executed. The user asked to "verify that only
+file test10.3b.txt is present". But script may have removed both or only 
+test10.3a? But output shows other files present. That means maybe test10.3b 
+remained but also something else remains (maybe test10.3a remained). Why? 
+Because find didn\'t match due to quoting or something. Let\'s replicate: find 
+~/agent_test -type f -name "*.txt" -exec grep -q "ERROR" {} \\; -exec rm {} \\;.
+This will remove any .txt file because rm is unconditional. Wait but find may 
+fail to find because globbing? Should be fine. Let\'s debug by listing after 
+script: The command executed earlier didn\'t print actual list. Let\'s re-run 
+with same single line but output list. Let\'s propose to re-run script and then 
+list. But the user asked to do all in single command. We can modify command: 
+"bash ~/agent_test/test10.3.sh && ls ~/agent_test" and check. But we need to 
+verify that only test10.3b exists. Let\'s adjust script to use correct logic: 
+find . -type f -name "*.txt" -exec grep -q "ERROR" {} \\; -exec rm {} \\;. The 
+issue might be that grep returns 1 if not found, but find still runs rm because 
+it\'s separate -exec. So both files removed. But our earlier attempt didn\'t 
+remove anything? Maybe because test10.3a.txt had no newline after ERROR? But 
+grep -q "ERROR" should still match. But script didn\'t remove? I\'m not sure. 
+The easiest fix: create script that removes only if grep found. Let\'s correct: 
+create script content:\n\n```\n#!/bin/bash\nfor f in ~/agent_test/*.txt; do\n   
+if grep -q "ERROR" "$f"; then\n        rm "$f"\n    fi\ndone\n```\n\nAnd then 
+run and verify.\n\nWe need to do all in single command line: create script, set 
+execute, run, then verify. But they already created script. We need to re-run it
+with correct logic. But we can just re-create script with correct logic and then
+run. But that is two steps? Actually we can combine creation and execution in 
+one line. Let\'s do:\n\n```\nprintf \'#!/bin/bash\\nfor f in ~/agent_test/*.txt;
+do\\n  if grep -q "ERROR" "$f"; then rm "$f"; fi\\ndone\\n\' > 
+~/agent_test/test10.3.sh && chmod +x ~/agent_test/test10.3.sh && bash 
+~/agent_test/test10.3.sh && [ "$(ls -1 ~/agent_test | wc -l)" -eq 1 ] && [ "$(ls
+-1 ~/agent_test)" = "test10.3b.txt" ] && echo "Only test10.3b.txt present" || 
+echo "Other files present"\n```\n\nBut must not split into multiple commands? We
+can separate with &&, which is fine. The user said "Don\'t split the commands 
+and do all requested in a single command line." So we can use && chain. That is 
+a single line. The output should show "Only test10.3b.txt present". Let\'s 
+propose that as answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 169234759613,
+    'load_duration': 299777234,
+    'prompt_eval_count': 2203,
+    'prompt_eval_duration': 2946655254,
+    'eval_count': 260,
+    'eval_duration': 33570826813
+}
+15:22:32.557 [INFO    ]            uvicorn.access - 127.0.0.1:35608 - "POST /queue/join HTTP/1.1" 200
+15:22:32.612 [INFO    ]            uvicorn.access - 127.0.0.1:35610 - "GET /queue/data?session_hash=eb3f152d-b66a-4a78-b342-3a4d361276c0 HTTP/1.1" 200
+15:23:03.027 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:23:34.782 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/*.txt ~/agent_test/test10.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/*.txt ~/agent_test/test10.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/*.txt ~/agent_test/test10.3.sh'' executed successfully on remote 
+host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T15:23:34.782207161Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/*.txt ~/agent_test/test10.3.sh'' executed successfully on remote
+host.\nOutput: \n\nAll `.txt` files and the script `test10.3.sh` have been 
+removed from `~/agent_test` on `eraigra-rpi` as user `raimondo`.",
+        'thinking': 'User wants to remove all .txt files and script test10.3.sh 
+from folder. The assistant did: rm -f ~/agent_test/*.txt 
+~/agent_test/test10.3.sh. That deletes all txt files, but also deletes the 
+script? Wait script is test10.3.sh. That is not a .txt, so rm -f ... will delete
+.txt files only. Then they also listed script to delete. So it\'s correct. They 
+said "remove all .txt files into the folder ~/agent_test and remove if present 
+the script ~/agent_test/test10.3.sh." The command executed. No output needed. 
+Maybe respond that it was executed. Provide final message.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 26494082100,
+    'load_duration': 293682267,
+    'prompt_eval_count': 1721,
+    'prompt_eval_duration': 130175758,
+    'eval_count': 40,
+    'eval_duration': 5030973803
+}
+15:23:35.012 [INFO    ]             uvicorn.error - Shutting down
+15:23:35.112 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+15:23:35.112 [INFO    ]             uvicorn.error - Application shutdown complete.
+15:23:35.112 [INFO    ]             uvicorn.error - Finished server process [3163796]
+make: *** [Makefile:36: run] Terminated

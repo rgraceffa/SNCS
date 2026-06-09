@@ -1,0 +1,5 @@
+TASKNAME=Append integers 1 to 1000 to the file separated by spaces. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.3.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo append integers 1 to 1000 to the ~/agent_test/test1.3.txt file separated by spaces. 
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test1.3.txt is created and md5sum is b7a703524fb57b9d8895652e46172b33. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test1.3.txt

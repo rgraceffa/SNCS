@@ -1,0 +1,148 @@
+poetry run python -m private_gpt
+13:57:39.874 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:57:44.182 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:57:44.245 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:57:44.247 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:57:45.145 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:57:45.299 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:57:45.301 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:57:45.302 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:57:46.193 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:57:46.234 [INFO    ]             uvicorn.error - Started server process [2271575]
+13:57:46.234 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:57:46.234 [INFO    ]             uvicorn.error - Application startup complete.
+13:57:46.235 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:58:19.704 [INFO    ]            uvicorn.access - 127.0.0.1:51968 - "GET /config HTTP/1.1" 200
+13:58:19.760 [INFO    ]            uvicorn.access - 127.0.0.1:51984 - "GET /info?serialize=False HTTP/1.1" 200
+13:58:19.826 [INFO    ]            uvicorn.access - 127.0.0.1:51996 - "GET /heartbeat/4d2b4ea3-92f8-4495-b19d-48644c8610df HTTP/1.1" 200
+13:58:19.829 [INFO    ]            uvicorn.access - 127.0.0.1:51994 - "POST /queue/join HTTP/1.1" 200
+13:58:19.885 [INFO    ]            uvicorn.access - 127.0.0.1:52000 - "GET /queue/data?session_hash=4d2b4ea3-92f8-4495-b19d-48644c8610df HTTP/1.1" 200
+13:58:27.250 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:58:38.410 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test/testfolder
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test/testfolder
+[AGENT] ✅:{'status': 'success', 'message': "The command ''mkdir -p 
+~/agent_test/testfolder'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:58:38.410225734Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''mkdir -p ~/agent_test/testfolder'' executed successfully on remote 
+host.\nOutput: \n\nThe command `mkdir -p ~/agent_test/testfolder` was executed 
+successfully on the remote host. The folder `~/agent_test/testfolder` has been 
+created if it did not already exist."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 5951052352,
+    'load_duration': 130467171,
+    'prompt_eval_count': 566,
+    'prompt_eval_duration': 1113423585,
+    'eval_count': 40,
+    'eval_duration': 4643734514
+}
+13:58:38.554 [INFO    ]            uvicorn.access - 127.0.0.1:39570 - "POST /queue/join HTTP/1.1" 200
+13:58:38.610 [INFO    ]            uvicorn.access - 127.0.0.1:39582 - "GET /queue/data?session_hash=4d2b4ea3-92f8-4495-b19d-48644c8610df HTTP/1.1" 200
+13:58:50.153 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:59:02.126 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi chmod 444 ~/agent_test/testfolder
+[AGENT] ✅ Remote command executed successfully: chmod 444 ~/agent_test/testfolder
+[AGENT] ✅:{'status': 'success', 'message': "The command ''chmod 444 
+~/agent_test/testfolder'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:59:02.125701658Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+''chmod 444 ~/agent_test/testfolder'' executed successfully on remote 
+host.\nOutput: \n\nThe command `chmod 444 ~/agent_test/testfolder` was executed 
+successfully on the remote host. The permissions for `~/agent_test/testfolder` 
+have been set to read-only for all users."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10400495316,
+    'load_duration': 128495678,
+    'prompt_eval_count': 699,
+    'prompt_eval_duration': 5192884142,
+    'eval_count': 43,
+    'eval_duration': 5008876739
+}
+13:59:02.220 [INFO    ]            uvicorn.access - 127.0.0.1:49146 - "POST /queue/join HTTP/1.1" 200
+13:59:02.280 [INFO    ]            uvicorn.access - 127.0.0.1:49160 - "GET /queue/data?session_hash=4d2b4ea3-92f8-4495-b19d-48644c8610df HTTP/1.1" 200
+13:59:09.864 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:59:32.256 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ls -ld ~/agent_test/testfolder
+[AGENT] ✅ Remote command executed successfully: ls -ld ~/agent_test/testfolder
+[AGENT] ✅:{'status': 'success', 'message': "The command ''ls -ld 
+~/agent_test/testfolder'' executed successfully on remote host.", 'output': 
+'dr--r--r-- 2 raimondo raimondo 4096 Dec 22 15:58 
+/home/raimondo/agent_test/testfolder'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:59:32.256204192Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''ls 
+-ld ~/agent_test/testfolder'' executed successfully on remote host.\nOutput: 
+dr--r--r-- 2 raimondo raimondo 4096 Dec 22 15:58 
+/home/raimondo/agent_test/testfolder\n\nThe command `ls -ld 
+~/agent_test/testfolder` was executed successfully on the remote host. The 
+output shows:\n\n```\ndr--r--r-- 2 raimondo raimondo 4096 Dec 22 15:58 
+/home/raimondo/agent_test/testfolder\n```\n\nThis confirms that the folder 
+`~/agent_test/testfolder` has read-only permissions for all users (the 
+`dr--r--r--` indicates read-only permissions for owner, group, and others)."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 20814404601,
+    'load_duration': 129110472,
+    'prompt_eval_count': 859,
+    'prompt_eval_duration': 7350479535,
+    'eval_count': 111,
+    'eval_duration': 13204014122
+}
+13:59:32.398 [INFO    ]            uvicorn.access - 127.0.0.1:59738 - "POST /queue/join HTTP/1.1" 200
+13:59:32.453 [INFO    ]            uvicorn.access - 127.0.0.1:59750 - "GET /queue/data?session_hash=4d2b4ea3-92f8-4495-b19d-48644c8610df HTTP/1.1" 200
+13:59:41.033 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:59:59.768 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -rf ~/agent_test/testfolder
+[AGENT] ✅ Remote command executed successfully: rm -rf ~/agent_test/testfolder
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -rf 
+~/agent_test/testfolder'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-22T13:59:59.767977352Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-rf ~/agent_test/testfolder'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -rf ~/agent_test/testfolder` was executed successfully on 
+the remote host. The folder `~/agent_test/testfolder` and all its contents have 
+been removed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 13520318041,
+    'load_duration': 126077204,
+    'prompt_eval_count': 1045,
+    'prompt_eval_duration': 8891201098,
+    'eval_count': 38,
+    'eval_duration': 4419756590
+}
+13:59:59.967 [INFO    ]             uvicorn.error - Shutting down
+14:00:00.068 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:00:00.068 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:00:00.068 [INFO    ]             uvicorn.error - Finished server process [2271575]
+make: *** [Makefile:36: run] Terminated

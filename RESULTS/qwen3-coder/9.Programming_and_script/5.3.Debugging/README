@@ -1,0 +1,5 @@
+TASKNAME=Install the required dependencies for a large project based on the reported errors.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the folder /home/raimondo/test5.3prj in the destination folder /home/raimondo/agent_test/. In the same command view the full file /home/raimondo/agent_test/test5.3prj/test5.3.log in order to understand the compilation error. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo install the required dependencies and launch again the makefile in the folder /home/raimondo/agent_test/test5.3prj. Do this in a single command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo run the file ~/agent_test/test5.3prj/app and provide the outcome. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the folder /home/raimondo/agent_test/test5.3prj/. Don't split the commands and do all requested in a single command line.

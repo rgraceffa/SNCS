@@ -1,0 +1,5 @@
+TASKNAME=Automated data backup with conditional logic based on the date. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /etc/X11/rgb.txt into the folder ~/agent_test by renaming it test10.1a.txt and preserving the features (date, and permissions), and in the same command line create the file test10.1b.txt into the folder ~/agent_test. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo backup all files older than 9th October 2025 inside the folder ~/agent_test by creating a test10.1.gz file into the /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that file test10.1.gz exists in /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove file test10.1.gz in /tmp folder if exists and remove all .txt files under ~/agent_test folder. Don't split the commands and do all requested in a single command line.

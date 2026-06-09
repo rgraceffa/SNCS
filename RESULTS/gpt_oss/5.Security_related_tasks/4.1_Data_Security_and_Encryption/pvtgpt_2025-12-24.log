@@ -1,0 +1,172 @@
+poetry run python -m private_gpt
+13:45:27.451 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+13:45:31.754 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+13:45:31.817 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:45:31.819 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:45:32.715 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+13:45:32.868 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:45:32.870 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+13:45:32.871 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+13:45:33.761 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+13:45:33.801 [INFO    ]             uvicorn.error - Started server process [32915]
+13:45:33.801 [INFO    ]             uvicorn.error - Waiting for application startup.
+13:45:33.802 [INFO    ]             uvicorn.error - Application startup complete.
+13:45:33.802 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+13:46:07.275 [INFO    ]            uvicorn.access - 127.0.0.1:44350 - "GET /config HTTP/1.1" 200
+13:46:07.330 [INFO    ]            uvicorn.access - 127.0.0.1:44360 - "GET /info?serialize=False HTTP/1.1" 200
+13:46:07.397 [INFO    ]            uvicorn.access - 127.0.0.1:44368 - "GET /heartbeat/39d2df30-c151-4ef1-a831-ea677bcfc7ff HTTP/1.1" 200
+13:46:07.400 [INFO    ]            uvicorn.access - 127.0.0.1:44374 - "POST /queue/join HTTP/1.1" 200
+13:46:07.456 [INFO    ]            uvicorn.access - 127.0.0.1:44378 - "GET /queue/data?session_hash=39d2df30-c151-4ef1-a831-ea677bcfc7ff HTTP/1.1" 200
+13:46:25.826 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:46:47.124 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f /home/raimondo/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: rm -f /home/raimondo/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+/home/raimondo/agent_test/test4.1.sh'' executed successfully on remote host.", 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:46:47.123855636Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f /home/raimondo/agent_test/test4.1.sh'' executed successfully on remote 
+host.\nOutput: \n\nThe file `~/agent_test/test4.1.sh` was removed successfully 
+on the remote host `eraigra-rpi` (user `raimondo`). If you need anything else, 
+just let me know.",
+        'thinking': 'The user asked: "in the remote host eraigra-rpi username 
+raimondo remove if present the file ~/agent_test/test4.1.sh"\n\nWe should 
+confirm. The assistant executed the command. We need to respond acknowledging.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15103560789,
+    'load_duration': 289598892,
+    'prompt_eval_count': 444,
+    'prompt_eval_duration': 256113214,
+    'eval_count': 45,
+    'eval_duration': 5633329969
+}
+13:46:47.210 [INFO    ]            uvicorn.access - 127.0.0.1:35938 - "POST /queue/join HTTP/1.1" 200
+13:46:47.264 [INFO    ]            uvicorn.access - 127.0.0.1:35948 - "GET /queue/data?session_hash=39d2df30-c151-4ef1-a831-ea677bcfc7ff HTTP/1.1" 200
+13:47:21.316 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:47:57.395 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi echo -e '#!/bin/bash
+for dir in "$@"; do
+  gpg --batch --yes --trust-model always -r eraigra -e "$dir"
+ done' > ~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅ Remote command executed successfully: echo -e '#!/bin/bash
+for dir in "$@"; do
+  gpg --batch --yes --trust-model always -r eraigra -e "$dir"
+ done' > ~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'echo -e 
+\'"\'"\'#!/bin/bash\nfor dir in "$@"; do\n  gpg --batch --yes --trust-model 
+always -r eraigra -e "$dir"\n done\'"\'"\' > ~/agent_test/test4.1.sh && chmod +x
+~/agent_test/test4.1.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:47:57.395029427Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'echo -e \'"\'"\'#!/bin/bash\nfor dir in "$@"; do\n  gpg --batch --yes 
+--trust-model always -r eraigra -e "$dir"\n done\'"\'"\' > 
+~/agent_test/test4.1.sh && chmod +x ~/agent_test/test4.1.sh\'\' executed 
+successfully on remote host.\nOutput: \n\n✅ The script 
+`~/agent_test/test4.1.sh` has been created and made executable on the remote 
+host `eraigra-rpi` (user `raimondo`).  \n\nThe script 
+content:\n\n```bash\n#!/bin/bash\nfor dir in "$@"; do\n  gpg --batch --yes 
+--trust-model always -r eraigra -e "$dir"\ndone\n```\n\nYou can now run it 
+like:\n\n```bash\n~/agent_test/test4.1.sh /path/to/dir1 
+/path/to/dir2\n```\n\nLet me know if you need any further adjustments!',
+        'thinking': 'We need to ensure the command didn\'t have quoting errors. 
+The output says success. The script created and made executable. Probably good. 
+But need to check if directory exists. The user requested: "create a script 
+~/agent_test/test4.1.sh to encrypt specified directories (provided as input) 
+using ‘gpg’ with given key called eraigra. Make the script executables in the 
+same command line. Don\'t split the commands and do all requested in a single 
+command line."\n\nWe did that. We should maybe mention that script is created. 
+Provide confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 34466912652,
+    'load_duration': 295018041,
+    'prompt_eval_count': 739,
+    'prompt_eval_duration': 256572177,
+    'eval_count': 126,
+    'eval_duration': 16053484499
+}
+13:47:57.510 [INFO    ]            uvicorn.access - 127.0.0.1:50800 - "POST /queue/join HTTP/1.1" 200
+13:47:57.565 [INFO    ]            uvicorn.access - 127.0.0.1:50814 - "GET /queue/data?session_hash=39d2df30-c151-4ef1-a831-ea677bcfc7ff HTTP/1.1" 200
+13:48:21.214 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+13:49:26.187 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi ~/agent_test/test4.1.sh ~/agent_test/
+[AGENT] ❌ Remote command failed: ~/agent_test/test4.1.sh ~/agent_test/
+Error: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+gpg: /home/raimondo/agent_test/: read error: Is a directory
+gpg: /home/raimondo/agent_test/: encryption failed: Is a directory
+[AGENT] ✅:{'status': 'error', 'message': "The command ''~/agent_test/test4.1.sh
+~/agent_test/'' failed on remote host.", 'output': "Warning: Permanently added 
+'eraigra-rpi' (ED25519) to the list of known hosts.\ngpg: 
+/home/raimondo/agent_test/: read error: Is a directory\ngpg: 
+/home/raimondo/agent_test/: encryption failed: Is a directory"}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T13:49:26.186556474Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: ERROR\nMessage: The command 
+''~/agent_test/test4.1.sh ~/agent_test/'' failed on remote host.\nOutput: 
+Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known 
+hosts.\ngpg: /home/raimondo/agent_test/: read error: Is a directory\ngpg: 
+/home/raimondo/agent_test/: encryption failed: Is a directory\n\nThe script was 
+invoked with the directory `~/agent_test/` as its sole 
+argument:\n\n```bash\n~/agent_test/test4.1.sh ~/agent_test/\n```\n\nBecause 
+`gpg` cannot encrypt directories directly, it returned the following error for 
+every directory it tried to process:\n\n```\nWarning: Permanently added 
+'eraigra-rpi' (ED25519) to the list of known hosts.\ngpg: 
+/home/raimondo/agent_test/: read error: Is a directory\ngpg: 
+/home/raimondo/agent_test/: encryption failed: Is a directory\n```\n\nIn short, 
+the script ran, but `gpg` failed to encrypt the directory because it expects a 
+file, not a directory. If you need the whole directory encrypted, you’ll need to
+archive it first (e.g., with `tar` or `zip`) and then encrypt the resulting 
+archive.",
+        'thinking': 'The script attempts to encrypt directories using gpg which 
+fails because gpg cannot encrypt directories directly. The user wants to run the
+script with the directory and key. But the script uses -r eraigra which refers 
+to recipient, not key. The script as written uses gpg with -r eraigra to encrypt
+each argument. Passing directory will cause error. They likely want to encrypt 
+files inside directory? Or maybe use gpg to encrypt directory itself. gpg can 
+encrypt files but not directories directly. One could use tar or zip. But the 
+user specifically wants to encrypt specified directories using gpg with key 
+eraigra. We need to provide outcome: the error message.\n\nWe should respond 
+with the output. Also explain that gpg can\'t encrypt directories directly. 
+Maybe suggest using tar or compress. But user wants outcome.\n\nWe should 
+produce single command line that executes script with parameters and provide 
+outcome. Already attempted but error returned. So provide the error output: 
+"gpg: ..."\n\nWe can also mention that the script will fail due to gpg cannot 
+handle directories.\n\nThus answer: Provide the error. Possibly also show how to
+adjust.\n\nLet\'s produce a response: show the command executed and output.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 59362190017,
+    'load_duration': 289392963,
+    'prompt_eval_count': 1171,
+    'prompt_eval_duration': 208724284,
+    'eval_count': 188,
+    'eval_duration': 24076381699
+}
+13:49:26.408 [INFO    ]             uvicorn.error - Shutting down
+13:49:26.508 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+13:49:26.508 [INFO    ]             uvicorn.error - Application shutdown complete.
+13:49:26.508 [INFO    ]             uvicorn.error - Finished server process [32915]
+make: *** [Makefile:36: run] Terminated

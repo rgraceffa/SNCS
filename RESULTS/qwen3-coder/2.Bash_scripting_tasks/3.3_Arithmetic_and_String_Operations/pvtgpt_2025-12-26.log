@@ -1,0 +1,182 @@
+poetry run python -m private_gpt
+14:24:11.145 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+14:24:15.451 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+14:24:15.515 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:24:15.517 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:24:16.436 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+14:24:16.591 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:24:16.593 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+14:24:16.594 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+14:24:17.484 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+14:24:17.525 [INFO    ]             uvicorn.error - Started server process [186089]
+14:24:17.525 [INFO    ]             uvicorn.error - Waiting for application startup.
+14:24:17.525 [INFO    ]             uvicorn.error - Application startup complete.
+14:24:17.526 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+14:24:50.974 [INFO    ]            uvicorn.access - 127.0.0.1:36688 - "GET /config HTTP/1.1" 200
+14:24:51.030 [INFO    ]            uvicorn.access - 127.0.0.1:36698 - "GET /info?serialize=False HTTP/1.1" 200
+14:24:51.098 [INFO    ]            uvicorn.access - 127.0.0.1:36710 - "GET /heartbeat/3071c5a9-46c7-4e0b-84e8-752a8aa72590 HTTP/1.1" 200
+14:24:51.102 [INFO    ]            uvicorn.access - 127.0.0.1:36720 - "POST /queue/join HTTP/1.1" 200
+14:24:51.158 [INFO    ]            uvicorn.access - 127.0.0.1:36736 - "GET /queue/data?session_hash=3071c5a9-46c7-4e0b-84e8-752a8aa72590 HTTP/1.1" 200
+14:24:58.361 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:25:15.041 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:25:15.041255034Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 10674693408,
+    'load_duration': 128684725,
+    'prompt_eval_count': 570,
+    'prompt_eval_duration': 4004258274,
+    'eval_count': 55,
+    'eval_duration': 6454243225
+}
+14:25:15.190 [INFO    ]            uvicorn.access - 127.0.0.1:54074 - "POST /queue/join HTTP/1.1" 200
+14:25:15.245 [INFO    ]            uvicorn.access - 127.0.0.1:54080 - "GET /queue/data?session_hash=3071c5a9-46c7-4e0b-84e8-752a8aa72590 HTTP/1.1" 200
+14:25:42.778 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:26:17.057 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Script to extract email addresses from a file using regex\nif [ $# -eq 0 ]; then\n  echo "Usage: $0 <input_file>"\n  exit 1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; then\n  echo "Error: File $input_file not found!"\n  exit 1\nfi\necho "Extracting email addresses from $input_file:"\ngrep -oE "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b" "$input_file" | sort -u' > ~/agent_test/test3.3.sh && chmod +x ~/agent_test/test3.3.sh
+[AGENT] ✅ Remote command executed successfully: mkdir -p ~/agent_test && echo -e '#!/bin/bash\n# Script to extract email addresses from a file using regex\nif [ $# -eq 0 ]; then\n  echo "Usage: $0 <input_file>"\n  exit 1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; then\n  echo "Error: File $input_file not found!"\n  exit 1\nfi\necho "Extracting email addresses from $input_file:"\ngrep -oE "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b" "$input_file" | sort -u' > ~/agent_test/test3.3.sh && chmod +x ~/agent_test/test3.3.sh
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'mkdir -p 
+~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Script to extract email 
+addresses from a file using regex\\nif [ $# -eq 0 ]; then\\n  echo "Usage: $0 
+<input_file>"\\n  exit 1\\nfi\\ninput_file="$1"\\nif [ ! -f "$input_file" ]; 
+then\\n  echo "Error: File $input_file not found!"\\n  exit 1\\nfi\\necho 
+"Extracting email addresses from $input_file:"\\ngrep -oE 
+"\\\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Z|a-z]{2,}\\\\b" "$input_file" | 
+sort -u\'"\'"\' > ~/agent_test/test3.3.sh && chmod +x 
+~/agent_test/test3.3.sh\'\' executed successfully on remote host.', 'output': 
+''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:26:17.056957653Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'mkdir -p ~/agent_test && echo -e \'"\'"\'#!/bin/bash\\n# Script to extract 
+email addresses from a file using regex\\nif [ $# -eq 0 ]; then\\n  echo "Usage:
+$0 <input_file>"\\n  exit 1\\nfi\\ninput_file="$1"\\nif [ ! -f "$input_file" ]; 
+then\\n  echo "Error: File $input_file not found!"\\n  exit 1\\nfi\\necho 
+"Extracting email addresses from $input_file:"\\ngrep -oE 
+"\\\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Z|a-z]{2,}\\\\b" "$input_file" | 
+sort -u\'"\'"\' > ~/agent_test/test3.3.sh && chmod +x 
+~/agent_test/test3.3.sh\'\' executed successfully on remote host.\nOutput: 
+\n\nThe command has been executed successfully on the remote host `eraigra-rpi` 
+as the user `raimondo`. The script `~/agent_test/test3.3.sh` has been created 
+with the following content:\n\n```bash\n#!/bin/bash\n# Script to extract email 
+addresses from a file using regex\nif [ $# -eq 0 ]; then\n  echo "Usage: $0 
+<input_file>"\n  exit 1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; then\n 
+echo "Error: File $input_file not found!"\n  exit 1\nfi\necho "Extracting email 
+addresses from $input_file:"\ngrep -oE 
+"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b" "$input_file" | sort 
+-u\n```\n\nThe script is executable and can be run with an input file as an 
+argument.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 32716636215,
+    'load_duration': 131983433,
+    'prompt_eval_count': 931,
+    'prompt_eval_duration': 8158514391,
+    'eval_count': 204,
+    'eval_duration': 24277446996
+}
+14:26:17.199 [INFO    ]            uvicorn.access - 127.0.0.1:33624 - "POST /queue/join HTTP/1.1" 200
+14:26:17.261 [INFO    ]            uvicorn.access - 127.0.0.1:33630 - "GET /queue/data?session_hash=3071c5a9-46c7-4e0b-84e8-752a8aa72590 HTTP/1.1" 200
+14:26:34.085 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:27:07.178 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cat ~/agent_test/test3.3.sh
+[AGENT] ✅ Remote command executed successfully: cat ~/agent_test/test3.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cat 
+~/agent_test/test3.3.sh'' executed successfully on remote host.", 'output': 
+'#!/bin/bash\n# Script to extract email addresses from a file using regex\nif [ 
+$# -eq 0 ]; then\n  echo "Usage: $0 <input_file>"\n  exit 
+1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; then\n  echo "Error: File 
+$input_file not found!"\n  exit 1\nfi\necho "Extracting email addresses from 
+$input_file:"\ngrep -oE "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"
+"$input_file" | sort -u'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:27:07.177745793Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'cat ~/agent_test/test3.3.sh\'\' executed successfully on remote 
+host.\nOutput: #!/bin/bash\n# Script to extract email addresses from a file 
+using regex\nif [ $# -eq 0 ]; then\n  echo "Usage: $0 <input_file>"\n  exit 
+1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; then\n  echo "Error: File 
+$input_file not found!"\n  exit 1\nfi\necho "Extracting email addresses from 
+$input_file:"\ngrep -oE "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"
+"$input_file" | sort -u\n\nThe script `~/agent_test/test3.3.sh` has been 
+successfully created on the remote host `eraigra-rpi` as the user `raimondo`. 
+Here is the content of the script:\n\n```bash\n#!/bin/bash\n# Script to extract 
+email addresses from a file using regex\nif [ $# -eq 0 ]; then\n  echo "Usage: 
+$0 <input_file>"\n  exit 1\nfi\ninput_file="$1"\nif [ ! -f "$input_file" ]; 
+then\n  echo "Error: File $input_file not found!"\n  exit 1\nfi\necho 
+"Extracting email addresses from $input_file:"\ngrep -oE 
+"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b" "$input_file" | sort 
+-u\n```\n\nThe script is executable and will extract email addresses from a 
+specified input file using regex pattern matching.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 28041030714,
+    'load_duration': 127066886,
+    'prompt_eval_count': 1366,
+    'prompt_eval_duration': 3009797393,
+    'eval_count': 205,
+    'eval_duration': 24732441149
+}
+14:27:07.315 [INFO    ]            uvicorn.access - 127.0.0.1:50170 - "POST /queue/join HTTP/1.1" 200
+14:27:07.370 [INFO    ]            uvicorn.access - 127.0.0.1:50184 - "GET /queue/data?session_hash=3071c5a9-46c7-4e0b-84e8-752a8aa72590 HTTP/1.1" 200
+14:27:29.429 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:27:38.689 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test3.3.sh
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test3.3.sh
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test3.3.sh'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'qwen3-coder',
+    'created_at': '2025-12-26T14:27:38.688633393Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test3.3.sh'' executed successfully on remote host.\nOutput: 
+\n\nThe command `rm -f ~/agent_test/test3.3.sh` was executed successfully on the
+remote host `eraigra-rpi` as the user `raimondo`. The file `test3.3.sh` has been
+removed if it existed."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 7742404892,
+    'load_duration': 126661920,
+    'prompt_eval_count': 1650,
+    'prompt_eval_duration': 1291283529,
+    'eval_count': 54,
+    'eval_duration': 6216998866
+}
+14:27:38.911 [INFO    ]             uvicorn.error - Shutting down
+14:27:39.011 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+14:27:39.011 [INFO    ]             uvicorn.error - Application shutdown complete.
+14:27:39.011 [INFO    ]             uvicorn.error - Finished server process [186089]
+make: *** [Makefile:36: run] Terminated

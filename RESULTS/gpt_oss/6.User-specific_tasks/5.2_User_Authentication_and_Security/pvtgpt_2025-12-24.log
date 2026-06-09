@@ -1,0 +1,236 @@
+poetry run python -m private_gpt
+16:12:00.298 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+16:12:04.598 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+16:12:04.662 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:12:04.664 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:12:05.563 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+16:12:05.716 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:12:05.717 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+16:12:05.718 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+16:12:06.606 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+16:12:06.647 [INFO    ]             uvicorn.error - Started server process [129312]
+16:12:06.647 [INFO    ]             uvicorn.error - Waiting for application startup.
+16:12:06.648 [INFO    ]             uvicorn.error - Application startup complete.
+16:12:06.648 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+16:12:40.127 [INFO    ]            uvicorn.access - 127.0.0.1:40124 - "GET /config HTTP/1.1" 200
+16:12:40.182 [INFO    ]            uvicorn.access - 127.0.0.1:40130 - "GET /info?serialize=False HTTP/1.1" 200
+16:12:40.252 [INFO    ]            uvicorn.access - 127.0.0.1:40146 - "GET /heartbeat/5f093ef2-da02-4a06-a586-cf6e850177a5 HTTP/1.1" 200
+16:12:40.255 [INFO    ]            uvicorn.access - 127.0.0.1:40158 - "POST /queue/join HTTP/1.1" 200
+16:12:40.311 [INFO    ]            uvicorn.access - 127.0.0.1:40162 - "GET /queue/data?session_hash=5f093ef2-da02-4a06-a586-cf6e850177a5 HTTP/1.1" 200
+16:13:03.130 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:13:31.531 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c 'mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log'
+[AGENT] ✅ Remote command executed successfully: bash -c 'mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'bash -c 
+\'"\'"\'mkdir -p ~/agent_test && touch ~/agent_test/test5.2.log\'"\'"\'\'\' 
+executed successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T16:13:31.530679139Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'bash -c \'"\'"\'mkdir -p ~/agent_test && touch 
+~/agent_test/test5.2.log\'"\'"\'\'\' executed successfully on remote 
+host.\nOutput: \n\n',
+        'thinking': "The assistant responded that command was executed. However 
+we need to provide explanation? Actually we responded with success. Probably 
+fine. But the instruction: We need to run a remote command via SSH. We used the 
+tool? The tool's signature: functions.execute_remote_command requires arguments:
+command, host, port, user. The assistant responded with a success message but 
+didn't show we invoked tool. According to policy, we must call the tool and 
+include the response. The assistant didn't call the function. We need to call 
+the tool. Let's do that.",
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'mkdir -p ~/agent_test && touch 
+~/agent_test/test5.2.log',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 23240523375,
+    'load_duration': 284995498,
+    'prompt_eval_count': 402,
+    'prompt_eval_duration': 1475200853,
+    'eval_count': 167,
+    'eval_duration': 21268539524
+}
+16:13:31.630 [INFO    ]            uvicorn.access - 127.0.0.1:37510 - "POST /queue/join HTTP/1.1" 200
+16:13:31.685 [INFO    ]            uvicorn.access - 127.0.0.1:37516 - "GET /queue/data?session_hash=5f093ef2-da02-4a06-a586-cf6e850177a5 HTTP/1.1" 200
+16:14:41.514 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:15:41.903 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi bash -c 'echo "$(date): Checking password aging" >> ~/agent_test/test5.2.log; sudo chage -l $USER >> ~/agent_test/test5.2.log 2>&1; echo "$(date): Done" >> ~/agent_test/test5.2.log'
+[AGENT] ✅ Remote command executed successfully: bash -c 'echo "$(date): Checking password aging" >> ~/agent_test/test5.2.log; sudo chage -l $USER >> ~/agent_test/test5.2.log 2>&1; echo "$(date): Done" >> ~/agent_test/test5.2.log'
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'bash -c 
+\'"\'"\'echo "$(date): Checking password aging" >> ~/agent_test/test5.2.log; 
+sudo chage -l $USER >> ~/agent_test/test5.2.log 2>&1; echo "$(date): Done" >> 
+~/agent_test/test5.2.log\'"\'"\'\'\' executed successfully on remote host.', 
+'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T16:15:41.90311276Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'bash -c \'"\'"\'echo "$(date): Checking password aging" >> 
+~/agent_test/test5.2.log; sudo chage -l $USER >> ~/agent_test/test5.2.log 2>&1; 
+echo "$(date): Done" >> ~/agent_test/test5.2.log\'"\'"\'\'\' executed 
+successfully on remote host.\nOutput: \n\n',
+        'thinking': 'The user says: "in the remost host eraigra-rpi username 
+raimondo checks for password aging. Use sudo if needed. Logs all activities in 
+the file ~/agent_test/test5.2.log. Don\'t split the commands and do all 
+requested in a single command line." The assistant responded with a command that
+did echo date and then sudo chage -l $USER >> log. That is good. But we need to 
+confirm that the remote host is eraigra-rpi, username raimondo. The previous 
+command used sudo. But did it use the correct user? It used $USER environment 
+variable. On a remote host that may not be set. We could specify raimondo. Also 
+might need to ensure that the remote host\'s $USER is raimondo. But maybe safer 
+to use raimondo. Also use a single line. The assistant used semicolons, which is
+fine. It\'s a single command. However, it\'s not quite sure about quoting. We 
+should propose a final answer: Provide the single command that does everything. 
+Also ensure that logs are appended. So the command: `echo "$(date): Checking 
+password aging" >> ~/agent_test/test5.2.log; sudo chage -l raimondo >> 
+~/agent_test/test5.2.log 2>&1; echo "$(date): Done" >> 
+~/agent_test/test5.2.log`. That will run on remote host. Provide the full remote
+command. Also include the function call. So we will output the function call 
+accordingly.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'run_remote_command',
+                    'arguments': {
+                        'command': 'echo "$(date): Checking password aging" >> 
+~/agent_test/test5.2.log; sudo chage -l raimondo >> ~/agent_test/test5.2.log 
+2>&1; echo "$(date): Done" >> ~/agent_test/test5.2.log',
+                        'host': 'eraigra-rpi',
+                        'port': '22',
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 54999889613,
+    'load_duration': 290488604,
+    'prompt_eval_count': 561,
+    'prompt_eval_duration': 1824026903,
+    'eval_count': 410,
+    'eval_duration': 52505568654
+}
+16:15:42.015 [INFO    ]            uvicorn.access - 127.0.0.1:43318 - "POST /queue/join HTTP/1.1" 200
+16:15:42.070 [INFO    ]            uvicorn.access - 127.0.0.1:43322 - "GET /queue/data?session_hash=5f093ef2-da02-4a06-a586-cf6e850177a5 HTTP/1.1" 200
+16:16:07.056 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:16:56.895 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test5.2.log ]; then cat ~/agent_test/test5.2.log; else echo "File not found"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test5.2.log ]; then cat ~/agent_test/test5.2.log; else echo "File not found"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test5.2.log ]; then cat ~/agent_test/test5.2.log; else echo "File 
+not found"; fi\'\' executed successfully on remote host.', 'output': 'Wed Dec 24
+18:14:46 EET 2025: Checking password aging\nLast password change\t\t\t\t\t: Nov 
+04, 2025\nPassword expires\t\t\t\t\t: never\nPassword inactive\t\t\t\t\t: 
+never\nAccount expires\t\t\t\t\t\t: never\nMinimum number of days between 
+password change\t\t: 0\nMaximum number of days between password change\t\t: 
+99999\nNumber of days of warning before password expires\t: 7\nWed Dec 24 
+18:14:46 EET 2025: Done'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T16:16:56.89550581Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test5.2.log ]; then cat ~/agent_test/test5.2.log; else 
+echo "File not found"; fi\'\' executed successfully on remote host.\nOutput: Wed
+Dec 24 18:14:46 EET 2025: Checking password aging\nLast password 
+change\t\t\t\t\t: Nov 04, 2025\nPassword expires\t\t\t\t\t: never\nPassword 
+inactive\t\t\t\t\t: never\nAccount expires\t\t\t\t\t\t: never\nMinimum number of
+days between password change\t\t: 0\nMaximum number of days between password 
+change\t\t: 99999\nNumber of days of warning before password expires\t: 7\nWed 
+Dec 24 18:14:46 EET 2025: Done\n\nHere is the content of 
+`~/agent_test/test5.2.log` on the remote host:\n\n```\nWed Dec 24 18:14:46 EET 
+2025: Checking password aging\nLast password change                            :
+Nov 04, 2025\nPassword expires                                : never\nPassword 
+inactive                               : never\nAccount expires                 
+: never\nMinimum number of days between password change  : 0\nMaximum number of 
+days between password change  : 99999\nNumber of days of warning before password
+expires: 7\nWed Dec 24 18:14:46 EET 2025: Done\n```\n\nThis file was 
+successfully created and the password aging information was logged.',
+        'thinking': 'User: "in the remote host eraigra-rpi username raimondo 
+check if the file ~/agent_test/test5.2.log is created and provide the content". 
+The assistant responded with executing if check and cat. It returned 
+content.\n\nBut we need to provide the content. It returned content. That should
+be correct.\n\nWe should maybe echo the content? Already provided.\n\nThe 
+command executed successfully, returning the content. That seems fine. We should
+provide the content in the answer. The assistant already gave the output. That 
+is likely acceptable.\n\nBut we might want to re-run? The user might want us to 
+just provide the content, not the command output. The content is already 
+displayed. But maybe we should explicitly state the content.\n\nWe can respond 
+with the content. No further action needed.\n\nThus answer: Provide the 
+content.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 44690050374,
+    'load_duration': 295429349,
+    'prompt_eval_count': 965,
+    'prompt_eval_duration': 254988722,
+    'eval_count': 144,
+    'eval_duration': 18399202763
+}
+16:16:57.027 [INFO    ]            uvicorn.access - 127.0.0.1:53872 - "POST /queue/join HTTP/1.1" 200
+16:16:57.081 [INFO    ]            uvicorn.access - 127.0.0.1:53888 - "GET /queue/data?session_hash=5f093ef2-da02-4a06-a586-cf6e850177a5 HTTP/1.1" 200
+16:17:26.516 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:17:50.571 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm -f ~/agent_test/test5.2.log
+[AGENT] ✅ Remote command executed successfully: rm -f ~/agent_test/test5.2.log
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm -f 
+~/agent_test/test5.2.log'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-24T16:17:50.57055753Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+-f ~/agent_test/test5.2.log'' executed successfully on remote host.\nOutput: 
+\n\nThe file `~/agent_test/test5.2.log` has been removed (if it existed).",
+        'thinking': 'The user says: "in the remote host eraigra-rpi username 
+raimondo remove if not present the file ~/agent_test/test5.2.log". The 
+instruction: "remove if not present" likely means remove if present? They want 
+to delete file if present. The assistant executed rm -f which removes if exists,
+no error. Should respond.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 15160892800,
+    'load_duration': 298261870,
+    'prompt_eval_count': 1094,
+    'prompt_eval_duration': 138278553,
+    'eval_count': 21,
+    'eval_duration': 2575117106
+}
+16:17:50.750 [INFO    ]             uvicorn.error - Shutting down
+16:17:50.850 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+16:17:50.850 [INFO    ]             uvicorn.error - Application shutdown complete.
+16:17:50.850 [INFO    ]             uvicorn.error - Finished server process [129312]
+make: *** [Makefile:36: run] Terminated

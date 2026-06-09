@@ -1,0 +1,912 @@
+Loaded as API: http://127.0.0.1:8002/ ✔
+
+🚀 Starting 4-Stage Execution Pipeline for: /home/azureuser/agent_test/test/9.Programming_and_script/3.3.Java_Development/README
+
+
+[PRE-EXECUTION] ▶️ Executing: in the remote host eraigra-rpi username raimondo create if not present the folder ~/agent_test/mavenprj.
+
+[PRE-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''mkdir -p ~/agent_test/mavenprj'' executed successfully on remote host.
+Output: 
+
+The folder `~/agent_test/mavenprj` has been successfully created on the remote host `eraigra-rpi` under the user `raimondo`. Let me know if you need any further assistance.
+
+[PRE-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+[COMMAND] ▶️ Executing: in the remote host eraigra-rpi username raimondo use Maven to build a simple java project in the folder ~/agent_test/mavenprj. Don't forget to build the project. Don't split the commands and do all requested in a single command line.
+
+[COMMAND] Attempt 1 Result:
+Agent Outcome
+
+Status: ERROR
+Message: The command ''cd ~/agent_test/mavenprj && mkdir -p src/main/java && echo '"'"'package com.example; public class App { public static void main(String[] args) { System.out.println("Hello World!"); } }'"'"' > src/main/java/com/example/App.java && echo '"'"'<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><modelVersion>4.0.0</modelVersion><groupId>com.example</groupId><artifactId>hello-world</artifactId><version>1.0-SNAPSHOT</version><properties><maven.compiler.source>1.8</maven.compiler.source><maven.compiler.target>1.8</maven.compiler.target></properties><dependencies></dependencies></project>'"'"' > pom.xml && mvn clean compile exec:java -Dexec.mainClass="com.example.App"'' failed on remote host.
+Output: Warning: Permanently added 'eraigra-rpi' (ED25519) to the list of known hosts.
+bash: line 1: src/main/java/com/example/App.java: No such file or directory
+
+I see the issue. The command failed because of the way the shell is interpreting the quotes and the file paths. Let me create a proper single command to build the Maven project in the remote host.
+
+First, let me create a script that will properly handle the Maven project creation and build:
+
+[COMMAND] 🔁 Retry 1/5 failed. Retrying in 5s...
+
+[COMMAND] Attempt 2 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''cd ~/agent_test/mavenprj && mkdir -p src/main/java/com/example && echo '"'"'package com.example; public class App { public static void main(String[] args) { System.out.println("Hello World!"); } }'"'"' > src/main/java/com/example/App.java && echo '"'"'<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><modelVersion>4.0.0</modelVersion><groupId>com.example</groupId><artifactId>hello-world</artifactId><version>1.0-SNAPSHOT</version><properties><maven.compiler.source>1.8</maven.compiler.source><maven.compiler.target>1.8</maven.compiler.target></properties><dependencies></dependencies></project>'"'"' > pom.xml && mvn clean compile exec:java -Dexec.mainClass="com.example.App"'' executed successfully on remote host.
+Output: [[1;34mINFO[m] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom
+Progress (1): 3.9 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (3.9 kB at 954 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+Progress (1): 2.3/25 kB
+Progress (1): 5.0/25 kB
+Progress (1): 7.7/25 kB
+Progress (1): 10/25 kB 
+Progress (1): 13/25 kB
+Progress (1): 16/25 kB
+Progress (1): 19/25 kB
+Progress (1): 22/25 kB
+Progress (1): 24/25 kB
+Progress (1): 25 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (25 kB at 58 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom
+Progress (1): 4.1 kB
+Progress (1): 6.4 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom (6.4 kB at 39 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+Progress (1): 2.3/27 kB
+Progress (1): 4.6/27 kB
+Progress (1): 7.3/27 kB
+Progress (1): 10/27 kB 
+Progress (1): 13/27 kB
+Progress (1): 16/27 kB
+Progress (1): 20/27 kB
+Progress (1): 24/27 kB
+Progress (1): 27 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar (27 kB at 103 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom
+Progress (1): 4.1 kB
+Progress (1): 5.6 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom (5.6 kB at 34 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
+Progress (1): 3.8/27 kB
+Progress (1): 7.9/27 kB
+Progress (1): 12/27 kB 
+Progress (1): 16/27 kB
+Progress (1): 20/27 kB
+Progress (1): 24/27 kB
+Progress (1): 27 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar (27 kB at 117 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 21 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom (21 kB at 118 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
+Progress (1): 3.8/124 kB
+Progress (1): 7.9/124 kB
+Progress (1): 12/124 kB 
+Progress (1): 16/124 kB
+Progress (1): 20/124 kB
+Progress (1): 24/124 kB
+Progress (1): 28/124 kB
+Progress (1): 32/124 kB
+Progress (1): 37/124 kB
+Progress (1): 41/124 kB
+Progress (1): 45/124 kB
+Progress (1): 49/124 kB
+Progress (1): 53/124 kB
+Progress (1): 57/124 kB
+Progress (1): 61/124 kB
+Progress (1): 65/124 kB
+Progress (1): 69/124 kB
+Progress (1): 73/124 kB
+Progress (1): 77/124 kB
+Progress (1): 80/124 kB
+Progress (1): 84/124 kB
+Progress (1): 88/124 kB
+Progress (1): 92/124 kB
+Progress (1): 96/124 kB
+Progress (1): 100/124 kB
+Progress (1): 104/124 kB
+Progress (1): 108/124 kB
+Progress (1): 112/124 kB
+Progress (1): 116/124 kB
+Progress (1): 121/124 kB
+Progress (1): 124 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar (124 kB at 248 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom
+Progress (1): 4.1 kB
+Progress (1): 4.7 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom (4.7 kB at 29 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom (12 kB at 71 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/9/maven-parent-9.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 33 kB
+Progress (1): 33 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/9/maven-parent-9.pom (33 kB at 155 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar
+Progress (1): 4.0/24 kB
+Progress (1): 8.1/24 kB
+Progress (1): 12/24 kB 
+Progress (1): 16/24 kB
+Progress (1): 20/24 kB
+Progress (1): 24 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar (24 kB at 101 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 11 kB 
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom (11 kB at 68 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+Progress (1): 4.1/153 kB
+Progress (1): 7.7/153 kB
+Progress (1): 12/153 kB 
+Progress (1): 16/153 kB
+Progress (1): 20/153 kB
+Progress (1): 24/153 kB
+Progress (1): 28/153 kB
+Progress (1): 32/153 kB
+Progress (1): 36/153 kB
+Progress (1): 40/153 kB
+Progress (1): 45/153 kB
+Progress (1): 49/153 kB
+Progress (1): 53/153 kB
+Progress (1): 57/153 kB
+Progress (1): 61/153 kB
+Progress (1): 65/153 kB
+Progress (1): 69/153 kB
+Progress (1): 73/153 kB
+Progress (1): 77/153 kB
+Progress (1): 81/153 kB
+Progress (1): 86/153 kB
+Progress (1): 90/153 kB
+Progress (1): 94/153 kB
+Progress (1): 98/153 kB
+Progress (1): 102/153 kB
+Progress (1): 106/153 kB
+Progress (1): 110/153 kB
+Progress (1): 114/153 kB
+Progress (1): 118/153 kB
+Progress (1): 122/153 kB
+Progress (1): 127/153 kB
+Progress (1): 131/153 kB
+Progress (1): 135/153 kB
+Progress (1): 139/153 kB
+Progress (1): 143/153 kB
+Progress (1): 147/153 kB
+Progress (1): 151/153 kB
+Progress (1): 153 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar (153 kB at 311 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 11 kB 
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.pom (11 kB at 65 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/release/maven-release/2.5.3/maven-release-2.5.3.pom
+Progress (1): 4.1 kB
+Progress (1): 5.0 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/release/maven-release/2.5.3/maven-release-2.5.3.pom (5.0 kB at 32 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/27/maven-parent-27.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 33 kB
+Progress (1): 37 kB
+Progress (1): 41 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/27/maven-parent-27.pom (41 kB at 198 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/17/apache-17.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/17/apache-17.pom (16 kB at 97 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.jar
+Progress (1): 4.0/53 kB
+Progress (1): 8.1/53 kB
+Progress (1): 12/53 kB 
+Progress (1): 16/53 kB
+Progress (1): 20/53 kB
+Progress (1): 24/53 kB
+Progress (1): 29/53 kB
+Progress (1): 33/53 kB
+Progress (1): 37/53 kB
+Progress (1): 41/53 kB
+Progress (1): 45/53 kB
+Progress (1): 49/53 kB
+Progress (1): 53 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.jar (53 kB at 223 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (20 kB at 84 kB/s)
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 14 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 24 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/maven-metadata.xml
+Progress (1): 1.1 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/maven-metadata.xml (1.1 kB at 6.5 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.6.3/exec-maven-plugin-3.6.3.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 16 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.6.3/exec-maven-plugin-3.6.3.pom (16 kB at 94 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/94/mojo-parent-94.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 33 kB
+Progress (1): 37 kB
+Progress (1): 38 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/94/mojo-parent-94.pom (38 kB at 194 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.0/junit-bom-5.14.0.pom
+Progress (1): 4.1 kB
+Progress (1): 5.7 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.0/junit-bom-5.14.0.pom (5.7 kB at 37 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.6.3/exec-maven-plugin-3.6.3.jar
+Progress (1): 2.3/95 kB
+Progress (1): 5.0/95 kB
+Progress (1): 7.7/95 kB
+Progress (1): 10/95 kB 
+Progress (1): 13/95 kB
+Progress (1): 16/95 kB
+Progress (1): 19/95 kB
+Progress (1): 23/95 kB
+Progress (1): 27/95 kB
+Progress (1): 31/95 kB
+Progress (1): 33/95 kB
+Progress (1): 37/95 kB
+Progress (1): 41/95 kB
+Progress (1): 45/95 kB
+Progress (1): 49/95 kB
+Progress (1): 54/95 kB
+Progress (1): 58/95 kB
+Progress (1): 62/95 kB
+Progress (1): 66/95 kB
+Progress (1): 70/95 kB
+Progress (1): 74/95 kB
+Progress (1): 78/95 kB
+Progress (1): 82/95 kB
+Progress (1): 86/95 kB
+Progress (1): 90/95 kB
+Progress (1): 94/95 kB
+Progress (1): 95 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/exec-maven-plugin/3.6.3/exec-maven-plugin-3.6.3.jar (95 kB at 310 kB/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.example:hello-world[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding hello-world 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mhello-world[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mhello-world[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /home/raimondo/agent_test/mavenprj/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mhello-world[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;33mWARNING[m] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[[1;34mINFO[m] Compiling 1 source file to /home/raimondo/agent_test/mavenprj/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mexec-maven-plugin:3.6.3:java[m [1m(default-cli)[m @ [36mhello-world[0;1m ---[m
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.pom
+Progress (1): 2.2 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.pom (2.2 kB at 10 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.9.24/maven-resolver-1.9.24.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.9.24/maven-resolver-1.9.24.pom (25 kB at 134 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/45/maven-parent-45.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 33 kB
+Progress (1): 37 kB
+Progress (1): 41 kB
+Progress (1): 45 kB
+Progress (1): 49 kB
+Progress (1): 53 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/45/maven-parent-45.pom (53 kB at 300 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/35/apache-35.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 24 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/35/apache-35.pom (24 kB at 166 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.1/junit-bom-5.13.1.pom
+Progress (1): 4.1 kB
+Progress (1): 5.6 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.1/junit-bom-5.13.1.pom (5.6 kB at 42 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.pom
+Progress (1): 2.2 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.pom (2.2 kB at 16 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/4.0.2/plexus-utils-4.0.2.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 13 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/4.0.2/plexus-utils-4.0.2.pom (13 kB at 88 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-xml/3.0.1/plexus-xml-3.0.1.pom
+Progress (1): 3.7 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-xml/3.0.1/plexus-xml-3.0.1.pom (3.7 kB at 28 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/18/plexus-18.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 29 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/18/plexus-18.pom (29 kB at 179 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom
+Progress (1): 4.1 kB
+Progress (1): 5.6 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom (5.6 kB at 40 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.6.0/commons-exec-1.6.0.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 11 kB 
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.6.0/commons-exec-1.6.0.pom (11 kB at 71 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/93/commons-parent-93.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 12 kB 
+Progress (1): 16 kB
+Progress (1): 20 kB
+Progress (1): 25 kB
+Progress (1): 29 kB
+Progress (1): 33 kB
+Progress (1): 37 kB
+Progress (1): 41 kB
+Progress (1): 45 kB
+Progress (1): 49 kB
+Progress (1): 53 kB
+Progress (1): 57 kB
+Progress (1): 61 kB
+Progress (1): 66 kB
+Progress (1): 70 kB
+Progress (1): 74 kB
+Progress (1): 78 kB
+Progress (1): 79 kB
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/93/commons-parent-93.pom (79 kB at 400 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.1/junit-bom-5.14.1.pom
+Progress (1): 4.1 kB
+Progress (1): 5.7 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.14.1/junit-bom-5.14.1.pom (5.7 kB at 43 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.9.1/asm-9.9.1.pom
+Progress (1): 2.4 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.9.1/asm-9.9.1.pom (2.4 kB at 17 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5.1/ow2-1.5.1.pom
+Progress (1): 4.1 kB
+Progress (1): 8.2 kB
+Progress (1): 11 kB 
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/ow2/1.5.1/ow2-1.5.1.pom (11 kB at 90 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.9.1/asm-commons-9.9.1.pom
+Progress (1): 2.8 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.9.1/asm-commons-9.9.1.pom (2.8 kB at 20 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.9.1/asm-tree-9.9.1.pom
+Progress (1): 2.6 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.9.1/asm-tree-9.9.1.pom (2.6 kB at 19 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-xml/3.0.1/plexus-xml-3.0.1.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.6.0/commons-exec-1.6.0.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/4.0.2/plexus-utils-4.0.2.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.jar
+Progress (1): 4.0/196 kB
+Progress (1): 8.1/196 kB
+Progress (1): 12/196 kB 
+Progress (1): 16/196 kB
+Progress (1): 20/196 kB
+Progress (2): 20/196 kB | 4.1/69 kB
+Progress (2): 20/196 kB | 7.7/69 kB
+Progress (2): 24/196 kB | 7.7/69 kB
+Progress (2): 24/196 kB | 12/69 kB 
+Progress (2): 24/196 kB | 16/69 kB
+Progress (2): 29/196 kB | 16/69 kB
+Progress (2): 33/196 kB | 16/69 kB
+Progress (2): 33/196 kB | 20/69 kB
+Progress (2): 33/196 kB | 24/69 kB
+Progress (2): 37/196 kB | 24/69 kB
+Progress (2): 41/196 kB | 24/69 kB
+Progress (2): 41/196 kB | 28/69 kB
+Progress (2): 41/196 kB | 32/69 kB
+Progress (2): 41/196 kB | 36/69 kB
+Progress (2): 45/196 kB | 36/69 kB
+Progress (2): 49/196 kB | 36/69 kB
+Progress (2): 49/196 kB | 40/69 kB
+Progress (2): 53/196 kB | 40/69 kB
+Progress (2): 53/196 kB | 45/69 kB
+Progress (2): 53/196 kB | 49/69 kB
+Progress (2): 57/196 kB | 49/69 kB
+Progress (2): 61/196 kB | 49/69 kB
+Progress (2): 61/196 kB | 53/69 kB
+Progress (2): 61/196 kB | 57/69 kB
+Progress (2): 65/196 kB | 57/69 kB
+Progress (2): 70/196 kB | 57/69 kB
+Progress (2): 70/196 kB | 61/69 kB
+Progress (2): 70/196 kB | 65/69 kB
+Progress (2): 70/196 kB | 69/69 kB
+Progress (2): 70/196 kB | 69 kB   
+Progress (2): 74/196 kB | 69 kB
+Progress (2): 78/196 kB | 69 kB
+Progress (2): 82/196 kB | 69 kB
+Progress (2): 86/196 kB | 69 kB
+Progress (3): 86/196 kB | 69 kB | 2.3/94 kB
+Progress (3): 86/196 kB | 69 kB | 5.4/94 kB
+Progress (3): 90/196 kB | 69 kB | 5.4/94 kB
+Progress (3): 94/196 kB | 69 kB | 5.4/94 kB
+Progress (3): 94/196 kB | 69 kB | 8.1/94 kB
+Progress (3): 98/196 kB | 69 kB | 8.1/94 kB
+Progress (3): 102/196 kB | 69 kB | 8.1/94 kB
+                                            
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.6.0/commons-exec-1.6.0.jar (69 kB at 121 kB/s)
+Progress (2): 102/196 kB | 11/94 kB
+Progress (2): 106/196 kB | 11/94 kB
+Progress (2): 106/196 kB | 14/94 kB
+                                   
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.9.1/asm-9.9.1.jar
+Progress (2): 110/196 kB | 14/94 kB
+Progress (2): 115/196 kB | 14/94 kB
+Progress (2): 119/196 kB | 14/94 kB
+Progress (2): 119/196 kB | 16/94 kB
+Progress (3): 119/196 kB | 16/94 kB | 2.3/193 kB
+Progress (3): 119/196 kB | 19/94 kB | 2.3/193 kB
+Progress (3): 119/196 kB | 19/94 kB | 5.0/193 kB
+Progress (3): 119/196 kB | 22/94 kB | 5.0/193 kB
+Progress (3): 123/196 kB | 22/94 kB | 5.0/193 kB
+Progress (3): 127/196 kB | 22/94 kB | 5.0/193 kB
+Progress (3): 127/196 kB | 22/94 kB | 7.7/193 kB
+Progress (3): 127/196 kB | 22/94 kB | 10/193 kB 
+Progress (3): 131/196 kB | 22/94 kB | 10/193 kB
+Progress (3): 131/196 kB | 25/94 kB | 10/193 kB
+Progress (3): 135/196 kB | 25/94 kB | 10/193 kB
+Progress (3): 135/196 kB | 25/94 kB | 13/193 kB
+Progress (3): 135/196 kB | 27/94 kB | 13/193 kB
+Progress (4): 135/196 kB | 27/94 kB | 13/193 kB | 2.7/157 kB
+Progress (4): 135/196 kB | 30/94 kB | 13/193 kB | 2.7/157 kB
+Progress (5): 135/196 kB | 30/94 kB | 13/193 kB | 2.7/157 kB | 4.1/126 kB
+Progress (5): 135/196 kB | 33/94 kB | 13/193 kB | 2.7/157 kB | 4.1/126 kB
+Progress (5): 139/196 kB | 33/94 kB | 13/193 kB | 2.7/157 kB | 4.1/126 kB
+Progress (5): 139/196 kB | 33/94 kB | 13/193 kB | 5.5/157 kB | 4.1/126 kB
+Progress (5): 139/196 kB | 33/94 kB | 15/193 kB | 5.5/157 kB | 4.1/126 kB
+Progress (5): 139/196 kB | 33/94 kB | 15/193 kB | 8.2/157 kB | 4.1/126 kB
+Progress (5): 139/196 kB | 33/94 kB | 18/193 kB | 8.2/157 kB | 4.1/126 kB
+Progress (5): 143/196 kB | 33/94 kB | 18/193 kB | 8.2/157 kB | 4.1/126 kB
+Progress (5): 143/196 kB | 33/94 kB | 21/193 kB | 8.2/157 kB | 4.1/126 kB
+Progress (5): 143/196 kB | 35/94 kB | 21/193 kB | 8.2/157 kB | 4.1/126 kB
+Progress (5): 143/196 kB | 35/94 kB | 21/193 kB | 8.2/157 kB | 7.7/126 kB
+Progress (5): 143/196 kB | 35/94 kB | 24/193 kB | 8.2/157 kB | 7.7/126 kB
+Progress (5): 147/196 kB | 35/94 kB | 24/193 kB | 8.2/157 kB | 7.7/126 kB
+Progress (5): 147/196 kB | 35/94 kB | 24/193 kB | 11/157 kB | 7.7/126 kB 
+Progress (5): 147/196 kB | 35/94 kB | 26/193 kB | 11/157 kB | 7.7/126 kB
+Progress (5): 147/196 kB | 38/94 kB | 26/193 kB | 11/157 kB | 7.7/126 kB
+Progress (5): 147/196 kB | 38/94 kB | 26/193 kB | 11/157 kB | 12/126 kB 
+Progress (5): 147/196 kB | 41/94 kB | 26/193 kB | 11/157 kB | 12/126 kB
+Progress (5): 147/196 kB | 41/94 kB | 29/193 kB | 11/157 kB | 12/126 kB
+Progress (5): 147/196 kB | 41/94 kB | 29/193 kB | 14/157 kB | 12/126 kB
+Progress (5): 151/196 kB | 41/94 kB | 29/193 kB | 14/157 kB | 12/126 kB
+Progress (5): 151/196 kB | 41/94 kB | 29/193 kB | 16/157 kB | 12/126 kB
+Progress (5): 151/196 kB | 41/94 kB | 32/193 kB | 16/157 kB | 12/126 kB
+Progress (5): 151/196 kB | 44/94 kB | 32/193 kB | 16/157 kB | 12/126 kB
+Progress (5): 151/196 kB | 44/94 kB | 32/193 kB | 16/157 kB | 16/126 kB
+Progress (5): 151/196 kB | 44/94 kB | 35/193 kB | 16/157 kB | 16/126 kB
+Progress (5): 151/196 kB | 44/94 kB | 35/193 kB | 19/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 44/94 kB | 35/193 kB | 19/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 44/94 kB | 35/193 kB | 22/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 46/94 kB | 35/193 kB | 22/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 49/94 kB | 35/193 kB | 22/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 49/94 kB | 37/193 kB | 22/157 kB | 16/126 kB
+Progress (5): 156/196 kB | 49/94 kB | 37/193 kB | 22/157 kB | 20/126 kB
+Progress (5): 160/196 kB | 49/94 kB | 37/193 kB | 22/157 kB | 20/126 kB
+Progress (5): 160/196 kB | 52/94 kB | 37/193 kB | 22/157 kB | 20/126 kB
+Progress (5): 160/196 kB | 52/94 kB | 40/193 kB | 22/157 kB | 20/126 kB
+Progress (5): 160/196 kB | 52/94 kB | 40/193 kB | 25/157 kB | 20/126 kB
+Progress (5): 160/196 kB | 52/94 kB | 43/193 kB | 25/157 kB | 20/126 kB
+Progress (5): 164/196 kB | 52/94 kB | 43/193 kB | 25/157 kB | 20/126 kB
+Progress (5): 164/196 kB | 52/94 kB | 43/193 kB | 25/157 kB | 24/126 kB
+Progress (5): 164/196 kB | 52/94 kB | 46/193 kB | 25/157 kB | 24/126 kB
+Progress (5): 164/196 kB | 52/94 kB | 46/193 kB | 27/157 kB | 24/126 kB
+Progress (5): 164/196 kB | 55/94 kB | 46/193 kB | 27/157 kB | 24/126 kB
+Progress (5): 164/196 kB | 55/94 kB | 48/193 kB | 27/157 kB | 24/126 kB
+Progress (5): 168/196 kB | 55/94 kB | 48/193 kB | 27/157 kB | 24/126 kB
+Progress (5): 168/196 kB | 55/94 kB | 48/193 kB | 27/157 kB | 28/126 kB
+Progress (5): 168/196 kB | 59/94 kB | 48/193 kB | 27/157 kB | 28/126 kB
+Progress (5): 168/196 kB | 59/94 kB | 48/193 kB | 30/157 kB | 28/126 kB
+Progress (5): 168/196 kB | 63/94 kB | 48/193 kB | 30/157 kB | 28/126 kB
+Progress (5): 168/196 kB | 63/94 kB | 51/193 kB | 30/157 kB | 28/126 kB
+Progress (5): 168/196 kB | 63/94 kB | 51/193 kB | 30/157 kB | 32/126 kB
+Progress (5): 168/196 kB | 67/94 kB | 51/193 kB | 30/157 kB | 32/126 kB
+Progress (5): 172/196 kB | 67/94 kB | 51/193 kB | 30/157 kB | 32/126 kB
+Progress (5): 172/196 kB | 67/94 kB | 51/193 kB | 33/157 kB | 32/126 kB
+Progress (5): 176/196 kB | 67/94 kB | 51/193 kB | 33/157 kB | 32/126 kB
+Progress (5): 180/196 kB | 67/94 kB | 51/193 kB | 33/157 kB | 32/126 kB
+Progress (5): 184/196 kB | 67/94 kB | 51/193 kB | 33/157 kB | 32/126 kB
+Progress (5): 184/196 kB | 71/94 kB | 51/193 kB | 33/157 kB | 32/126 kB
+Progress (5): 184/196 kB | 71/94 kB | 51/193 kB | 33/157 kB | 36/126 kB
+Progress (5): 184/196 kB | 71/94 kB | 54/193 kB | 33/157 kB | 36/126 kB
+Progress (5): 184/196 kB | 75/94 kB | 54/193 kB | 33/157 kB | 36/126 kB
+Progress (5): 184/196 kB | 75/94 kB | 58/193 kB | 33/157 kB | 36/126 kB
+Progress (5): 184/196 kB | 75/94 kB | 58/193 kB | 33/157 kB | 40/126 kB
+Progress (5): 188/196 kB | 75/94 kB | 58/193 kB | 33/157 kB | 40/126 kB
+Progress (5): 188/196 kB | 75/94 kB | 58/193 kB | 36/157 kB | 40/126 kB
+Progress (5): 192/196 kB | 75/94 kB | 58/193 kB | 36/157 kB | 40/126 kB
+Progress (5): 192/196 kB | 75/94 kB | 58/193 kB | 36/157 kB | 45/126 kB
+Progress (5): 192/196 kB | 75/94 kB | 58/193 kB | 36/157 kB | 49/126 kB
+Progress (5): 192/196 kB | 75/94 kB | 62/193 kB | 36/157 kB | 49/126 kB
+Progress (5): 192/196 kB | 79/94 kB | 62/193 kB | 36/157 kB | 49/126 kB
+Progress (5): 192/196 kB | 79/94 kB | 66/193 kB | 36/157 kB | 49/126 kB
+Progress (5): 196 kB | 79/94 kB | 66/193 kB | 36/157 kB | 49/126 kB    
+Progress (5): 196 kB | 79/94 kB | 66/193 kB | 38/157 kB | 49/126 kB
+Progress (5): 196 kB | 79/94 kB | 70/193 kB | 38/157 kB | 49/126 kB
+Progress (5): 196 kB | 79/94 kB | 70/193 kB | 41/157 kB | 49/126 kB
+Progress (5): 196 kB | 79/94 kB | 70/193 kB | 41/157 kB | 53/126 kB
+Progress (5): 196 kB | 83/94 kB | 70/193 kB | 41/157 kB | 53/126 kB
+Progress (5): 196 kB | 83/94 kB | 70/193 kB | 41/157 kB | 57/126 kB
+Progress (5): 196 kB | 83/94 kB | 70/193 kB | 44/157 kB | 57/126 kB
+Progress (5): 196 kB | 83/94 kB | 74/193 kB | 44/157 kB | 57/126 kB
+Progress (5): 196 kB | 83/94 kB | 74/193 kB | 44/157 kB | 61/126 kB
+Progress (5): 196 kB | 87/94 kB | 74/193 kB | 44/157 kB | 61/126 kB
+Progress (5): 196 kB | 92/94 kB | 74/193 kB | 44/157 kB | 61/126 kB
+Progress (5): 196 kB | 92/94 kB | 74/193 kB | 44/157 kB | 65/126 kB
+Progress (5): 196 kB | 92/94 kB | 78/193 kB | 44/157 kB | 65/126 kB
+Progress (5): 196 kB | 92/94 kB | 78/193 kB | 47/157 kB | 65/126 kB
+Progress (5): 196 kB | 94 kB | 78/193 kB | 47/157 kB | 65/126 kB   
+Progress (5): 196 kB | 94 kB | 78/193 kB | 49/157 kB | 65/126 kB
+                                                                
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.jar (196 kB at 145 kB/s)
+Progress (4): 94 kB | 81/193 kB | 49/157 kB | 65/126 kB
+Progress (4): 94 kB | 81/193 kB | 52/157 kB | 65/126 kB
+Progress (4): 94 kB | 81/193 kB | 52/157 kB | 69/126 kB
+Progress (4): 94 kB | 81/193 kB | 52/157 kB | 73/126 kB
+Progress (4): 94 kB | 85/193 kB | 52/157 kB | 73/126 kB
+                                                       
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.9.1/asm-commons-9.9.1.jar
+Progress (4): 94 kB | 85/193 kB | 52/157 kB | 77/126 kB
+Progress (4): 94 kB | 85/193 kB | 52/157 kB | 81/126 kB
+Progress (4): 94 kB | 85/193 kB | 55/157 kB | 81/126 kB
+Progress (4): 94 kB | 89/193 kB | 55/157 kB | 81/126 kB
+                                                       
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-xml/3.0.1/plexus-xml-3.0.1.jar (94 kB at 64 kB/s)
+Progress (3): 93/193 kB | 55/157 kB | 81/126 kB
+Progress (3): 93/193 kB | 55/157 kB | 86/126 kB
+Progress (3): 93/193 kB | 59/157 kB | 86/126 kB
+Progress (3): 93/193 kB | 59/157 kB | 90/126 kB
+Progress (3): 97/193 kB | 59/157 kB | 90/126 kB
+Progress (3): 97/193 kB | 63/157 kB | 90/126 kB
+                                               
+Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.9.1/asm-tree-9.9.1.jar
+Progress (3): 101/193 kB | 63/157 kB | 90/126 kB
+Progress (3): 101/193 kB | 67/157 kB | 90/126 kB
+Progress (3): 101/193 kB | 67/157 kB | 94/126 kB
+Progress (3): 101/193 kB | 67/157 kB | 98/126 kB
+Progress (3): 105/193 kB | 67/157 kB | 98/126 kB
+Progress (3): 105/193 kB | 71/157 kB | 98/126 kB
+Progress (4): 105/193 kB | 71/157 kB | 98/126 kB | 3.8/75 kB
+Progress (4): 109/193 kB | 71/157 kB | 98/126 kB | 3.8/75 kB
+Progress (4): 113/193 kB | 71/157 kB | 98/126 kB | 3.8/75 kB
+Progress (4): 113/193 kB | 71/157 kB | 102/126 kB | 3.8/75 kB
+Progress (4): 113/193 kB | 75/157 kB | 102/126 kB | 3.8/75 kB
+Progress (4): 113/193 kB | 75/157 kB | 106/126 kB | 3.8/75 kB
+Progress (4): 113/193 kB | 75/157 kB | 106/126 kB | 7.9/75 kB
+Progress (4): 117/193 kB | 75/157 kB | 106/126 kB | 7.9/75 kB
+Progress (4): 117/193 kB | 79/157 kB | 106/126 kB | 7.9/75 kB
+Progress (4): 122/193 kB | 79/157 kB | 106/126 kB | 7.9/75 kB
+Progress (4): 122/193 kB | 83/157 kB | 106/126 kB | 7.9/75 kB
+Progress (4): 122/193 kB | 83/157 kB | 110/126 kB | 7.9/75 kB
+Progress (5): 122/193 kB | 83/157 kB | 110/126 kB | 7.9/75 kB | 4.1/52 kB
+Progress (5): 122/193 kB | 83/157 kB | 114/126 kB | 7.9/75 kB | 4.1/52 kB
+Progress (5): 126/193 kB | 83/157 kB | 114/126 kB | 7.9/75 kB | 4.1/52 kB
+Progress (5): 126/193 kB | 83/157 kB | 114/126 kB | 11/75 kB | 4.1/52 kB 
+Progress (5): 130/193 kB | 83/157 kB | 114/126 kB | 11/75 kB | 4.1/52 kB
+Progress (5): 130/193 kB | 87/157 kB | 114/126 kB | 11/75 kB | 4.1/52 kB
+Progress (5): 134/193 kB | 87/157 kB | 114/126 kB | 11/75 kB | 4.1/52 kB
+Progress (5): 134/193 kB | 87/157 kB | 114/126 kB | 11/75 kB | 7.7/52 kB
+Progress (5): 134/193 kB | 91/157 kB | 114/126 kB | 11/75 kB | 7.7/52 kB
+Progress (5): 134/193 kB | 91/157 kB | 118/126 kB | 11/75 kB | 7.7/52 kB
+Progress (5): 134/193 kB | 91/157 kB | 122/126 kB | 11/75 kB | 7.7/52 kB
+Progress (5): 134/193 kB | 91/157 kB | 122/126 kB | 15/75 kB | 7.7/52 kB
+Progress (5): 134/193 kB | 91/157 kB | 126 kB | 15/75 kB | 7.7/52 kB    
+Progress (5): 134/193 kB | 96/157 kB | 126 kB | 15/75 kB | 7.7/52 kB
+Progress (5): 138/193 kB | 96/157 kB | 126 kB | 15/75 kB | 7.7/52 kB
+Progress (5): 138/193 kB | 96/157 kB | 126 kB | 15/75 kB | 12/52 kB 
+Progress (5): 138/193 kB | 100/157 kB | 126 kB | 15/75 kB | 12/52 kB
+Progress (5): 138/193 kB | 100/157 kB | 126 kB | 20/75 kB | 12/52 kB
+Progress (5): 138/193 kB | 100/157 kB | 126 kB | 20/75 kB | 16/52 kB
+Progress (5): 138/193 kB | 100/157 kB | 126 kB | 24/75 kB | 16/52 kB
+Progress (5): 142/193 kB | 100/157 kB | 126 kB | 24/75 kB | 16/52 kB
+Progress (5): 142/193 kB | 100/157 kB | 126 kB | 28/75 kB | 16/52 kB
+Progress (5): 142/193 kB | 100/157 kB | 126 kB | 28/75 kB | 20/52 kB
+Progress (5): 142/193 kB | 104/157 kB | 126 kB | 28/75 kB | 20/52 kB
+Progress (5): 142/193 kB | 104/157 kB | 126 kB | 32/75 kB | 20/52 kB
+Progress (5): 142/193 kB | 108/157 kB | 126 kB | 32/75 kB | 20/52 kB
+Progress (5): 142/193 kB | 108/157 kB | 126 kB | 36/75 kB | 20/52 kB
+Progress (5): 142/193 kB | 108/157 kB | 126 kB | 36/75 kB | 24/52 kB
+Progress (5): 142/193 kB | 108/157 kB | 126 kB | 40/75 kB | 24/52 kB
+Progress (5): 146/193 kB | 108/157 kB | 126 kB | 40/75 kB | 24/52 kB
+                                                                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.9.1/asm-9.9.1.jar (126 kB at 69 kB/s)
+Progress (4): 146/193 kB | 108/157 kB | 44/75 kB | 24/52 kB
+Progress (4): 146/193 kB | 112/157 kB | 44/75 kB | 24/52 kB
+Progress (4): 146/193 kB | 112/157 kB | 48/75 kB | 24/52 kB
+Progress (4): 146/193 kB | 116/157 kB | 48/75 kB | 24/52 kB
+Progress (4): 150/193 kB | 116/157 kB | 48/75 kB | 24/52 kB
+Progress (4): 150/193 kB | 120/157 kB | 48/75 kB | 24/52 kB
+Progress (4): 150/193 kB | 120/157 kB | 52/75 kB | 24/52 kB
+Progress (4): 150/193 kB | 122/157 kB | 52/75 kB | 24/52 kB
+Progress (4): 150/193 kB | 122/157 kB | 52/75 kB | 28/52 kB
+Progress (4): 150/193 kB | 122/157 kB | 52/75 kB | 32/52 kB
+Progress (4): 150/193 kB | 122/157 kB | 56/75 kB | 32/52 kB
+Progress (4): 154/193 kB | 122/157 kB | 56/75 kB | 32/52 kB
+Progress (4): 154/193 kB | 122/157 kB | 56/75 kB | 36/52 kB
+Progress (4): 154/193 kB | 126/157 kB | 56/75 kB | 36/52 kB
+Progress (4): 154/193 kB | 126/157 kB | 56/75 kB | 40/52 kB
+Progress (4): 154/193 kB | 126/157 kB | 61/75 kB | 40/52 kB
+Progress (4): 158/193 kB | 126/157 kB | 61/75 kB | 40/52 kB
+Progress (4): 158/193 kB | 126/157 kB | 65/75 kB | 40/52 kB
+Progress (4): 158/193 kB | 126/157 kB | 65/75 kB | 45/52 kB
+Progress (4): 158/193 kB | 130/157 kB | 65/75 kB | 45/52 kB
+Progress (4): 158/193 kB | 130/157 kB | 69/75 kB | 45/52 kB
+Progress (4): 158/193 kB | 130/157 kB | 69/75 kB | 49/52 kB
+Progress (4): 162/193 kB | 130/157 kB | 69/75 kB | 49/52 kB
+Progress (4): 162/193 kB | 130/157 kB | 69/75 kB | 52 kB   
+Progress (4): 162/193 kB | 130/157 kB | 73/75 kB | 52 kB
+Progress (4): 162/193 kB | 135/157 kB | 73/75 kB | 52 kB
+Progress (4): 167/193 kB | 135/157 kB | 73/75 kB | 52 kB
+Progress (4): 167/193 kB | 135/157 kB | 75 kB | 52 kB   
+Progress (4): 167/193 kB | 139/157 kB | 75 kB | 52 kB
+Progress (4): 171/193 kB | 139/157 kB | 75 kB | 52 kB
+Progress (4): 171/193 kB | 143/157 kB | 75 kB | 52 kB
+Progress (4): 175/193 kB | 143/157 kB | 75 kB | 52 kB
+Progress (4): 175/193 kB | 147/157 kB | 75 kB | 52 kB
+Progress (4): 179/193 kB | 147/157 kB | 75 kB | 52 kB
+Progress (4): 179/193 kB | 151/157 kB | 75 kB | 52 kB
+                                                     
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.9.1/asm-tree-9.9.1.jar (52 kB at 25 kB/s)
+Progress (3): 183/193 kB | 151/157 kB | 75 kB
+Progress (3): 183/193 kB | 155/157 kB | 75 kB
+Progress (3): 187/193 kB | 155/157 kB | 75 kB
+Progress (3): 187/193 kB | 157 kB | 75 kB    
+Progress (3): 191/193 kB | 157 kB | 75 kB
+                                         
+Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.9.1/asm-commons-9.9.1.jar (75 kB at 35 kB/s)
+Progress (2): 193 kB | 157 kB
+                             
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.jar (157 kB at 71 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/4.0.2/plexus-utils-4.0.2.jar (193 kB at 47 kB/s)
+Hello World!
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  42.980 s
+[[1;34mINFO[m] Finished at: 2025-12-23T13:29:30+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+
+It looks like you've shared a **Maven build log** output, which includes:
+
+- Downloading dependencies (like `asm`, `asm-tree`, `asm-commons`, `maven-resolver-api`, `plexus-utils`, etc.)
+- A successful build completion message:  
+  ```
+  [INFO] BUILD SUCCESS
+  ```
+
+And finally, a simple "Hello World!" printed to the console — likely from a Java program or a Maven plugin that prints this string.
+
+---
+
+### Breakdown of What Happened
+
+1. **Dependency Resolution:**
+   - Maven downloaded several JAR files from the central repository (`repo.maven.apache.org`).
+   - These include:
+     - ASM libraries (`asm`, `asm-tree`, `asm-commons`) — used for bytecode manipulation.
+     - `maven-resolver-api` — part of Maven's dependency resolution system.
+     - `plexus-utils` — utility classes used by Maven and plugins.
+
+2. **Build Process:**
+   - The build was successful (`BUILD SUCCESS`).
+   - It took around **42.980 seconds**.
+
+3. **Output:**
+   - You see a final `Hello World!` — possibly from a main class or a custom Maven plugin.
+
+---
+
+### Example Use Case
+
+If this is a standard Maven project, your `pom.xml` might look something like:
+
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>HelloWorld</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>9.9.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>HelloWorld</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
+And the `HelloWorld.java` could be:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+---
+
+### Summary
+
+You've successfully built a Maven project that:
+- Resolved and downloaded required dependencies.
+- Compiled and executed a basic Java program printing `"Hello World!"`.
+- Finished with a clean success message.
+
+Let me know if you'd like help analyzing the `pom.xml`, troubleshooting issues, or improving the build!
+
+[COMMAND] ✅ Success detected on attempt 2. Continuing...
+
+
+[VERIFY] ▶️ Executing: in the remote host eraigra-rpi username raimondo verify if the maven project in the folder ~/agent_test/mavenprj has been built correctly. Don't split the commands and do all requested in a single command line.
+
+[VERIFY] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''cd ~/agent_test/mavenprj && mvn clean compile && echo "Build completed successfully" || echo "Build failed"'' executed successfully on remote host.
+Output: [[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.example:hello-world[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding hello-world 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mhello-world[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/raimondo/agent_test/mavenprj/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mhello-world[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /home/raimondo/agent_test/mavenprj/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mhello-world[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;33mWARNING[m] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[[1;34mINFO[m] Compiling 1 source file to /home/raimondo/agent_test/mavenprj/target/classes
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  14.414 s
+[[1;34mINFO[m] Finished at: 2025-12-23T13:32:28+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Build completed successfully
+
+
+
+[VERIFY] ✅ Success detected on attempt 1. Continuing...
+
+
+[POST-EXECUTION] ▶️ Executing: in the remote host eraigra-rpi username raimondo remove if present the folder ~/agent_test/mavenprj.
+
+[POST-EXECUTION] Attempt 1 Result:
+Agent Outcome
+
+Status: SUCCESS
+Message: The command ''rm -rf ~/agent_test/mavenprj'' executed successfully on remote host.
+Output: 
+
+
+
+[POST-EXECUTION] ✅ Success detected on attempt 1. Continuing...
+
+
+✅ All stages completed successfully!
+

@@ -1,0 +1,5 @@
+TASKNAME=Check remote server health.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.3.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo check the server health and log the outcome into the file ~/agent_test/test4.3.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if exists the file ~/agent_test/test4.3.log and provide the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test4.3.log. Don't split the commands and do all requested in a single command line.

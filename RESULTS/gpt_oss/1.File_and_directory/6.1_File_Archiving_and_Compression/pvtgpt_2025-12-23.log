@@ -1,0 +1,201 @@
+poetry run python -m private_gpt
+12:54:58.462 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+12:55:02.761 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+12:55:02.825 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:55:02.826 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:55:03.725 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+12:55:03.880 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:55:03.882 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+12:55:03.883 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+12:55:04.775 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+12:55:04.815 [INFO    ]             uvicorn.error - Started server process [3159647]
+12:55:04.815 [INFO    ]             uvicorn.error - Waiting for application startup.
+12:55:04.816 [INFO    ]             uvicorn.error - Application startup complete.
+12:55:04.816 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+12:55:38.296 [INFO    ]            uvicorn.access - 127.0.0.1:49236 - "GET /config HTTP/1.1" 200
+12:55:38.351 [INFO    ]            uvicorn.access - 127.0.0.1:49246 - "GET /info?serialize=False HTTP/1.1" 200
+12:55:38.443 [INFO    ]            uvicorn.access - 127.0.0.1:49248 - "GET /heartbeat/1805f233-a733-437f-85e3-fe6bceb3db7a HTTP/1.1" 200
+12:55:38.447 [INFO    ]            uvicorn.access - 127.0.0.1:49256 - "POST /queue/join HTTP/1.1" 200
+12:55:38.502 [INFO    ]            uvicorn.access - 127.0.0.1:49258 - "GET /queue/data?session_hash=1805f233-a733-437f-85e3-fe6bceb3db7a HTTP/1.1" 200
+12:56:03.085 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:56:45.881 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi find ~/agent_test -type f -name "*.txt" -delete; touch ~/agent_test/test6.1.txt
+[AGENT] ✅ Remote command executed successfully: find ~/agent_test -type f -name "*.txt" -delete; touch ~/agent_test/test6.1.txt
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'find ~/agent_test 
+-type f -name "*.txt" -delete; touch ~/agent_test/test6.1.txt\'\' executed 
+successfully on remote host.', 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:56:45.880645093Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'find ~/agent_test -type f -name "*.txt" -delete; touch 
+~/agent_test/test6.1.txt\'\' executed successfully on remote host.\nOutput: 
+\n\n',
+        'thinking': 'The tool responded with status success and message 
+indicating command executed successfully. But the user request was to run on 
+remote host eraigra-rpi username raimondo. The assistant apparently executed 
+command but not specifying host, user, port. In the tool specification, we need 
+to pass host, user, command etc. The assistant incorrectly returned a message 
+from the tool but didn\'t specify host and user. The system expects a remote 
+command executed. But we see the tool\'s output: it says "The command \'... 
+executed successfully on remote host." But we didn\'t provide host. The tool 
+likely defaulted? It\'s unclear. We should correct: We need to call the function
+properly with host=eraigra-rpi, user=raimondo, command to find .txt files and 
+delete, then touch file. And we can combine into one command: find ~/agent_test 
+-type f -name "*.txt" -delete; touch ~/agent_test/test6.1.txt. The host and user
+provided. Also port default 22. We need to call the function.',
+        'tool_calls': [
+            {
+                'function': {
+                    'index': 0,
+                    'name': 'execute_remote_command',
+                    'arguments': {
+                        'command': 'find ~/agent_test -type f -name "*.txt" 
+-delete; touch ~/agent_test/test6.1.txt',
+                        'host': 'eraigra-rpi',
+                        'port': 22,
+                        'user': 'raimondo'
+                    }
+                }
+            }
+        ]
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 37693211179,
+    'load_duration': 284127942,
+    'prompt_eval_count': 412,
+    'prompt_eval_duration': 1230337394,
+    'eval_count': 281,
+    'eval_duration': 35902520556
+}
+12:56:45.994 [INFO    ]            uvicorn.access - 127.0.0.1:53174 - "POST /queue/join HTTP/1.1" 200
+12:56:46.049 [INFO    ]            uvicorn.access - 127.0.0.1:53186 - "GET /queue/data?session_hash=1805f233-a733-437f-85e3-fe6bceb3db7a HTTP/1.1" 200
+12:57:24.604 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:58:05.986 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi cd ~/agent_test && zip test6.1.zip *.txt && unzip test6.1.zip -d /tmp
+[AGENT] ✅ Remote command executed successfully: cd ~/agent_test && zip test6.1.zip *.txt && unzip test6.1.zip -d /tmp
+[AGENT] ✅:{'status': 'success', 'message': "The command ''cd ~/agent_test && 
+zip test6.1.zip *.txt && unzip test6.1.zip -d /tmp'' executed successfully on 
+remote host.", 'output': 'adding: test6.1.txt (stored 0%)\nArchive:  
+test6.1.zip\n extracting: /tmp/test6.1.txt'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:58:05.986332119Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''cd 
+~/agent_test && zip test6.1.zip *.txt && unzip test6.1.zip -d /tmp'' executed 
+successfully on remote host.\nOutput: adding: test6.1.txt (stored 0%)\nArchive: 
+test6.1.zip\n extracting: /tmp/test6.1.txt\n\nThe command was executed 
+successfully.  \nAll `*.txt` files from `~/agent_test` were zipped into 
+`test6.1.zip`, and the archive was extracted to `/tmp`.  \nYou can verify the 
+result with:\n\n```bash\n# List the zip file\nls -l 
+~/agent_test/test6.1.zip\n\n# List extracted files\nls -l 
+/tmp/test6.1.txt\n```\n\nLet me know if you need anything else!",
+        'thinking': 'We need to produce the next answer. The user did not ask a 
+question, but wants to know? Wait, the last user message: "in the remote host 
+eraigra-rpi username raimondo create a zip file name test6.1.zip containing all 
+.txt files contained in the folder ~/agent_test and after that extract it under 
+/tmp folder. Don\'t split the commands and do all requested in a single command 
+line."\n\nWe already executed that. There\'s no explicit question. Perhaps they 
+want confirmation? Or might want to check that file exists? We can respond with 
+a confirmation that the command executed and provide status, maybe show content 
+of /tmp/test6.1.txt. But we cannot run commands to display. We can show the 
+output returned earlier. Let\'s give confirmation.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 36134146805,
+    'load_duration': 287893984,
+    'prompt_eval_count': 731,
+    'prompt_eval_duration': 256702885,
+    'eval_count': 95,
+    'eval_duration': 12073638213
+}
+12:58:06.108 [INFO    ]            uvicorn.access - 127.0.0.1:42336 - "POST /queue/join HTTP/1.1" 200
+12:58:06.163 [INFO    ]            uvicorn.access - 127.0.0.1:42346 - "GET /queue/data?session_hash=1805f233-a733-437f-85e3-fe6bceb3db7a HTTP/1.1" 200
+12:58:38.298 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:59:02.259 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi if [ -f ~/agent_test/test6.1.zip ]; then echo "zip exists"; else echo "zip missing"; fi && if [ -f /tmp/test6.1.txt ]; then echo "tmp file exists"; else echo "tmp file missing"; fi
+[AGENT] ✅ Remote command executed successfully: if [ -f ~/agent_test/test6.1.zip ]; then echo "zip exists"; else echo "zip missing"; fi && if [ -f /tmp/test6.1.txt ]; then echo "tmp file exists"; else echo "tmp file missing"; fi
+[AGENT] ✅:{'status': 'success', 'message': 'The command \'\'if [ -f 
+~/agent_test/test6.1.zip ]; then echo "zip exists"; else echo "zip missing"; fi 
+&& if [ -f /tmp/test6.1.txt ]; then echo "tmp file exists"; else echo "tmp file 
+missing"; fi\'\' executed successfully on remote host.', 'output': 'zip 
+exists\ntmp file exists'}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:59:02.259404023Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: SUCCESS\nMessage: The command 
+\'\'if [ -f ~/agent_test/test6.1.zip ]; then echo "zip exists"; else echo "zip 
+missing"; fi && if [ -f /tmp/test6.1.txt ]; then echo "tmp file exists"; else 
+echo "tmp file missing"; fi\'\' executed successfully on remote host.\nOutput: 
+zip exists\ntmp file exists\n\nBoth files are present:\n\n- 
+`~/agent_test/test6.1.zip` – **exists**\n- `/tmp/test6.1.txt` – 
+**exists**\n\nLet me know if you need anything else!',
+        'thinking': 'The user asked to check if the test6.1.zip exists in 
+~/agent_test and check if the file test6.1.txt under /tmp folder. The assistant 
+executed a command that printed "zip exists" and "tmp file exists". That answers
+the question. The assistant should respond confirming that both exist, maybe 
+mention the output. No further action needed.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 18784131767,
+    'load_duration': 292561625,
+    'prompt_eval_count': 889,
+    'prompt_eval_duration': 257073292,
+    'eval_count': 43,
+    'eval_duration': 5399077843
+}
+12:59:02.339 [INFO    ]            uvicorn.access - 127.0.0.1:39394 - "POST /queue/join HTTP/1.1" 200
+12:59:02.394 [INFO    ]            uvicorn.access - 127.0.0.1:39398 - "GET /queue/data?session_hash=1805f233-a733-437f-85e3-fe6bceb3db7a HTTP/1.1" 200
+12:59:19.363 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:59:38.714 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] Executing SSH Command:
+ssh -p 22 -o ConnectTimeout=65 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no raimondo@eraigra-rpi rm ~/agent_test/*.txt /tmp/test6.1.txt
+[AGENT] ✅ Remote command executed successfully: rm ~/agent_test/*.txt /tmp/test6.1.txt
+[AGENT] ✅:{'status': 'success', 'message': "The command ''rm ~/agent_test/*.txt
+/tmp/test6.1.txt'' executed successfully on remote host.", 'output': ''}
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-23T12:59:38.714203824Z',
+    'message': {
+        'role': 'assistant',
+        'content': "Agent Outcome\n\nStatus: SUCCESS\nMessage: The command ''rm 
+~/agent_test/*.txt /tmp/test6.1.txt'' executed successfully on remote 
+host.\nOutput: \n\nAll `.txt` files in `~/agent_test` and the file 
+`/tmp/test6.1.txt` have been deleted successfully. If you need to verify or 
+perform any other actions, just let me know!",
+        'thinking': "The user wants to remove all .txt files in the folder 
+~/agent_test and also remove the file /tmp/test6.1.txt in the same command line.
+We executed `rm ~/agent_test/*.txt /tmp/test6.1.txt` and it succeeded. We should
+confirm that files are removed. Provide a confirmation. Let's respond 
+accordingly."
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 17802646808,
+    'load_duration': 285583501,
+    'prompt_eval_count': 1023,
+    'prompt_eval_duration': 133665465,
+    'eval_count': 44,
+    'eval_duration': 5531599067
+}
+12:59:38.876 [INFO    ]             uvicorn.error - Shutting down
+12:59:38.975 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+12:59:38.975 [INFO    ]             uvicorn.error - Application shutdown complete.
+12:59:38.975 [INFO    ]             uvicorn.error - Finished server process [3159647]
+make: *** [Makefile:36: run] Terminated

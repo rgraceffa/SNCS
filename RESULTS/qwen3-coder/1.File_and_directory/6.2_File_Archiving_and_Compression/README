@@ -1,0 +1,5 @@
+TASKNAME=Create a .tar.gz file excluding .log files and extract it later. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .log files if present in the folder ~/agent_test and then create in the same folder an empty file test6.2.log using the same command line
+TASKCOMMAND=please create file ~/agent_test/test6.2_logs.tar.gz containing all .log files contained in the ~/agent_test folder of the remote host eraigra-rpi username raimondo and estract immediately it under /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the test6.2_logs.tar.gz exists in the folder ~/agent_test and check if the file test6.2.log exists under the /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .log and tar.gz files in the folder ~/agent_test and the file /tmp/test6.2.log in the same command line. Don't split the commands and do all requested in a single command line.

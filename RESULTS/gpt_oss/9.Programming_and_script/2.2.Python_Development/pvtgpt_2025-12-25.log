@@ -1,0 +1,100 @@
+poetry run python -m private_gpt
+18:58:51.155 [INFO    ] private_gpt.settings.settings_loader - Starting application with profiles=['default', 'ollama']
+18:58:55.437 [INFO    ] private_gpt.components.llm.llm_component - Initializing the LLM in mode=ollama
+18:58:55.500 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:58:55.502 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:58:56.381 [INFO    ] private_gpt.components.embedding.embedding_component - Initializing the embedding model in mode=ollama
+18:58:56.535 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:58:56.536 [INFO    ]                     httpx - HTTP Request: GET http://0.0.0.0:11434/api/tags "HTTP/1.1 200 OK"
+18:58:56.538 [INFO    ] llama_index.core.indices.loading - Loading all indices.
+18:58:57.426 [INFO    ]         private_gpt.ui.ui - Mounting the gradio UI, at path=/
+18:58:57.467 [INFO    ]             uvicorn.error - Started server process [168149]
+18:58:57.467 [INFO    ]             uvicorn.error - Waiting for application startup.
+18:58:57.467 [INFO    ]             uvicorn.error - Application startup complete.
+18:58:57.468 [INFO    ]             uvicorn.error - Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+18:59:30.977 [INFO    ]            uvicorn.access - 127.0.0.1:37576 - "GET /config HTTP/1.1" 200
+18:59:31.033 [INFO    ]            uvicorn.access - 127.0.0.1:37582 - "GET /info?serialize=False HTTP/1.1" 200
+18:59:31.107 [INFO    ]            uvicorn.access - 127.0.0.1:37604 - "POST /queue/join HTTP/1.1" 200
+18:59:31.107 [INFO    ]            uvicorn.access - 127.0.0.1:37596 - "GET /heartbeat/bba34f26-d68d-45c2-936a-ea32f448e492 HTTP/1.1" 200
+18:59:31.162 [INFO    ]            uvicorn.access - 127.0.0.1:37616 - "GET /queue/data?session_hash=bba34f26-d68d-45c2-936a-ea32f448e492 HTTP/1.1" 200
+19:01:35.565 [INFO    ]                     httpx - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+[AGENT] ❌: agent not called
+[LLM] ✅ : below the LLM response
+{
+    'model': 'gpt-oss',
+    'created_at': '2025-12-25T19:01:35.564693101Z',
+    'message': {
+        'role': 'assistant',
+        'content': 'Agent Outcome\n\nStatus: UNKNOWN\nMessage: Unable to parse 
+user input and detect the right agent\nOutput: No output detected\n\nHere’s the 
+single‑line command you can run locally to create the requested Python script on
+the remote host:\n\n```bash\nssh raimondo@eraigra-rpi \'mkdir -p ~/agent_test &&
+echo -e "import paramiko\\nclient = 
+paramiko.SSHClient()\\nclient.set_missing_host_key_policy(paramiko.AutoAddPolicy
+())\\nclient.connect(hostname=\\"localhost\\", username=\\"raimondo\\", 
+password=\\"\\")\\nstdin, stdout, stderr = client.exec_command(\\"ls 
+-la\\")\\nprint(stdout.read().decode())\\nclient.close()" > 
+~/agent_test/test2.2.py\'\n```\n\n**What this does**\n\n1. Connects to 
+`eraigra-rpi` as user `raimondo` via SSH.  \n2. Ensures the directory 
+`~/agent_test` exists.  \n3. Uses `echo -e` to write the entire Python script 
+(with newline characters) to `~/agent_test/test2.2.py` in a single command line.
+\n\nThe script uses `paramiko` to SSH into `localhost` (or any other target you 
+change `hostname` to) and prints a listing of all files. Replace `password=""` 
+with the actual password or use key‑based authentication as needed.',
+        'thinking': 'We need to execute a remote command on host eraigra-rpi, 
+user raimondo, that creates a file at ~/agent_test/test2.2.py. The file should 
+contain Python code that uses paramiko to connect to one node and list all 
+files. All requested in a single command line. We must not split commands. 
+We\'ll run a single ssh command that echos the python code into the file.\n\nWe 
+need to decide which node to connect to. The question says "connect to one node 
+and list all files". Probably connect to localhost or a specific host? We can 
+pick "localhost" as node.\n\nThe python code:\n\nimport paramiko\nclient = 
+paramiko.SSHClient()\nclient.set_missing_host_key_policy(paramiko.AutoAddPolicy(
+))\nclient.connect(hostname=\'localhost\', username=\'your_user\', 
+password=\'your_password\')\nstdin, stdout, stderr = client.exec_command(\'ls 
+-la\')\nprint(stdout.read().decode())\nclient.close()\n\nBut we need to hardcode
+the credentials? Perhaps use the current user and no password? Might be 
+complicated. But maybe we can connect via SSH agent or no password. Simpler: 
+connect to "localhost" using SSH key. But the script could just attempt to 
+connect to \'localhost\' with username \'raimondo\' and use SSH 
+keys.\n\nHowever, for demonstration, we can just put placeholder 
+values.\n\nThus, we will create a script that includes placeholder for username 
+and password.\n\nWe will echo the content using a single line, maybe with cat <<
+EOF >.\n\nBut we need to avoid splitting commands. We can use echo with newline 
+escape sequences. We must redirect to file. We can use bash single-line command:
+echo -e "line1\\nline2\\n..." > ~/agent_test/test2.2.py\n\nBut quoting may be 
+complex. We\'ll create a single command using bash.\n\nLet\'s propose: ssh 
+raimondo@eraigra-rpi \'mkdir -p ~/agent_test && cat > ~/agent_test/test2.2.py 
+<<\\\'EOF\\\'\\nimport paramiko\\nclient = 
+paramiko.SSHClient()\\nclient.set_missing_host_key_policy(paramiko.AutoAddPolicy
+())\\nclient.connect(hostname="localhost", username="raimondo", 
+password="")\\nstdin, stdout, stderr = client.exec_command("ls 
+-la")\\nprint(stdout.read().decode())\\nclient.close()\\nEOF\' \n\nBut this uses
+multiline command with EOF. The instruction says "Don\'t split the commands and 
+do all requested in a single command line." It may allow multiline? It\'s 
+ambiguous. I\'d use a single line command but we can use \\n for 
+newlines.\n\nSimplest: echo -e "import paramiko\\nclient = 
+paramiko.SSHClient()\\n..." > file\n\nThus we need to provide the remote 
+command.\n\nWe will create a remote command string: \'mkdir -p ~/agent_test && 
+echo -e "import paramiko\\nclient = 
+paramiko.SSHClient()\\nclient.set_missing_host_key_policy(paramiko.AutoAddPolicy
+())\\nclient.connect(hostname=\\"localhost\\", username=\\"raimondo\\", 
+password=\\"\\")\\nstdin, stdout, stderr = client.exec_command(\\"ls 
+-la\\")\\nprint(stdout.read().decode())\\nclient.close()" > 
+~/agent_test/test2.2.py\'\n\nThat\'s a single line.\n\nLet\'s produce final 
+answer.'
+    },
+    'done': True,
+    'done_reason': 'stop',
+    'total_duration': 124433515633,
+    'load_duration': 297829621,
+    'prompt_eval_count': 1054,
+    'prompt_eval_duration': 257260189,
+    'eval_count': 262,
+    'eval_duration': 33569285089
+}
+19:01:35.712 [INFO    ]             uvicorn.error - Shutting down
+19:01:35.811 [INFO    ]             uvicorn.error - Waiting for application shutdown.
+19:01:35.812 [INFO    ]             uvicorn.error - Application shutdown complete.
+19:01:35.812 [INFO    ]             uvicorn.error - Finished server process [168149]
+make: *** [Makefile:36: run] Terminated

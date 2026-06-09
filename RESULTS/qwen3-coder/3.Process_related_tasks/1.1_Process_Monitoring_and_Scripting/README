@@ -1,0 +1,5 @@
+TASKNAME=Script/command to list running processes with CPU and memory usage.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test1.1.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo list running processes with CPU and memory usage and put the output in the file ~/agent_test/test1.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check if the file ~/agent_test/test1.1.log exists and provide us the content. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test1.1.log
