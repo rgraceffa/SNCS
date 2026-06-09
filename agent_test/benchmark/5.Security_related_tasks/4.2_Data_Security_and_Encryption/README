@@ -1,0 +1,5 @@
+TASKNAME=Automate encrypted backups using ‘rsync’ and ‘gpg’.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test4.2.sh and file ~/agent_test/test4.2.backup
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a script called ~/agent_test/test4.2.sh to automate encrypted backups for folder ~/agent_test using ‘rsync’ and ‘gpg’.The script must be executable and the backup created by script must be called ~/agent_test/test4.2.backup. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute the script ~/agent_test/test4.2.sh and verify if the backup file ~/agent_test/test4.2.backup is created. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test4.2.sh and file ~/agent_test/test4.2.backup. Don't split the commands and do all requested in a single command line.

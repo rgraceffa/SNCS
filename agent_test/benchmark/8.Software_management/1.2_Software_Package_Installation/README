@@ -1,0 +1,5 @@
+TASKNAME=Install a software package with a specified version using the package manager.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo install systemd-hwe-hwdb version 249.11.6 using the package manager. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that the version of systemd-hwe-hwdb is 249.11.6. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=

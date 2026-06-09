@@ -1,0 +1,5 @@
+TASKNAME=Script to automate the starting, stopping, and restarting of a network service network_service_1.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.2.sh
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a bash script ~/agent_test/test5.2.sh to automate the starting, stopping, and restarting of a network service apache. Use sudo if necessary and make the script executable in the same command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo check run the file ~/agent_test/test5.2.sh by restarting the service
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test5.2.sh

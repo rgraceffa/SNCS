@@ -1,0 +1,5 @@
+TASKNAME=Audit file permissions in sensitive directories.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.1.sh
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo write a bash script ~/agent_test/test3.1.sh to audit file permissions in sensitive Linux directories such as /home, highlighting files that are world-writable, have SUID/SGID bits set, or have insecure ownership. At the end give the execute permission to the script in the same command line. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo run the script ~/agent_test/test3.1.sh using sudo and provide the outcome. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.1.sh. Don't split the commands and do all requested in a single command line.

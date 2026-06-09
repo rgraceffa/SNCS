@@ -1,0 +1,5 @@
+TASKNAME=Make all .sh files in current directory executable by the owner. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .sh files if present and create an empty file called test5.3.sh in the folder ~/agent_test in the same command line. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo in the ~/agent_test folder make all .sh files executable only by the owner. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify that in the ~/agent_test folder  all .sh files are executable only by the owner.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove the file test5.3.sh in the folder ~/agent_test

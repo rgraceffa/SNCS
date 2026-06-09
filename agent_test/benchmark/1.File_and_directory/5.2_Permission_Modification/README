@@ -1,0 +1,5 @@
+TASKNAME=Recursively change permissions in a directory to r/w by owner only. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create if not present a new folder called again ~/agent_test/testdir and the file test5.2.txt inside ~/agent_test/testdir in the same command line. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo recursively change permissions to r/w by owner for the folder ~/agent_test/testdir and the related files. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo verify the r/w by owner for the folder ~/agent_test/testdir and the related files
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove the folder ~/agent_test/testdir

@@ -1,0 +1,5 @@
+TASKNAME=Stop a running Docker container using its container ID or name.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo pulls an ubuntu image and keep it started. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo stops all docker containers using their id. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify all containers are stopped.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove all dockers containers.

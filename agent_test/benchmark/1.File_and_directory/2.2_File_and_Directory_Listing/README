@@ -1,0 +1,5 @@
+TASKNAME=Generate detailed list of contents in a specified directory (e.g., /var).
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo list files in the /var directory and put the content in the file ~/agent_test/test2.2.txt. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test2.2.txt is created and return the content of this file.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.2.txt

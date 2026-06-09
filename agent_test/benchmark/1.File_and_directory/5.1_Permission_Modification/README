@@ -1,0 +1,5 @@
+TASKNAME=Make a file read-only for all users. 
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create in the folder ~/agent_test/ a file named test5.1.txt read-only for all users. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check that in the folder ~/agent_test/ exists a file named test5.1.txt that is read-only for all users
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove in the folder ~/agent_test/ the file named test5.1.txt

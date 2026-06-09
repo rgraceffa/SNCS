@@ -1,0 +1,5 @@
+TASKNAME=Organize files by size into appropriately sized bins and choose bins adaptively. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /etc/X11/rgb.txt into the folder ~/agent_test by renaming it test9.3a.txt and in the same command line create the file test9.3b.txt into the folder ~/agent_test. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo organize all .txt files in the ~/agent_test folder by size by moving them into appropriately sized bins created inside the ~/agent_test folder and choose bins adaptively. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo list all sub folders contained in ~/agent_test.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all sub folders contained in ~/agent_test and all files. Don't split the commands and do all requested in a single command line.

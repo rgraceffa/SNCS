@@ -1,0 +1,5 @@
+TASKNAME=Use a Makefile to build a multi-file C/C＋＋ project and verify successful build.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exist in the folder ~/agent_test the files hello.c, main.c, Makefile and hello. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create ~/agent_test/hello.c that displays the string 'Hello world!' and a file main.c where you have to call the function that prompt the 'Hello world!'. In the same command line create the makefile for this small program, be sure that the executable must be simply named hello and must have the execute permissions for the user, and don't forget to compile it. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo execute the program ~/agent_test/hello.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if exist in the folder ~/agent_test the files hello.c, main.c, Makefile and hello. Don't split the commands and do all requested in a single command line.

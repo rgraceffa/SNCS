@@ -1,0 +1,5 @@
+TASKNAME=Start a Docker container from a pulled image with specified port mapping.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo pulls an alpine image from docker Hub using a docker command. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo starts the alpine docker using sudo with specified port mapping 8888. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify that alpine image has been started.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove the alpine image.

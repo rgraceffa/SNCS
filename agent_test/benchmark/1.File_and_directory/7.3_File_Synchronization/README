@@ -1,0 +1,5 @@
+TASKNAME=Sync ‘‘source’’ to multiple directories, excluding .log files. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create the empty files test7.3.txt and test7.3.log under the folder ~/agent_test
+TASKCOMMAND=please synchronize the ~/agent_test in the remote host eraigra-rpi username raimondo whitout log files with the target host eraigra-X205TA folders /home/raimondo/destfolder and /home/raimondo/destfolder2. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-x205ta username raimondo check if the file test7.3.txt exist under the folders /home/raimondo/destfolder and /home/raimondo/destfolder2. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo delete the files test7.3.txt and test7.3.log under the folder ~/agent_test

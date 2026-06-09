@@ -1,0 +1,5 @@
+TASKNAME=Develop a script to log traffic statistics.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.3.sh
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo create a script ~/agent_test/test2.3.sh to collect traffic statistics for 10 seconds, and make it executables. Use sudo in the script commands if needed. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo run if exists the script ~/agent_test/test2.3.sh. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove if exists ~/agent_test/test2.3.sh. Don't split the commands and do all requested in a single command line.

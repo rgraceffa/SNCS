@@ -1,0 +1,5 @@
+TASKNAME=Remove network traffic rules from the iptable.
+TASKPRE_EXECUTION=in the remost host eraigra-rpi username raimondo list all iptables implmented using sudo.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo remove from all the iptables rules having target host 1.2.3.4. For removal command use sudo. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check the iptables using sudo to verify if a rules for host 1.2.3.4 has been removed. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=

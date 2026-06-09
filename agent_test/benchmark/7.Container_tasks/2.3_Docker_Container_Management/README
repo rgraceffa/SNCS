@@ -1,0 +1,5 @@
+TASKNAME=Inspect a Docker container to retrieve its IP address.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo pull ubuntu image and keep it started. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo inspects the docker container ubuntu to retrieve its IP address and logs all activities in the file ~/agent_test/test2.3.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo checks if the file ~/agent_test/test2.3.log exists, retrieve the content and then delete it. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove all docker containers.

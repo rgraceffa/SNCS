@@ -1,0 +1,5 @@
+TASKNAME=Use rsync, zip, and log operations for data backup activities. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create the file test10.2.txt into the folder ~/agent_test
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create a backup gz file (named test10.2.backpup.gz) containing all files in the folder ~/agent_test and then sync the created file to the remote host eraigra-x205ta in the ~/destfolder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-x205ta username raimondo verify that file test10.2.backpup.gz is present under the folder ~/destfolder. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file test10.2.txt into the folder ~/agent_test

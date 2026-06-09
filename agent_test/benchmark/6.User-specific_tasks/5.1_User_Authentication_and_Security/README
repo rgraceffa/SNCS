@@ -1,0 +1,5 @@
+TASKNAME=List and audit current password policies.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create if not present the file ~/agent_test/test5.1.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo lists and audits current password policies. Use sudo if needed. Logs all activities in the file ~/agent_test/test5.1.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test5.1.log is created and provide the content
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if not present the file ~/agent_test/test5.1.log

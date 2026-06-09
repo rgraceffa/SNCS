@@ -1,0 +1,5 @@
+TASKNAME=Copy files into folders based on modification dates. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo copy the file /etc/X11/rgb.txt into the folder ~/agent_test and rename it as test9.2.txt. Be sure to preserve the same features (date, and permissions). Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo copy all .txt files modified on 9th October 2020 from ~/agent_test to /tmp folder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check that files test9.2.txt is present in /tmp folder  
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove (if present) file test9.2.txt from /tmp and ~/agent_test folders  

@@ -1,0 +1,5 @@
+TASKNAME=Disable user accounts not used in the last 90 days.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.2.log
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo disable user accounts not used in the last 90 days and logs all outcome in the file ~/agent_test/test3.2.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file ~/agent_test/test3.2.log if present. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test3.2.log

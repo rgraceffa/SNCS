@@ -1,0 +1,5 @@
+TASKNAME=Pull a specific image (e.g., nginx) from Docker Hub using a Docker command.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo pull an alpine image from docker Hub using a docker command. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remost host eraigra-rpi username raimondo verify that alpine image has been pulled.
+TASKPOST_EXECUTION=in the remost host eraigra-rpi username raimondo remove the alpine image.

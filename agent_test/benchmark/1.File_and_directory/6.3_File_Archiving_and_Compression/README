@@ -1,0 +1,5 @@
+TASKNAME=Compress ‘‘media’’ directory into ‘‘media.zip’’ and extract it later. 
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo create media.zip file by compressing /media. After that move media.zip file under ~/agent_test if not done and extract here. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if media.zip file is created and if have been extracted under ~/agent_test folder
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove media.zip under  ~/agent_test folder and remove the folder ~/agent_test/media

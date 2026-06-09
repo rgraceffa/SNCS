@@ -1,0 +1,5 @@
+TASKNAME=Generate a list of outdated software packages using package manager commands.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file /home/raimondo/agent_test/test3.3.log. Don't split the commands and do all requested in a single command line.
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo generate a list of outdated software packages using package manager commands and put the outcome to file /home/raimondo/agent_test/test3.3.log. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo provide the content of the file /home/raimondo/agent_test/test3.3.log. Don't split the commands and do all requested in a single command line.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file /home/raimondo/agent_test/test3.3.log. Don't split the commands and do all requested in a single command line.

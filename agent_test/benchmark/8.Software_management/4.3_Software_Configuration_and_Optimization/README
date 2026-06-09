@@ -1,0 +1,5 @@
+TASKNAME=Read the documentation of a software and use its commands adaptively.
+TASKPRE_EXECUTION=
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo read the documentation of git software and use its commands adaptively. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=
+TASKPOST_EXECUTION=

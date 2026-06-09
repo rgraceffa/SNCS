@@ -1,0 +1,5 @@
+TASKNAME=Rename files using keyword matching. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files in the folder ~/agent_test/ if present and in the same command line create the empty files test4.3a.txt and test4.3b.txt in the folder ~/agent_test/
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo rename all files in the ~/agent_test/ folder that contain 'test' in the name by replacing with the word 'done'. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check that in the folder ~/agent_test/ there're 2 .txt files containing the word 'done' in the name.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove all .txt files in the folder ~/agent_test/.

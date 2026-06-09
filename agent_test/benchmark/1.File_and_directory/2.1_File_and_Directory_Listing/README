@@ -1,0 +1,5 @@
+TASKNAME=List files in the user’s home directory. 
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.1.txt
+TASKCOMMAND=in the remote host eraigra-rpi username raimondo list files in the user’s home directory and create a file ~/agent_test/test2.1.txt having as content the file list. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the file ~/agent_test/test2.1.txt is created and return the content of this file.
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if present the file ~/agent_test/test2.1.txt

@@ -1,0 +1,5 @@
+TASKNAME=Change permissions to sensitive directories.
+TASKPRE_EXECUTION=in the remote host eraigra-rpi username raimondo create if not present the folder ~/agent_test/testfolder
+TASKCOMMAND=in the remost host eraigra-rpi username raimondo change permissions to read only to ~/agent_test/testfolder. Don't split the commands and do all requested in a single command line.
+TASKVERIFY=in the remote host eraigra-rpi username raimondo check if the folder ~/agent_test/testfolder has read only permissions
+TASKPOST_EXECUTION=in the remote host eraigra-rpi username raimondo remove if not present the folder ~/agent_test/testfolder
