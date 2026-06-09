@@ -51,7 +51,7 @@ def run_stage(client: Client, stage_name: str, task_text: str, retries: int = 1,
             result = client.predict(
                 message=task_text,
                 mode="xAgent",
-                param_3=[handle_file("http://100.119.118.97/loadfile.txt")],
+                param_3=[handle_file("loadfile.txt")],
                 param_4=AGENT_CONTEXT,
                 api_name="/chat",
             )
