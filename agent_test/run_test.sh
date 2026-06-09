@@ -65,7 +65,7 @@ log "--------- Start Operations ------------------"
 for MYTASK in $MYTASKTYPE
 do
 	#echo $MYTASK
-	MYTASKID=`ls -d $TEST_FOLDER/$MYTASK/4.1* | sort -n`
+	MYTASKID=`ls -d $TEST_FOLDER/$MYTASK/* | sort -n`
 	for MYTESTID in $MYTASKID
 	do
 		#echo "|-> $MYTESTID"
