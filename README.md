@@ -34,9 +34,8 @@ In order to install our software please follows these instructions for a Linux/U
     cd private-gpt
     python3 -m venv venv															#We assume python 3.11 version installed
     source venv/bin/activate
-    pip install poetry
-    poetry install --extras "ui llms-ollama embeddings-ollama vector-stores-qdrant"
-    poetry run python scripts/setup
+    cp requirements.txt .
+    pip install -r requirements.txt  
     curl -fsSL https://ollama.com/install.sh | sh									#Install Ollama
     ollama pull gpt-oss																#Pull GPT-OSS model to Ollama
     ollama pull qwen3-coder															#Pull Qwen3-Coder to Ollama
