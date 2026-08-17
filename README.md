@@ -37,7 +37,7 @@ In order to install our software please follows these instructions for a Linux/U
     cp requirements.txt .
     pip install -r requirements.txt 
     poetry install --extras "ui llms-ollama embeddings-ollama vector-stores-qdrant"
-    pip install torch                                                                        #Not mandatory, but suggested. 
+    pip install torch					#Not mandatory, but suggested. 
     curl -fsSL https://ollama.com/install.sh | sh									#Install Ollama
     ollama pull gpt-oss																#Pull GPT-OSS model to Ollama
     ollama pull qwen3-coder															#Pull Qwen3-Coder to Ollama
